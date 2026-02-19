@@ -13,9 +13,13 @@
 | 🥉 | **Mamilla Hotel** | sales@mamillahotel.com + gm@mamillahotel.com | €8–12k | AUJOURD'HUI |
 | 4 | Inbal Hotel | Via formulaire + tel | €12–18k | Cette semaine |
 | 5 | Dahan CPA | Via site / LinkedIn | €2.5–4.5k | Cette semaine |
-| 6–10 | (à compléter) | (agents en cours) | — | — |
+| 6 | **Holy Land Hotel** | info@holylandhotel.com | €3.5–5k | Cette semaine |
+| 7 | **K&J Dental** | dalpak@kjjdentaloffice.co.il | €600–1.2k | Cette semaine |
+| 8 | YMCA Jerusalem | Via form + 02-5686960 | €3–8k | Cette semaine |
+| 9 | GOLD Real Estate | Via Yael 050-4401004 | €1.8–4.5k | Cette semaine |
+| 10 | **Azoulay & Bloch** | contact@avocat-lawyers.com | €900–2.5k | Cette semaine |
 
-**Total pipeline estimé (TOP 5):** €34–54k
+**Total pipeline estimé (TOP 10):** €52–92k
 
 ---
 
@@ -194,6 +198,174 @@ dreamnovaultimate@gmail.com
 ---
 
 **Recherche:** Site dahan-cpa.com = WordPress/Divi basique, zéro blog/outil interactif. Chlomo Dahan = oleh depuis 2014, spécialiste franco-israélien. Concurrents actifs: natco-consulting.com, cpa-dray.com. Valeur: €2.5–4.5k.
+
+---
+
+---
+
+## BATCH 3 — ENVOI IMMÉDIAT (contacts email directs)
+
+---
+
+### 📧 EMAIL 6 — Holy Land Hotel Jerusalem
+
+**À:** info@holylandhotel.com
+**Objet:** Your site serves pilgrims from 40 countries — in one language
+**Langue:** EN
+
+---
+
+Dear Holy Land Hotel Jerusalem team,
+
+I'm David from DreamNova, a Jerusalem-based AI agency — I live 10 minutes from your hotel.
+
+Your location is unbeatable for pilgrims worldwide, but your current website serves primarily English speakers, leaving French, Spanish, Italian, Portuguese, and German pilgrims underserved at the booking stage. That's a measurable revenue loss every day.
+
+We build multilingual hotel sites in 6 languages with SEO per market, integrated booking engine, and pilgrimage-group inquiry forms — in 2–3 weeks, starting from €2,500.
+
+Given your prime location next to the Old City walls, a properly multilingual site could meaningfully increase direct bookings and reduce OTA commission costs.
+
+Would a 20-minute call this week work for you?
+
+David Amor
+DreamNova Jerusalem
+dreamnovaultimate@gmail.com
+
+---
+
+**Recherche:** Site fonctionnel mais EN uniquement. Forte dépendance OTAs (Booking.com 15-20% commission). Pèlerins FR/ES/IT/PT/DE = segments non servis. Email confirmé: info@holylandhotel.com | Tél: +972-2-6284841. Valeur: €3,500–5,000.
+
+---
+
+### 📧 EMAIL 7 — K&J Jerusalem Dental
+
+**À:** dalpak@kjjdentaloffice.co.il
+**Objet:** More emergency patients finding you at 9pm — AI chatbot for K&J
+**Langue:** EN
+
+---
+
+Dear K&J Jerusalem Dental team,
+
+I'm David from DreamNova, a Jerusalem AI agency. I found your clinic researching emergency dental care in Jerusalem — you come up well, but there's a critical gap.
+
+At 9pm on a Thursday, a tourist with a broken tooth searches "emergency dentist Jerusalem." Your site has no live chat, no instant triage chatbot, no WhatsApp auto-reply. They call, nobody answers. They go elsewhere.
+
+We build dental emergency chatbots that:
+- Instantly qualify the emergency (real vs. can-wait)
+- Send your direct WhatsApp to the patient automatically
+- Capture contact info for follow-up
+
+Setup in 48 hours, starting at €600. Pays for itself with one new patient.
+
+Can I show you a 5-minute demo?
+
+David Amor — DreamNova Jerusalem
+dreamnovaultimate@gmail.com
+
+---
+
+**Recherche:** Clinique 24h/j jusqu'à 22h, ouverte sam soir. WhatsApp existant (+972523827919) mais 100% manuel — zéro auto-reply. Formulaire contact uniquement, 0 booking en ligne. Email confirmé: dalpak@kjjdentaloffice.co.il. Valeur: €600–1,200.
+
+---
+
+### 📧 EMAIL 10 — Cabinet Azoulay & Bloch
+
+**À:** contact@avocat-lawyers.com
+**Objet:** Votre cabinet mérite un site qui convertit vos clients francophones
+**Langue:** FR
+
+---
+
+Chers Maîtres Azoulay et Bloch,
+
+Je m'appelle David Amor, je suis basé à Jérusalem et je dirige DreamNova, une agence spécialisée en solutions digitales pour les professionnels francophones en Israël.
+
+En visitant votre site avocat-lawyers.com, j'ai remarqué quelques points qui freinent probablement vos conversions : pas de numéro de téléphone visible en page d'accueil, pas de biographies des avocats, pas de formulaire de consultation directe, et aucun chatbot pour répondre aux questions des nouveaux olim à 23h quand ils paniquent face à un contrat immobilier.
+
+Vos clients francophones — souvent stressés, en pleine alyah — ont besoin d'une réassurance immédiate en ligne.
+
+Je propose : refonte du site + chatbot juridique de triage + page de consultation en ligne, en 2 semaines, à partir de 900€.
+
+Une visioconférence de 20 minutes cette semaine ?
+
+David Amor — DreamNova Jérusalem
+dreamnovaultimate@gmail.com
+
+---
+
+**Recherche:** Cabinet bilingue FR/HE, offices Jérusalem + Tel Aviv + Netanya + Bet Shemesh. Site WordPress/Elementor — 0 email en homepage, 0 biographies avocats, 0 témoignages, 0 booking consultation. Ligne FR active (01 86 98 29 32). Email confirmé: contact@avocat-lawyers.com. Valeur: €900–2,500.
+
+---
+
+## BATCH 4 — CETTE SEMAINE (appel téléphonique requis d'abord)
+
+---
+
+### 📧 EMAIL 8 — YMCA Jerusalem Sports Center
+
+**À:** Via form ymcasport.org.il/en/contact-us/ OU appeler 02-5686960 → demander Director/Marketing Manager
+**Objet:** Online class registration for YMCA Jerusalem — no more phone queues
+**Langue:** EN
+
+---
+
+Dear YMCA Jerusalem Sports Center team,
+
+I'm David from DreamNova, a Jerusalem-based AI and web agency.
+
+Your center is one of Jerusalem's finest — 11,000 sqm, Olympic pool, basketball court, full gym. But your registration process requires a phone call. In 2026, that means lost sign-ups every day, especially from younger members who simply won't call.
+
+We build sports center management SaaS with:
+- Online class booking (gym, yoga, swim, crossfit — all in one)
+- Member portal with subscription management
+- Automated payment reminders and renewal
+- Mobile-first, Hebrew + English
+
+Turnkey in 3 weeks. Starting from €2,000.
+
+The Jerusalem YMCA deserves a digital experience as impressive as its building.
+
+Would you be open to a brief call or visit?
+
+David Amor — DreamNova Jerusalem
+dreamnovaultimate@gmail.com
+
+---
+
+**Recherche:** Site WordPress/Elementor — 0 booking en ligne, inscription par téléphone uniquement. 11,000 sqm, piscine olympique, multisports. 0 email public — uniquement formulaire Gravity Forms. Tél: 02-5686960. Valeur: €3,000–8,000.
+
+---
+
+### 📧 EMAIL 9 — GOLD Real Estate Jerusalem
+
+**À:** Via goldrealestate.co.il OU appeler Yael Goldberg: 050-4401004 / Eliezer Goldberg: 050-5258080
+**Objet:** AI chatbot that qualifies Jerusalem property buyers — 24/7
+**Langue:** EN
+
+---
+
+Dear Yael and Eliezer,
+
+I came across GOLD Real Estate while researching Jerusalem's top boutique agencies — over 100 managed properties and 20 years serving international buyers. Impressive operation.
+
+One gap I noticed: your website has no chatbot, no AI property matching, no after-hours lead capture. An international buyer in New York at 2am researching a Jerusalem apartment gets no response until morning — and reaches out to three other agencies in the meantime.
+
+We build AI property portals that:
+- Qualify buyer intent 24/7 (budget, timeline, neighborhood preference)
+- Auto-match listings from your portfolio
+- Alert your agents only for hot leads
+
+Jerusalem boutique feel, global tech standards. Setup in 2 weeks, from €1,800.
+
+Worth a 20-minute conversation?
+
+David Amor — DreamNova Jerusalem
+dreamnovaultimate@gmail.com
+
+---
+
+**Recherche:** Fondé 2003, Yael & Eliezer Goldberg, 100+ biens en gestion. Site: listings + formulaire contact = 0 IA/chatbot/visite virtuelle. Cible acheteurs internationaux (FR/USA/UK) = décalage horaire = leads perdus la nuit. 0 email public. Contacts: Yael 050-4401004, Eliezer 050-5258080. Valeur: €1,800–4,500.
 
 ---
 
