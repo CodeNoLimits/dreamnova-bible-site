@@ -599,49 +599,49 @@ select option{background:var(--bg2);color:var(--text)}
       <div class="card-title">Quel type de projet ?</div>
       <div class="card-sub">Sélectionnez la catégorie qui correspond le mieux à votre besoin</div>
       <div class="options-grid" id="project-types">
-        <div class="option-card" data-type="landing" data-base="400" data-days="1" onclick="selectType(this)">
+        <div class="option-card" data-type="landing" data-base="400" data-days="1">
           <div class="option-icon">🚀</div>
           <div class="option-title">Landing Page</div>
           <div class="option-desc">Page de présentation, site vitrine simple, page de vente</div>
           <div class="option-price">Dès 400€ · 24h</div>
         </div>
-        <div class="option-card" data-type="ecommerce" data-base="1800" data-days="7" onclick="selectType(this)">
+        <div class="option-card" data-type="ecommerce" data-base="1800" data-days="7">
           <div class="option-icon">🛒</div>
           <div class="option-title">E-commerce</div>
           <div class="option-desc">Boutique en ligne, catalogue produits, paiements intégrés</div>
           <div class="option-price">Dès 1 800€ · 1 semaine</div>
         </div>
-        <div class="option-card" data-type="saas" data-base="2800" data-days="14" onclick="selectType(this)">
+        <div class="option-card" data-type="saas" data-base="2800" data-days="14">
           <div class="option-icon">⚙️</div>
           <div class="option-title">SaaS MVP</div>
           <div class="option-desc">Tableau de bord, authentification, abonnements, BDD</div>
           <div class="option-price">Dès 2 800€ · 2 semaines</div>
         </div>
-        <div class="option-card" data-type="automation" data-base="600" data-days="2" onclick="selectType(this)">
+        <div class="option-card" data-type="automation" data-base="600" data-days="2">
           <div class="option-icon">🤖</div>
           <div class="option-title">Automatisation IA</div>
           <div class="option-desc">Scripts, pipelines IA, traitement voix/image, bots</div>
           <div class="option-price">Dès 600€ · 2 jours</div>
         </div>
-        <div class="option-card" data-type="mobile" data-base="3500" data-days="21" onclick="selectType(this)">
+        <div class="option-card" data-type="mobile" data-base="3500" data-days="21">
           <div class="option-icon">📱</div>
           <div class="option-title">App Mobile</div>
           <div class="option-desc">Application iOS/Android, React Native, PWA avancée</div>
           <div class="option-price">Dès 3 500€ · 3 semaines</div>
         </div>
-        <div class="option-card" data-type="ecosystem" data-base="6000" data-days="45" onclick="selectType(this)">
+        <div class="option-card" data-type="ecosystem" data-base="6000" data-days="45">
           <div class="option-icon">🌐</div>
           <div class="option-title">Écosystème Complet</div>
           <div class="option-desc">Multi-services, intégrations multiples, infrastructure IA</div>
           <div class="option-price">Dès 6 000€ · 6 semaines+</div>
         </div>
-        <div class="option-card" data-type="chatbot" data-base="900" data-days="3" onclick="selectType(this)">
+        <div class="option-card" data-type="chatbot" data-base="900" data-days="3">
           <div class="option-icon">💬</div>
           <div class="option-title">Chatbot / Agent IA</div>
           <div class="option-desc">Assistant IA personnalisé, RAG sur vos données, multilingue</div>
           <div class="option-price">Dès 900€ · 3 jours</div>
         </div>
-        <div class="option-card" data-type="fix" data-base="150" data-days="0.5" onclick="selectType(this)">
+        <div class="option-card" data-type="fix" data-base="150" data-days="0.5">
           <div class="option-icon">🔧</div>
           <div class="option-title">Fix & Optimisation</div>
           <div class="option-desc">Correction bug, optimisation performance, audit Lighthouse</div>
@@ -660,20 +660,20 @@ select option{background:var(--bg2);color:var(--text)}
       <div class="card-title">Quelles fonctionnalités ?</div>
       <div class="card-sub">Sélectionnez tout ce dont vous avez besoin (plusieurs choix possibles)</div>
       <div class="features-grid">
-        <div class="feature-toggle" data-add="400" onclick="toggleFeature(this)"><span class="icon">🔐</span><div class="info"><div class="fname">Authentification</div><div class="fadd">+400€</div></div></div>
-        <div class="feature-toggle" data-add="500" onclick="toggleFeature(this)"><span class="icon">💳</span><div class="info"><div class="fname">Paiement en ligne</div><div class="fadd">+500€</div></div></div>
-        <div class="feature-toggle" data-add="350" onclick="toggleFeature(this)"><span class="icon">🛠️</span><div class="info"><div class="fname">Dashboard admin</div><div class="fadd">+350€</div></div></div>
-        <div class="feature-toggle" data-add="250" onclick="toggleFeature(this)"><span class="icon">🌍</span><div class="info"><div class="fname">Multilingue</div><div class="fadd">+250€</div></div></div>
-        <div class="feature-toggle" data-add="600" onclick="toggleFeature(this)"><span class="icon">🧠</span><div class="info"><div class="fname">IA / LLM intégré</div><div class="fadd">+600€</div></div></div>
-        <div class="feature-toggle" data-add="300" onclick="toggleFeature(this)"><span class="icon">📝</span><div class="info"><div class="fname">CMS / Blog</div><div class="fadd">+300€</div></div></div>
-        <div class="feature-toggle" data-add="350" onclick="toggleFeature(this)"><span class="icon">🔌</span><div class="info"><div class="fname">API externe</div><div class="fadd">+350€</div></div></div>
-        <div class="feature-toggle" data-add="200" onclick="toggleFeature(this)"><span class="icon">📊</span><div class="info"><div class="fname">Analytics avancés</div><div class="fadd">+200€</div></div></div>
-        <div class="feature-toggle" data-add="400" onclick="toggleFeature(this)"><span class="icon">📧</span><div class="info"><div class="fname">Emails transac.</div><div class="fadd">+400€</div></div></div>
-        <div class="feature-toggle" data-add="500" onclick="toggleFeature(this)"><span class="icon">🗄️</span><div class="info"><div class="fname">Base de données</div><div class="fadd">+500€</div></div></div>
-        <div class="feature-toggle" data-add="450" onclick="toggleFeature(this)"><span class="icon">🔔</span><div class="info"><div class="fname">Notifications push</div><div class="fadd">+450€</div></div></div>
-        <div class="feature-toggle" data-add="300" onclick="toggleFeature(this)"><span class="icon">📱</span><div class="info"><div class="fname">PWA / Mobile first</div><div class="fadd">+300€</div></div></div>
-        <div class="feature-toggle" data-add="250" onclick="toggleFeature(this)"><span class="icon">🔍</span><div class="info"><div class="fname">SEO avancé</div><div class="fadd">+250€</div></div></div>
-        <div class="feature-toggle" data-add="350" onclick="toggleFeature(this)"><span class="icon">🎨</span><div class="info"><div class="fname">Design sur mesure</div><div class="fadd">+350€</div></div></div>
+        <div class="feature-toggle" data-add="400"><span class="icon">🔐</span><div class="info"><div class="fname">Authentification</div><div class="fadd">+400€</div></div></div>
+        <div class="feature-toggle" data-add="500"><span class="icon">💳</span><div class="info"><div class="fname">Paiement en ligne</div><div class="fadd">+500€</div></div></div>
+        <div class="feature-toggle" data-add="350"><span class="icon">🛠️</span><div class="info"><div class="fname">Dashboard admin</div><div class="fadd">+350€</div></div></div>
+        <div class="feature-toggle" data-add="250"><span class="icon">🌍</span><div class="info"><div class="fname">Multilingue</div><div class="fadd">+250€</div></div></div>
+        <div class="feature-toggle" data-add="600"><span class="icon">🧠</span><div class="info"><div class="fname">IA / LLM intégré</div><div class="fadd">+600€</div></div></div>
+        <div class="feature-toggle" data-add="300"><span class="icon">📝</span><div class="info"><div class="fname">CMS / Blog</div><div class="fadd">+300€</div></div></div>
+        <div class="feature-toggle" data-add="350"><span class="icon">🔌</span><div class="info"><div class="fname">API externe</div><div class="fadd">+350€</div></div></div>
+        <div class="feature-toggle" data-add="200"><span class="icon">📊</span><div class="info"><div class="fname">Analytics avancés</div><div class="fadd">+200€</div></div></div>
+        <div class="feature-toggle" data-add="400"><span class="icon">📧</span><div class="info"><div class="fname">Emails transac.</div><div class="fadd">+400€</div></div></div>
+        <div class="feature-toggle" data-add="500"><span class="icon">🗄️</span><div class="info"><div class="fname">Base de données</div><div class="fadd">+500€</div></div></div>
+        <div class="feature-toggle" data-add="450"><span class="icon">🔔</span><div class="info"><div class="fname">Notifications push</div><div class="fadd">+450€</div></div></div>
+        <div class="feature-toggle" data-add="300"><span class="icon">📱</span><div class="info"><div class="fname">PWA / Mobile first</div><div class="fadd">+300€</div></div></div>
+        <div class="feature-toggle" data-add="250"><span class="icon">🔍</span><div class="info"><div class="fname">SEO avancé</div><div class="fadd">+250€</div></div></div>
+        <div class="feature-toggle" data-add="350"><span class="icon">🎨</span><div class="info"><div class="fname">Design sur mesure</div><div class="fadd">+350€</div></div></div>
       </div>
 
       <div class="price-live">
@@ -705,25 +705,25 @@ select option{background:var(--bg2);color:var(--text)}
       <div class="form-group">
         <label>Urgence du projet</label>
         <div class="options-grid" style="margin-bottom:0">
-          <div class="option-card" data-urgency="1.0" onclick="selectUrgency(this)">
+          <div class="option-card" data-urgency="1.0">
             <div class="option-icon">🌿</div>
             <div class="option-title">Flexible</div>
             <div class="option-desc">Pas de deadline fixe</div>
             <div class="option-price">Tarif standard</div>
           </div>
-          <div class="option-card" data-urgency="1.2" onclick="selectUrgency(this)">
+          <div class="option-card" data-urgency="1.2">
             <div class="option-icon">📅</div>
             <div class="option-title">Dans 1–2 semaines</div>
             <div class="option-desc">Planning raisonnable</div>
             <div class="option-price">+20% rapidité</div>
           </div>
-          <div class="option-card" data-urgency="1.45" onclick="selectUrgency(this)">
+          <div class="option-card" data-urgency="1.45">
             <div class="option-icon">⚡</div>
             <div class="option-title">Cette semaine</div>
             <div class="option-desc">Priorité absolue</div>
             <div class="option-price">+45% urgent</div>
           </div>
-          <div class="option-card" data-urgency="1.7" onclick="selectUrgency(this)">
+          <div class="option-card" data-urgency="1.7">
             <div class="option-icon">🚨</div>
             <div class="option-title">Maintenant</div>
             <div class="option-desc">Livraison < 24–48h</div>
