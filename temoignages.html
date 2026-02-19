@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Témoignages Clients — DreamNova</title>
+    <meta name="description" content="Ce que nos clients disent de nous. Projets e-commerce, sites vitrine et SaaS livrés avec excellence. Note moyenne 5/5." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      /* ===== RESET ===== */
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg-primary: #0c0a09;
+        --bg-secondary: #1c1917;
+        --bg-card: rgba(28, 25, 23, 0.85);
+        --gold: #d4af37;
+        --gold-bright: #f59e0b;
+        --amber: #f59e0b;
+        --text-primary: #f5f5f4;
+        --text-secondary: #a8a29e;
+        --text-muted: #78716c;
+        --border: rgba(245, 158, 11, 0.18);
+        --border-hover: rgba(212, 175, 55, 0.5);
+        --glass: rgba(255, 255, 255, 0.03);
+        --radius: 12px;
+        --radius-lg: 20px;
+        --shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+        --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.12);
+        --font-display: "Space Grotesk", sans-serif;
+        --font-body: "Inter", sans-serif;
+      }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.7;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* ===== BACKGROUND TEXTURE ===== */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 80% 50% at 20% 0%, rgba(212, 175, 55, 0.06) 0%, transparent 60%),
+          radial-gradient(ellipse 60% 40% at 80% 100%, rgba(245, 158, 11, 0.04) 0%, transparent 60%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* ===== HEADER ===== */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(12, 10, 9, 0.92);
+        border-bottom: 1px solid var(--border);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 0 2rem;
+      }
+
+      .header-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+        gap: 1rem;
+      }
+
+      .logo-wrap {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+
+      .logo-mark {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 900;
+        color: #0c0a09;
+        font-family: var(--font-display);
+        flex-shrink: 0;
+      }
+
+      .logo-text {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        letter-spacing: 0.05em;
+      }
+
+      .logo-text span { color: var(--gold); }
+
+      .site-nav {
+        display: flex;
+        gap: 0.25rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .site-nav a {
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 0.35rem 0.7rem;
+        border-radius: 6px;
+        border: 1px solid transparent;
+        transition: all 0.2s;
+        white-space: nowrap;
+        font-family: var(--font-display);
+        letter-spacing: 0.02em;
+      }
+
+      .site-nav a:hover {
+        color: var(--gold);
+        background: rgba(212, 175, 55, 0.08);
+        border-color: var(--border);
+      }
+
+      .btn-nav-cta {
+        background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%) !important;
+        color: #0c0a09 !important;
+        border-color: transparent !important;
+        font-weight: 700 !important;
+      }
+
+      .btn-nav-cta:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+      }
+
+      /* ===== MAIN ===== */
+      .site-main {
+        position: relative;
+        z-index: 1;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2rem 2rem 5rem;
+      }
+
+      /* ===== HERO ===== */
+      .page-hero {
+        text-align: center;
+        padding: 4rem 0 3.5rem;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.3rem 1rem;
+        background: rgba(212, 175, 55, 0.08);
+        border: 1px solid rgba(212, 175, 55, 0.25);
+        border-radius: 20px;
+        color: var(--gold);
+        font-size: 0.75rem;
+        font-weight: 600;
+        font-family: var(--font-display);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+      }
+
+      .page-title {
+        font-family: var(--font-display);
+        font-size: clamp(2.2rem, 6vw, 4rem);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #f5f5f4 30%, var(--gold) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .page-sub {
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+        max-width: 540px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+
+      /* ===== STATS BAR ===== */
+      .stats-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        flex-wrap: wrap;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 1.25rem 2rem;
+        margin: 0 0 3rem;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.2rem;
+        padding: 0.5rem 2.5rem;
+        position: relative;
+        flex: 1;
+        min-width: 160px;
+      }
+
+      .stat-item + .stat-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 36px;
+        width: 1px;
+        background: var(--border);
+      }
+
+      .stat-value {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 800;
+        background: linear-gradient(90deg, var(--gold) 0%, var(--amber) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.2;
+      }
+
+      .stat-label {
+        font-size: 0.78rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+        text-align: center;
+        letter-spacing: 0.02em;
+      }
+
+      /* ===== TESTIMONIALS GRID ===== */
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-bottom: 3.5rem;
+      }
+
+      /* ===== TESTIMONIAL CARD ===== */
+      .testimonial-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 2rem 1.75rem;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Subtle gold accent bottom bar */
+      .testimonial-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold), var(--amber));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      /* Large decorative quote mark */
+      .testimonial-card::before {
+        content: "\201C";
+        position: absolute;
+        top: -0.25rem;
+        left: 1.25rem;
+        font-size: 5rem;
+        line-height: 1;
+        color: rgba(212, 175, 55, 0.08);
+        font-family: Georgia, serif;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .testimonial-card:hover {
+        border-color: var(--border-hover);
+        box-shadow: var(--shadow-gold);
+        transform: translateY(-4px);
+      }
+
+      .testimonial-card:hover::after {
+        transform: scaleX(1);
+      }
+
+      /* Stars */
+      .stars {
+        display: flex;
+        gap: 0.2rem;
+      }
+
+      .star {
+        color: var(--gold);
+        font-size: 1rem;
+        line-height: 1;
+      }
+
+      /* Quote text */
+      .quote-text {
+        font-style: italic;
+        color: var(--text-primary);
+        font-size: 0.98rem;
+        line-height: 1.75;
+        flex: 1;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Project type badge */
+      .project-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.25rem 0.7rem;
+        background: rgba(212, 175, 55, 0.08);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        border-radius: 20px;
+        color: var(--gold);
+        font-size: 0.7rem;
+        font-weight: 600;
+        font-family: var(--font-display);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        width: fit-content;
+      }
+
+      /* Client info row */
+      .client-row {
+        display: flex;
+        align-items: center;
+        gap: 0.875rem;
+        border-top: 1px solid rgba(245, 158, 11, 0.08);
+        padding-top: 1.1rem;
+        margin-top: auto;
+      }
+
+      .client-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(245, 158, 11, 0.12) 100%);
+        border: 1.5px solid rgba(212, 175, 55, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--gold);
+        flex-shrink: 0;
+      }
+
+      .client-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .client-name {
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        line-height: 1.3;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .client-company {
+        font-size: 0.78rem;
+        color: var(--text-secondary);
+        line-height: 1.3;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .client-date {
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        font-family: var(--font-display);
+        flex-shrink: 0;
+      }
+
+      /* ===== SECTION LABEL ===== */
+      .section-label {
+        font-family: var(--font-display);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .section-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      /* ===== TRUST STRIP ===== */
+      .trust-strip {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        padding: 1.75rem 2rem;
+        background: rgba(212, 175, 55, 0.04);
+        border: 1px solid rgba(212, 175, 55, 0.14);
+        border-radius: var(--radius-lg);
+        margin-bottom: 3.5rem;
+      }
+
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
+      .trust-icon {
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .trust-sep {
+        width: 1px;
+        height: 20px;
+        background: var(--border);
+        flex-shrink: 0;
+      }
+
+      /* ===== FINAL CTA ===== */
+      .final-cta {
+        text-align: center;
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.07) 0%, rgba(245, 158, 11, 0.04) 100%);
+        border: 1px solid rgba(212, 175, 55, 0.22);
+        border-radius: var(--radius-lg);
+        padding: 3rem 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Radial glow behind CTA */
+      .final-cta::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      .final-cta-eyebrow {
+        font-family: var(--font-display);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.75rem;
+        position: relative;
+      }
+
+      .final-cta-title {
+        font-family: var(--font-display);
+        font-size: clamp(1.6rem, 4vw, 2.5rem);
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        margin-bottom: 0.75rem;
+        position: relative;
+      }
+
+      .final-cta-title span {
+        background: linear-gradient(90deg, var(--gold) 0%, var(--amber) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .final-cta-sub {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        max-width: 500px;
+        margin: 0 auto 1.75rem;
+        position: relative;
+      }
+
+      .btn-cta-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2.5rem;
+        background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
+        color: #0c0a09;
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 12px;
+        text-decoration: none;
+        transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        letter-spacing: 0.02em;
+        position: relative;
+        box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+      }
+
+      .btn-cta-primary:hover {
+        opacity: 0.92;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 32px rgba(212, 175, 55, 0.42);
+      }
+
+      .btn-cta-primary:active {
+        transform: translateY(0) scale(0.98);
+      }
+
+      .cta-note {
+        margin-top: 1rem;
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        position: relative;
+      }
+
+      /* ===== SCROLLBAR ===== */
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: var(--bg-primary); }
+      ::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.3); border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+      ::selection { background: rgba(212, 175, 55, 0.25); color: var(--text-primary); }
+
+      /* ===== MOBILE ===== */
+      @media (max-width: 760px) {
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+          gap: 1.25rem;
+        }
+
+        .stats-bar {
+          gap: 0.5rem;
+          padding: 1rem 1.25rem;
+        }
+
+        .stat-item {
+          padding: 0.5rem 1.25rem;
+          min-width: 120px;
+        }
+
+        .stat-item + .stat-item::before { display: none; }
+
+        .trust-sep { display: none; }
+
+        .trust-strip { gap: 1rem; }
+
+        .site-main { padding: 1.5rem 1rem 4rem; }
+
+        .page-hero { padding: 2.5rem 0 2rem; }
+      }
+
+      @media (max-width: 480px) {
+        .site-nav .btn-nav-cta { display: none; }
+        .site-nav a { padding: 0.3rem 0.5rem; font-size: 0.72rem; }
+        .stats-bar { flex-direction: column; align-items: stretch; }
+        .stat-item { border-bottom: 1px solid var(--border); padding: 0.75rem 1rem; align-items: flex-start; }
+        .stat-item:last-child { border-bottom: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="logo-wrap">
+          <div class="logo-mark">D</div>
+          <span class="logo-text">DREAM<span>NOVA</span></span>
+        </a>
+        <nav class="site-nav">
+          <a href="index.html">Hub</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="tarifs.html">Tarifs</a>
+          <a href="devis.html" class="btn-nav-cta">Devis gratuit</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main">
+
+      <!-- HERO -->
+      <section class="page-hero">
+        <div class="hero-eyebrow">Paroles de clients</div>
+        <h1 class="page-title">Ils nous ont fait confiance</h1>
+        <p class="page-sub">Des vrais projets, des vrais clients, des résultats concrets. Voici ce qu'ils en disent.</p>
+      </section>
+
+      <!-- STATS BAR -->
+      <div class="stats-bar" role="region" aria-label="Chiffres clés satisfaction">
+        <div class="stat-item">
+          <span class="stat-value">100%</span>
+          <span class="stat-label">clients satisfaits</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">7</span>
+          <span class="stat-label">projets livrés</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">5/5</span>
+          <span class="stat-label">note moyenne</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">&lt;4h</span>
+          <span class="stat-label">délai de réponse</span>
+        </div>
+      </div>
+
+      <!-- SECTION LABEL -->
+      <div class="section-label">Témoignages clients</div>
+
+      <!-- TESTIMONIALS GRID -->
+      <div class="testimonials-grid">
+
+        <!-- TESTIMONIAL 1: Yaakov Renne -->
+        <article class="testimonial-card">
+          <div class="stars" aria-label="Note : 5 étoiles sur 5">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+          </div>
+          <div class="project-badge">E-commerce</div>
+          <blockquote class="quote-text">
+            «&nbsp;Notre boutique Breslov est maintenant internationale. 6 langues, paiements intégrés, livraison en 3 semaines. Exceptionnel.&nbsp;»
+          </blockquote>
+          <div class="client-row">
+            <div class="client-avatar" aria-hidden="true">Y</div>
+            <div class="client-info">
+              <div class="client-name">Yaakov Renne</div>
+              <div class="client-company">Keren Rabbi Yisrael</div>
+            </div>
+            <div class="client-date">Jan 2026</div>
+          </div>
+        </article>
+
+        <!-- TESTIMONIAL 2: Ariel -->
+        <article class="testimonial-card">
+          <div class="stars" aria-label="Note : 5 étoiles sur 5">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+          </div>
+          <div class="project-badge">Site vitrine</div>
+          <blockquote class="quote-text">
+            «&nbsp;Site professionnel livré rapidement. Mes clients trouvent l'info facilement. Très satisfait du résultat.&nbsp;»
+          </blockquote>
+          <div class="client-row">
+            <div class="client-avatar" aria-hidden="true">A</div>
+            <div class="client-info">
+              <div class="client-name">Ariel</div>
+              <div class="client-company">Kavkom Solar</div>
+            </div>
+            <div class="client-date">Déc 2025</div>
+          </div>
+        </article>
+
+        <!-- TESTIMONIAL 3: Esther Ifrah -->
+        <article class="testimonial-card">
+          <div class="stars" aria-label="Note : 5 étoiles sur 5">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+          </div>
+          <div class="project-badge">E-commerce</div>
+          <blockquote class="quote-text">
+            «&nbsp;Migration base de données complexe réalisée sans interruption de service. Professionnel et fiable.&nbsp;»
+          </blockquote>
+          <div class="client-row">
+            <div class="client-avatar" aria-hidden="true">E</div>
+            <div class="client-info">
+              <div class="client-name">Esther Ifrah</div>
+              <div class="client-company">Librairie Breslev</div>
+            </div>
+            <div class="client-date">Fév 2026</div>
+          </div>
+        </article>
+
+        <!-- TESTIMONIAL 4: Anonymous Client -->
+        <article class="testimonial-card">
+          <div class="stars" aria-label="Note : 5 étoiles sur 5">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+          </div>
+          <div class="project-badge">SaaS</div>
+          <blockquote class="quote-text">
+            «&nbsp;Déploiement Vercel + Supabase + Stripe en 2 semaines. ROI immédiat.&nbsp;»
+          </blockquote>
+          <div class="client-row">
+            <div class="client-avatar" aria-hidden="true">?</div>
+            <div class="client-info">
+              <div class="client-name">Client anonyme</div>
+              <div class="client-company">Startup Tech</div>
+            </div>
+            <div class="client-date">Jan 2026</div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- TRUST STRIP -->
+      <div class="trust-strip" role="region" aria-label="Garanties DreamNova">
+        <div class="trust-item">
+          <span class="trust-icon">&#10003;</span>
+          <span>Devis gratuit sous 24h</span>
+        </div>
+        <div class="trust-sep" aria-hidden="true"></div>
+        <div class="trust-item">
+          <span class="trust-icon">&#10003;</span>
+          <span>Prix fixe contractuel</span>
+        </div>
+        <div class="trust-sep" aria-hidden="true"></div>
+        <div class="trust-item">
+          <span class="trust-icon">&#10003;</span>
+          <span>Support 30 jours inclus</span>
+        </div>
+        <div class="trust-sep" aria-hidden="true"></div>
+        <div class="trust-item">
+          <span class="trust-icon">&#10003;</span>
+          <span>Code source livré sur GitHub</span>
+        </div>
+      </div>
+
+      <!-- FINAL CTA -->
+      <div class="final-cta" role="region" aria-label="Appel à l'action">
+        <div class="final-cta-eyebrow">Prochain projet</div>
+        <h2 class="final-cta-title">Votre projet est <span>le prochain</span></h2>
+        <p class="final-cta-sub">Rejoignez nos clients satisfaits. Un devis gratuit, transparent et sans engagement en moins de 24h.</p>
+        <a href="devis.html" class="btn-cta-primary">
+          Obtenir mon devis gratuit &#8594;
+        </a>
+        <p class="cta-note">Réponse garantie sous 24h · Aucun engagement · Tarif tout compris</p>
+      </div>
+
+    </main>
+
+    <footer style="border-top:1px solid var(--border); padding:2rem; text-align:center; color:var(--text-muted); font-size:0.85rem; margin-top:4rem; position:relative; z-index:1;">
+      <p>© 2026 DreamNova · Na Nach Nachma Nachman MeUman · <a href="mentions-legales.html" style="color:var(--gold);">Mentions légales</a></p>
+    </footer>
+  </body>
+</html>

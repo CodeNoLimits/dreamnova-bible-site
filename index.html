@@ -1,1299 +1,1787 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DREAM NOVA — Centre de Commandement — DreamNova</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-
-  /* ===== RESET ===== */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --bg-primary: #0C0A09;
-    --bg-secondary: #1C1917;
-    --bg-card: rgba(28, 25, 23, 0.85);
-    --gold: #D4AF37;
-    --gold-bright: #F59E0B;
-    --amber: #F59E0B;
-    --text-primary: #F5F5F4;
-    --text-secondary: #A8A29E;
-    --text-muted: #78716C;
-    --border: rgba(245, 158, 11, 0.18);
-    --border-hover: rgba(212, 175, 55, 0.5);
-    --glass: rgba(255, 255, 255, 0.03);
-    --radius: 12px;
-    --radius-lg: 20px;
-    --shadow: 0 4px 24px rgba(0,0,0,0.6);
-    --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.12);
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-body: 'Inter', sans-serif;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.7;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* ===== BACKGROUND TEXTURE ===== */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(212,175,55,0.06) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(245,158,11,0.04) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* ===== HEADER ===== */
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(12, 10, 9, 0.92);
-    border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 0 2rem;
-  }
-
-  .header-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-    gap: 1rem;
-  }
-
-  .logo-wrap {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
-  }
-
-  .logo-mark {
-    width: 36px;
-    height: 36px;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: 900;
-    color: #0C0A09;
-    font-family: var(--font-display);
-    flex-shrink: 0;
-  }
-
-  .logo-text {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: 0.05em;
-  }
-
-  .logo-text span { color: var(--gold); }
-
-  /* ===== NAV ===== */
-  .site-nav {
-    display: flex;
-    gap: 0.25rem;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .site-nav a {
-    text-decoration: none;
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 0.35rem 0.7rem;
-    border-radius: 6px;
-    border: 1px solid transparent;
-    transition: all 0.2s;
-    white-space: nowrap;
-    font-family: var(--font-display);
-    letter-spacing: 0.02em;
-  }
-
-  .site-nav a:hover,
-  .site-nav a.active {
-    color: var(--gold);
-    background: rgba(212,175,55,0.08);
-    border-color: var(--border);
-  }
-
-  /* ===== MAIN WRAPPER ===== */
-  .site-main {
-    position: relative;
-    z-index: 1;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-
-  /* ===== CARDS ===== */
-  .card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.75rem;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-  }
-
-  .card:hover {
-    border-color: var(--border-hover);
-    box-shadow: var(--shadow-gold);
-    transform: translateY(-2px);
-  }
-
-  /* ===== GOLD GRADIENT TEXT ===== */
-  .gold-text {
-    background: linear-gradient(90deg, var(--gold) 0%, var(--amber) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* ===== FOOTER ===== */
-  .site-footer {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 2.5rem 2rem;
-    border-top: 1px solid var(--border);
-    margin-top: 4rem;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    font-family: var(--font-display);
-    letter-spacing: 0.05em;
-  }
-
-  .site-footer .nova-tam {
-    color: var(--gold);
-    font-weight: 600;
-    font-size: 0.9rem;
-    display: block;
-    margin-bottom: 0.4rem;
-  }
-
-  /* ===== SCROLLBAR ===== */
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: var(--bg-primary); }
-  ::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.3); border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
-
-  /* ===== SELECTION ===== */
-  ::selection { background: rgba(212,175,55,0.25); color: var(--text-primary); }
-
-
-  /* Hero section */
-  .hero {
-    text-align: center;
-    padding: 4rem 2rem 3rem;
-    position: relative;
-  }
-
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.3rem 1rem;
-    background: rgba(212,175,55,0.08);
-    border: 1px solid rgba(212,175,55,0.25);
-    border-radius: 20px;
-    color: var(--gold);
-    font-size: 0.75rem;
-    font-weight: 600;
-    font-family: var(--font-display);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 7vw, 5.5rem);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    margin-bottom: 1rem;
-  }
-
-  .hero-title .line1 {
-    display: block;
-    background: linear-gradient(135deg, #F5F5F4 30%, var(--gold) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero-title .line2 {
-    display: block;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-size: 0.75em;
-  }
-
-  .hero-sub {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto 1rem;
-  }
-
-  .hero-code {
-    display: inline-block;
-    font-family: monospace;
-    font-size: 0.8rem;
-    color: var(--amber);
-    background: rgba(245,158,11,0.08);
-    border: 1px solid rgba(245,158,11,0.2);
-    border-radius: 6px;
-    padding: 0.2rem 0.7rem;
-    margin-top: 0.5rem;
-  }
-
-  /* KPI Cards */
-  .kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin: 2rem 0;
-  }
-
-  @media (max-width: 900px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 500px) { .kpi-grid { grid-template-columns: 1fr; } }
-
-  .kpi-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.5rem 1.25rem;
-    text-align: center;
-    backdrop-filter: blur(12px);
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .kpi-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(212,175,55,0.05) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .kpi-card:hover {
-    border-color: var(--border-hover);
-    box-shadow: var(--shadow-gold);
-    transform: translateY(-3px);
-  }
-
-  .kpi-card:hover::before { opacity: 1; }
-
-  .kpi-icon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    display: block;
-  }
-
-  .kpi-value {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 800;
-    background: linear-gradient(90deg, var(--gold) 0%, var(--amber) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1.2;
-    margin-bottom: 0.25rem;
-  }
-
-  .kpi-label {
-    color: var(--text-secondary);
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-  }
-
-  /* Bible Cards Grid */
-  .bible-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-    margin: 2rem 0;
-  }
-
-  @media (max-width: 900px) { .bible-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 600px) { .bible-grid { grid-template-columns: 1fr; } }
-
-  .bible-card {
-    display: block;
-    text-decoration: none;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.75rem;
-    backdrop-filter: blur(12px);
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .bible-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--gold), var(--amber));
-    transform: scaleX(0);
-    transition: transform 0.3s;
-  }
-
-  .bible-card:hover {
-    border-color: var(--border-hover);
-    box-shadow: 0 8px 40px rgba(212, 175, 55, 0.15);
-    transform: translateY(-4px);
-  }
-
-  .bible-card:hover::after { transform: scaleX(1); }
-
-  .bible-icon {
-    font-size: 2.5rem;
-    margin-bottom: 0.75rem;
-    display: block;
-  }
-
-  .bible-role {
-    font-family: var(--font-display);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.35rem;
-  }
-
-  .bible-title {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-  }
-
-  .bible-desc {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
-  .bible-arrow {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    color: var(--text-muted);
-    transition: color 0.2s, transform 0.2s;
-  }
-
-  .bible-card:hover .bible-arrow {
-    color: var(--gold);
-    transform: translate(2px, -2px);
-  }
-
-  /* Charts Section */
-  .charts-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1.3fr;
-    gap: 1.25rem;
-    margin: 2rem 0;
-  }
-
-  @media (max-width: 1100px) { .charts-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 700px) { .charts-grid { grid-template-columns: 1fr; } }
-
-  .chart-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.5rem;
-    backdrop-filter: blur(12px);
-  }
-
-  .chart-title {
-    font-family: var(--font-display);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.25rem;
-  }
-
-  .chart-subtitle {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    margin-bottom: 1.25rem;
-  }
-
-  .chart-wrap {
-    position: relative;
-    width: 100%;
-  }
-
-  /* Section labels */
-  .section-label {
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
-  }
-
-  .section-sub {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 2rem;
-  }
-
-  /* Mission strip */
-  .mission-strip {
-    background: linear-gradient(135deg, rgba(212,175,55,0.06) 0%, rgba(245,158,11,0.04) 100%);
-    border: 1px solid rgba(212,175,55,0.2);
-    border-radius: var(--radius-lg);
-    padding: 2rem 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin: 2rem 0;
-  }
-
-  .mission-text {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--text-primary);
-  }
-
-  .mission-text span { color: var(--gold); }
-
-  .mission-badges {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-  }
-
-  .mission-badge {
-    padding: 0.35rem 0.85rem;
-    background: rgba(212,175,55,0.08);
-    border: 1px solid rgba(212,175,55,0.25);
-    border-radius: 20px;
-    color: var(--gold);
-    font-size: 0.75rem;
-    font-weight: 600;
-    font-family: var(--font-display);
-  }
-
-  /* Agent status bar */
-  .agent-bar-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin: 1rem 0;
-  }
-
-  .agent-row {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .agent-name {
-    width: 80px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    font-family: var(--font-display);
-    color: var(--text-secondary);
-    flex-shrink: 0;
-    text-align: right;
-  }
-
-  .agent-bar-bg {
-    flex: 1;
-    height: 6px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 3px;
-    overflow: hidden;
-  }
-
-  .agent-bar-fill {
-    height: 100%;
-    border-radius: 3px;
-    background: linear-gradient(90deg, var(--gold), var(--amber));
-    animation: fillBar 1.5s ease-out forwards;
-    transform-origin: left;
-  }
-
-  @keyframes fillBar {
-    from { width: 0% !important; }
-  }
-
-  .agent-pct {
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--gold);
-    width: 36px;
-    flex-shrink: 0;
-    font-family: var(--font-display);
-  }
-
-  /* Bottom grid */
-  .bottom-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-    margin-top: 1.25rem;
-  }
-
-  @media (max-width: 700px) { .bottom-grid { grid-template-columns: 1fr; } }
-
-  .principle-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  .principle-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    font-size: 0.83rem;
-    color: var(--text-secondary);
-    line-height: 1.4;
-  }
-
-  .principle-list li .pl-icon {
-    flex-shrink: 0;
-    color: var(--gold);
-    font-weight: 700;
-  }
-
-
-  /* ===== COMPETITIVE SECTION ===== */
-  .competitive-section {
-    margin: 3rem 0;
-  }
-
-  .comp-table-wrap {
-    overflow-x: auto;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border);
-    margin-bottom: 2rem;
-  }
-
-  .comp-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.875rem;
-    background: var(--bg-card);
-    backdrop-filter: blur(12px);
-  }
-
-  .comp-table thead tr {
-    background: rgba(212,175,55,0.06);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .comp-table th {
-    padding: 1rem 1.25rem;
-    font-family: var(--font-display);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .comp-table th.comp-metric {
-    color: var(--text-muted);
-    text-align: left;
-    min-width: 180px;
-  }
-
-  .comp-table th.comp-dreamnova {
-    color: var(--gold);
-    text-align: center;
-  }
-
-  .comp-logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.25rem 0.75rem;
-    background: rgba(212,175,55,0.12);
-    border: 1px solid rgba(212,175,55,0.3);
-    border-radius: 20px;
-  }
-
-  .comp-table th.comp-agency,
-  .comp-table th.comp-freelance {
-    color: var(--text-muted);
-    text-align: center;
-  }
-
-  .comp-table tbody tr {
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    transition: background 0.2s;
-  }
-
-  .comp-table tbody tr:hover {
-    background: rgba(212,175,55,0.03);
-  }
-
-  .comp-table tbody tr:last-child {
-    border-bottom: none;
-  }
-
-  .comp-table td {
-    padding: 0.9rem 1.25rem;
-    vertical-align: middle;
-    text-align: center;
-  }
-
-  .comp-table td.comp-metric {
-    text-align: left;
-    color: var(--text-secondary);
-    font-weight: 500;
-  }
-
-  .comp-win {
-    color: #10B981;
-    font-weight: 600;
-    position: relative;
-  }
-
-  .comp-win::before {
-    content: '✓ ';
-    color: #10B981;
-    font-size: 0.8em;
-  }
-
-  .comp-lose {
-    color: var(--text-muted);
-  }
-
-  .comp-mid {
-    color: var(--text-secondary);
-  }
-
-  /* Stats row */
-  .comp-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  @media (max-width: 800px) { .comp-stats { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 480px) { .comp-stats { grid-template-columns: 1fr 1fr; } }
-
-  .comp-stat-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.5rem 1rem;
-    text-align: center;
-    backdrop-filter: blur(12px);
-    transition: all 0.3s;
-  }
-
-  .comp-stat-card:hover {
-    border-color: var(--border-hover);
-    box-shadow: var(--shadow-gold);
-    transform: translateY(-2px);
-  }
-
-  .comp-stat-num {
-    font-family: var(--font-display);
-    font-size: 2.2rem;
-    font-weight: 800;
-    background: linear-gradient(90deg, var(--gold) 0%, var(--amber) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1.1;
-    margin-bottom: 0.4rem;
-  }
-
-  .comp-stat-label {
-    font-size: 0.78rem;
-    color: var(--text-secondary);
-    line-height: 1.4;
-  }
-
-  /* CTA row */
-  .comp-cta {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-
-  .comp-cta-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.85rem 2rem;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
-    color: #0C0A09;
-    font-family: var(--font-display);
-    font-size: 0.9rem;
-    font-weight: 700;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-
-  .comp-cta-btn:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(212,175,55,0.35);
-  }
-
-  .comp-cta-note {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-  }
-
-  </style>
-</head>
-<body>
-<header class="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="logo-wrap">
-      <div class="logo-mark">DN</div>
-      <div class="logo-text">DREAM<span>NOVA</span></div>
-    </a>
-    <nav class="site-nav">
-    <a href="index.html" class="active">🏠 Centre</a>
-    <a href="ceo-global.html">👑 CEO Global</a>
-    <a href="cto-global.html">⚙️ CTO Global</a>
-    <a href="coo-global.html">🔄 COO Global</a>
-    <a href="ceo-pmg.html">📊 CEO PMG</a>
-    <a href="cto-pmg.html">🔧 CTO PMG</a>
-    <a href="coo-pmg.html">📋 COO PMG</a>
-      <a href="devis.html">💰 Devis</a>
-</nav>
-  </div>
-</header>
-
-<main class="site-main">
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-eyebrow">⚡ Système Autonome 24/7</div>
-    <h1 class="hero-title">
-      <span class="line1">DREAM NOVA</span>
-      <span class="line2">Système CEO · CTO · COO Autonome</span>
-    </h1>
-    <p class="hero-sub">
-      La bible opérationnelle de l'IA exécutive DreamNova — vision stratégique,
-      architecture technique et gestion des opérations en un seul centre de commandement.
-    </p>
-    <div class="hero-code">[NOVA:CEO-CTO-COO-V1-20260219]</div>
-  </section>
-
-  <!-- MISSION STRIP -->
-  <div class="mission-strip">
-    <div class="mission-text">Mission <span>63M$</span> Hafatsa — Rabbi Nachman MeUman</div>
-    <div class="mission-badges">
-      <span class="mission-badge">30K₪/mois target</span>
-      <span class="mission-badge">6 Agents IA</span>
-      <span class="mission-badge">Autonome 24/7</span>
-      <span class="mission-badge">Ein Ye'ush</span>
-    </div>
-  </div>
-
-  <!-- KPI CARDS -->
-  <div class="kpi-grid">
-    <div class="kpi-card">
-      <span class="kpi-icon">🚀</span>
-      <div class="kpi-value">0→100%</div>
-      <div class="kpi-label">Automatisation</div>
-    </div>
-    <div class="kpi-card">
-      <span class="kpi-icon">🤖</span>
-      <div class="kpi-value">6</div>
-      <div class="kpi-label">Agents IA Actifs</div>
-    </div>
-    <div class="kpi-card">
-      <span class="kpi-icon">💎</span>
-      <div class="kpi-value">63M$</div>
-      <div class="kpi-label">Mission Hafatsa</div>
-    </div>
-    <div class="kpi-card">
-      <span class="kpi-icon">✡️</span>
-      <div class="kpi-value">Ein Ye'ush</div>
-      <div class="kpi-label">Na Nach Nachman</div>
-    </div>
-  </div>
-
-  <!-- COMPETITIVE SAVINGS SECTION -->
-  <section class="competitive-section">
-    <div class="section-label">Avantage concurrentiel</div>
-    <h2 class="section-title">Économisez 10 à 50% par rapport aux agences traditionnelles</h2>
-    <p class="section-sub">IA-native, livrables ultra-rapides, zéro overhead — la même qualité au quart du prix.</p>
-
-    <div class="comp-table-wrap">
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th class="comp-metric">Critère</th>
-            <th class="comp-dreamnova"><span class="comp-logo">⬡ DreamNova</span></th>
-            <th class="comp-agency">Agence Traditionnelle</th>
-            <th class="comp-freelance">Freelance</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="comp-metric">Délai de livraison MVP</td>
-            <td class="comp-dreamnova comp-win">24h – 7 jours</td>
-            <td class="comp-agency comp-lose">3 – 6 semaines</td>
-            <td class="comp-freelance comp-mid">1 – 3 semaines</td>
-          </tr>
-          <tr>
-            <td class="comp-metric">Prix MVP Landing Page</td>
-            <td class="comp-dreamnova comp-win">400 – 900 €</td>
-            <td class="comp-agency comp-lose">3 000 – 8 000 €</td>
-            <td class="comp-freelance comp-mid">800 – 2 500 €</td>
-          </tr>
-          <tr>
-            <td class="comp-metric">Révisions incluses</td>
-            <td class="comp-dreamnova comp-win">Illimitées (itératif)</td>
-            <td class="comp-agency comp-lose">2 rounds fixes</td>
-            <td class="comp-freelance comp-mid">3 rounds max</td>
-          </tr>
-          <tr>
-            <td class="comp-metric">Disponibilité</td>
-            <td class="comp-dreamnova comp-win">24/7 autonome</td>
-            <td class="comp-agency comp-lose">Heures de bureau</td>
-            <td class="comp-freelance comp-mid">Variable</td>
-          </tr>
-          <tr>
-            <td class="comp-metric">IA nativement intégré</td>
-            <td class="comp-dreamnova comp-win">100% — cœur du système</td>
-            <td class="comp-agency comp-lose">Rare / sous-traité</td>
-            <td class="comp-freelance comp-mid">Optionnel</td>
-          </tr>
-          <tr>
-            <td class="comp-metric">Code source livré</td>
-            <td class="comp-dreamnova comp-win">Toujours — GitHub inclus</td>
-            <td class="comp-agency comp-lose">Souvent refusé</td>
-            <td class="comp-freelance comp-mid">Oui, mais sans docs</td>
-          </tr>
-          <tr>
-            <td class="comp-metric">Support post-livraison</td>
-            <td class="comp-dreamnova comp-win">30 jours inclus</td>
-            <td class="comp-agency comp-lose">Facturé en sus</td>
-            <td class="comp-freelance comp-mid">7 jours max</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="comp-stats">
-      <div class="comp-stat-card">
-        <div class="comp-stat-num">-50%</div>
-        <div class="comp-stat-label">vs agence traditionnelle en moyenne</div>
-      </div>
-      <div class="comp-stat-card">
-        <div class="comp-stat-num">5x</div>
-        <div class="comp-stat-label">plus rapide grâce à l'IA-native</div>
-      </div>
-      <div class="comp-stat-card">
-        <div class="comp-stat-num">0</div>
-        <div class="comp-stat-label">frais cachés — prix tout compris</div>
-      </div>
-      <div class="comp-stat-card">
-        <div class="comp-stat-num">24/7</div>
-        <div class="comp-stat-label">disponibilité autonome IA</div>
-      </div>
-    </div>
-
-    <div class="comp-cta">
-      <a href="devis.html" class="comp-cta-btn">Obtenir mon devis gratuit →</a>
-      <span class="comp-cta-note">Réponse en &lt; 24h · Aucun engagement · Tarif transparent</span>
-    </div>
-  </section>
-
-
-  <!-- CHARTS -->
-  <div class="section-label">Métriques en temps réel</div>
-  <h2 class="section-title">Tableau de bord analytique</h2>
-  <p class="section-sub">Projections de revenus · Répartition agents · Efficacité système</p>
-
-  <div class="charts-grid">
-    <!-- Revenue Line Chart -->
-    <div class="chart-card">
-      <div class="chart-title">Projection Revenue</div>
-      <div class="chart-subtitle">K₪/mois · 2026→2030</div>
-      <div class="chart-wrap" style="height:220px">
-        <canvas id="revenueChart"></canvas>
-      </div>
-    </div>
-
-    <!-- Doughnut -->
-    <div class="chart-card">
-      <div class="chart-title">Répartition Agents</div>
-      <div class="chart-subtitle">CEO · CTO · COO</div>
-      <div class="chart-wrap" style="height:220px">
-        <canvas id="donutChart"></canvas>
-      </div>
-    </div>
-
-    <!-- Radar -->
-    <div class="chart-card">
-      <div class="chart-title">Efficacité Système</div>
-      <div class="chart-subtitle">Score par dimension (%)</div>
-      <div class="chart-wrap" style="height:220px">
-        <canvas id="radarChart"></canvas>
-      </div>
-    </div>
-  </div>
-
-  <!-- AGENT BARS -->
-  <div class="bottom-grid">
-    <div class="card">
-      <div style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Performance Agents</div>
-      <div class="agent-bar-wrap">
-        <div class="agent-row">
-          <div class="agent-name">CEO</div>
-          <div class="agent-bar-bg"><div class="agent-bar-fill" style="width:96%"></div></div>
-          <div class="agent-pct">96%</div>
-        </div>
-        <div class="agent-row">
-          <div class="agent-name">CTO</div>
-          <div class="agent-bar-bg"><div class="agent-bar-fill" style="width:98%"></div></div>
-          <div class="agent-pct">98%</div>
-        </div>
-        <div class="agent-row">
-          <div class="agent-name">COO</div>
-          <div class="agent-bar-bg"><div class="agent-bar-fill" style="width:94%"></div></div>
-          <div class="agent-pct">94%</div>
-        </div>
-        <div class="agent-row">
-          <div class="agent-name">Vision</div>
-          <div class="agent-bar-bg"><div class="agent-bar-fill" style="width:99%"></div></div>
-          <div class="agent-pct">99%</div>
-        </div>
-        <div class="agent-row">
-          <div class="agent-name">Execution</div>
-          <div class="agent-bar-bg"><div class="agent-bar-fill" style="width:97%"></div></div>
-          <div class="agent-pct">97%</div>
-        </div>
-        <div class="agent-row">
-          <div class="agent-name">Plan B</div>
-          <div class="agent-bar-bg"><div class="agent-bar-fill" style="width:91%"></div></div>
-          <div class="agent-pct">91%</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Principes NOVA-TAM</div>
-      <ul class="principle-list">
-        <li><span class="pl-icon">⚡</span>Cash-First Filter — ROI &lt;7 jours = priorité absolue</li>
-        <li><span class="pl-icon">🔄</span>Azamra Debugging — jamais réécrire, itérer autour du passant</li>
-        <li><span class="pl-icon">🛡️</span>Protocole ADHD — une action → GO, jamais de listes manuelles</li>
-        <li><span class="pl-icon">📡</span>Autonome 24/7 — heartbeat 5min, supervisor 15min, scan 6h</li>
-        <li><span class="pl-icon">🔐</span>Sécurité Zero-Trust — Docker sandbox, aucune clé jamais révoquée</li>
-        <li><span class="pl-icon">✡️</span>Ein Ye'ush Ba'olam Klal — jamais de désespoir dans le monde</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- BIBLE CARDS -->
-  <div style="margin-top:3rem">
-    <div class="section-label">Documentation exécutive</div>
-    <h2 class="section-title">Les 6 Bibles DreamNova</h2>
-    <p class="section-sub">Chaque bible est un document opérationnel vivant — stratégie, technique, opérations.</p>
-
-    <div class="bible-grid">
-      <a href="ceo-global.html" class="bible-card">
-        <span class="bible-icon">👑</span>
-        <div class="bible-role">CEO · Vision Globale</div>
-        <div class="bible-title">Bible CEO Global</div>
-        <div class="bible-desc">Pyramide de commandement, contrat ADHD, protocoles exécutifs, Cash-First filter, gestion investisseurs 63M$.</div>
-        <span class="bible-arrow">↗</span>
-      </a>
-
-      <a href="cto-global.html" class="bible-card">
-        <span class="bible-icon">⚙️</span>
-        <div class="bible-role">CTO · Architecture</div>
-        <div class="bible-title">Bible CTO Global</div>
-        <div class="bible-desc">Écosystème technique complet, mémoire RAM/ROM, 4 agents Computer Use, stack Next.js+Supabase+Vercel.</div>
-        <span class="bible-arrow">↗</span>
-      </a>
-
-      <a href="coo-global.html" class="bible-card">
-        <span class="bible-icon">🔄</span>
-        <div class="bible-role">COO · Opérations</div>
-        <div class="bible-title">Bible COO Global</div>
-        <div class="bible-desc">Orchestration clients, automatisation heartbeat, suivi financier MRR, dashboards hebdo, détection risques.</div>
-        <span class="bible-arrow">↗</span>
-      </a>
-
-      <a href="ceo-pmg.html" class="bible-card">
-        <span class="bible-icon">📊</span>
-        <div class="bible-role">CEO · Petit·Moyen·Grand</div>
-        <div class="bible-title">Bible CEO PMG</div>
-        <div class="bible-desc">Classification projets, Cash-First Scoring, stratégie par taille, contrats, upsell et retainer playbook.</div>
-        <span class="bible-arrow">↗</span>
-      </a>
-
-      <a href="cto-pmg.html" class="bible-card">
-        <span class="bible-icon">🔧</span>
-        <div class="bible-role">CTO · Implémentation</div>
-        <div class="bible-title">Bible CTO PMG</div>
-        <div class="bible-desc">GOD-Boilerplate universel, pipelines Voice→Image, Stripe, Supabase, CI/CD complet, Lighthouse &gt;90 checklist.</div>
-        <span class="bible-arrow">↗</span>
-      </a>
-
-      <a href="coo-pmg.html" class="bible-card">
-        <span class="bible-icon">📋</span>
-        <div class="bible-role">COO · Process</div>
-        <div class="bible-title">Bible COO PMG</div>
-        <div class="bible-desc">Process A-Z par taille, templates contrats, onboarding client, relances, SLA, reporting et clôture projet.</div>
-        <span class="bible-arrow">↗</span>
-      </a>
-    </div>
-  </div>
-
-</main>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-<script>
-// ===== CHART DEFAULTS =====
-Chart.defaults.color = '#A8A29E';
-Chart.defaults.font.family = "'Inter', sans-serif";
-Chart.defaults.font.size = 11;
-
-const gold = '#D4AF37';
-const amber = '#F59E0B';
-const bg = 'rgba(212,175,55,0.08)';
-
-// ===== REVENUE LINE CHART =====
-const revenueCtx = document.getElementById('revenueChart').getContext('2d');
-
-const goldGrad = revenueCtx.createLinearGradient(0, 0, 0, 200);
-goldGrad.addColorStop(0, 'rgba(212,175,55,0.35)');
-goldGrad.addColorStop(1, 'rgba(212,175,55,0.0)');
-
-new Chart(revenueCtx, {
-  type: 'line',
-  data: {
-    labels: ['Jan', 'Mar', 'Jun', 'Sep', 'Dec', 'Q1 27', 'Q3 27', 'Q1 28', 'Q3 28', 'Q1 29', 'Q3 29', 'Q1 30', 'Q4 30'],
-    datasets: [{
-      label: 'Revenue K₪/mois',
-      data: [5, 15, 30, 70, 120, 200, 350, 600, 900, 1400, 2200, 4000, 10000],
-      borderColor: gold,
-      backgroundColor: goldGrad,
-      borderWidth: 2.5,
-      pointRadius: 3,
-      pointBackgroundColor: gold,
-      pointBorderColor: '#0C0A09',
-      pointBorderWidth: 2,
-      fill: true,
-      tension: 0.45,
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    interaction: { mode: 'index', intersect: false },
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        backgroundColor: 'rgba(12,10,9,0.95)',
-        borderColor: 'rgba(212,175,55,0.3)',
-        borderWidth: 1,
-        padding: 10,
-        callbacks: {
-          label: ctx => ` ${ctx.parsed.y.toLocaleString()} K₪/mois`
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DREAM NOVA — Centre de Commandement — DreamNova</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ===== RESET ===== */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg-primary: #0c0a09;
+        --bg-secondary: #1c1917;
+        --bg-card: rgba(28, 25, 23, 0.85);
+        --gold: #d4af37;
+        --gold-bright: #f59e0b;
+        --amber: #f59e0b;
+        --text-primary: #f5f5f4;
+        --text-secondary: #a8a29e;
+        --text-muted: #78716c;
+        --border: rgba(245, 158, 11, 0.18);
+        --border-hover: rgba(212, 175, 55, 0.5);
+        --glass: rgba(255, 255, 255, 0.03);
+        --radius: 12px;
+        --radius-lg: 20px;
+        --shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+        --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.12);
+        --font-display: "Space Grotesk", sans-serif;
+        --font-body: "Inter", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.7;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* ===== BACKGROUND TEXTURE ===== */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 80% 50% at 20% 0%,
+            rgba(212, 175, 55, 0.06) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 60% 40% at 80% 100%,
+            rgba(245, 158, 11, 0.04) 0%,
+            transparent 60%
+          );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* ===== HEADER ===== */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(12, 10, 9, 0.92);
+        border-bottom: 1px solid var(--border);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 0 2rem;
+      }
+
+      .header-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+        gap: 1rem;
+      }
+
+      .logo-wrap {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+      }
+
+      .logo-mark {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 900;
+        color: #0c0a09;
+        font-family: var(--font-display);
+        flex-shrink: 0;
+      }
+
+      .logo-text {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        letter-spacing: 0.05em;
+      }
+
+      .logo-text span {
+        color: var(--gold);
+      }
+
+      /* ===== NAV ===== */
+      .site-nav {
+        display: flex;
+        gap: 0.25rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .site-nav a {
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 0.35rem 0.7rem;
+        border-radius: 6px;
+        border: 1px solid transparent;
+        transition: all 0.2s;
+        white-space: nowrap;
+        font-family: var(--font-display);
+        letter-spacing: 0.02em;
+      }
+
+      .site-nav a:hover,
+      .site-nav a.active {
+        color: var(--gold);
+        background: rgba(212, 175, 55, 0.08);
+        border-color: var(--border);
+      }
+
+      /* ===== MAIN WRAPPER ===== */
+      .site-main {
+        position: relative;
+        z-index: 1;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      /* ===== CARDS ===== */
+      .card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 1.75rem;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s,
+          transform 0.3s;
+      }
+
+      .card:hover {
+        border-color: var(--border-hover);
+        box-shadow: var(--shadow-gold);
+        transform: translateY(-2px);
+      }
+
+      /* ===== GOLD GRADIENT TEXT ===== */
+      .gold-text {
+        background: linear-gradient(90deg, var(--gold) 0%, var(--amber) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ===== FOOTER ===== */
+      .site-footer {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 2.5rem 2rem;
+        border-top: 1px solid var(--border);
+        margin-top: 4rem;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        font-family: var(--font-display);
+        letter-spacing: 0.05em;
+      }
+
+      .site-footer .nova-tam {
+        color: var(--gold);
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 0.4rem;
+      }
+
+      /* ===== SCROLLBAR ===== */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg-primary);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(212, 175, 55, 0.3);
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--gold);
+      }
+
+      /* ===== SELECTION ===== */
+      ::selection {
+        background: rgba(212, 175, 55, 0.25);
+        color: var(--text-primary);
+      }
+
+      /* Hero section */
+      .hero {
+        text-align: center;
+        padding: 4rem 2rem 3rem;
+        position: relative;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.3rem 1rem;
+        background: rgba(212, 175, 55, 0.08);
+        border: 1px solid rgba(212, 175, 55, 0.25);
+        border-radius: 20px;
+        color: var(--gold);
+        font-size: 0.75rem;
+        font-weight: 600;
+        font-family: var(--font-display);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-title {
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 7vw, 5.5rem);
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        margin-bottom: 1rem;
+      }
+
+      .hero-title .line1 {
+        display: block;
+        background: linear-gradient(135deg, #f5f5f4 30%, var(--gold) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-title .line2 {
+        display: block;
+        background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 0.75em;
+      }
+
+      .hero-sub {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto 1rem;
+      }
+
+      .hero-code {
+        display: inline-block;
+        font-family: monospace;
+        font-size: 0.8rem;
+        color: var(--amber);
+        background: rgba(245, 158, 11, 0.08);
+        border: 1px solid rgba(245, 158, 11, 0.2);
+        border-radius: 6px;
+        padding: 0.2rem 0.7rem;
+        margin-top: 0.5rem;
+      }
+
+      /* KPI Cards */
+      .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      @media (max-width: 900px) {
+        .kpi-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
-    },
-    scales: {
-      x: {
-        grid: { color: 'rgba(255,255,255,0.04)' },
-        ticks: { maxRotation: 30, font: { size: 9 } }
-      },
-      y: {
-        type: 'logarithmic',
-        grid: { color: 'rgba(255,255,255,0.04)' },
-        ticks: {
-          callback: v => v >= 1000 ? (v/1000)+'M' : v+'K',
-          font: { size: 9 }
+      @media (max-width: 500px) {
+        .kpi-grid {
+          grid-template-columns: 1fr;
         }
       }
-    }
-  }
-});
 
-// ===== DOUGHNUT CHART =====
-const donutCtx = document.getElementById('donutChart').getContext('2d');
-new Chart(donutCtx, {
-  type: 'doughnut',
-  data: {
-    labels: ['CEO', 'CTO', 'COO'],
-    datasets: [{
-      data: [35, 40, 25],
-      backgroundColor: [
-        'rgba(212,175,55,0.85)',
-        'rgba(245,158,11,0.7)',
-        'rgba(161,117,30,0.75)'
-      ],
-      borderColor: ['#D4AF37', '#F59E0B', '#A1751E'],
-      borderWidth: 1.5,
-      hoverOffset: 8,
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    cutout: '65%',
-    plugins: {
-      legend: {
-        position: 'bottom',
-        labels: {
-          padding: 12,
-          usePointStyle: true,
-          pointStyleWidth: 8,
-          font: { size: 11 }
-        }
-      },
-      tooltip: {
-        backgroundColor: 'rgba(12,10,9,0.95)',
-        borderColor: 'rgba(212,175,55,0.3)',
-        borderWidth: 1,
-        callbacks: {
-          label: ctx => ` ${ctx.label}: ${ctx.parsed}%`
+      .kpi-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem 1.25rem;
+        text-align: center;
+        backdrop-filter: blur(12px);
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .kpi-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.05) 0%,
+          transparent 60%
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .kpi-card:hover {
+        border-color: var(--border-hover);
+        box-shadow: var(--shadow-gold);
+        transform: translateY(-3px);
+      }
+
+      .kpi-card:hover::before {
+        opacity: 1;
+      }
+
+      .kpi-icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+
+      .kpi-value {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 800;
+        background: linear-gradient(90deg, var(--gold) 0%, var(--amber) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.2;
+        margin-bottom: 0.25rem;
+      }
+
+      .kpi-label {
+        color: var(--text-secondary);
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+      }
+
+      /* Bible Cards Grid */
+      .bible-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        margin: 2rem 0;
+      }
+
+      @media (max-width: 900px) {
+        .bible-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
-    }
-  }
-});
-
-// ===== RADAR CHART =====
-const radarCtx = document.getElementById('radarChart').getContext('2d');
-const radarGrad = radarCtx.createLinearGradient(0, 0, 0, 200);
-radarGrad.addColorStop(0, 'rgba(212,175,55,0.35)');
-radarGrad.addColorStop(1, 'rgba(245,158,11,0.1)');
-
-new Chart(radarCtx, {
-  type: 'radar',
-  data: {
-    labels: ['CEO', 'CTO', 'COO', 'Plan B', 'Vision', 'Exécution'],
-    datasets: [{
-      label: 'Efficacité %',
-      data: [96, 98, 94, 91, 99, 97],
-      backgroundColor: radarGrad,
-      borderColor: gold,
-      borderWidth: 2,
-      pointBackgroundColor: gold,
-      pointBorderColor: '#0C0A09',
-      pointBorderWidth: 2,
-      pointRadius: 4,
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        backgroundColor: 'rgba(12,10,9,0.95)',
-        borderColor: 'rgba(212,175,55,0.3)',
-        borderWidth: 1,
-        callbacks: {
-          label: ctx => ` ${ctx.label}: ${ctx.parsed.r}%`
+      @media (max-width: 600px) {
+        .bible-grid {
+          grid-template-columns: 1fr;
         }
       }
-    },
-    scales: {
-      r: {
-        min: 80,
-        max: 100,
-        suggestedMin: 80,
-        angleLines: { color: 'rgba(255,255,255,0.06)' },
-        grid: { color: 'rgba(255,255,255,0.06)' },
-        pointLabels: {
-          color: '#A8A29E',
-          font: { size: 10, family: "'Space Grotesk', sans-serif", weight: '600' }
+
+      .bible-card {
+        display: block;
+        text-decoration: none;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 1.75rem;
+        backdrop-filter: blur(12px);
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .bible-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold), var(--amber));
+        transform: scaleX(0);
+        transition: transform 0.3s;
+      }
+
+      .bible-card:hover {
+        border-color: var(--border-hover);
+        box-shadow: 0 8px 40px rgba(212, 175, 55, 0.15);
+        transform: translateY(-4px);
+      }
+
+      .bible-card:hover::after {
+        transform: scaleX(1);
+      }
+
+      .bible-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+        display: block;
+      }
+
+      .bible-role {
+        font-family: var(--font-display);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.35rem;
+      }
+
+      .bible-title {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        line-height: 1.3;
+      }
+
+      .bible-desc {
+        font-size: 0.82rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .bible-arrow {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        color: var(--text-muted);
+        transition:
+          color 0.2s,
+          transform 0.2s;
+      }
+
+      .bible-card:hover .bible-arrow {
+        color: var(--gold);
+        transform: translate(2px, -2px);
+      }
+
+      /* Charts Section */
+      .charts-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1.3fr;
+        gap: 1.25rem;
+        margin: 2rem 0;
+      }
+
+      @media (max-width: 1100px) {
+        .charts-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 700px) {
+        .charts-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .chart-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        backdrop-filter: blur(12px);
+      }
+
+      .chart-title {
+        font-family: var(--font-display);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.25rem;
+      }
+
+      .chart-subtitle {
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        margin-bottom: 1.25rem;
+      }
+
+      .chart-wrap {
+        position: relative;
+        width: 100%;
+      }
+
+      /* Section labels */
+      .section-label {
+        font-family: var(--font-display);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .section-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .section-title {
+        font-family: var(--font-display);
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .section-sub {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+      }
+
+      /* Mission strip */
+      .mission-strip {
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.06) 0%,
+          rgba(245, 158, 11, 0.04) 100%
+        );
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        border-radius: var(--radius-lg);
+        padding: 2rem 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin: 2rem 0;
+      }
+
+      .mission-text {
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .mission-text span {
+        color: var(--gold);
+      }
+
+      .mission-badges {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .mission-badge {
+        padding: 0.35rem 0.85rem;
+        background: rgba(212, 175, 55, 0.08);
+        border: 1px solid rgba(212, 175, 55, 0.25);
+        border-radius: 20px;
+        color: var(--gold);
+        font-size: 0.75rem;
+        font-weight: 600;
+        font-family: var(--font-display);
+      }
+
+      /* Agent status bar */
+      .agent-bar-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin: 1rem 0;
+      }
+
+      .agent-row {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .agent-name {
+        width: 80px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        font-family: var(--font-display);
+        color: var(--text-secondary);
+        flex-shrink: 0;
+        text-align: right;
+      }
+
+      .agent-bar-bg {
+        flex: 1;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 3px;
+        overflow: hidden;
+      }
+
+      .agent-bar-fill {
+        height: 100%;
+        border-radius: 3px;
+        background: linear-gradient(90deg, var(--gold), var(--amber));
+        animation: fillBar 1.5s ease-out forwards;
+        transform-origin: left;
+      }
+
+      @keyframes fillBar {
+        from {
+          width: 0% !important;
+        }
+      }
+
+      .agent-pct {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--gold);
+        width: 36px;
+        flex-shrink: 0;
+        font-family: var(--font-display);
+      }
+
+      /* Bottom grid */
+      .bottom-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      @media (max-width: 700px) {
+        .bottom-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .principle-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+
+      .principle-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        font-size: 0.83rem;
+        color: var(--text-secondary);
+        line-height: 1.4;
+      }
+
+      .principle-list li .pl-icon {
+        flex-shrink: 0;
+        color: var(--gold);
+        font-weight: 700;
+      }
+
+      /* ===== COMPETITIVE SECTION ===== */
+      .competitive-section {
+        margin: 3rem 0;
+      }
+
+      .comp-table-wrap {
+        overflow-x: auto;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+        margin-bottom: 2rem;
+      }
+
+      .comp-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.875rem;
+        background: var(--bg-card);
+        backdrop-filter: blur(12px);
+      }
+
+      .comp-table thead tr {
+        background: rgba(212, 175, 55, 0.06);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .comp-table th {
+        padding: 1rem 1.25rem;
+        font-family: var(--font-display);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .comp-table th.comp-metric {
+        color: var(--text-muted);
+        text-align: left;
+        min-width: 180px;
+      }
+
+      .comp-table th.comp-dreamnova {
+        color: var(--gold);
+        text-align: center;
+      }
+
+      .comp-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.25rem 0.75rem;
+        background: rgba(212, 175, 55, 0.12);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        border-radius: 20px;
+      }
+
+      .comp-table th.comp-agency,
+      .comp-table th.comp-freelance {
+        color: var(--text-muted);
+        text-align: center;
+      }
+
+      .comp-table tbody tr {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        transition: background 0.2s;
+      }
+
+      .comp-table tbody tr:hover {
+        background: rgba(212, 175, 55, 0.03);
+      }
+
+      .comp-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .comp-table td {
+        padding: 0.9rem 1.25rem;
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      .comp-table td.comp-metric {
+        text-align: left;
+        color: var(--text-secondary);
+        font-weight: 500;
+      }
+
+      .comp-win {
+        color: #10b981;
+        font-weight: 600;
+        position: relative;
+      }
+
+      .comp-win::before {
+        content: "✓ ";
+        color: #10b981;
+        font-size: 0.8em;
+      }
+
+      .comp-lose {
+        color: var(--text-muted);
+      }
+
+      .comp-mid {
+        color: var(--text-secondary);
+      }
+
+      /* Stats row */
+      .comp-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      @media (max-width: 800px) {
+        .comp-stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 480px) {
+        .comp-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .comp-stat-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem 1rem;
+        text-align: center;
+        backdrop-filter: blur(12px);
+        transition: all 0.3s;
+      }
+
+      .comp-stat-card:hover {
+        border-color: var(--border-hover);
+        box-shadow: var(--shadow-gold);
+        transform: translateY(-2px);
+      }
+
+      .comp-stat-num {
+        font-family: var(--font-display);
+        font-size: 2.2rem;
+        font-weight: 800;
+        background: linear-gradient(90deg, var(--gold) 0%, var(--amber) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.1;
+        margin-bottom: 0.4rem;
+      }
+
+      .comp-stat-label {
+        font-size: 0.78rem;
+        color: var(--text-secondary);
+        line-height: 1.4;
+      }
+
+      /* CTA row */
+      .comp-cta {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .comp-cta-btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.85rem 2rem;
+        background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
+        color: #0c0a09;
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 700;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+
+      .comp-cta-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
+      }
+
+      .comp-cta-note {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      /* ===== SCROLL ANIMATIONS ===== */
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===== FLOATING CTA ===== */
+      .floating-cta {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 999;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.85rem 1.5rem;
+        background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
+        color: #0c0a09;
+        font-family: var(--font-display);
+        font-size: 0.85rem;
+        font-weight: 700;
+        border-radius: 50px;
+        text-decoration: none;
+        box-shadow:
+          0 8px 32px rgba(212, 175, 55, 0.35),
+          0 0 0 0 rgba(212, 175, 55, 0.4);
+        transition: all 0.3s;
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+        pointer-events: none;
+        animation: floatingPulse 3s ease-in-out infinite;
+      }
+      .floating-cta.show {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+      }
+      .floating-cta:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 12px 40px rgba(212, 175, 55, 0.5);
+      }
+      .floating-cta:active {
+        transform: translateY(0) scale(0.98);
+      }
+      @keyframes floatingPulse {
+        0%,
+        100% {
+          box-shadow:
+            0 8px 32px rgba(212, 175, 55, 0.35),
+            0 0 0 0 rgba(212, 175, 55, 0.3);
+        }
+        50% {
+          box-shadow:
+            0 8px 32px rgba(212, 175, 55, 0.35),
+      /* ===== BUTTON MICRO-ANIMATIONS ===== */
+      .comp-cta-btn,
+      .site-nav a,
+      .bible-card {
+        transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .comp-cta-btn:active {
+        transform: translateY(0) scale(0.97);
+      }
+
+      /* ===== LANGUAGE SELECTOR ===== */
+      .lang-selector {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        margin-left: 0.5rem;
+      }
+      .lang-btn {
+        padding: 0.3rem 0.5rem;
+        border: 1px solid transparent;
+        border-radius: 6px;
+        background: none;
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: var(--font-display);
+      }
+      .lang-btn:hover {
+        color: var(--gold);
+        background: rgba(212, 175, 55, 0.08);
+      }
+      .lang-btn.active {
+        color: var(--gold);
+        border-color: var(--border);
+        background: rgba(212, 175, 55, 0.1);
+      }
+
+      /* ===== RTL SUPPORT ===== */
+      [dir="rtl"] .site-nav {
+        flex-direction: row-reverse;
+      }
+      [dir="rtl"] .header-inner {
+        flex-direction: row-reverse;
+      }
+      [dir="rtl"] .mission-strip {
+        flex-direction: row-reverse;
+      }
+      [dir="rtl"] .agent-name {
+        text-align: left;
+      }
+      [dir="rtl"] .bible-arrow {
+        right: auto;
+        left: 1.5rem;
+      }
+      [dir="rtl"] .lang-selector {
+        margin-left: 0;
+        margin-right: 0.5rem;
+      }
+      [dir="rtl"] .floating-cta {
+        right: auto;
+        left: 2rem;
+      }
+      [dir="rtl"] .principle-list li {
+        flex-direction: row-reverse;
+        text-align: right;
+      }
+      [dir="rtl"] .comp-table td.comp-metric {
+        text-align: right;
+      }
+      [dir="rtl"] .comp-table th.comp-metric {
+        text-align: right;
+      }
+      [dir="rtl"] .section-label::after {
+        display: none;
+      }
+      [dir="rtl"] .section-label::before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      @media (max-width: 600px) {
+        .floating-cta {
+          bottom: 1rem;
+          right: 1rem;
+          padding: 0.7rem 1.2rem;
+          font-size: 0.78rem;
+        }
+        [dir="rtl"] .floating-cta {
+          right: auto;
+          left: 1rem;
+        }
+      }
+    </style>
+  <script src="/lang/i18n.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="logo-wrap">
+          <div class="logo-mark">DN</div>
+          <div class="logo-text">DREAM<span>NOVA</span></div>
+        </a>
+        <nav class="site-nav">
+          <a href="index.html" class="active" data-i18n="nav.center"
+            >🏠 Centre</a
+          >
+          <a href="ceo-global.html" data-i18n="nav.ceo_global"
+            >👑 CEO Global</a
+          >
+          <a href="cto-global.html" data-i18n="nav.cto_global"
+            >⚙️ CTO Global</a
+          >
+          <a href="coo-global.html" data-i18n="nav.coo_global"
+            >🔄 COO Global</a
+          >
+          <a href="ceo-pmg.html" data-i18n="nav.ceo_pmg">📊 CEO PMG</a>
+          <a href="cto-pmg.html" data-i18n="nav.cto_pmg">🔧 CTO PMG</a>
+          <a href="coo-pmg.html" data-i18n="nav.coo_pmg">📋 COO PMG</a>
+          <a href="devis.html" data-i18n="nav.devis">💰 Devis</a>
+          <div class="lang-selector">
+            <button
+              class="lang-btn active"
+              data-lang="fr"
+              onclick="I18N.setLang('fr')"
+            >
+              FR
+            </button>
+            <button
+              class="lang-btn"
+              data-lang="en"
+              onclick="I18N.setLang('en')"
+            >
+              EN
+            </button>
+            <button
+              class="lang-btn"
+              data-lang="he"
+              onclick="I18N.setLang('he')"
+            >
+              עב
+            </button>
+            <button
+              class="lang-btn"
+              data-lang="es"
+              onclick="I18N.setLang('es')"
+            >
+              ES
+            </button>
+            <button
+              class="lang-btn"
+              data-lang="ru"
+              onclick="I18N.setLang('ru')"
+            >
+              РУ
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-eyebrow" data-i18n="hero.eyebrow">
+          ⚡ Système Autonome 24/7
+        </div>
+        <h1 class="hero-title">
+          <span class="line1" data-i18n="hero.title_line1">DREAM NOVA</span>
+          <span class="line2" data-i18n="hero.title_line2"
+            >Système CEO · CTO · COO Autonome</span
+          >
+        </h1>
+        <p class="hero-sub" data-i18n="hero.sub">
+          La bible opérationnelle de l'IA exécutive DreamNova — vision
+          stratégique, architecture technique et gestion des opérations en un
+          seul centre de commandement.
+        </p>
+        <div class="hero-code">[NOVA:CEO-CTO-COO-V1-20260219]</div>
+      </section>
+
+      <!-- MISSION STRIP -->
+      <div class="mission-strip">
+        <div class="mission-text" data-i18n-html="mission.text">
+          Mission <span>63M$</span> Hafatsa — Rabbi Nachman MeUman
+        </div>
+        <div class="mission-badges">
+          <span class="mission-badge" data-i18n="mission.badge1"
+            >30K₪/mois target</span
+          >
+          <span class="mission-badge" data-i18n="mission.badge2"
+            >6 Agents IA</span
+          >
+          <span class="mission-badge" data-i18n="mission.badge3"
+            >Autonome 24/7</span
+          >
+          <span class="mission-badge" data-i18n="mission.badge4"
+            >Ein Ye'ush</span
+          >
+        </div>
+      </div>
+
+      <!-- KPI CARDS -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-icon">🚀</span>
+          <div class="kpi-value">0→100%</div>
+          <div class="kpi-label">Automatisation</div>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-icon">🤖</span>
+          <div class="kpi-value">6</div>
+          <div class="kpi-label">Agents IA Actifs</div>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-icon">💎</span>
+          <div class="kpi-value">63M$</div>
+          <div class="kpi-label">Mission Hafatsa</div>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-icon">✡️</span>
+          <div class="kpi-value">Ein Ye'ush</div>
+          <div class="kpi-label">Na Nach Nachman</div>
+        </div>
+      </div>
+
+      <!-- COMPETITIVE SAVINGS SECTION -->
+      <section class="competitive-section">
+        <div class="section-label" data-i18n="competitive.label">
+          Avantage concurrentiel
+        </div>
+        <h2 class="section-title" data-i18n="competitive.title">
+          Économisez 10 à 50% par rapport aux agences traditionnelles
+        </h2>
+        <p class="section-sub" data-i18n="competitive.sub">
+          IA-native, livrables ultra-rapides, zéro overhead — la même qualité au
+          quart du prix.
+        </p>
+
+        <div class="comp-table-wrap">
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th class="comp-metric">Critère</th>
+                <th class="comp-dreamnova">
+                  <span class="comp-logo">⬡ DreamNova</span>
+                </th>
+                <th class="comp-agency">Agence Traditionnelle</th>
+                <th class="comp-freelance">Freelance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="comp-metric">Délai de livraison MVP</td>
+                <td class="comp-dreamnova comp-win">24h – 7 jours</td>
+                <td class="comp-agency comp-lose">3 – 6 semaines</td>
+                <td class="comp-freelance comp-mid">1 – 3 semaines</td>
+              </tr>
+              <tr>
+                <td class="comp-metric">Prix MVP Landing Page</td>
+                <td class="comp-dreamnova comp-win">400 – 900 €</td>
+                <td class="comp-agency comp-lose">3 000 – 8 000 €</td>
+                <td class="comp-freelance comp-mid">800 – 2 500 €</td>
+              </tr>
+              <tr>
+                <td class="comp-metric">Révisions incluses</td>
+                <td class="comp-dreamnova comp-win">Illimitées (itératif)</td>
+                <td class="comp-agency comp-lose">2 rounds fixes</td>
+                <td class="comp-freelance comp-mid">3 rounds max</td>
+              </tr>
+              <tr>
+                <td class="comp-metric">Disponibilité</td>
+                <td class="comp-dreamnova comp-win">24/7 autonome</td>
+                <td class="comp-agency comp-lose">Heures de bureau</td>
+                <td class="comp-freelance comp-mid">Variable</td>
+              </tr>
+              <tr>
+                <td class="comp-metric">IA nativement intégré</td>
+                <td class="comp-dreamnova comp-win">100% — cœur du système</td>
+                <td class="comp-agency comp-lose">Rare / sous-traité</td>
+                <td class="comp-freelance comp-mid">Optionnel</td>
+              </tr>
+              <tr>
+                <td class="comp-metric">Code source livré</td>
+                <td class="comp-dreamnova comp-win">
+                  Toujours — GitHub inclus
+                </td>
+                <td class="comp-agency comp-lose">Souvent refusé</td>
+                <td class="comp-freelance comp-mid">Oui, mais sans docs</td>
+              </tr>
+              <tr>
+                <td class="comp-metric">Support post-livraison</td>
+                <td class="comp-dreamnova comp-win">30 jours inclus</td>
+                <td class="comp-agency comp-lose">Facturé en sus</td>
+                <td class="comp-freelance comp-mid">7 jours max</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="comp-stats">
+          <div class="comp-stat-card">
+            <div class="comp-stat-num">-50%</div>
+            <div class="comp-stat-label">
+              vs agence traditionnelle en moyenne
+            </div>
+          </div>
+          <div class="comp-stat-card">
+            <div class="comp-stat-num">5x</div>
+            <div class="comp-stat-label">plus rapide grâce à l'IA-native</div>
+          </div>
+          <div class="comp-stat-card">
+            <div class="comp-stat-num">0</div>
+            <div class="comp-stat-label">frais cachés — prix tout compris</div>
+          </div>
+          <div class="comp-stat-card">
+            <div class="comp-stat-num">24/7</div>
+            <div class="comp-stat-label">disponibilité autonome IA</div>
+          </div>
+        </div>
+
+        <div class="comp-cta">
+          <a href="devis.html" class="comp-cta-btn" data-i18n="competitive.cta"
+            >Obtenir mon devis gratuit →</a
+          >
+          <span class="comp-cta-note" data-i18n="competitive.cta_note"
+            >Réponse en &lt; 24h · Aucun engagement · Tarif transparent</span
+          >
+        </div>
+      </section>
+
+      <!-- CHARTS -->
+      <div class="section-label" data-i18n="charts.label">
+        Métriques en temps réels
+      </div>
+      <h2 class="section-title" data-i18n="charts.title">
+        Tableau de bord analytique
+      </h2>
+      <p class="section-sub" data-i18n="charts.sub">
+        Projections de revenus · Répartition agents · Efficacité système
+      </p>
+
+      <div class="charts-grid">
+        <!-- Revenue Line Chart -->
+        <div class="chart-card">
+          <div class="chart-title">Projection Revenue</div>
+          <div class="chart-subtitle">K₪/mois · 2026→2030</div>
+          <div class="chart-wrap" style="height: 220px">
+            <canvas id="revenueChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Doughnut -->
+        <div class="chart-card">
+          <div class="chart-title">Répartition Agents</div>
+          <div class="chart-subtitle">CEO · CTO · COO</div>
+          <div class="chart-wrap" style="height: 220px">
+            <canvas id="donutChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Radar -->
+        <div class="chart-card">
+          <div class="chart-title">Efficacité Système</div>
+          <div class="chart-subtitle">Score par dimension (%)</div>
+          <div class="chart-wrap" style="height: 220px">
+            <canvas id="radarChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- AGENT BARS -->
+      <div class="bottom-grid">
+        <div class="card">
+          <div
+            style="
+              font-family: var(--font-display);
+              font-size: 0.78rem;
+              font-weight: 700;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              color: var(--gold);
+              margin-bottom: 1rem;
+            "
+          >
+            Performance Agents
+          </div>
+          <div class="agent-bar-wrap">
+            <div class="agent-row">
+              <div class="agent-name">CEO</div>
+              <div class="agent-bar-bg">
+                <div class="agent-bar-fill" style="width: 96%"></div>
+              </div>
+              <div class="agent-pct">96%</div>
+            </div>
+            <div class="agent-row">
+              <div class="agent-name">CTO</div>
+              <div class="agent-bar-bg">
+                <div class="agent-bar-fill" style="width: 98%"></div>
+              </div>
+              <div class="agent-pct">98%</div>
+            </div>
+            <div class="agent-row">
+              <div class="agent-name">COO</div>
+              <div class="agent-bar-bg">
+                <div class="agent-bar-fill" style="width: 94%"></div>
+              </div>
+              <div class="agent-pct">94%</div>
+            </div>
+            <div class="agent-row">
+              <div class="agent-name">Vision</div>
+              <div class="agent-bar-bg">
+                <div class="agent-bar-fill" style="width: 99%"></div>
+              </div>
+              <div class="agent-pct">99%</div>
+            </div>
+            <div class="agent-row">
+              <div class="agent-name">Execution</div>
+              <div class="agent-bar-bg">
+                <div class="agent-bar-fill" style="width: 97%"></div>
+              </div>
+              <div class="agent-pct">97%</div>
+            </div>
+            <div class="agent-row">
+              <div class="agent-name">Plan B</div>
+              <div class="agent-bar-bg">
+                <div class="agent-bar-fill" style="width: 91%"></div>
+              </div>
+              <div class="agent-pct">91%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div
+            style="
+              font-family: var(--font-display);
+              font-size: 0.78rem;
+              font-weight: 700;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              color: var(--gold);
+              margin-bottom: 1rem;
+            "
+          >
+            Principes NOVA-TAM
+          </div>
+          <ul class="principle-list">
+            <li>
+              <span class="pl-icon">⚡</span>Cash-First Filter — ROI &lt;7 jours
+              = priorité absolue
+            </li>
+            <li>
+              <span class="pl-icon">🔄</span>Azamra Debugging — jamais réécrire,
+              itérer autour du passant
+            </li>
+            <li>
+              <span class="pl-icon">🛡️</span>Protocole ADHD — une action → GO,
+              jamais de listes manuelles
+            </li>
+            <li>
+              <span class="pl-icon">📡</span>Autonome 24/7 — heartbeat 5min,
+              supervisor 15min, scan 6h
+            </li>
+            <li>
+              <span class="pl-icon">🔐</span>Sécurité Zero-Trust — Docker
+              sandbox, aucune clé jamais révoquée
+            </li>
+            <li>
+              <span class="pl-icon">✡️</span>Ein Ye'ush Ba'olam Klal — jamais de
+              désespoir dans le monde
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- BIBLE CARDS -->
+      <div style="margin-top: 3rem">
+        <div class="section-label" data-i18n="bibles.label">
+          Documentation exécutive
+        </div>
+        <h2 class="section-title" data-i18n="bibles.title">
+          Les 6 Bibles DreamNova
+        </h2>
+        <p class="section-sub" data-i18n="bibles.sub">
+          Chaque bible est un document opérationnel vivant — stratégie,
+          technique, opérations.
+        </p>
+
+        <div class="bible-grid">
+          <a href="ceo-global.html" class="bible-card">
+            <span class="bible-icon">👑</span>
+            <div class="bible-role">CEO · Vision Globale</div>
+            <div class="bible-title">Bible CEO Global</div>
+            <div class="bible-desc">
+              Pyramide de commandement, contrat ADHD, protocoles exécutifs,
+              Cash-First filter, gestion investisseurs 63M$.
+            </div>
+            <span class="bible-arrow">↗</span>
+          </a>
+
+          <a href="cto-global.html" class="bible-card">
+            <span class="bible-icon">⚙️</span>
+            <div class="bible-role">CTO · Architecture</div>
+            <div class="bible-title">Bible CTO Global</div>
+            <div class="bible-desc">
+              Écosystème technique complet, mémoire RAM/ROM, 4 agents Computer
+              Use, stack Next.js+Supabase+Vercel.
+            </div>
+            <span class="bible-arrow">↗</span>
+          </a>
+
+          <a href="coo-global.html" class="bible-card">
+            <span class="bible-icon">🔄</span>
+            <div class="bible-role">COO · Opérations</div>
+            <div class="bible-title">Bible COO Global</div>
+            <div class="bible-desc">
+              Orchestration clients, automatisation heartbeat, suivi financier
+              MRR, dashboards hebdo, détection risques.
+            </div>
+            <span class="bible-arrow">↗</span>
+          </a>
+
+          <a href="ceo-pmg.html" class="bible-card">
+            <span class="bible-icon">📊</span>
+            <div class="bible-role">CEO · Petit·Moyen·Grand</div>
+            <div class="bible-title">Bible CEO PMG</div>
+            <div class="bible-desc">
+              Classification projets, Cash-First Scoring, stratégie par taille,
+              contrats, upsell et retainer playbook.
+            </div>
+            <span class="bible-arrow">↗</span>
+          </a>
+
+          <a href="cto-pmg.html" class="bible-card">
+            <span class="bible-icon">🔧</span>
+            <div class="bible-role">CTO · Implémentation</div>
+            <div class="bible-title">Bible CTO PMG</div>
+            <div class="bible-desc">
+              GOD-Boilerplate universel, pipelines Voice→Image, Stripe,
+              Supabase, CI/CD complet, Lighthouse &gt;90 checklist.
+            </div>
+            <span class="bible-arrow">↗</span>
+          </a>
+
+          <a href="coo-pmg.html" class="bible-card">
+            <span class="bible-icon">📋</span>
+            <div class="bible-role">COO · Process</div>
+            <div class="bible-title">Bible COO PMG</div>
+            <div class="bible-desc">
+              Process A-Z par taille, templates contrats, onboarding client,
+              relances, SLA, reporting et clôture projet.
+            </div>
+            <span class="bible-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <script>
+      // ===== CHART DEFAULTS =====
+      Chart.defaults.color = "#A8A29E";
+      Chart.defaults.font.family = "'Inter', sans-serif";
+      Chart.defaults.font.size = 11;
+
+      const gold = "#D4AF37";
+      const amber = "#F59E0B";
+      const bg = "rgba(212,175,55,0.08)";
+
+      // ===== REVENUE LINE CHART =====
+      const revenueCtx = document
+        .getElementById("revenueChart")
+        .getContext("2d");
+
+      const goldGrad = revenueCtx.createLinearGradient(0, 0, 0, 200);
+      goldGrad.addColorStop(0, "rgba(212,175,55,0.35)");
+      goldGrad.addColorStop(1, "rgba(212,175,55,0.0)");
+
+      new Chart(revenueCtx, {
+        type: "line",
+        data: {
+          labels: [
+            "Jan",
+            "Mar",
+            "Jun",
+            "Sep",
+            "Dec",
+            "Q1 27",
+            "Q3 27",
+            "Q1 28",
+            "Q3 28",
+            "Q1 29",
+            "Q3 29",
+            "Q1 30",
+            "Q4 30",
+          ],
+          datasets: [
+            {
+              label: "Revenue K₪/mois",
+              data: [
+                5, 15, 30, 70, 120, 200, 350, 600, 900, 1400, 2200, 4000, 10000,
+              ],
+              borderColor: gold,
+              backgroundColor: goldGrad,
+              borderWidth: 2.5,
+              pointRadius: 3,
+              pointBackgroundColor: gold,
+              pointBorderColor: "#0C0A09",
+              pointBorderWidth: 2,
+              fill: true,
+              tension: 0.45,
+            },
+          ],
         },
-        ticks: {
-          display: false,
-          stepSize: 5,
-        }
-      }
-    }
-  }
-});
-</script>
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: "index", intersect: false },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: "rgba(12,10,9,0.95)",
+              borderColor: "rgba(212,175,55,0.3)",
+              borderWidth: 1,
+              padding: 10,
+              callbacks: {
+                label: (ctx) => ` ${ctx.parsed.y.toLocaleString()} K₪/mois`,
+              },
+            },
+          },
+          scales: {
+            x: {
+              grid: { color: "rgba(255,255,255,0.04)" },
+              ticks: { maxRotation: 30, font: { size: 9 } },
+            },
+            y: {
+              type: "logarithmic",
+              grid: { color: "rgba(255,255,255,0.04)" },
+              ticks: {
+                callback: (v) => (v >= 1000 ? v / 1000 + "M" : v + "K"),
+                font: { size: 9 },
+              },
+            },
+          },
+        },
+      });
 
-<footer class="site-footer">
-  <span class="nova-tam">NOVA-TAM — Système Autonome CEO/CTO/COO</span>
-  Na Nach Nachma Nachman MeUman &nbsp;·&nbsp; Ein Ye'ush Ba'olam Klal &nbsp;·&nbsp; DreamNova © 2026
-</footer>
-</body>
+      // ===== DOUGHNUT CHART =====
+      const donutCtx = document.getElementById("donutChart").getContext("2d");
+      new Chart(donutCtx, {
+        type: "doughnut",
+        data: {
+          labels: ["CEO", "CTO", "COO"],
+          datasets: [
+            {
+              data: [35, 40, 25],
+              backgroundColor: [
+                "rgba(212,175,55,0.85)",
+                "rgba(245,158,11,0.7)",
+                "rgba(161,117,30,0.75)",
+              ],
+              borderColor: ["#D4AF37", "#F59E0B", "#A1751E"],
+              borderWidth: 1.5,
+              hoverOffset: 8,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: "65%",
+          plugins: {
+            legend: {
+              position: "bottom",
+              labels: {
+                padding: 12,
+                usePointStyle: true,
+                pointStyleWidth: 8,
+                font: { size: 11 },
+              },
+            },
+            tooltip: {
+              backgroundColor: "rgba(12,10,9,0.95)",
+              borderColor: "rgba(212,175,55,0.3)",
+              borderWidth: 1,
+              callbacks: {
+                label: (ctx) => ` ${ctx.label}: ${ctx.parsed}%`,
+              },
+            },
+          },
+        },
+      });
+
+      // ===== RADAR CHART =====
+      const radarCtx = document.getElementById("radarChart").getContext("2d");
+      const radarGrad = radarCtx.createLinearGradient(0, 0, 0, 200);
+      radarGrad.addColorStop(0, "rgba(212,175,55,0.35)");
+      radarGrad.addColorStop(1, "rgba(245,158,11,0.1)");
+
+      new Chart(radarCtx, {
+        type: "radar",
+        data: {
+          labels: ["CEO", "CTO", "COO", "Plan B", "Vision", "Exécution"],
+          datasets: [
+            {
+              label: "Efficacité %",
+              data: [96, 98, 94, 91, 99, 97],
+              backgroundColor: radarGrad,
+              borderColor: gold,
+              borderWidth: 2,
+              pointBackgroundColor: gold,
+              pointBorderColor: "#0C0A09",
+              pointBorderWidth: 2,
+              pointRadius: 4,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: "rgba(12,10,9,0.95)",
+              borderColor: "rgba(212,175,55,0.3)",
+              borderWidth: 1,
+              callbacks: {
+                label: (ctx) => ` ${ctx.label}: ${ctx.parsed.r}%`,
+              },
+            },
+          },
+          scales: {
+            r: {
+              min: 80,
+              max: 100,
+              suggestedMin: 80,
+              angleLines: { color: "rgba(255,255,255,0.06)" },
+              grid: { color: "rgba(255,255,255,0.06)" },
+              pointLabels: {
+                color: "#A8A29E",
+                font: {
+                  size: 10,
+                  family: "'Space Grotesk', sans-serif",
+                  weight: "600",
+                },
+              },
+              ticks: {
+                display: false,
+                stepSize: 5,
+              },
+            },
+          },
+        },
+      });
+    </script>
+
+    <!-- FLOATING CTA -->
+    <a
+      href="devis.html"
+      class="floating-cta"
+      id="floatingCta"
+      data-i18n="floating_cta"
+      >💰 Obtenir un devis</a
+    >
+
+    <footer class="site-footer">
+      <span class="nova-tam" data-i18n="footer.nova_tam"
+        >NOVA-TAM — Système Autonome CEO/CTO/COO</span
+      >
+      <span data-i18n="footer.bottom"
+        >Na Nach Nachma Nachman MeUman &nbsp;·&nbsp; Ein Ye'ush Ba'olam Klal
+        &nbsp;·&nbsp; DreamNova © 2026</span
+      >
+    </footer>
+
+    <script>
+      // ===== SCROLL FADE-IN ANIMATION =====
+      const fadeElements = document.querySelectorAll(
+        '.hero, .mission-strip, .kpi-grid, .competitive-section, .charts-grid, .bottom-grid, [style*="margin-top:3rem"], .bible-grid',
+      );
+      fadeElements.forEach((el) => el.classList.add("fade-in-up"));
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+      );
+
+      fadeElements.forEach((el) => observer.observe(el));
+
+      // ===== FLOATING CTA VISIBILITY =====
+      const floatingCta = document.getElementById("floatingCta");
+      let ticking = false;
+      window.addEventListener("scroll", () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            if (window.scrollY > 300) {
+              floatingCta.classList.add("show");
+            } else {
+              floatingCta.classList.remove("show");
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    </script>
+    <script src="i18n.js"></script>
+  </body>
 </html>

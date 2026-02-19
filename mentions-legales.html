@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentions Légales — DreamNova</title>
+    <meta name="description" content="Mentions légales, politique de confidentialité, RGPD et conditions générales de vente de DreamNova." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      /* ===== RESET ===== */
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg-primary: #0c0a09;
+        --bg-secondary: #1c1917;
+        --bg-card: rgba(28, 25, 23, 0.85);
+        --gold: #d4af37;
+        --gold-bright: #f59e0b;
+        --amber: #f59e0b;
+        --text-primary: #f5f5f4;
+        --text-secondary: #a8a29e;
+        --text-muted: #78716c;
+        --border: rgba(245, 158, 11, 0.18);
+        --border-hover: rgba(212, 175, 55, 0.5);
+        --glass: rgba(255, 255, 255, 0.03);
+        --radius: 12px;
+        --radius-lg: 20px;
+        --shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+        --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.12);
+        --font-display: "Space Grotesk", sans-serif;
+        --font-body: "Inter", sans-serif;
+      }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.75;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* ===== BACKGROUND TEXTURE ===== */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 80% 50% at 20% 0%, rgba(212, 175, 55, 0.05) 0%, transparent 60%),
+          radial-gradient(ellipse 60% 40% at 80% 100%, rgba(245, 158, 11, 0.03) 0%, transparent 60%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* ===== HEADER ===== */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(12, 10, 9, 0.92);
+        border-bottom: 1px solid var(--border);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 0 2rem;
+      }
+
+      .header-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+        gap: 1rem;
+      }
+
+      .logo-wrap {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+
+      .logo-mark {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 900;
+        color: #0c0a09;
+        font-family: var(--font-display);
+        flex-shrink: 0;
+      }
+
+      .logo-text {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        letter-spacing: 0.05em;
+      }
+
+      .logo-text span { color: var(--gold); }
+
+      .site-nav {
+        display: flex;
+        gap: 0.25rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .site-nav a {
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 0.35rem 0.7rem;
+        border-radius: 6px;
+        border: 1px solid transparent;
+        transition: all 0.2s;
+        white-space: nowrap;
+        font-family: var(--font-display);
+        letter-spacing: 0.02em;
+      }
+
+      .site-nav a:hover {
+        color: var(--gold);
+        background: rgba(212, 175, 55, 0.08);
+        border-color: var(--border);
+      }
+
+      .btn-nav-cta {
+        background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%) !important;
+        color: #0c0a09 !important;
+        border-color: transparent !important;
+        font-weight: 700 !important;
+      }
+
+      .btn-nav-cta:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+      }
+
+      /* ===== LAYOUT ===== */
+      .site-main {
+        position: relative;
+        z-index: 1;
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 3rem 2rem 5rem;
+      }
+
+      /* ===== PAGE HEADER ===== */
+      .page-hero {
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.3rem 1rem;
+        background: rgba(212, 175, 55, 0.08);
+        border: 1px solid rgba(212, 175, 55, 0.25);
+        border-radius: 20px;
+        color: var(--gold);
+        font-size: 0.72rem;
+        font-weight: 600;
+        font-family: var(--font-display);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 1.25rem;
+      }
+
+      .page-title {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        margin-bottom: 0.75rem;
+        background: linear-gradient(135deg, #f5f5f4 30%, var(--gold) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .page-date {
+        color: var(--text-muted);
+        font-size: 0.82rem;
+        font-family: var(--font-display);
+      }
+
+      /* ===== TABLE OF CONTENTS ===== */
+      .toc-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem 1.75rem;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        margin-bottom: 3rem;
+      }
+
+      .toc-title {
+        font-family: var(--font-display);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1rem;
+      }
+
+      .toc-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.35rem 1.5rem;
+      }
+
+      .toc-list li a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.85rem;
+        transition: color 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .toc-list li a::before {
+        content: "§";
+        color: rgba(212, 175, 55, 0.5);
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .toc-list li a:hover { color: var(--gold); }
+
+      /* ===== LEGAL SECTION ===== */
+      .legal-section {
+        margin-bottom: 2.75rem;
+        scroll-margin-top: 80px;
+      }
+
+      .legal-section-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid rgba(245, 158, 11, 0.1);
+      }
+
+      .legal-section-num {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        background: rgba(212, 175, 55, 0.1);
+        border: 1px solid rgba(212, 175, 55, 0.25);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--gold);
+      }
+
+      .legal-section-title {
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        line-height: 1.3;
+      }
+
+      .legal-section p {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.8;
+        margin-bottom: 0.85rem;
+      }
+
+      .legal-section p:last-child { margin-bottom: 0; }
+
+      .legal-section strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      .legal-section a {
+        color: var(--gold);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        transition: border-color 0.2s, color 0.2s;
+      }
+
+      .legal-section a:hover {
+        color: var(--amber);
+        border-color: var(--amber);
+      }
+
+      /* Info block */
+      .info-block {
+        background: rgba(212, 175, 55, 0.04);
+        border: 1px solid rgba(212, 175, 55, 0.14);
+        border-left: 3px solid var(--gold);
+        border-radius: 0 8px 8px 0;
+        padding: 1rem 1.25rem;
+        margin: 1rem 0;
+      }
+
+      .info-block p {
+        margin-bottom: 0.3rem !important;
+        font-size: 0.88rem !important;
+      }
+
+      .info-block p:last-child { margin-bottom: 0 !important; }
+
+      /* List inside legal */
+      .legal-list {
+        list-style: none;
+        padding: 0;
+        margin: 0.75rem 0;
+      }
+
+      .legal-list li {
+        padding: 0.3rem 0 0.3rem 1.25rem;
+        position: relative;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+
+      .legal-list li::before {
+        content: "–";
+        position: absolute;
+        left: 0;
+        color: var(--gold);
+        font-weight: 700;
+      }
+
+      /* ===== SCROLLBAR ===== */
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: var(--bg-primary); }
+      ::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.3); border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+      ::selection { background: rgba(212, 175, 55, 0.25); color: var(--text-primary); }
+
+      /* ===== MOBILE ===== */
+      @media (max-width: 640px) {
+        .site-main { padding: 2rem 1rem 4rem; }
+        .toc-list { grid-template-columns: 1fr; }
+        .site-nav .btn-nav-cta { display: none; }
+        .site-nav a { padding: 0.3rem 0.5rem; font-size: 0.72rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="logo-wrap">
+          <div class="logo-mark">D</div>
+          <span class="logo-text">DREAM<span>NOVA</span></span>
+        </a>
+        <nav class="site-nav">
+          <a href="index.html">Hub</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="tarifs.html">Tarifs</a>
+          <a href="devis.html" class="btn-nav-cta">Devis gratuit</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main">
+
+      <!-- PAGE HEADER -->
+      <div class="page-hero">
+        <div class="hero-eyebrow">Informations légales</div>
+        <h1 class="page-title">Mentions Légales</h1>
+        <p class="page-date">Dernière mise à jour : 19 février 2026</p>
+      </div>
+
+      <!-- TABLE OF CONTENTS -->
+      <nav class="toc-card" aria-label="Table des matières">
+        <div class="toc-title">Sommaire</div>
+        <ol class="toc-list">
+          <li><a href="#editeur">Éditeur du site</a></li>
+          <li><a href="#hebergement">Hébergement</a></li>
+          <li><a href="#propriete">Propriété intellectuelle</a></li>
+          <li><a href="#donnees">Données personnelles &amp; RGPD</a></li>
+          <li><a href="#cookies">Cookies</a></li>
+          <li><a href="#cgv">Conditions Générales de Vente</a></li>
+          <li><a href="#responsabilite">Limitation de responsabilité</a></li>
+          <li><a href="#droit">Droit applicable</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </nav>
+
+      <!-- SECTION 1: EDITEUR -->
+      <section class="legal-section" id="editeur">
+        <div class="legal-section-header">
+          <div class="legal-section-num">1</div>
+          <h2 class="legal-section-title">Éditeur du site</h2>
+        </div>
+        <div class="info-block">
+          <p><strong>Nom commercial :</strong> DreamNova</p>
+          <p><strong>Responsable de la publication :</strong> David Amor</p>
+          <p><strong>Adresse :</strong> Jérusalem, Israël</p>
+          <p><strong>Email :</strong> <a href="mailto:dreamnovaultimate@gmail.com">dreamnovaultimate@gmail.com</a></p>
+          <p><strong>Site web :</strong> dreamnova-consult.vercel.app</p>
+        </div>
+        <p>DreamNova est une activité de développement web et d'intégration d'intelligence artificielle opérée à titre individuel par David Amor, basé à Jérusalem, Israël. L'activité est exercée en conformité avec la législation israélienne en matière de services numériques et de commerce électronique.</p>
+      </section>
+
+      <!-- SECTION 2: HEBERGEMENT -->
+      <section class="legal-section" id="hebergement">
+        <div class="legal-section-header">
+          <div class="legal-section-num">2</div>
+          <h2 class="legal-section-title">Hébergement</h2>
+        </div>
+        <p>Ce site est hébergé par :</p>
+        <div class="info-block">
+          <p><strong>Vercel Inc.</strong></p>
+          <p>340 Pine Street, Suite 1401</p>
+          <p>San Francisco, CA 94104 — États-Unis</p>
+          <p>Site web : <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a></p>
+        </div>
+        <p>Vercel est une plateforme d'hébergement cloud dont les centres de données sont répartis à l'échelle mondiale (CDN). Les données transitent via des connexions HTTPS sécurisées et bénéficient d'un uptime contractuel de 99.99%. Pour toute question relative à l'infrastructure, vous pouvez consulter la politique de confidentialité de Vercel à l'adresse <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">vercel.com/legal/privacy-policy</a>.</p>
+      </section>
+
+      <!-- SECTION 3: PROPRIETE INTELLECTUELLE -->
+      <section class="legal-section" id="propriete">
+        <div class="legal-section-header">
+          <div class="legal-section-num">3</div>
+          <h2 class="legal-section-title">Propriété intellectuelle</h2>
+        </div>
+        <p>L'ensemble des éléments composant ce site — textes, visuels, code source, design, architecture, logos, noms de marque — est la propriété exclusive de <strong>DreamNova / David Amor</strong>, protégé par les lois israéliennes et internationales en matière de droit d'auteur et de propriété intellectuelle.</p>
+        <p>Toute reproduction, distribution, modification, adaptation ou exploitation, partielle ou totale, par quelque moyen que ce soit, sans autorisation écrite préalable de DreamNova, est strictement interdite et constitue une contrefaçon susceptible d'engager des poursuites.</p>
+        <p>Les projets réalisés pour les clients deviennent la propriété pleine et entière du client à la livraison finale et au règlement complet de la facture. Le code source est transféré intégralement via dépôt GitHub privé.</p>
+      </section>
+
+      <!-- SECTION 4: DONNEES PERSONNELLES -->
+      <section class="legal-section" id="donnees">
+        <div class="legal-section-header">
+          <div class="legal-section-num">4</div>
+          <h2 class="legal-section-title">Données personnelles &amp; RGPD</h2>
+        </div>
+        <p>DreamNova s'engage à protéger la vie privée de ses visiteurs et clients, en conformité avec le <strong>Règlement Général sur la Protection des Données (RGPD, UE 2016/679)</strong> et la législation israélienne sur la protection des données (Protection of Privacy Law, 5741-1981).</p>
+        <p><strong>Données collectées :</strong> Nous collectons uniquement les données strictement nécessaires au traitement de votre demande (nom, email, description du projet) via le formulaire de devis. Aucune donnée n'est collectée sans votre consentement explicite.</p>
+        <p><strong>Finalité du traitement :</strong> Les données sont utilisées exclusivement pour répondre à votre demande, établir un devis, exécuter un contrat et assurer le suivi de projet. Elles ne sont jamais revendues, cédées ni transmises à des tiers à des fins commerciales.</p>
+        <p><strong>Durée de conservation :</strong> Les données sont conservées pendant la durée de la relation commerciale, plus 3 ans pour les obligations comptables et légales, puis supprimées.</p>
+        <p><strong>Vos droits :</strong> Conformément au RGPD, vous disposez des droits suivants :</p>
+        <ul class="legal-list">
+          <li>Droit d'accès à vos données personnelles</li>
+          <li>Droit de rectification en cas d'inexactitude</li>
+          <li>Droit à l'effacement («&nbsp;droit à l'oubli&nbsp;»)</li>
+          <li>Droit à la portabilité de vos données</li>
+          <li>Droit d'opposition au traitement</li>
+          <li>Droit de limitation du traitement</li>
+        </ul>
+        <p>Pour exercer ces droits, contactez-nous à : <a href="mailto:dreamnovaultimate@gmail.com">dreamnovaultimate@gmail.com</a>. Toute demande sera traitée dans un délai maximum de 30 jours.</p>
+      </section>
+
+      <!-- SECTION 5: COOKIES -->
+      <section class="legal-section" id="cookies">
+        <div class="legal-section-header">
+          <div class="legal-section-num">5</div>
+          <h2 class="legal-section-title">Cookies</h2>
+        </div>
+        <p>Ce site utilise <strong>uniquement des cookies techniques strictement nécessaires</strong> à son bon fonctionnement (session, préférences d'affichage). Ces cookies ne collectent aucune donnée personnelle identifiable et ne sont pas partagés avec des tiers.</p>
+        <p><strong>Aucun cookie publicitaire</strong>, de tracking comportemental ou de régie publicitaire n'est déposé sur votre terminal. Nous n'utilisons ni Google Analytics, ni Facebook Pixel, ni aucun outil de traçage tiers sur ce site public.</p>
+        <p>Vous pouvez configurer votre navigateur pour refuser ou supprimer les cookies à tout moment, sans impact sur votre navigation sur ce site.</p>
+      </section>
+
+      <!-- SECTION 6: CGV -->
+      <section class="legal-section" id="cgv">
+        <div class="legal-section-header">
+          <div class="legal-section-num">6</div>
+          <h2 class="legal-section-title">Conditions Générales de Vente</h2>
+        </div>
+        <p><strong>Devis et commande :</strong> Toute prestation est précédée d'un devis gratuit détaillant le périmètre, les délais et le prix. Le devis devient un contrat ferme à sa signature électronique par le client et au versement de l'acompte.</p>
+        <p><strong>Paiement :</strong> Un acompte de <strong>40% du montant total</strong> est dû à la signature du contrat. Le solde de 60% est dû à la livraison finale validée par le client. Les paiements sont acceptés par Stripe, PayPal ou virement bancaire en EUR, USD, ILS ou CAD.</p>
+        <p><strong>Livraison :</strong> Les délais indiqués dans le devis sont contractuels. En cas de retard imputable à DreamNova au-delà de 20% du délai prévu, le client peut demander une révision du prix. Les retards causés par un manque de retour client (validations, contenus, accès) ne sont pas imputables à DreamNova.</p>
+        <p><strong>Révisions :</strong> Les corrections et ajustements conformes au cahier des charges initial sont inclus sans surcoût. Toute modification de périmètre fait l'objet d'un avenant tarifaire accepté par les deux parties avant réalisation.</p>
+        <p><strong>Propriété du code :</strong> Le code source livré devient la propriété exclusive du client à réception du paiement intégral. DreamNova conserve le droit de mentionner la réalisation dans son portfolio (avec l'accord du client).</p>
+        <p><strong>Résiliation :</strong> En cas de résiliation par le client après démarrage, l'acompte est acquis. En cas de résiliation par DreamNova pour manquement contractuel grave du client, les travaux réalisés sont facturés au prorata. Tout litige fait l'objet d'une tentative de médiation amiable avant toute action judiciaire.</p>
+      </section>
+
+      <!-- SECTION 7: RESPONSABILITE -->
+      <section class="legal-section" id="responsabilite">
+        <div class="legal-section-header">
+          <div class="legal-section-num">7</div>
+          <h2 class="legal-section-title">Limitation de responsabilité</h2>
+        </div>
+        <p>DreamNova s'efforce de maintenir ce site accessible et à jour en permanence. Toutefois, la responsabilité de DreamNova ne saurait être engagée en cas de :</p>
+        <ul class="legal-list">
+          <li>Interruption temporaire d'accès au site pour raisons techniques ou de maintenance</li>
+          <li>Virus ou éléments malveillants provenant de sources externes</li>
+          <li>Inexactitudes ou omissions dans les informations fournies à titre indicatif</li>
+          <li>Dommages indirects résultant de l'utilisation du site</li>
+        </ul>
+        <p>Les liens hypertextes vers des sites tiers présents sur ce site ne sauraient engager la responsabilité de DreamNova quant au contenu de ces sites. DreamNova n'exerce aucun contrôle sur ces ressources externes.</p>
+      </section>
+
+      <!-- SECTION 8: DROIT APPLICABLE -->
+      <section class="legal-section" id="droit">
+        <div class="legal-section-header">
+          <div class="legal-section-num">8</div>
+          <h2 class="legal-section-title">Droit applicable et juridiction compétente</h2>
+        </div>
+        <p>Les présentes mentions légales et les relations contractuelles entre DreamNova et ses clients sont régies par le <strong>droit israélien</strong>, sans préjudice de l'application des dispositions d'ordre public du pays de résidence du client (notamment les droits des consommateurs pour les clients européens relevant du RGPD).</p>
+        <p>En cas de litige non résolu par voie amiable, les parties conviennent de soumettre le différend à la compétence exclusive du <strong>Jerusalem District Court</strong> (Tribunal de District de Jérusalem), Israël.</p>
+        <p>Pour les clients résidant dans l'Union Européenne, la Commission Européenne met à disposition une plateforme de règlement en ligne des litiges accessible à l'adresse : <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.</p>
+      </section>
+
+      <!-- SECTION 9: CONTACT -->
+      <section class="legal-section" id="contact">
+        <div class="legal-section-header">
+          <div class="legal-section-num">9</div>
+          <h2 class="legal-section-title">Contact</h2>
+        </div>
+        <p>Pour toute question relative aux présentes mentions légales, à la protection de vos données personnelles, ou pour exercer vos droits, contactez-nous :</p>
+        <div class="info-block">
+          <p><strong>Email :</strong> <a href="mailto:dreamnovaultimate@gmail.com">dreamnovaultimate@gmail.com</a></p>
+          <p><strong>Délai de réponse :</strong> sous 72 heures ouvrables</p>
+          <p><strong>Langue de correspondance :</strong> Français, Anglais, Hébreu</p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer style="border-top:1px solid var(--border); padding:2rem; text-align:center; color:var(--text-muted); font-size:0.85rem; margin-top:4rem; position:relative; z-index:1;">
+      <p>© 2026 DreamNova · Na Nach Nachma Nachman MeUman · <a href="mentions-legales.html" style="color:var(--gold);">Mentions légales</a></p>
+    </footer>
+  </body>
+</html>

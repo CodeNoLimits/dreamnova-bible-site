@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "center": "🏠 Center",
+    "ceo_global": "👑 CEO Global",
+    "cto_global": "⚙️ CTO Global",
+    "coo_global": "🔄 COO Global",
+    "ceo_pmg": "📊 CEO SME",
+    "cto_pmg": "🔧 CTO SME",
+    "coo_pmg": "📋 COO SME",
+    "devis": "💰 Quote",
+    "portfolio": "🎯 Portfolio",
+    "tarifs": "💎 Pricing",
+    "faq": "❓ FAQ"
+  },
+  "hero": {
+    "eyebrow": "⚡ 24/7 Autonomous System",
+    "title_line1": "DREAM NOVA",
+    "title_line2": "Autonomous CEO · CTO · COO System",
+    "sub": "The operational bible of DreamNova's executive AI — strategic vision, technical architecture, and operations management in a single command center."
+  },
+  "mission": {
+    "text": "Mission $63M Hafatsa — Rabbi Nachman MeUman",
+    "badge1": "30K₪/mo target",
+    "badge2": "6 AI Agents",
+    "badge3": "24/7 Autonomous",
+    "badge4": "Ein Ye'ush"
+  },
+  "kpi": {
+    "automation": "Automation",
+    "agents": "Active AI Agents",
+    "mission": "Hafatsa Mission",
+    "nachman": "Na Nach Nachman"
+  },
+  "competitive": {
+    "label": "Competitive Advantage",
+    "title": "Save 10 to 50% compared to traditional agencies",
+    "sub": "AI-native, ultra-fast deliverables, zero overhead — same quality at a quarter of the price.",
+    "cta": "Get my free quote →",
+    "cta_note": "Response within 24h · No commitment · Transparent pricing"
+  },
+  "charts": {
+    "label": "Real-time Metrics",
+    "title": "Analytics Dashboard",
+    "sub": "Revenue projections · Agent distribution · System efficiency"
+  },
+  "bibles": {
+    "label": "Executive Documentation",
+    "title": "The 6 DreamNova Bibles",
+    "sub": "Each bible is a living operational document — strategy, technology, operations."
+  },
+  "footer": {
+    "nova_tam": "NOVA-TAM — Autonomous CEO/CTO/COO System",
+    "bottom": "Na Nach Nachma Nachman MeUman · Ein Ye'ush Ba'olam Klal · DreamNova © 2026"
+  },
+  "floating_cta": "💰 Get a Quote"
+}

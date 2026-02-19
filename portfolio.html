@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — DreamNova</title>
+<meta name="description" content="30+ projets livrés par DreamNova — Sites, SaaS, Apps mobiles, Pitchs investisseurs. Découvrez nos réalisations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #0C0A09;
+  --bg-secondary: #1C1917;
+  --bg-card: rgba(28, 25, 23, 0.85);
+  --gold: #D4AF37;
+  --gold-bright: #F59E0B;
+  --amber: #F59E0B;
+  --text-primary: #F5F5F4;
+  --text-secondary: #A8A29E;
+  --text-muted: #78716C;
+  --border: rgba(245, 158, 11, 0.18);
+  --border-hover: rgba(212, 175, 55, 0.5);
+  --glass: rgba(255, 255, 255, 0.03);
+  --radius: 12px;
+  --radius-lg: 20px;
+  --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.12);
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--font-body);font-size:16px;line-height:1.7;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 20% 0%,rgba(212,175,55,0.06) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 80% 100%,rgba(245,158,11,0.04) 0%,transparent 60%);pointer-events:none;z-index:0}
+
+.site-header{position:sticky;top:0;z-index:100;background:rgba(12,10,9,0.92);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);padding:0 2rem}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;gap:1rem}
+.logo-wrap{display:flex;align-items:center;gap:0.75rem;text-decoration:none}
+.logo-mark{width:36px;height:36px;background:linear-gradient(135deg,var(--gold),var(--amber));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#0C0A09;font-family:var(--font-display);flex-shrink:0}
+.logo-text{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--text-primary);letter-spacing:0.05em}
+.logo-text span{color:var(--gold)}
+.site-nav{display:flex;gap:0.25rem;flex-wrap:wrap;align-items:center}
+.site-nav a{text-decoration:none;color:var(--text-secondary);font-size:0.8rem;font-weight:500;padding:0.35rem 0.7rem;border-radius:6px;border:1px solid transparent;transition:all 0.2s;white-space:nowrap;font-family:var(--font-display);letter-spacing:0.02em}
+.site-nav a:hover,.site-nav a.active{color:var(--gold);background:rgba(212,175,55,0.08);border-color:var(--border)}
+
+.site-main{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:2rem}
+.page-header{text-align:center;padding:3rem 0 2rem}
+.page-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;padding:0.3rem 1rem;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);border-radius:20px;color:var(--gold);font-size:0.75rem;font-weight:600;font-family:var(--font-display);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem}
+.page-title{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:800;background:linear-gradient(135deg,#F5F5F4 30%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.75rem}
+.page-sub{color:var(--text-secondary);font-size:1rem;max-width:600px;margin:0 auto}
+
+.filter-tabs{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
+.filter-tab{padding:0.45rem 1rem;border:1px solid var(--border);border-radius:20px;background:none;color:var(--text-secondary);font-family:var(--font-display);font-size:0.78rem;font-weight:600;cursor:pointer;transition:all 0.2s}
+.filter-tab:hover,.filter-tab.active{color:var(--gold);background:rgba(212,175,55,0.1);border-color:rgba(212,175,55,0.4)}
+
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem;margin-bottom:3rem}
+@media(max-width:700px){.projects-grid{grid-template-columns:1fr}}
+.project-card{display:block;text-decoration:none;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;backdrop-filter:blur(12px);transition:all 0.3s;position:relative;overflow:hidden}
+.project-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--amber));transform:scaleX(0);transition:transform 0.3s}
+.project-card:hover{border-color:var(--border-hover);box-shadow:0 8px 40px rgba(212,175,55,0.15);transform:translateY(-3px)}
+.project-card:hover::after{transform:scaleX(1)}
+.project-tag{display:inline-block;padding:0.2rem 0.6rem;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.2);border-radius:12px;color:var(--gold);font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem}
+.project-name{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:0.4rem}
+.project-desc{font-size:0.82rem;color:var(--text-secondary);line-height:1.5;margin-bottom:0.75rem}
+.project-tech{display:flex;gap:0.4rem;flex-wrap:wrap}
+.tech-badge{padding:0.15rem 0.5rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;font-size:0.68rem;color:var(--text-muted);font-weight:500}
+.project-link{position:absolute;top:1.25rem;right:1.25rem;color:var(--text-muted);font-size:0.85rem;transition:color 0.2s}
+.project-card:hover .project-link{color:var(--gold)}
+.fade-in-up{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade-in-up.visible{opacity:1;transform:translateY(0)}
+.floating-cta{position:fixed;bottom:2rem;right:2rem;z-index:999;display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.5rem;background:linear-gradient(135deg,var(--gold),var(--amber));color:#0C0A09;font-family:var(--font-display);font-size:0.85rem;font-weight:700;border-radius:50px;text-decoration:none;box-shadow:0 8px 32px rgba(212,175,55,0.35);transition:all 0.3s;opacity:0;transform:translateY(20px) scale(0.9);pointer-events:none}
+.floating-cta.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.floating-cta:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 12px 40px rgba(212,175,55,0.5)}
+.site-footer{position:relative;z-index:1;text-align:center;padding:2.5rem 2rem;border-top:1px solid var(--border);margin-top:4rem;color:var(--text-muted);font-size:0.85rem;font-family:var(--font-display);letter-spacing:0.05em}
+.site-footer .nova-tam{color:var(--gold);font-weight:600;font-size:0.9rem;display:block;margin-bottom:0.4rem}
+::selection{background:rgba(212,175,55,0.25);color:var(--text-primary)}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-wrap"><div class="logo-mark">DN</div><div class="logo-text">DREAM<span>NOVA</span></div></a>
+    <nav class="site-nav">
+      <a href="index.html">🏠 Centre</a>
+      <a href="portfolio.html" class="active">🎯 Portfolio</a>
+      <a href="tarifs.html">💎 Tarifs</a>
+      <a href="faq.html">❓ FAQ</a>
+      <a href="devis.html">💰 Devis</a>
+    </nav>
+  </div>
+</header>
+
+<main class="site-main">
+  <div class="page-header">
+    <div class="page-eyebrow">🎯 30+ Projets Livrés</div>
+    <h1 class="page-title">Notre Portfolio</h1>
+    <p class="page-sub">Sites, SaaS, applications et pitchs investisseurs — chaque projet livré en production.</p>
+  </div>
+
+  <div class="filter-tabs">
+    <button class="filter-tab active" onclick="filterProjects('all')">Tous</button>
+    <button class="filter-tab" onclick="filterProjects('client')">Clients</button>
+    <button class="filter-tab" onclick="filterProjects('saas')">SaaS</button>
+    <button class="filter-tab" onclick="filterProjects('torah')">Torah</button>
+    <button class="filter-tab" onclick="filterProjects('pitch')">Pitchs</button>
+    <button class="filter-tab" onclick="filterProjects('dreamnova')">DreamNova</button>
+  </div>
+
+  <div class="projects-grid" id="projectsGrid">
+    <a href="https://barukh-sagit-jewelry.vercel.app" target="_blank" class="project-card fade-in-up" data-category="client"><span class="project-tag">Client · Bijoux</span><div class="project-name">Barukh & Sagit Jewelry</div><div class="project-desc">Boutique e-commerce bijoux luxe avec catalogue, panier, paiements Stripe.</div><div class="project-tech"><span class="tech-badge">HTML/CSS</span><span class="tech-badge">Stripe</span><span class="tech-badge">A11y</span></div><span class="project-link">↗</span></a>
+
+    <a href="https://haesh-sheli-new.vercel.app" target="_blank" class="project-card fade-in-up" data-category="client"><span class="project-tag">Client · Keren</span><div class="project-name">Keren Rabbi Yisrael</div><div class="project-desc">Boutique Breslev : Stripe + PayPal, checkout multi-étapes, gestion panier.</div><div class="project-tech"><span class="tech-badge">React</span><span class="tech-badge">Stripe</span><span class="tech-badge">PayPal</span></div><span class="project-link">↗</span></a>
+
+    <a href="https://ultime-esther-ifra-breslev.vercel.app" target="_blank" class="project-card fade-in-up" data-category="client torah"><span class="project-tag">Client · Livres</span><div class="project-name">Esther Ifra Breslev</div><div class="project-desc">Catalogue livres Breslev avec lecture en ligne, RAG, et multilangue.</div><div class="project-tech"><span class="tech-badge">Next.js</span><span class="tech-badge">Drizzle</span><span class="tech-badge">i18n</span></div><span class="project-link">↗</span></a>
+
+    <a href="https://noam-design.vercel.app" target="_blank" class="project-card fade-in-up" data-category="client"><span class="project-tag">Client · Décoration</span><div class="project-name">Noam Design</div><div class="project-desc">Plateforme décoration luxe : AI Concierge, galerie masonry, WhatsApp checkout.</div><div class="project-tech"><span class="tech-badge">React</span><span class="tech-badge">Gemini AI</span><span class="tech-badge">Trilingual</span></div><span class="project-link">↗</span></a>
+
+    <a href="https://03-bgremove-ai.vercel.app" target="_blank" class="project-card fade-in-up" data-category="saas"><span class="project-tag">SaaS · $5-15/mo</span><div class="project-name">BgRemove AI</div><div class="project-desc">Outil suppression d'arrière-plan par IA. Drag-and-drop, export HD.</div><div class="project-tech"><span class="tech-badge">AI</span><span class="tech-badge">Canvas</span><span class="tech-badge">Stripe</span></div><span class="project-link">↗</span></a>
+
+    <a href="https://05-invoicewiz.vercel.app" target="_blank" class="project-card fade-in-up" data-category="saas"><span class="project-tag">SaaS · $9-29/mo</span><div class="project-name">InvoiceWiz</div><div class="project-desc">Générateur de factures : templates, calculs auto, export PDF.</div><div class="project-tech"><span class="tech-badge">React</span><span class="tech-badge">PDF</span><span class="tech-badge">Stripe</span></div><span class="project-link">↗</span></a>
+
+    <a href="https://07-chatbot-builder.vercel.app" target="_blank" class="project-card fade-in-up" data-category="saas"><span class="project-tag">SaaS · $29-99/mo</span><div class="project-name">ChatBot Builder</div><div class="project-desc">Plateforme no-code de chatbots IA, intégration multi-canal.</div><div class="project-tech"><span class="tech-badge">AI</span><span class="tech-badge">API</span><span class="tech-badge">Stripe</span></div><span class="project-link">↗</span></a>
+
+    <a href="https://ha-mazon-pitch.vercel.app" target="_blank" class="project-card fade-in-up" data-category="pitch"><span class="project-tag">Pitch · Investors</span><div class="project-name">Ha-Mazon</div><div class="project-desc">Pitch investisseurs plateforme alimentaire : projections, métriques, modèle.</div><div class="project-tech"><span class="tech-badge">Pitch Deck</span><span class="tech-badge">React</span></div><span class="project-link">↗</span></a>
+
+    <a href="https://terramind-pitch.vercel.app" target="_blank" class="project-card fade-in-up" data-category="pitch"><span class="project-tag">Pitch · Seed</span><div class="project-name">TerraMind</div><div class="project-desc">Pitch seed €500K–1M pour plateforme thérapie en ligne.</div><div class="project-tech"><span class="tech-badge">Pitch Deck</span><span class="tech-badge">React</span></div><span class="project-link">↗</span></a>
+
+    <a href="https://dreamnova-consult.vercel.app" target="_blank" class="project-card fade-in-up" data-category="dreamnova"><span class="project-tag">DreamNova · Agence</span><div class="project-name">DreamNova Consult</div><div class="project-desc">Agence consulting IA : services, tarifs, formulaire contact.</div><div class="project-tech"><span class="tech-badge">HTML/CSS</span><span class="tech-badge">FormSubmit</span></div><span class="project-link">↗</span></a>
+
+    <a href="https://dreamnova-dashboard.vercel.app" target="_blank" class="project-card fade-in-up" data-category="dreamnova"><span class="project-tag">DreamNova · Dashboard</span><div class="project-name">Dashboard Central</div><div class="project-desc">Tableau de bord : suivi projets, revenus, métriques clients.</div><div class="project-tech"><span class="tech-badge">React</span><span class="tech-badge">Charts</span><span class="tech-badge">API</span></div><span class="project-link">↗</span></a>
+  </div>
+</main>
+
+<a href="devis.html" class="floating-cta" id="floatingCta">💰 Obtenir un devis</a>
+<footer class="site-footer">
+  <span class="nova-tam">NOVA-TAM — Système Autonome CEO/CTO/COO</span>
+  <span>Na Nach Nachma Nachman MeUman &nbsp;·&nbsp; DreamNova © 2026</span>
+</footer>
+
+<script>
+function filterProjects(cat) {
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.project-card').forEach(c => {
+    c.style.display = (cat === 'all' || (c.dataset.category || '').includes(cat)) ? '' : 'none';
+  });
+}
+const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)} }), {threshold:0.08});
+document.querySelectorAll('.fade-in-up').forEach(el => obs.observe(el));
+const cta = document.getElementById('floatingCta');
+window.addEventListener('scroll', () => cta.classList.toggle('show', scrollY > 200));
+</script>
+<script src="/lang/i18n.js" defer></script>
+</body>
+</html>

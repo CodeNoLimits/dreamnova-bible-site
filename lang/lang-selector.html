@@ -1,0 +1,43 @@
+<!-- DreamNova Language Selector — drop into any page header -->
+<!-- Usage: copy this snippet inside your <nav> or header bar -->
+
+<div class="lang-selector">
+  <select id="lang-select" onchange="I18N.setLang(this.value)">
+    <option value="fr">🇫🇷 FR</option>
+    <option value="en">🇬🇧 EN</option>
+    <option value="he">🇮🇱 HE</option>
+    <option value="es">🇪🇸 ES</option>
+    <option value="ru">🇷🇺 RU</option>
+  </select>
+</div>
+
+<!--
+  Required in <head>:
+    <script src="/lang/i18n.js" defer></script>
+
+  Optional label (translatable):
+    <label for="lang-select" data-i18n="lang_selector_label">Langue</label>
+
+  CSS — add to your stylesheet or a <style> block:
+-->
+<style>
+.lang-selector select {
+  background: rgba(28,25,23,0.9);
+  border: 1px solid rgba(245,158,11,0.3);
+  color: #F5F5F4;
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s;
+}
+.lang-selector select:focus {
+  outline: none;
+  border-color: #D4AF37;
+}
+.lang-selector select option {
+  background: #1C1917;
+  color: #F5F5F4;
+}
+</style>

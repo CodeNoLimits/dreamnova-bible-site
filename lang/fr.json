@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "center": "🏠 Centre",
+    "ceo_global": "👑 CEO Global",
+    "cto_global": "⚙️ CTO Global",
+    "coo_global": "🔄 COO Global",
+    "ceo_pmg": "📊 CEO PMG",
+    "cto_pmg": "🔧 CTO PMG",
+    "coo_pmg": "📋 COO PMG",
+    "devis": "💰 Devis",
+    "portfolio": "🎯 Portfolio",
+    "tarifs": "💎 Tarifs",
+    "faq": "❓ FAQ"
+  },
+  "hero": {
+    "eyebrow": "⚡ Système Autonome 24/7",
+    "title_line1": "DREAM NOVA",
+    "title_line2": "Système CEO · CTO · COO Autonome",
+    "sub": "La bible opérationnelle de l'IA exécutive DreamNova — vision stratégique, architecture technique et gestion des opérations en un seul centre de commandement."
+  },
+  "mission": {
+    "text": "Mission 63M$ Hafatsa — Rabbi Nachman MeUman",
+    "badge1": "30K₪/mois target",
+    "badge2": "6 Agents IA",
+    "badge3": "Autonome 24/7",
+    "badge4": "Ein Ye'ush"
+  },
+  "kpi": {
+    "automation": "Automatisation",
+    "agents": "Agents IA Actifs",
+    "mission": "Mission Hafatsa",
+    "nachman": "Na Nach Nachman"
+  },
+  "competitive": {
+    "label": "Avantage concurrentiel",
+    "title": "Économisez 10 à 50% par rapport aux agences traditionnelles",
+    "sub": "IA-native, livrables ultra-rapides, zéro overhead — la même qualité au quart du prix.",
+    "cta": "Obtenir mon devis gratuit →",
+    "cta_note": "Réponse en < 24h · Aucun engagement · Tarif transparent"
+  },
+  "charts": {
+    "label": "Métriques en temps réel",
+    "title": "Tableau de bord analytique",
+    "sub": "Projections de revenus · Répartition agents · Efficacité système"
+  },
+  "bibles": {
+    "label": "Documentation exécutive",
+    "title": "Les 6 Bibles DreamNova",
+    "sub": "Chaque bible est un document opérationnel vivant — stratégie, technique, opérations."
+  },
+  "footer": {
+    "nova_tam": "NOVA-TAM — Système Autonome CEO/CTO/COO",
+    "bottom": "Na Nach Nachma Nachman MeUman · Ein Ye'ush Ba'olam Klal · DreamNova © 2026"
+  },
+  "floating_cta": "💰 Obtenir un devis"
+}

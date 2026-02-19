@@ -14,21 +14,30 @@ module.exports = async (req, res) => {
     return res.status(400).json({ error: 'Montant minimum: 50€' });
   }
 
-  const session = await stripe.checkout.sessions.create({
-    payment_method_types: ['card'],
-    line_items: [{
-      price_data: {
-        currency: 'eur',
-        product_data: { name: description || 'Devis DreamNova' },
-        unit_amount: Math.round(amount * 100),
-      },
-      quantity: 1,
-    }],
-    mode: 'payment',
-    customer_email: email || undefined,
-    success_url: 'https://dreamnova-bible-site.vercel.app/devis.html?paid=true',
-    cancel_url: 'https://dreamnova-bible-site.vercel.app/devis.html?cancelled=true',
-  });
+  try {
+    const host = req.headers.host || 'dreamnova-bible-site.vercel.app';
+    const protocol = host.includes('localhost') ? 'http' : 'https';
+    const baseUrl = `${protocol}://${host}`;
 
-  res.status(200).json({ url: session.url });
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [{
+        price_data: {
+          currency: 'eur',
+          product_data: { name: description || 'Devis DreamNova' },
+          unit_amount: Math.round(amount * 100),
+        },
+        quantity: 1,
+      }],
+      mode: 'payment',
+      customer_email: email || undefined,
+      success_url: `${baseUrl}/success.html?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/devis.html?cancelled=true`,
+    });
+
+    res.status(200).json({ url: session.url });
+  } catch (err) {
+    console.error('Stripe Checkout Error:', err.message);
+    res.status(500).json({ error: 'Erreur lors de la création du paiement' });
+  }
 };
