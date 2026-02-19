@@ -1059,8 +1059,10 @@ select option{background:var(--bg2);color:var(--text)}
       <div class="contact-form-title">Ou envoyez-nous un message directement</div>
       <p class="contact-form-sub">Votre devis est pré-rempli. Nous vous répondons sous 2h ouvrées.</p>
 
-      <!-- FORMSPREE: Obtenez votre ID sur https://formspree.io — remplacez FORMSPREE_ID ci-dessous -->
-      <form id="contact-form" class="contact-form" action="https://formspree.io/f/FORMSPREE_ID" method="POST" onsubmit="handleFormSubmit(event)">
+      <form id="contact-form" class="contact-form" action="https://formsubmit.co/dreamnovaultimate@gmail.com" method="POST" onsubmit="handleFormSubmit(event)">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://codenolimits.github.io/dreamnova-bible-site/devis.html?sent=true">
         <input type="hidden" name="_subject" id="cf-subject">
         <input type="hidden" name="devis_ref" id="cf-devis-ref">
         <input type="hidden" name="montant_total" id="cf-amount">
@@ -1458,15 +1460,36 @@ function copyIBAN() {
 
 function handleFormSubmit(e) {
   e.preventDefault();
-  const name = document.getElementById('cf-name').value;
-  const email = document.getElementById('cf-email').value;
-  const ref = document.getElementById('cf-devis-ref').value;
-  const msg = document.getElementById('cf-message').value;
-  const subject = document.getElementById('cf-subject').value || ('[DEVIS] ' + ref);
-  const body = encodeURIComponent(msg + '\n\n— ' + name + ' (' + email + ')');
-  const subj = encodeURIComponent(subject);
-  window.open('mailto:dreamnovaultimate@gmail.com?subject=' + subj + '&body=' + body, '_blank');
-  document.getElementById('cf-success').style.display = 'block';
+  var form = e.target;
+  var btn = form.querySelector('.cf-submit');
+  btn.textContent = 'Envoi en cours...';
+  btn.disabled = true;
+
+  fetch('https://formsubmit.co/ajax/dreamnovaultimate@gmail.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      name: document.getElementById('cf-name').value,
+      email: document.getElementById('cf-email').value,
+      _subject: document.getElementById('cf-subject').value || ('[DEVIS] ' + document.getElementById('cf-devis-ref').value),
+      devis_ref: document.getElementById('cf-devis-ref').value,
+      montant_total: document.getElementById('cf-amount').value,
+      message: document.getElementById('cf-message').value
+    })
+  }).then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.success) {
+        document.getElementById('cf-success').style.display = 'block';
+        document.getElementById('cf-success').textContent = 'Message envoy\u00e9 avec succ\u00e8s ! Nous vous r\u00e9pondons sous 2h.';
+        btn.textContent = 'Envoy\u00e9 \u2714';
+      } else {
+        btn.textContent = 'Erreur — r\u00e9essayez';
+        btn.disabled = false;
+      }
+    }).catch(function() {
+      btn.textContent = 'Erreur r\u00e9seau — r\u00e9essayez';
+      btn.disabled = false;
+    });
 }
 
 </script>
