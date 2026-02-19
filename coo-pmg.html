@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COO PMG — Bible DreamNova — DreamNova</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+
+  /* ===== RESET ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-primary: #0C0A09;
+    --bg-secondary: #1C1917;
+    --bg-card: rgba(28, 25, 23, 0.85);
+    --gold: #D4AF37;
+    --gold-bright: #F59E0B;
+    --amber: #F59E0B;
+    --text-primary: #F5F5F4;
+    --text-secondary: #A8A29E;
+    --text-muted: #78716C;
+    --border: rgba(245, 158, 11, 0.18);
+    --border-hover: rgba(212, 175, 55, 0.5);
+    --glass: rgba(255, 255, 255, 0.03);
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.6);
+    --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.12);
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ===== BACKGROUND TEXTURE ===== */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(212,175,55,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(245,158,11,0.04) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(12, 10, 9, 0.92);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 0 2rem;
+  }
+
+  .header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    gap: 1rem;
+  }
+
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 900;
+    color: #0C0A09;
+    font-family: var(--font-display);
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+  }
+
+  .logo-text span { color: var(--gold); }
+
+  /* ===== NAV ===== */
+  .site-nav {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .site-nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.35rem 0.7rem;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+
+  .site-nav a:hover,
+  .site-nav a.active {
+    color: var(--gold);
+    background: rgba(212,175,55,0.08);
+    border-color: var(--border);
+  }
+
+  /* ===== MAIN WRAPPER ===== */
+  .site-main {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  }
+
+  .card:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-2px);
+  }
+
+  /* ===== GOLD GRADIENT TEXT ===== */
+  .gold-text {
+    background: linear-gradient(90deg, var(--gold) 0%, var(--amber) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
+  }
+
+  .site-footer .nova-tam {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-primary); }
+  ::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.3); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+  /* ===== SELECTION ===== */
+  ::selection { background: rgba(212,175,55,0.25); color: var(--text-primary); }
+
+
+  /* ===== LAYOUT ===== */
+  .doc-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 900px) {
+    .doc-layout { grid-template-columns: 1fr; }
+    .doc-sidebar { display: none; }
+  }
+
+  /* ===== SIDEBAR ===== */
+  .doc-sidebar {
+    position: sticky;
+    top: 80px;
+    height: fit-content;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    backdrop-filter: blur(12px);
+  }
+
+  .doc-sidebar::-webkit-scrollbar { width: 3px; }
+  .doc-sidebar::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.2); }
+
+  .sidebar-title {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .toc-list li a {
+    display: block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.78rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    line-height: 1.4;
+    transition: all 0.2s;
+    border-left: 2px solid transparent;
+  }
+
+  .toc-list li a:hover {
+    color: var(--gold);
+    background: rgba(212,175,55,0.06);
+    border-left-color: var(--gold);
+  }
+
+  /* ===== DOC CONTENT ===== */
+  .doc-content {
+    min-width: 0;
+  }
+
+  .doc-title-bar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .doc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(212,175,55,0.1);
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 20px;
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 600;
+    font-family: var(--font-display);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-top: 0.5rem;
+  }
+
+  /* ===== DOC TYPOGRAPHY ===== */
+  .doc-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    background: linear-gradient(90deg, #F5F5F4 0%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+  }
+
+  .doc-h2 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin: 2.5rem 0 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 80px;
+  }
+
+  .doc-h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 1.75rem 0 0.5rem;
+  }
+
+  .doc-h4 {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--amber);
+    margin: 1.25rem 0 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .doc-h5 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 1rem 0 0.3rem;
+  }
+
+  .doc-p {
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    line-height: 1.8;
+  }
+
+  .doc-list {
+    color: var(--text-secondary);
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  .doc-list li {
+    margin-bottom: 0.25rem;
+  }
+
+  .doc-list li strong { color: var(--text-primary); }
+
+  .doc-hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+
+  .doc-quote {
+    border-left: 3px solid var(--gold);
+    background: rgba(212,175,55,0.05);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  /* ===== CODE ===== */
+  .code-block {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(212,175,55,0.1);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: #e2e8f0;
+    margin: 1rem 0;
+    white-space: pre;
+  }
+
+  code.ic {
+    background: rgba(212,175,55,0.1);
+    color: var(--amber);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.85em;
+  }
+
+  /* ===== TABLES ===== */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  .doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+
+  .doc-table th {
+    background: rgba(212,175,55,0.08);
+    color: var(--gold);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .doc-table td {
+    padding: 0.65rem 1rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(245,158,11,0.06);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .doc-table tr:last-child td { border-bottom: none; }
+  .doc-table tr:hover td { background: rgba(212,175,55,0.03); }
+
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-wrap">
+      <div class="logo-mark">DN</div>
+      <div class="logo-text">DREAM<span>NOVA</span></div>
+    </a>
+    <nav class="site-nav">
+    <a href="index.html">🏠 Centre</a>
+    <a href="ceo-global.html">👑 CEO Global</a>
+    <a href="cto-global.html">⚙️ CTO Global</a>
+    <a href="coo-global.html">🔄 COO Global</a>
+    <a href="ceo-pmg.html">📊 CEO PMG</a>
+    <a href="cto-pmg.html">🔧 CTO PMG</a>
+    <a href="coo-pmg.html" class="active">📋 COO PMG</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc-layout">
+  
+  <aside class="doc-sidebar">
+    <div class="sidebar-title">Table des matières</div>
+    <ul class="toc-list">
+    <li><a href="#dreamnova-david-amor-j-rusalem-2026">DreamNova — David Amor — Jérusalem — 2026</a></li>
+    <li><a href="#0-introduction-coo">0. INTRODUCTION COO</a></li>
+    <li><a href="#1-classification-op-rationnelle">1. CLASSIFICATION OPÉRATIONNELLE</a></li>
+    <li><a href="#partie-a-petit-projet-coo">PARTIE A — PETIT PROJET (COO)</a></li>
+    <li><a href="#2-petit-projet-vue-d-ensemble">2. PETIT PROJET — Vue d'Ensemble</a></li>
+    <li><a href="#partie-b-moyen-projet-coo">PARTIE B — MOYEN PROJET (COO)</a></li>
+    <li><a href="#3-moyen-projet-vue-d-ensemble">3. MOYEN PROJET — Vue d'Ensemble</a></li>
+    <li><a href="#partie-c-grand-projet-coo">PARTIE C — GRAND PROJET (COO)</a></li>
+    <li><a href="#4-grand-projet-vue-d-ensemble">4. GRAND PROJET — Vue d'Ensemble</a></li>
+    <li><a href="#5-templates-communication-scripts-pr-ts-l-emploi">5. TEMPLATES COMMUNICATION — Scripts Prêts à l'Emp</a></li>
+    <li><a href="#6-suivi-tickets-tracker-demandes-client">6. SUIVI TICKETS — Tracker Demandes Client</a></li>
+    <li><a href="#7-facturation-coo-process-complet">7. FACTURATION COO — Process Complet</a></li>
+    <li><a href="#8-upsell-op-rationnel-identifier-et-proposer-les-extras">8. UPSELL OPÉRATIONNEL — Identifier et Proposer le</a></li>
+    <li><a href="#9-post-delivery-suivi-satisfaction-et-fid-lisation">9. POST-DELIVERY — Suivi Satisfaction et Fidélisat</a></li>
+    <li><a href="#10-documentation-client-handover-et-guide">10. DOCUMENTATION CLIENT — Handover et Guide</a></li>
+    <li><a href="#11-crise-par-taille-protocoles-sp-cifiques">11. CRISE PAR TAILLE — Protocoles Spécifiques</a></li>
+    <li><a href="#12-kpis-coo-tableaux-de-bord-par-taille">12. KPIs COO — Tableaux de Bord par Taille</a></li>
+    <li><a href="#13-automation-coo-scripts-bash-et-alertes">13. AUTOMATION COO — Scripts Bash et Alertes</a></li>
+    <li><a href="#14-matrice-synth-se-ascii-vue-d-ensemble">14. MATRICE SYNTHÈSE ASCII — Vue d'Ensemble</a></li>
+    <li><a href="#15-7-mantras-coo-dreamnova">15. 7 MANTRAS COO DREAMNOVA</a></li>
+    <li><a href="#annexe-contacts-et-ressources-coo">ANNEXE — Contacts et Ressources COO</a></li>
+    </ul>
+  </aside>
+  <article class="doc-content">
+    <div class="doc-title-bar">
+      <div>
+        <div class="doc-badge">📋 COO PMG — OPÉRATIONS PAR TAILLE</div>
+      </div>
+    </div>
+    <h1 class="doc-h1">COO_PROJETS_PETIT_MOYEN_GRAND.md</h1>
+<h1 class="doc-h1">BIBLE OPÉRATIONNELLE COO — GESTION DES PROJETS PAR TAILLE</h1>
+<h2 class="doc-h2" id="dreamnova-david-amor-j-rusalem-2026">DreamNova — David Amor — Jérusalem — 2026</h2>
+
+<blockquote class="doc-quote">
+<p>"L'excellence opérationnelle n'est pas un accident. C'est le résultat d'une intention haute, d'un effort sincère, d'une direction intelligente et d'une exécution habile." — COO DreamNova</p>
+</blockquote>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="0-introduction-coo">0. INTRODUCTION COO</h2>
+
+<p class="doc-p">Ce document est la bible de référence du Chief Operating Officer (COO) de DreamNova pour gérer les projets clients de A à Z, quelle que soit leur taille. Chaque section est actionnable immédiatement. Pas de théorie creuse — uniquement des process, scripts et checklists prêts à l'emploi.</p>
+
+<p class="doc-p">Le COO est le garant de la promesse client. Le CEO vend la vision. Le CTO livre le code. Le COO s'assure que tout se passe sans heurts, dans les délais, dans le budget, et que le client est tellement satisfait qu'il revient et recommande.</p>
+
+<p class="doc-p"><strong>Principe fondateur COO DreamNova</strong> : Un projet bien cadré en amont = zéro surprise en aval. Le COO investit 20% de son énergie dans le cadrage pour économiser 80% d'énergie en gestion de crise.</p>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="1-classification-op-rationnelle">1. CLASSIFICATION OPÉRATIONNELLE</h2>
+
+<h3 class="doc-h3">Tableau de Décision Taille de Projet</h3>
+
+<div class="table-wrap"><table class="doc-table"><tbody>
+<tr><th>Critère</th><th>PETIT</th><th>MOYEN</th><th>GRAND</th></tr>
+<tr><td><strong>Durée</strong></td><td>< 3 jours</td><td>1 à 3 semaines</td><td>> 1 mois</td></tr>
+<tr><td><strong>Budget</strong></td><td>< 8 000 ₪</td><td>8 000 — 30 000 ₪</td><td>> 30 000 ₪</td></tr>
+<tr><td><strong>Livrables</strong></td><td>1 livrable principal</td><td>3 à 7 livrables</td><td>MVP complet ou refonte totale</td></tr>
+<tr><td><strong>Réunions client</strong></td><td>0 ou 1</td><td>2 à 4</td><td>5 et plus</td></tr>
+<tr><td><strong>Personnes impliquées</strong></td><td>1 dev + COO</td><td>1-2 devs + COO + CEO brief</td><td>Équipe complète + comité pilotage</td></tr>
+<tr><td><strong>Contrat</strong></td><td>Bon de commande simple</td><td>Contrat 1 page + annexe specs</td><td>Contrat complet + SOW + jalons</td></tr>
+<tr><td><strong>Acompte</strong></td><td>100% avant démarrage</td><td>50% avant / 50% livraison</td><td>30% avant / 40% mi-chemin / 30% livraison</td></tr>
+<tr><td><strong>SLA réponse</strong></td><td>4h max</td><td>8h max</td><td>24h max</td></tr>
+<tr><td><strong>Reporting</strong></td><td>Livraison directe</td><td>Point hebdo</td><td>Rapport hebdo + comité mensuel</td></tr>
+</tbody></table></div>
+
+<h3 class="doc-h3">Arbre de Décision Rapide</h3>
+
+<pre class="code-block"><code class="lang-text">
+Budget &amp;gt; 30K₪ ou durée &amp;gt; 1 mois ?
+  → OUI → GRAND PROJET
+  → NON → Budget &amp;gt; 8K₪ ou durée &amp;gt; 3 jours ?
+      → OUI → MOYEN PROJET
+      → NON → PETIT PROJET
+</code></pre>
+
+<h3 class="doc-h3">Règle d'Or Classification</h3>
+
+<p class="doc-p">Quand un projet semble entre deux catégories, toujours <strong>choisir la catégorie supérieure</strong>. Il vaut mieux sur-livrer sur un "petit" projet traité comme "moyen" que sous-livrer sur un "moyen" traité comme "petit". Le client ressent toujours la différence.</p>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="partie-a-petit-projet-coo">PARTIE A — PETIT PROJET (COO)</h2>
+
+<h2 class="doc-h2" id="2-petit-projet-vue-d-ensemble">2. PETIT PROJET — Vue d'Ensemble</h2>
+
+<p class="doc-p"><strong>Définition opérationnelle</strong> : Un petit projet chez DreamNova est une mission ciblée, un livrable unique (landing page, plugin Shopify, intégration API, tableau de bord simple, script d'automatisation), livré en 48 heures maximum après réception des éléments clients.</p>
+
+<p class="doc-p"><strong>Philosophie</strong> : Le petit projet est la vitrine de l'agence. C'est souvent la première interaction concrète avec un client. L'excellence sur les petits projets crée la confiance pour les grands.</p>
+
+<h3 class="doc-h3">2.1 Process Brief → Livraison en 48h Max</h3>
+
+<p class="doc-p"><strong>Heure 0 — Réception de la demande</strong></p>
+<ul class="doc-list">
+<li>Accuser réception en moins de 2 heures (WhatsApp ou email)</li>
+<li>Qualifier : est-ce bien un petit projet ? (< 3 jours, < 8K₪, 1 livrable)</li>
+<li>Si oui : envoyer devis en 30 minutes</li>
+</ul>
+
+<p class="doc-p"><strong>Heure 2 — Devis envoyé</strong></p>
+<ul class="doc-list">
+<li>Montant fixe (pas de forfait "à partir de")</li>
+<li>Délai précis en jours ouvrables</li>
+<li>Liste des livrables exacts (1 point, pas de liste à rallonge)</li>
+<li>Conditions de paiement : 100% avant démarrage</li>
+</ul>
+
+<p class="doc-p"><strong>Heure 4 — Devis accepté + paiement reçu</strong></p>
+<ul class="doc-list">
+<li>Démarrage immédiat</li>
+<li>Pas d'attente. Le paiement = le feu vert.</li>
+</ul>
+
+<p class="doc-p"><strong>Heure 48 max — Livraison</strong></p>
+<ul class="doc-list">
+<li>Lien de démonstration ou fichier livrable</li>
+<li>Screenshots annotés</li>
+<li>Instructions d'utilisation (3 points max)</li>
+<li>Demande de feedback dans les 24h</li>
+</ul>
+
+<h3 class="doc-h3">2.2 Checklist Onboarding Petit Projet (5 items)</h3>
+
+<pre class="code-block"><code class="lang-text">
+[ ] 1. BRIEF ÉCRIT reçu (même 3 lignes WhatsApp suffisent — l'écrire, le faire valider)
+[ ] 2. LIVRABLES DÉFINIS — 1 seul livrable principal énoncé clairement
+[ ] 3. ACCÈS FOURNIS — logins, API keys, repo, FTP selon besoin
+[ ] 4. PAIEMENT REÇU — virement Wise, PayPal ou virement bancaire confirmé
+[ ] 5. DEADLINE CONFIRMÉE — date + heure de livraison envoyée par écrit au client
+</code></pre>
+
+<h3 class="doc-h3">2.3 Template WhatsApp Kick-Off Petit Projet</h3>
+
+<pre class="code-block"><code class="lang-text">
+Bonjour [Prénom] !
+
+On démarre votre projet maintenant. Voici le récap :
+
+✅ Livrable : [description en 1 ligne]
+📅 Livraison : [date] avant [heure]
+💳 Paiement : Confirmé, merci !
+
+Si vous avez des éléments à m'envoyer (logo, textes, accès), 
+envoyez-les dès maintenant pour ne pas perdre de temps.
+
+À tout à l'heure avec le résultat !
+— DreamNova
+</code></pre>
+
+<h3 class="doc-h3">2.4 Template Livraison avec Screenshots</h3>
+
+<pre class="code-block"><code class="lang-text">
+Bonjour [Prénom] !
+
+🎉 Votre projet est livré !
+
+Voici ce qui a été réalisé :
+1. [Livrable principal] → [lien ou fichier joint]
+2. Screenshots en pièce jointe
+
+Comment tester :
+→ [Instruction 1 - max 1 ligne]
+→ [Instruction 2 - max 1 ligne]
+
+Votre retour sous 24h SVP. Si tout est OK, c'est parti !
+Si besoin d'ajustement mineur (&amp;lt; 30 min de travail), c'est inclus.
+
+Merci pour votre confiance !
+— DreamNova
+</code></pre>
+
+<h3 class="doc-h3">2.5 Facturation Rapide Petit Projet</h3>
+
+<p class="doc-p"><strong>Process en 4 étapes</strong> :</p>
+<ol class="doc-list">
+<li>Devis par WhatsApp ou email (PDF si > 3K₪)</li>
+<li>Paiement 100% avant démarrage via lien Stripe ou virement</li>
+<li>Facture émise dans les 24h après paiement (Zoho Invoice ou template PDF)</li>
+<li>Archive dans le dossier client Notion/Google Drive</li>
+</ol>
+
+<p class="doc-p"><strong>Seuils de facturation</strong> :</p>
+<ul class="doc-list">
+<li>< 500₪ : WhatsApp invoice (message texte)</li>
+<li>500₪ — 8 000₪ : PDF facture simple</li>
+<li>Jamais de "on verra plus tard" — la facture sort en même temps que la livraison</li>
+</ul>
+
+<h3 class="doc-h3">2.6 Kill Criteria — Escalade CEO si Blocage > 4h</h3>
+
+<p class="doc-p">Si un petit projet bloque plus de 4 heures sur un point technique ou client, le COO applique le protocole Kill/Escalade :</p>
+
+<p class="doc-p"><strong>Critères de blocage</strong> :</p>
+<ul class="doc-list">
+<li>Client ne répond pas aux demandes d'accès après 4h</li>
+<li>Bug technique non résolu après 4h de debug</li>
+<li>Scope creep détecté (client veut ajouter des fonctionnalités)</li>
+<li>Contrainte externe (API tierce down, serveur en panne)</li>
+</ul>
+
+<p class="doc-p"><strong>Protocole Kill/Escalade</strong> :</p>
+<pre class="code-block"><code class="lang-text">
+1. Message WhatsApp au client :
+   "Bonjour [Prénom], nous sommes bloqués sur [point précis].
+   Sans [ce qui manque] d'ici [heure+2h], nous devons reporter 
+   la livraison au [nouvelle date]. Votre confirmation ?"
+
+2. Si pas de réponse en 2h → Escalade CEO :
+   Message Telegram David :
+   "[ESCALADE PROJET] [Nom client] — Bloqué sur [X] depuis 4h.
+   Options : attendre client / reporter / annuler.
+   Votre décision ?"
+
+3. Le CEO répond dans l'heure avec la décision.
+4. COO applique et informe le client.
+</code></pre>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="partie-b-moyen-projet-coo">PARTIE B — MOYEN PROJET (COO)</h2>
+
+<h2 class="doc-h2" id="3-moyen-projet-vue-d-ensemble">3. MOYEN PROJET — Vue d'Ensemble</h2>
+
+<p class="doc-p"><strong>Définition opérationnelle</strong> : Un projet moyen chez DreamNova est une mission structurée avec plusieurs livrables interdépendants, nécessitant une phase de découverte, un sprint organisé et un suivi hebdomadaire. Typiquement : refonte de site, intégration e-commerce, système de réservation, dashboard analytics, application mobile MVP light.</p>
+
+<p class="doc-p"><strong>Philosophie</strong> : Le projet moyen teste la maturité opérationnelle de l'agence. Il faut à la fois la rigueur du grand projet et la vélocité du petit projet. Le client doit voir du progrès chaque semaine sans que le COO passe sa vie en réunions.</p>
+
+<h3 class="doc-h3">3.1 Discovery Call → Brief Écrit → Contrat → Sprint</h3>
+
+<p class="doc-p"><strong>Phase 1 — Discovery Call (30-45 min)</strong></p>
+
+<p class="doc-p">Agenda type :</p>
+<pre class="code-block"><code class="lang-text">
+0-5 min   : Présentation rapide + objectif de l'appel
+5-15 min  : Client présente son besoin (COO écoute, prend notes)
+15-25 min : COO pose les 10 questions clés (voir ci-dessous)
+25-35 min : COO résume sa compréhension → client corrige
+35-45 min : COO annonce les étapes suivantes et délai de proposition
+</code></pre>
+
+<p class="doc-p"><strong>Les 10 Questions Clés Discovery Moyen Projet</strong> :</p>
+<ol class="doc-list">
+<li>Quel est le problème N°1 que ce projet doit résoudre ?</li>
+<li>À qui est destiné le livrable (utilisateurs finaux) ?</li>
+<li>Avez-vous des exemples de sites/apps que vous aimez ?</li>
+<li>Quels sont vos accès disponibles (hosting, domaine, CMS, réseaux sociaux) ?</li>
+<li>Avez-vous des contenus prêts (textes, images, vidéos) ou faut-il les créer ?</li>
+<li>Y a-t-il des intégrations avec des outils existants (CRM, paiement, analytics) ?</li>
+<li>Quel est votre budget exact (pas "raisonnable" — un chiffre) ?</li>
+<li>Quelle est la date de lancement souhaitée ?</li>
+<li>Qui valide les livrables de votre côté (1 seule personne SVP) ?</li>
+<li>Y a-t-il des contraintes légales ou réglementaires à respecter ?</li>
+</ol>
+
+<p class="doc-p"><strong>Phase 2 — Brief Écrit (dans les 24h après le call)</strong></p>
+
+<p class="doc-p">Format : Document Google 1 page maximum</p>
+<p class="doc-p">Structure :</p>
+<pre class="code-block"><code class="lang-text">
+# Brief Projet — [Nom Client] — [Date]
+
+## Objectif Principal
+[1 phrase]
+
+## Livrables (liste numérotée)
+1. [Livrable 1]
+2. [Livrable 2]
+...
+
+## Hors Périmètre (ce qui N'EST PAS inclus)
+- [Exclusion 1]
+- [Exclusion 2]
+
+## Budget
+[Montant exact en ₪]
+
+## Planning
+Démarrage : [date]
+Livraison : [date]
+
+## Contacts
+DreamNova : [COO] + [Dev principal]
+Client : [Prénom Nom] — [téléphone]
+
+## Validation
+□ Client a approuvé ce brief par écrit le [date]
+</code></pre>
+
+<p class="doc-p"><strong>Phase 3 — Contrat (signé avant démarrage)</strong></p>
+
+<p class="doc-p">Pour tout projet > 8K₪ : contrat signé obligatoire. Utiliser le template contrat DreamNova (1 page + annexe specs). Points essentiels :</p>
+<ul class="doc-list">
+<li>Paiement 50% acompte avant démarrage</li>
+<li>Propriété intellectuelle transférée à la livraison finale payée</li>
+<li>Clause de révision : 2 rounds de feedback inclus</li>
+<li>Clause d'escalade : si client ne répond pas 5 jours ouvrables → projet en pause</li>
+</ul>
+
+<p class="doc-p"><strong>Phase 4 — Sprint Planning</strong></p>
+
+<p class="doc-p">Voir section 3.2 ci-dessous.</p>
+
+<h3 class="doc-h3">3.2 Sprint Planning 7 Jours (Format Moyen Projet)</h3>
+
+<p class="doc-p"><strong>Structure Sprint Hebdo</strong> :</p>
+
+<pre class="code-block"><code class="lang-text">
+SPRINT [N] — Semaine du [date] au [date]
+Projet : [Nom]
+Responsable dev : [Nom]
+COO tracking : David / [COO]
+
+LUNDI :
+  [ ] Setup environnement + accès vérifiés
+  [ ] Brief technique interne (30 min)
+  [ ] Premier livrable démarré
+
+MARDI-MERCREDI :
+  [ ] Développement principal
+  [ ] Test en cours de développement
+  [ ] Si blocage &amp;gt; 2h → message client ou CEO
+
+JEUDI :
+  [ ] Feature freeze (plus de nouvelles fonctionnalités)
+  [ ] Tests intégration + QA
+  [ ] Screenshots / vidéo de démonstration préparés
+
+VENDREDI (avant 12h) :
+  [ ] Livraison preview au client
+  [ ] Point de suivi hebdo (15 min)
+  [ ] Liste feedback client reçue et priorisée
+</code></pre>
+
+<p class="doc-p"><strong>Règle du Sprint</strong> : Le vendredi, le client voit TOUJOURS quelque chose qui fonctionne. Même si ce n'est pas parfait. La confiance se construit par la démonstration continue du progrès.</p>
+
+<h3 class="doc-h3">3.3 Points Hebdo Client — Format Exact</h3>
+
+<p class="doc-p"><strong>Durée</strong> : 15 minutes maximum. Pas une seconde de plus.</p>
+
+<p class="doc-p"><strong>Ordre du jour fixe</strong> :</p>
+<pre class="code-block"><code class="lang-text">
+POINT HEBDO — [Nom Projet] — Semaine [N]
+Durée : 15 min
+
+1. (3 min) Ce qui a été livré cette semaine
+   → Demo rapide ou screenshots
+
+2. (3 min) Ce qui est prévu la semaine prochaine
+   → 3 éléments max
+
+3. (3 min) Ce qu'on a besoin du client
+   → Actions client requises (si aucune : le dire explicitement)
+
+4. (3 min) Questions / retours client
+   → Prendre notes, confirmer par écrit dans les 2h
+
+5. (3 min) Confirmation planning prochain point
+   → Même jour, même heure, semaine prochaine
+</code></pre>
+
+<p class="doc-p"><strong>Template Message Après Chaque Point Hebdo</strong> :</p>
+<pre class="code-block"><code class="lang-text">
+Bonjour [Prénom],
+
+Merci pour le point de ce [jour]. Voici le récap :
+
+Cette semaine livré :
+• [Item 1]
+• [Item 2]
+
+Semaine prochaine :
+• [Item 1]
+• [Item 2]
+
+Ce qu'on attend de vous :
+• [Action 1] — pour [date]
+• [Action 2] — pour [date]
+
+Prochain point : [jour] à [heure].
+
+Bonne semaine !
+— DreamNova
+</code></pre>
+
+<h3 class="doc-h3">3.4 Gestion Scope Creep — Scripts Précis</h3>
+
+<p class="doc-p"><strong>Définition</strong> : Le scope creep survient quand le client demande des fonctionnalités ou modifications qui dépassent le périmètre du brief initial. C'est la cause N°1 de projets non rentables.</p>
+
+<p class="doc-p"><strong>Détection du Scope Creep</strong> :</p>
+<p class="doc-p">Toute demande qui n'est pas dans le brief signé = scope creep potentiel.</p>
+
+<p class="doc-p"><strong>Script WhatsApp — Scope Creep Mineur (< 2h de travail)</strong> :</p>
+<pre class="code-block"><code class="lang-text">
+Bonjour [Prénom] !
+
+Bonne idée pour [demande]. Ce n'était pas dans le brief initial, 
+mais on peut l'ajouter.
+
+Deux options :
+A) On l'inclut : +[X]₪ et livraison repoussée de [N] jours
+B) On le garde pour la phase 2 (prochain projet)
+
+Votre choix ?
+</code></pre>
+
+<p class="doc-p"><strong>Script WhatsApp — Scope Creep Majeur (> 2h de travail)</strong> :</p>
+<pre class="code-block"><code class="lang-text">
+Bonjour [Prénom],
+
+Votre demande concernant [X] est excellente et mérite 
+d'être bien faite. Cependant, elle dépasse le périmètre 
+de notre projet actuel.
+
+Je vous propose de finaliser la phase actuelle comme prévu, 
+puis de lancer une phase 2 dédiée à [X].
+
+Je vous envoie un devis Phase 2 dans les 24h.
+
+Le projet actuel reste sur track pour la livraison le [date].
+</code></pre>
+
+<p class="doc-p"><strong>Règle d'Or Scope Creep</strong> : Jamais dire non à une idée client. Toujours dire "oui, en phase 2" ou "oui, avec ajustement de budget/délai". Le client doit se sentir entendu, pas bloqué.</p>
+
+<h3 class="doc-h3">3.5 Rapport Mi-Chemin + Rapport Final</h3>
+
+<p class="doc-p"><strong>Rapport Mi-Chemin (envoyé à 50% du projet)</strong> :</p>
+
+<pre class="code-block"><code class="lang-markdown">
+# Rapport Mi-Chemin — [Nom Projet]
+Date : [Date]
+
+## Ce qui est livré (50%)
+[Liste des livrables complétés avec liens/screenshots]
+
+## Ce qui reste (50%)
+[Liste des livrables à venir]
+
+## Planning ajusté
+Livraison finale confirmée : [date]
+Risques identifiés : [aucun / liste]
+
+## Actions requises client
+[Liste avec deadlines]
+
+## Budget
+Dépensé : [X]₪ / [Total]₪
+Reste : [Y]₪
+</code></pre>
+
+<p class="doc-p"><strong>Rapport Final</strong> :</p>
+
+<pre class="code-block"><code class="lang-markdown">
+# Rapport Final — [Nom Projet]
+Date : [Date]
+Statut : ✅ LIVRÉ
+
+## Livrables Complétés
+[Liste exhaustive avec liens actifs]
+
+## Tests Effectués
+[Liste des tests QA passés]
+
+## Accès et Credentials
+[Tableau des accès remis au client]
+
+## Guide d'Utilisation Rapide
+[3 points essentiels pour utiliser le livrable]
+
+## Support Post-Livraison
+Inclus : [X jours] de support correctif
+Contact : [email/WhatsApp COO]
+
+## Prochaines Étapes Recommandées
+1. [Recommandation 1]
+2. [Recommandation 2]
+
+Merci pour votre confiance !
+</code></pre>
+
+<h3 class="doc-h3">3.6 Facturation 50% Avance / 50% Livraison</h3>
+
+<p class="doc-p"><strong>Process facturation moyen projet</strong> :</p>
+
+<pre class="code-block"><code class="lang-text">
+ÉTAPE 1 — Devis signé
+→ Émettre Facture Acompte 50%
+→ Paiement attendu avant démarrage
+→ Pas de démarrage sans paiement reçu (règle absolue)
+
+ÉTAPE 2 — Mi-projet (optionnel si &amp;gt; 20K₪)
+→ Pas de facture intermédiaire pour projets &amp;lt; 20K₪
+→ Pour &amp;gt; 20K₪ : facturation en 3 fois (voir Grand Projet)
+
+ÉTAPE 3 — Livraison
+→ Émettre Facture Solde 50%
+→ Délai de paiement : 7 jours ouvrables
+→ Les accès finaux et code source remis après paiement solde reçu
+
+RELANCE si paiement solde non reçu à J+7 :
+→ J+7 : Message WhatsApp friendly reminder
+→ J+14 : Email formel avec facture en pièce jointe
+→ J+21 : Lettre recommandée (si &amp;gt; 5K₪)
+</code></pre>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="partie-c-grand-projet-coo">PARTIE C — GRAND PROJET (COO)</h2>
+
+<h2 class="doc-h2" id="4-grand-projet-vue-d-ensemble">4. GRAND PROJET — Vue d'Ensemble</h2>
+
+<p class="doc-p"><strong>Définition opérationnelle</strong> : Un grand projet chez DreamNova est une mission transformationnelle : création d'une plateforme SaaS, refonte complète d'un écosystème digital, MVP complet avec backend, frontend, base de données et intégrations multiples. Durée > 1 mois. Budget > 30K₪.</p>
+
+<p class="doc-p"><strong>Philosophie</strong> : Sur un grand projet, le COO devient chef de projet à temps partiel. La gouvernance, la communication et la gestion des risques deviennent critiques. Le moindre malentendu coûte des semaines.</p>
+
+<h3 class="doc-h3">4.1 Discovery Facturée (2 500 — 5 000 ₪)</h3>
+
+<p class="doc-p"><strong>Pourquoi facturer la discovery ?</strong></p>
+
+<p class="doc-p">La discovery d'un grand projet prend 5 à 10 jours de travail (interviews, architecture, estimation, prototypage). Ce travail a une valeur intrinsèque. Si le client ne veut pas payer la discovery, il n'est pas prêt pour un grand projet.</p>
+
+<p class="doc-p"><strong>Contenu de la Discovery Facturée</strong> :</p>
+<ol class="doc-list">
+<li>Workshop de cadrage (3h avec le client)</li>
+<li>Audit de l'existant (technique, UX, business)</li>
+<li>Architecture solution proposée (schéma + description)</li>
+<li>Spécifications fonctionnelles (document 10-20 pages)</li>
+<li>Estimation détaillée par livrable</li>
+<li>Plan de projet avec jalons et dépendances</li>
+<li>Analyse des risques</li>
+</ol>
+
+<p class="doc-p"><strong>Déductibilité</strong> : Si le client lance le projet après la discovery, les 2 500 — 5 000 ₪ sont déduits du budget total. Si non, DreamNova garde les honoraires de discovery.</p>
+
+<h3 class="doc-h3">4.2 Kick-Off Meeting Agenda</h3>
+
+<p class="doc-p"><strong>Durée</strong> : 90 minutes. Présentiel si possible, visio sinon.</p>
+
+<pre class="code-block"><code class="lang-text">
+KICK-OFF MEETING — [Nom Projet]
+Date : [Date]
+Présents : [liste]
+
+0:00 — 0:10 : Tour de table + rôles de chacun
+0:10 — 0:25 : Rappel des objectifs et du périmètre (lecture du SOW)
+0:25 — 0:40 : Architecture technique (CTO présente)
+0:40 — 0:55 : Planning détaillé (jalons, dépendances, dates clés)
+0:55 — 1:10 : Process communication (outils, fréquence, escalade)
+1:10 — 1:20 : Questions / risques identifiés
+1:20 — 1:30 : Validation et signature du lancement
+
+LIVRABLES DU KICK-OFF :
+→ Compte-rendu envoyé dans les 24h
+→ Accès outils de suivi partagés (Notion / Linear / Trello)
+→ Calendrier invites envoyées pour tous les points hebdo
+→ Canal de communication créé (WhatsApp group ou Slack)
+</code></pre>
+
+<h3 class="doc-h3">4.3 Reporting Hebdo Format Grand Projet</h3>
+
+<p class="doc-p"><strong>Format rapport hebdo (envoyé chaque vendredi avant 17h)</strong> :</p>
+
+<pre class="code-block"><code class="lang-markdown">
+# Rapport Hebdo — [Nom Projet] — Semaine [N]
+Date : [Vendredi JJ/MM/AAAA]
+
+## Statut Global
+🟢 En bonne voie / 🟡 Attention requise / 🔴 Problème critique
+
+## Réalisé cette semaine
+| Livrable | Statut | Lien / Preuve |
+|----------|--------|---------------|
+| [L1]     | ✅ 100% | [lien] |
+| [L2]     | 🔄 60%  | [screenshot] |
+
+## Prévu semaine prochaine
+1. [Objectif 1]
+2. [Objectif 2]
+3. [Objectif 3]
+
+## Actions requises côté client
+| Action | Responsable | Deadline |
+|--------|-------------|----------|
+| [A1]   | [Prénom]    | [Date]   |
+
+## Budget
+Dépensé à date : [X]₪ / [Total]₪ ([Y]%)
+Projection fin de projet : [Z]₪
+
+## Risques
+| Risque | Probabilité | Impact | Mitigation |
+|--------|-------------|--------|------------|
+| [R1]   | Faible      | Moyen  | [Action]   |
+
+## Prochaine réunion
+[Jour] [date] à [heure] — Durée : 30 min
+</code></pre>
+
+<h3 class="doc-h3">4.4 Jalons Contractuels (30/40/30)</h3>
+
+<p class="doc-p"><strong>Structure de paiement par jalons</strong> :</p>
+
+<pre class="code-block"><code class="lang-text">
+JALON 1 — 30% — Avant démarrage
+Condition : Contrat signé + kick-off meeting réalisé
+Montant : [0.30 × budget total] ₪
+Délai paiement : Immédiat (pré-requis au démarrage)
+
+JALON 2 — 40% — À la validation du MVP Alpha
+Condition : 
+  - Toutes les fonctionnalités principales développées
+  - Tests d'intégration passés
+  - Demo client validée par écrit
+Montant : [0.40 × budget total] ₪
+Délai paiement : 5 jours ouvrables après validation
+
+JALON 3 — 30% — Livraison finale
+Condition :
+  - Tous les bugs critiques corrigés
+  - Documentation remise
+  - Formation client réalisée (si applicable)
+  - Mise en production effectuée
+Montant : [0.30 × budget total] ₪
+Délai paiement : 7 jours ouvrables après livraison
+</code></pre>
+
+<p class="doc-p"><strong>Clause de Blocage Jalon</strong> : Si le client ne valide pas un jalon dans les 10 jours ouvrables après présentation, le jalon est considéré validé par défaut et le paiement est dû. (Cette clause doit figurer dans le contrat.)</p>
+
+<h3 class="doc-h3">4.5 Gouvernance — Comité de Pilotage Mensuel</h3>
+
+<p class="doc-p"><strong>Composition</strong> :</p>
+<ul class="doc-list">
+<li>Côté DreamNova : CEO (David) + COO + CTO (tech lead)</li>
+<li>Côté Client : Décideur principal + responsable opérationnel</li>
+</ul>
+
+<p class="doc-p"><strong>Agenda Type Comité Pilotage (60 min)</strong> :</p>
+
+<pre class="code-block"><code class="lang-text">
+0:00 — 0:10 : Bilan mois écoulé (réalisé vs prévu)
+0:10 — 0:25 : Demo des livrables du mois
+0:25 — 0:35 : Budget et facturation
+0:35 — 0:45 : Plan du mois suivant + jalons
+0:45 — 0:55 : Risques et décisions stratégiques
+0:55 — 1:00 : AOB (divers) + prochaine date
+</code></pre>
+
+<p class="doc-p"><strong>Règle du Comité</strong> : Toute décision qui change le périmètre, le budget ou le délai doit être prise EN comité et documentée dans un avenant signé dans les 48h.</p>
+
+<h3 class="doc-h3">4.6 Gestion des Risques + Contingences</h3>
+
+<p class="doc-p"><strong>Matrice des Risques Grand Projet</strong> :</p>
+
+<div class="table-wrap"><table class="doc-table"><tbody>
+<tr><th>Risque</th><th>Prob.</th><th>Impact</th><th>Mitigation</th><th>Contingence</th></tr>
+<tr><td>Client indisponible pour validation</td><td>Moyenne</td><td>Élevé</td><td>Clause contrat J+10 = validé</td><td>Reporter jalon, facturer attente</td></tr>
+<tr><td>Retard livraison technique</td><td>Faible</td><td>Élevé</td><td>Buffer 20% dans planning</td><td>Sprint d'urgence + communication proactive</td></tr>
+<tr><td>Scope creep non validé</td><td>Élevée</td><td>Moyen</td><td>Brief signé, avenant systématique</td><td>Stop dev + réunion comité</td></tr>
+<tr><td>API tierce indisponible</td><td>Faible</td><td>Moyen</td><td>Solution de backup identifiée dès discovery</td><td>Intégration alternative</td></tr>
+<tr><td>Équipe DreamNova indisponible</td><td>Très faible</td><td>Très élevé</td><td>Backup dev identifié, docs à jour</td><td>Freelance pool DreamNova</td></tr>
+</tbody></table></div>
+
+<p class="doc-p"><strong>Budget de Contingence</strong> : 10% du budget total réservé pour imprévus. Non dépensé si tout va bien = bonus client ou marge DreamNova.</p>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="5-templates-communication-scripts-pr-ts-l-emploi">5. TEMPLATES COMMUNICATION — Scripts Prêts à l'Emploi</h2>
+
+<h3 class="doc-h3">5.1 Premier Contact (Prospect Entrant)</h3>
+
+<p class="doc-p"><strong>WhatsApp</strong> :</p>
+<pre class="code-block"><code class="lang-text">
+Bonjour [Prénom] ! Merci pour votre message.
+J'ai bien compris votre besoin concernant [sujet].
+Pour vous donner une réponse précise, j'aurais besoin de 15 min.
+Quand êtes-vous disponible cette semaine ? Mardi ou jeudi ?
+— David, DreamNova
+</code></pre>
+
+<h3 class="doc-h3">5.2 Devis Envoyé — Relance à J+3</h3>
+
+<pre class="code-block"><code class="lang-text">
+Bonjour [Prénom],
+Je voulais m'assurer que vous aviez bien reçu notre proposition.
+Avez-vous eu l'occasion de la regarder ?
+Si vous avez des questions, je suis là.
+À bientôt !
+</code></pre>
+
+<h3 class="doc-h3">5.3 Demande d'Accès Client (toutes tailles)</h3>
+
+<pre class="code-block"><code class="lang-text">
+Bonjour [Prénom],
+Pour démarrer le projet, j'ai besoin de :
+□ [Accès 1] (ex: accès Shopify admin)
+□ [Accès 2] (ex: accès hosting cPanel)
+□ [Accès 3] (ex: logo en HD)
+Vous pouvez tout m'envoyer ici en message privé ou via WeTransfer.
+Dès réception, on démarre immédiatement !
+</code></pre>
+
+<h3 class="doc-h3">5.4 Annonce Retard (avec responsabilité)</h3>
+
+<pre class="code-block"><code class="lang-text">
+Bonjour [Prénom],
+Je vous contacte car nous avons rencontré [problème technique précis].
+Cela repousse la livraison de [X jours], soit au [nouvelle date].
+Ce que nous faisons pour rattraper :
+1. [Action 1]
+2. [Action 2]
+Je m'excuse pour ce délai et reste totalement disponible.
+</code></pre>
+
+<h3 class="doc-h3">5.5 Demande de Témoignage Post-Livraison</h3>
+
+<pre class="code-block"><code class="lang-text">
+Bonjour [Prénom] !
+Ravi que le projet soit en production et que vous soyez satisfait !
+Pourriez-vous prendre 3 minutes pour laisser un avis Google ou LinkedIn ?
+Un témoignage comme le vôtre aide DreamNova à aider d'autres entrepreneurs.
+Lien direct : [lien Google My Business ou LinkedIn]
+Mille mercis !
+</code></pre>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="6-suivi-tickets-tracker-demandes-client">6. SUIVI TICKETS — Tracker Demandes Client</h2>
+
+<h3 class="doc-h3">6.1 Système de Tickets Simple (sans outil)</h3>
+
+<p class="doc-p">Chaque demande client reçoit un numéro de ticket dans le format :</p>
+<p class="doc-p"><code class="ic">[INITIAL-CLIENT]-[ANNÉE]-[NUMÉRO]</code></p>
+
+<p class="doc-p">Exemple : <code class="ic">KRY-2026-047</code> (Keren Rabbi Yisrael, 2026, ticket 47)</p>
+
+<p class="doc-p"><strong>Statuts</strong> :</p>
+<ul class="doc-list">
+<li><code class="ic">NOUVEAU</code> : Demande reçue, non encore traitée</li>
+<li><code class="ic">EN COURS</code> : Assigné à un dev, en développement</li>
+<li><code class="ic">EN ATTENTE CLIENT</code> : On attend une info ou validation du client</li>
+<li><code class="ic">LIVRÉ</code> : Envoyé au client, en attente de feedback</li>
+<li><code class="ic">FERMÉ</code> : Validé et archivé</li>
+</ul>
+
+<h3 class="doc-h3">6.2 SLA par Taille de Projet</h3>
+
+<div class="table-wrap"><table class="doc-table"><tbody>
+<tr><th>Type</th><th>Réponse initiale</th><th>Résolution critique</th><th>Résolution standard</th></tr>
+<tr><td>Petit</td><td>2h</td><td>4h</td><td>24h</td></tr>
+<tr><td>Moyen</td><td>4h</td><td>8h</td><td>48h</td></tr>
+<tr><td>Grand</td><td>4h</td><td>8h</td><td>72h</td></tr>
+</tbody></table></div>
+
+<p class="doc-p"><strong>Règle SLA</strong> : Le SLA commence à compter dès réception du ticket, en heures ouvrables (9h-18h, dim-jeu pour DreamNova Jérusalem).</p>
+
+<h3 class="doc-h3">6.3 Priorisation des Tickets</h3>
+
+<pre class="code-block"><code class="lang-text">
+CRITIQUE (P1) : Site en production down, paiements bloqués, perte de données
+→ Résolution sous 4h, COO informé immédiatement
+
+URGENT (P2) : Bug fonctionnel majeur, fonctionnalité principale cassée
+→ Résolution sous 8h
+
+NORMAL (P3) : Amélioration, ajustement visuel, nouvelle fonctionnalité mineure
+→ Résolution sous 48h
+
+BAS (P4) : Contenu à mettre à jour, demande future
+→ Résolution sous 1 semaine
+</code></pre>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="7-facturation-coo-process-complet">7. FACTURATION COO — Process Complet</h2>
+
+<h3 class="doc-h3">7.1 Cycle de Facturation Complet</h3>
+
+<pre class="code-block"><code class="lang-text">
+DEVIS
+  → Généré dans les 2h après qualification
+  → Validité : 7 jours (25 jours pour grands projets)
+  → Envoyé par email PDF + message WhatsApp
+
+ACOMPTE
+  → Émis dès signature du devis/contrat
+  → Paiement attendu avant toute action
+  → Confirmé par email de bienvenue + lancement
+
+FACTURE INTERMÉDIAIRE (si applicable)
+  → Uniquement projets &amp;gt; 20K₪
+  → À la validation du jalon 2
+
+FACTURE FINALE
+  → Émise le jour de la livraison finale
+  → Délai de paiement : 7 jours ouvrables
+
+RELANCE AUTOMATIQUE
+  → J+7 : Rappel amical (WhatsApp)
+  → J+14 : Email formel avec PDF
+  → J+21 : Lettre recommandée (si montant &amp;gt; 5 000₪)
+  → J+30 : Recours (mise en demeure)
+</code></pre>
+
+<h3 class="doc-h3">7.2 Modèle de Recouvrement Amical</h3>
+
+<pre class="code-block"><code class="lang-text">
+Objet : Rappel facture [N°] — [Nom Projet]
+
+Bonjour [Prénom],
+
+Je me permets de vous rappeler que la facture [N°] 
+d'un montant de [X]₪ est arrivée à échéance le [date].
+
+Si vous avez déjà effectué le virement, merci de m'en informer.
+Dans le cas contraire, merci de procéder au règlement 
+au plus vite à : [IBAN / lien paiement].
+
+En cas de difficulté, n'hésitez pas à me contacter.
+Cordialement,
+[COO DreamNova]
+</code></pre>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="8-upsell-op-rationnel-identifier-et-proposer-les-extras">8. UPSELL OPÉRATIONNEL — Identifier et Proposer les Extras</h2>
+
+<h3 class="doc-h3">8.1 Moments Naturels d'Upsell</h3>
+
+<p class="doc-p"><strong>Au livrable</strong> : Identifier ce qui manque encore.</p>
+<pre class="code-block"><code class="lang-text">
+"Votre site est en ligne. Je remarque que vous n'avez pas encore 
+de système de newsletter. On peut l'ajouter pour [X]₪."
+</code></pre>
+
+<p class="doc-p"><strong>Au point hebdo</strong> : Proposer la suite logique.</p>
+<pre class="code-block"><code class="lang-text">
+"Maintenant que la boutique fonctionne, la prochaine étape 
+évidente est l'automatisation des emails post-achat. 
+Ça génère en moyenne +15% de CA sans travail manuel.
+Ça vous intéresse ?"
+</code></pre>
+
+<p class="doc-p"><strong>Au rapport final</strong> : Présenter la roadmap.</p>
+<pre class="code-block"><code class="lang-text">
+"Vous avez maintenant la v1. Voici les 3 évolutions qui 
+vous donneraient le plus de valeur en v2 : [liste].
+Je peux vous envoyer une proposition pour la plus prioritaire ?"
+</code></pre>
+
+<h3 class="doc-h3">8.2 Catalogue des Extras DreamNova (par ticket moyen)</h3>
+
+<div class="table-wrap"><table class="doc-table"><tbody>
+<tr><th>Extra</th><th>Prix moyen</th><th>Durée</th><th>Moment idéal</th></tr>
+<tr><td>Setup analytics (GA4 + Pixel)</td><td>1 500 ₪</td><td>1 jour</td><td>Lancement site</td></tr>
+<tr><td>Automatisation email post-achat</td><td>2 500 ₪</td><td>2 jours</td><td>Boutique live</td></tr>
+<tr><td>Optimisation SEO on-page</td><td>3 000 ₪</td><td>3 jours</td><td>1 mois après lancement</td></tr>
+<tr><td>Rapport mensuel performance</td><td>800 ₪/mo</td><td>Récurrent</td><td>Toujours</td></tr>
+<tr><td>Formation client utilisation</td><td>1 200 ₪</td><td>0.5 jour</td><td>Livraison finale</td></tr>
+<tr><td>Contrat maintenance</td><td>500—2 000 ₪/mo</td><td>Récurrent</td><td>Après tout projet</td></tr>
+</tbody></table></div>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="9-post-delivery-suivi-satisfaction-et-fid-lisation">9. POST-DELIVERY — Suivi Satisfaction et Fidélisation</h2>
+
+<h3 class="doc-h3">9.1 Séquence Post-Livraison (J+1 à J+30)</h3>
+
+<pre class="code-block"><code class="lang-text">
+J+1  : Message WhatsApp "Comment ça se passe ?"
+J+3  : Email avec guide d'utilisation rapide (PDF)
+J+7  : Check-in : "Des questions ? Des ajustements ?"
+J+14 : Partage d'une astuce pour maximiser l'usage
+J+30 : Bilan mensuel + proposition de suivi ou prochaine étape
+</code></pre>
+
+<h3 class="doc-h3">9.2 Enquête Satisfaction (NPS)</h3>
+
+<p class="doc-p">Envoyer 7 jours après livraison finale :</p>
+
+<pre class="code-block"><code class="lang-text">
+Bonjour [Prénom],
+
+Question rapide (30 secondes) : 
+Sur une échelle de 0 à 10, recommanderiez-vous DreamNova 
+à un ami ou collègue ?
+
+[0-6] → Qu'est-ce qu'on aurait pu mieux faire ?
+[7-8] → Qu'est-ce qui vous a le plus satisfait ?
+[9-10] → Seriez-vous prêt à laisser un témoignage ?
+
+Merci pour votre réponse !
+</code></pre>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="10-documentation-client-handover-et-guide">10. DOCUMENTATION CLIENT — Handover et Guide</h2>
+
+<h3 class="doc-h3">10.1 Document Handover Standard</h3>
+
+<p class="doc-p">Chaque projet livré inclut un document handover contenant :</p>
+
+<ol class="doc-list">
+<li><strong>Accès et credentials</strong> : Tableau de tous les logins (hébergement, CMS, analytics, paiement)</li>
+<li><strong>Architecture technique</strong> : Schéma simple des composants</li>
+<li><strong>Guide d'utilisation</strong> : 10 actions les plus fréquentes pas à pas</li>
+<li><strong>Process de mise à jour</strong> : Comment ajouter un produit, modifier un texte, etc.</li>
+<li><strong>Contacts support</strong> : Qui appeler pour quoi</li>
+<li><strong>Sauvegardes</strong> : Où sont les backups et comment les restaurer</li>
+<li><strong>Licences et abonnements</strong> : Liste des outils payants avec dates de renouvellement</li>
+</ol>
+
+<h3 class="doc-h3">10.2 Vidéo Loom (si complexité > seuil)</h3>
+
+<p class="doc-p">Pour tout projet moyen ou grand impliquant un backend ou une interface d'administration complexe : enregistrer une vidéo Loom de 5-10 minutes montrant les actions principales. Partager le lien dans le document handover. Coût = 20 minutes de temps, valeur = énorme en satisfaction client et en réduction des tickets support.</p>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="11-crise-par-taille-protocoles-sp-cifiques">11. CRISE PAR TAILLE — Protocoles Spécifiques</h2>
+
+<h3 class="doc-h3">11.1 Crise Petit Projet</h3>
+
+<p class="doc-p"><strong>Scénario : Retard livraison</strong></p>
+<pre class="code-block"><code class="lang-text">
+1. Informer client immédiatement (pas d'attente)
+2. Donner nouvelle date précise
+3. Proposer compensation : révision gratuite ou légère remise
+4. Livrer à la nouvelle date, coûte que coûte
+</code></pre>
+
+<p class="doc-p"><strong>Scénario : Bug critique post-livraison</strong></p>
+<pre class="code-block"><code class="lang-text">
+1. Prendre ownership total : "C'est notre responsabilité"
+2. Fix sous 4h max (P1 absolu)
+3. Tester à fond avant re-livraison
+4. Pas de facturation pour le fix
+</code></pre>
+
+<h3 class="doc-h3">11.2 Crise Moyen Projet</h3>
+
+<p class="doc-p"><strong>Scénario : Client insatisfait à mi-chemin</strong></p>
+<pre class="code-block"><code class="lang-text">
+1. Appel téléphonique dans l'heure (pas de WhatsApp pour les crises)
+2. Écouter SANS se défendre pendant 5 minutes minimum
+3. Résumer ce qu'on a entendu pour valider la compréhension
+4. Proposer une solution concrète avec délai précis
+5. Faire un point 48h après pour confirmer que c'est résolu
+</code></pre>
+
+<p class="doc-p"><strong>Scénario : Dev principal indisponible</strong></p>
+<pre class="code-block"><code class="lang-text">
+1. COO prend connaissance du code immédiatement
+2. Activer backup dev (pool freelance DreamNova)
+3. Client informé sans panique : "Notre équipe s'ajuste"
+4. Planning ajusté si nécessaire (max 3 jours de décalage acceptable)
+</code></pre>
+
+<h3 class="doc-h3">11.3 Crise Grand Projet</h3>
+
+<p class="doc-p"><strong>Scénario : Dérapage budget</strong></p>
+<pre class="code-block"><code class="lang-text">
+1. Détecter tôt (suivi hebdo budget = bouclier)
+2. Réunion comité de pilotage extraordinaire dans les 48h
+3. Présenter 3 options : réduire périmètre / augmenter budget / reporter
+4. Client choisit, on documente et signe l'avenant
+</code></pre>
+
+<p class="doc-p"><strong>Scénario : Client veut arrêter</strong></p>
+<pre class="code-block"><code class="lang-text">
+1. COO ne négocie pas seul : appel CEO dans l'heure
+2. Comprendre la vraie raison (pas toujours celle exprimée)
+3. Proposer une pause de 2 semaines plutôt qu'un arrêt
+4. Si arrêt confirmé : facturer prorata + remettre tous les livrables partiels
+5. Sortir proprement pour préserver la réputation
+</code></pre>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="12-kpis-coo-tableaux-de-bord-par-taille">12. KPIs COO — Tableaux de Bord par Taille</h2>
+
+<h3 class="doc-h3">12.1 KPIs Petit Projet</h3>
+
+<div class="table-wrap"><table class="doc-table"><tbody>
+<tr><th>KPI</th><th>Cible</th><th>Alerte</th></tr>
+<tr><td>Délai livraison moyen</td><td>< 36h</td><td>> 48h</td></tr>
+<tr><td>Taux de satisfaction (NPS)</td><td>> 8/10</td><td>< 7/10</td></tr>
+<tr><td>Taux de rebooking</td><td>> 60%</td><td>< 40%</td></tr>
+<tr><td>Délai de paiement acompte</td><td>< 24h</td><td>> 48h</td></tr>
+<tr><td>Scope creep rate</td><td>< 10%</td><td>> 25%</td></tr>
+</tbody></table></div>
+
+<h3 class="doc-h3">12.2 KPIs Moyen Projet</h3>
+
+<div class="table-wrap"><table class="doc-table"><tbody>
+<tr><th>KPI</th><th>Cible</th><th>Alerte</th></tr>
+<tr><td>Respect planning</td><td>> 80% jalons on-time</td><td>< 60%</td></tr>
+<tr><td>Satisfaction client (NPS)</td><td>> 8.5/10</td><td>< 7/10</td></tr>
+<tr><td>Taux d'upsell</td><td>> 30% des clients</td><td>< 15%</td></tr>
+<tr><td>Délai paiement solde</td><td>< 7 jours</td><td>> 14 jours</td></tr>
+<tr><td>Tickets support post-livraison</td><td>< 3 tickets/mois</td><td>> 8 tickets/mois</td></tr>
+</tbody></table></div>
+
+<h3 class="doc-h3">12.3 KPIs Grand Projet</h3>
+
+<div class="table-wrap"><table class="doc-table"><tbody>
+<tr><th>KPI</th><th>Cible</th><th>Alerte</th></tr>
+<tr><td>Budget réalisé vs estimé</td><td>< 110%</td><td>> 130%</td></tr>
+<tr><td>Respect des jalons</td><td>> 85%</td><td>< 70%</td></tr>
+<tr><td>NPS final</td><td>> 9/10</td><td>< 7.5/10</td></tr>
+<tr><td>Contrat maintenance signé</td><td>> 70% des grands projets</td><td>< 40%</td></tr>
+<tr><td>Référence client obtenue</td><td>100%</td><td>< 80%</td></tr>
+</tbody></table></div>
+
+<h3 class="doc-h3">12.4 KPIs COO Globaux (Tous Projets Confondus)</h3>
+
+<div class="table-wrap"><table class="doc-table"><tbody>
+<tr><th>KPI</th><th>Cible Mensuelle</th><th>Comment mesurer</th></tr>
+<tr><td>Projets livrés à temps</td><td>> 85%</td><td>Rapport hebdo</td></tr>
+<tr><td>NPS moyen DreamNova</td><td>> 8.5/10</td><td>Enquête post-livraison</td></tr>
+<tr><td>MRR maintenance</td><td>Croissance +10%/mo</td><td>Stripe/Facturation</td></tr>
+<tr><td>Taux de rebooking 90 jours</td><td>> 50%</td><td>CRM client</td></tr>
+<tr><td>Délai moyen devis→acompte</td><td>< 3 jours</td><td>Suivi commercial</td></tr>
+</tbody></table></div>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="13-automation-coo-scripts-bash-et-alertes">13. AUTOMATION COO — Scripts Bash et Alertes</h2>
+
+<h3 class="doc-h3">13.1 Script Rapport Hebdo Automatique</h3>
+
+<pre class="code-block"><code class="lang-bash">
+#!/bin/bash
+# ~/scripts/coo_weekly_report.sh
+# Lance chaque vendredi à 16h via cron : 0 16 * * 5
+
+DATE=$(date +"%Y-%m-%d")
+REPORT_DIR=~/Desktop/DREAMNOVA_MISSION_CONTROL/reports
+
+# Créer le rapport
+cat &amp;gt; "$REPORT_DIR/RAPPORT_COO_$DATE.md" &amp;lt;&amp;lt; EOF
+# Rapport COO — Semaine du $DATE
+
+## Projets Actifs
+$(ls ~/Desktop/_CLIENTS_ACTIFS/ 2&amp;gt;/dev/null | head -20)
+
+## Tickets Ouverts
+$(grep -r "NOUVEAU\|EN COURS" ~/Desktop/DREAMNOVA_MISSION_CONTROL/tasks/ 2&amp;gt;/dev/null | wc -l) tickets actifs
+
+## Généré automatiquement le $DATE
+EOF
+
+# Envoyer alerte Telegram
+openclaw message send   --channel telegram   --target 7269582214   --message "📊 Rapport COO $DATE généré → $REPORT_DIR/RAPPORT_COO_$DATE.md"
+
+echo "Rapport COO généré : $REPORT_DIR/RAPPORT_COO_$DATE.md"
+</code></pre>
+
+<h3 class="doc-h3">13.2 Script Alerte Retard Projet</h3>
+
+<pre class="code-block"><code class="lang-bash">
+#!/bin/bash
+# ~/scripts/coo_deadline_check.sh
+# Lance toutes les heures via cron : 0 * * * *
+
+TODAY=$(date +%Y%m%d)
+ALERT_SENT=0
+
+# Vérifier les fichiers de projets avec deadline
+for project_file in ~/Desktop/_CLIENTS_ACTIFS/*/DEADLINE.txt; do
+  if [ -f "$project_file" ]; then
+    DEADLINE=$(cat "$project_file" | tr -d '
+')
+    PROJECT=$(basename $(dirname "$project_file"))
+    
+    if [ "$TODAY" -ge "$DEADLINE" ]; then
+      openclaw message send         --channel telegram         --target 7269582214         --message "⚠️ DEADLINE ATTEINTE: $PROJECT — Vérifier livraison !"
+      ALERT_SENT=$((ALERT_SENT + 1))
+    fi
+  fi
+done
+
+if [ $ALERT_SENT -eq 0 ]; then
+  echo "Tous les projets sont dans les délais."
+fi
+</code></pre>
+
+<h3 class="doc-h3">13.3 Script Tracker Facturation</h3>
+
+<pre class="code-block"><code class="lang-bash">
+#!/bin/bash
+# ~/scripts/coo_billing_check.sh
+# Lance chaque lundi à 9h : 0 9 * * 1
+
+BILLING_LOG=~/Desktop/DREAMNOVA_MISSION_CONTROL/FACTURATION_LOG.md
+
+echo "# Rapport Facturation — $(date +%Y-%m-%d)" &amp;gt; $BILLING_LOG
+echo "" &amp;gt;&amp;gt; $BILLING_LOG
+echo "## Factures en attente de paiement" &amp;gt;&amp;gt; $BILLING_LOG
+grep -r "ATTENTE_PAIEMENT" ~/Desktop/_CLIENTS_ACTIFS/ 2&amp;gt;/dev/null &amp;gt;&amp;gt; $BILLING_LOG
+
+echo "## Acomptes à relancer (&amp;gt; 48h)" &amp;gt;&amp;gt; $BILLING_LOG
+# Logique de détection des acomptes non reçus
+find ~/Desktop/_CLIENTS_ACTIFS/ -name "ACOMPTE_PENDING.flag" -mtime +2 2&amp;gt;/dev/null &amp;gt;&amp;gt; $BILLING_LOG
+
+openclaw message send   --channel telegram   --target 7269582214   --message "💰 Rapport facturation hebdo prêt → $BILLING_LOG"
+</code></pre>
+
+<h3 class="doc-h3">13.4 Crontab COO Recommandé</h3>
+
+<pre class="code-block"><code class="lang-text">
+# COO Automation — DreamNova
+# Rapport hebdo chaque vendredi 16h
+0 16 * * 5 ~/scripts/coo_weekly_report.sh &amp;gt;&amp;gt; ~/logs/coo_weekly.log 2&amp;gt;&amp;amp;1
+
+# Check deadlines toutes les heures en jours ouvrables
+0 9-18 * * 0-4 ~/scripts/coo_deadline_check.sh &amp;gt;&amp;gt; ~/logs/coo_deadlines.log 2&amp;gt;&amp;amp;1
+
+# Check facturation chaque lundi 9h
+0 9 * * 1 ~/scripts/coo_billing_check.sh &amp;gt;&amp;gt; ~/logs/coo_billing.log 2&amp;gt;&amp;amp;1
+</code></pre>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="14-matrice-synth-se-ascii-vue-d-ensemble">14. MATRICE SYNTHÈSE ASCII — Vue d'Ensemble</h2>
+
+<pre class="code-block"><code class="lang-text">
+╔══════════════════════════════════════════════════════════════════════╗
+║          MATRICE COO DREAMNOVA — PROJETS PAR TAILLE                  ║
+╠══════════════╦═══════════════╦═══════════════╦═══════════════════════╣
+║ DIMENSION    ║ PETIT         ║ MOYEN         ║ GRAND                 ║
+╠══════════════╬═══════════════╬═══════════════╬═══════════════════════╣
+║ Durée        ║ &amp;lt; 3 jours     ║ 1-3 semaines  ║ &amp;gt; 1 mois              ║
+║ Budget       ║ &amp;lt; 8 000 ₪     ║ 8 - 30 K₪     ║ &amp;gt; 30 000 ₪            ║
+║ Livrables    ║ 1             ║ 3 à 7         ║ MVP complet           ║
+║ Contrat      ║ Bon commande  ║ Contrat 1p    ║ Contrat + SOW         ║
+║ Paiement     ║ 100% avant    ║ 50/50         ║ 30/40/30              ║
+║ Discovery    ║ Non           ║ Gratuite      ║ Facturée (2-5K₪)      ║
+║ Réunions     ║ 0 ou 1        ║ 2 à 4         ║ 5+ + comité mensuel   ║
+║ Reporting    ║ Livraison     ║ Hebdo         ║ Hebdo + comité        ║
+║ SLA réponse  ║ 2h            ║ 4h            ║ 4h                    ║
+║ Kick-off     ║ WhatsApp      ║ Appel 30 min  ║ Réunion 90 min        ║
+║ Kill crit.   ║ Blocage &amp;gt; 4h  ║ Blocage &amp;gt; 8h  ║ Comité extraordinaire ║
+║ Post-liv.    ║ J+1 check-in  ║ J+7 bilan     ║ J+30 + maintenance    ║
+║ Upsell       ║ Au livrable   ║ Point hebdo   ║ Comité mensuel        ║
+╠══════════════╬═══════════════╬═══════════════╬═══════════════════════╣
+║ EXEMPLE      ║ Landing page  ║ Site e-comm.  ║ Plateforme SaaS       ║
+║ PROJETS      ║ Script auto   ║ App Shopify   ║ MVP multi-modules     ║
+║ DREAMNOVA    ║ Plugin simple ║ Dashboard     ║ DreamOS / Nova Key    ║
+╚══════════════╩═══════════════╩═══════════════╩═══════════════════════╝
+
+FLUX OPÉRATIONNEL PAR TAILLE :
+
+PETIT  : Brief (1h) → Devis (30min) → Paiement → Dev → Livraison (48h)
+         ─────────────────────────────────────────────────────── 3 jours
+
+MOYEN  : Discovery (1j) → Brief écrit (1j) → Contrat → Sprint ×2-3
+         ──────────────────────────────────────────────────── 2-3 semaines
+
+GRAND  : Discovery facturée (5-10j) → Kick-off → Sprints × N → Jalons
+         ──────────────────────────────────────────────────── 1-6 mois
+
+DÉCISION RAPIDE :
+┌─────────────────────────────────────────────┐
+│ Budget &amp;gt; 30K₪ OU durée &amp;gt; 1 mois ?          │
+│   OUI → GRAND                               │
+│   NON → Budget &amp;gt; 8K₪ OU durée &amp;gt; 3 jours ? │
+│     OUI → MOYEN                             │
+│     NON → PETIT                             │
+└─────────────────────────────────────────────┘
+</code></pre>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="15-7-mantras-coo-dreamnova">15. 7 MANTRAS COO DREAMNOVA</h2>
+
+<p class="doc-p"><strong>Ces 7 mantras guident chaque décision opérationnelle du COO. Les imprimer, les mémoriser, les appliquer.</strong></p>
+
+<hr class="doc-hr">
+
+<h3 class="doc-h3">Mantra 1 — "Cadrage = Protection"</h3>
+
+<blockquote class="doc-quote">
+<p>"Chaque minute investie en cadrage avant le projet économise une heure de crise pendant le projet."</p>
+</blockquote>
+
+<p class="doc-p"><strong>Application</strong> : Ne jamais démarrer sans brief écrit validé. Même pour un petit projet de 500₪. Un brief de 3 lignes vaut mieux qu'un malentendu de 3 semaines.</p>
+
+<hr class="doc-hr">
+
+<h3 class="doc-h3">Mantra 2 — "Sur-communiquer, jamais sous-communiquer"</h3>
+
+<blockquote class="doc-quote">
+<p>"Un client qui ne sait pas où en est son projet imagine toujours le pire."</p>
+</blockquote>
+
+<p class="doc-p"><strong>Application</strong> : Envoyer un update au client AVANT qu'il en demande un. Proactivité = confiance = fidélité. Un message WhatsApp de 2 lignes tous les 2 jours suffit à maintenir la sérénité.</p>
+
+<hr class="doc-hr">
+
+<h3 class="doc-h3">Mantra 3 — "Le scope creep est un cadeau, pas un ennemi"</h3>
+
+<blockquote class="doc-quote">
+<p>"Chaque demande hors périmètre est une opportunité de facturation supplémentaire déguisée en problème."</p>
+</blockquote>
+
+<p class="doc-p"><strong>Application</strong> : Ne jamais dirent "non" à une demande client. Toujours dire "oui, en phase 2 avec [X]₪ de plus." Le client se sent entendu, l'agence préserve sa marge.</p>
+
+<hr class="doc-hr">
+
+<h3 class="doc-h3">Mantra 4 — "Cash-first, toujours"</h3>
+
+<blockquote class="doc-quote">
+<p>"Un projet non facturé est un projet bénévole. Un acompte non reçu est un risque opérationnel."</p>
+</blockquote>
+
+<p class="doc-p"><strong>Application</strong> : Zéro démarrage de projet sans acompte reçu sur le compte. Pas d'exception. Pas de "vous pouvez commencer, je paie cette semaine." La confiance se construit, mais le cash se gère.</p>
+
+<hr class="doc-hr">
+
+<h3 class="doc-h3">Mantra 5 — "Le livrable visible vaut mille promesses"</h3>
+
+<blockquote class="doc-quote">
+<p>"Montrer quelque chose qui fonctionne chaque semaine est la meilleure assurance contre la déception."</p>
+</blockquote>
+
+<p class="doc-p"><strong>Application</strong> : Feature freeze le jeudi. Demo le vendredi. Toujours. Même si c'est une sous-page, même si c'est un prototype. Le progrès visible rassure le client, maintient la motivation du dev, et prouve la valeur de DreamNova.</p>
+
+<hr class="doc-hr">
+
+<h3 class="doc-h3">Mantra 6 — "Les crises se gèrent à l'oral, les accords se confirment à l'écrit"</h3>
+
+<blockquote class="doc-quote">
+<p>"Appeler le client en crise. Lui envoyer le compte-rendu de l'appel dans les 2 heures."</p>
+</blockquote>
+
+<p class="doc-p"><strong>Application</strong> : Quand le client est mécontent, WhatsApp ou email ne suffisent pas. Un appel téléphonique désamorce 90% des crises en 15 minutes. Mais tout ce qui est dit à l'oral doit être confirmé par écrit (email ou WhatsApp) dans les 2 heures suivant l'appel.</p>
+
+<hr class="doc-hr">
+
+<h3 class="doc-h3">Mantra 7 — "Chaque projet fermé ouvre le suivant"</h3>
+
+<blockquote class="doc-quote">
+<p>"La vraie fin d'un projet est le début de la relation longue durée."</p>
+</blockquote>
+
+<p class="doc-p"><strong>Application</strong> : Le rapport final n'est pas la fin. C'est le début du suivi post-livraison, de la demande de témoignage, de la présentation de la roadmap v2. 70% du CA de DreamNova doit venir de clients existants. Le COO est le gardien de cette relation.</p>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="annexe-contacts-et-ressources-coo">ANNEXE — Contacts et Ressources COO</h2>
+
+<h3 class="doc-h3">Outils COO DreamNova</h3>
+<ul class="doc-list">
+<li><strong>Devis</strong> : Zoho Invoice ou template PDF Google Drive</li>
+<li><strong>Contrats</strong> : Template Google Docs signé via DocuSign ou HelloSign</li>
+<li><strong>Suivi projets</strong> : Notion (base de données clients) ou fichiers Markdown centralisés</li>
+<li><strong>Communication</strong> : WhatsApp Business + Email professionnel</li>
+<li><strong>Paiements</strong> : Stripe (lien de paiement), virement bancaire, Wise international</li>
+<li><strong>Rapports</strong> : Scripts bash automatiques → archivés dans <code class="ic">~/Desktop/DREAMNOVA_MISSION_CONTROL/reports/</code></li>
+</ul>
+
+<h3 class="doc-h3">Structure Dossier Client Standard</h3>
+
+<pre class="code-block"><code class="lang-text">
+~/Desktop/_CLIENTS_ACTIFS/[NOM_CLIENT]/
+├── BRIEF.md              # Brief validé
+├── CONTRAT.pdf           # Contrat signé
+├── FACTURATION/          # Devis, factures, reçus paiement
+├── LIVRABLES/            # Fichiers livrés
+├── COMMUNICATIONS/       # Log WhatsApp export, emails
+├── RAPPORTS/             # Rapports hebdo, mi-chemin, final
+└── HANDOVER/             # Document handover final
+</code></pre>
+
+<hr class="doc-hr">
+
+<p class="doc-p"><em>Document généré le 2026-02-19 — Version 1.0 — COO DreamNova</em></p>
+<p class="doc-p"><em>Auteur : David Amor, Jérusalem</em></p>
+<p class="doc-p"><em>Na Nach Nachma Nachman MeUman — Ein Ye'ush Ba'olam Klal</em></p>
+
+  </article>
+</div>
+<footer class="site-footer">
+  <span class="nova-tam">NOVA-TAM — Système Autonome CEO/CTO/COO</span>
+  Na Nach Nachma Nachman MeUman &nbsp;·&nbsp; Ein Ye'ush Ba'olam Klal &nbsp;·&nbsp; DreamNova © 2026
+</footer>
+</body>
+</html>

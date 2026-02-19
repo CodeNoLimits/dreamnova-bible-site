@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEO PMG — Bible DreamNova — DreamNova</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+
+  /* ===== RESET ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-primary: #0C0A09;
+    --bg-secondary: #1C1917;
+    --bg-card: rgba(28, 25, 23, 0.85);
+    --gold: #D4AF37;
+    --gold-bright: #F59E0B;
+    --amber: #F59E0B;
+    --text-primary: #F5F5F4;
+    --text-secondary: #A8A29E;
+    --text-muted: #78716C;
+    --border: rgba(245, 158, 11, 0.18);
+    --border-hover: rgba(212, 175, 55, 0.5);
+    --glass: rgba(255, 255, 255, 0.03);
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.6);
+    --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.12);
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ===== BACKGROUND TEXTURE ===== */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(212,175,55,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(245,158,11,0.04) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(12, 10, 9, 0.92);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 0 2rem;
+  }
+
+  .header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    gap: 1rem;
+  }
+
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 900;
+    color: #0C0A09;
+    font-family: var(--font-display);
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+  }
+
+  .logo-text span { color: var(--gold); }
+
+  /* ===== NAV ===== */
+  .site-nav {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .site-nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.35rem 0.7rem;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+
+  .site-nav a:hover,
+  .site-nav a.active {
+    color: var(--gold);
+    background: rgba(212,175,55,0.08);
+    border-color: var(--border);
+  }
+
+  /* ===== MAIN WRAPPER ===== */
+  .site-main {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  }
+
+  .card:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-2px);
+  }
+
+  /* ===== GOLD GRADIENT TEXT ===== */
+  .gold-text {
+    background: linear-gradient(90deg, var(--gold) 0%, var(--amber) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
+  }
+
+  .site-footer .nova-tam {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-primary); }
+  ::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.3); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+  /* ===== SELECTION ===== */
+  ::selection { background: rgba(212,175,55,0.25); color: var(--text-primary); }
+
+
+  /* ===== LAYOUT ===== */
+  .doc-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 900px) {
+    .doc-layout { grid-template-columns: 1fr; }
+    .doc-sidebar { display: none; }
+  }
+
+  /* ===== SIDEBAR ===== */
+  .doc-sidebar {
+    position: sticky;
+    top: 80px;
+    height: fit-content;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    backdrop-filter: blur(12px);
+  }
+
+  .doc-sidebar::-webkit-scrollbar { width: 3px; }
+  .doc-sidebar::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.2); }
+
+  .sidebar-title {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .toc-list li a {
+    display: block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.78rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    line-height: 1.4;
+    transition: all 0.2s;
+    border-left: 2px solid transparent;
+  }
+
+  .toc-list li a:hover {
+    color: var(--gold);
+    background: rgba(212,175,55,0.06);
+    border-left-color: var(--gold);
+  }
+
+  /* ===== DOC CONTENT ===== */
+  .doc-content {
+    min-width: 0;
+  }
+
+  .doc-title-bar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .doc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(212,175,55,0.1);
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 20px;
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 600;
+    font-family: var(--font-display);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-top: 0.5rem;
+  }
+
+  /* ===== DOC TYPOGRAPHY ===== */
+  .doc-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    background: linear-gradient(90deg, #F5F5F4 0%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+  }
+
+  .doc-h2 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin: 2.5rem 0 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 80px;
+  }
+
+  .doc-h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 1.75rem 0 0.5rem;
+  }
+
+  .doc-h4 {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--amber);
+    margin: 1.25rem 0 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .doc-h5 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 1rem 0 0.3rem;
+  }
+
+  .doc-p {
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    line-height: 1.8;
+  }
+
+  .doc-list {
+    color: var(--text-secondary);
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  .doc-list li {
+    margin-bottom: 0.25rem;
+  }
+
+  .doc-list li strong { color: var(--text-primary); }
+
+  .doc-hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+
+  .doc-quote {
+    border-left: 3px solid var(--gold);
+    background: rgba(212,175,55,0.05);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  /* ===== CODE ===== */
+  .code-block {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(212,175,55,0.1);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: #e2e8f0;
+    margin: 1rem 0;
+    white-space: pre;
+  }
+
+  code.ic {
+    background: rgba(212,175,55,0.1);
+    color: var(--amber);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.85em;
+  }
+
+  /* ===== TABLES ===== */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  .doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+
+  .doc-table th {
+    background: rgba(212,175,55,0.08);
+    color: var(--gold);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .doc-table td {
+    padding: 0.65rem 1rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(245,158,11,0.06);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .doc-table tr:last-child td { border-bottom: none; }
+  .doc-table tr:hover td { background: rgba(212,175,55,0.03); }
+
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-wrap">
+      <div class="logo-mark">DN</div>
+      <div class="logo-text">DREAM<span>NOVA</span></div>
+    </a>
+    <nav class="site-nav">
+    <a href="index.html">🏠 Centre</a>
+    <a href="ceo-global.html">👑 CEO Global</a>
+    <a href="cto-global.html">⚙️ CTO Global</a>
+    <a href="coo-global.html">🔄 COO Global</a>
+    <a href="ceo-pmg.html" class="active">📊 CEO PMG</a>
+    <a href="cto-pmg.html">🔧 CTO PMG</a>
+    <a href="coo-pmg.html">📋 COO PMG</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc-layout">
+  
+  <aside class="doc-sidebar">
+    <div class="sidebar-title">Table des matières</div>
+    <ul class="toc-list">
+    <li><a href="#petit-moyen-grand">Petit · Moyen · Grand</a></li>
+    <li><a href="#d-finitions-crit-res-de-classification">DÉFINITIONS & CRITÈRES DE CLASSIFICATION</a></li>
+    <li><a href="#partie-a-petit-projet-24h-500">PARTIE A — PETIT PROJET (< 24h, < 500€)</a></li>
+    <li><a href="#partie-b-moyen-projet-2-7-jours-500-5-000">PARTIE B — MOYEN PROJET (2–7 jours, 500€–5 000€)</a></li>
+    <li><a href="#partie-c-grand-projet-1-semaine-5-000">PARTIE C — GRAND PROJET (> 1 semaine, > 5 000€)</a></li>
+    <li><a href="#cross-cutting-ceo-rules-pour-tous-les-projets">CROSS-CUTTING : CEO RULES POUR TOUS LES PROJETS</a></li>
+    <li><a href="#synth-se-la-matrice-ceo-dreamnova">SYNTHÈSE — LA MATRICE CEO DREAMNOVA</a></li>
+    <li><a href="#mantras-ceo-dreamnova">MANTRAS CEO DREAMNOVA</a></li>
+    </ul>
+  </aside>
+  <article class="doc-content">
+    <div class="doc-title-bar">
+      <div>
+        <div class="doc-badge">📊 CEO PMG — PETITS · MOYENS · GRANDS</div>
+      </div>
+    </div>
+    <h1 class="doc-h1">👑 BIBLE CEO — GESTION PAR TAILLE DE PROJET</h1>
+<h2 class="doc-h2" id="petit-moyen-grand">Petit · Moyen · Grand</h2>
+<p class="doc-p">Code: [NOVA:CEO-PMG-V1-20260219]</p>
+
+<blockquote class="doc-quote">
+<p><strong>CONCEPT FONDAMENTAL</strong> : DreamNova gère 3 types de projets. Le CEO adapte sa stratégie, ses outils et son énergie selon la taille. MAIS les valeurs fondamentales restent identiques quelle que soit la taille : <strong>Cash-First</strong>, <strong>Ein Ye'ush Ba'olam Klal</strong> (pas de désespoir dans le monde, jamais), et <strong>qualité Lighthouse >90</strong>. La taille change la méthode, pas les standards.</p>
+</blockquote>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="d-finitions-crit-res-de-classification">DÉFINITIONS & CRITÈRES DE CLASSIFICATION</h2>
+
+<h3 class="doc-h3">Tableau de Classification</h3>
+
+<div class="table-wrap"><table class="doc-table"><tbody>
+<tr><th>Critère</th><th>PETIT</th><th>MOYEN</th><th>GRAND</th></tr>
+<tr><td>Budget client</td><td>< 500€</td><td>500€ – 5 000€</td><td>> 5 000€</td></tr>
+<tr><td>Timeline</td><td>< 24h</td><td>2 – 7 jours</td><td>> 1 semaine</td></tr>
+<tr><td>Complexité</td><td>Landing page, fix, image</td><td>SaaS MVP, site complet</td><td>Écosystème, multi-services</td></tr>
+<tr><td>Équipe</td><td>NOVA-TAM seul</td><td>NOVA-TAM + 1–2 agents</td><td>NOVA-TAM + tous agents</td></tr>
+<tr><td>Revue David</td><td>Non (auto-deploy)</td><td>Oui (avant livraison)</td><td>Oui (chaque phase)</td></tr>
+<tr><td>Contrat requis</td><td>Devis simple</td><td>Devis détaillé</td><td>Contrat signé + acompte</td></tr>
+<tr><td>Point client</td><td>À la livraison</td><td>À mi-chemin + livraison</td><td>Hebdomadaire</td></tr>
+<tr><td>Documentation</td><td>README basique</td><td>README client complet</td><td>Handover pack complet</td></tr>
+</tbody></table></div>
+
+<h3 class="doc-h3">Cash-First Scoring par Type</h3>
+
+<p class="doc-p">Avant d'accepter un projet, évaluer silencieusement sur 10 :</p>
+
+<ul class="doc-list">
+<li><strong>PETIT</strong> : Score minimum <strong>8/10</strong> pour accepter — le ROI/heure doit être > 500₪/h. Si ce n'est pas le cas, refuser poliment ou déléguer à un template.</li>
+<li><strong>MOYEN</strong> : Score minimum <strong>7/10</strong> — le potentiel d'upsell compte double dans le score. Un projet à 6/10 qui a 90% de chance de devenir un grand projet = 7.8/10.</li>
+<li><strong>GRAND</strong> : Score minimum <strong>6/10</strong> — si le potentiel récurrent dépasse 3 mois de retainer, un projet difficile peut valoir l'investissement initial.</li>
+</ul>
+
+<p class="doc-p"><strong>Critères du Cash-First Score :</strong></p>
+<pre class="code-block"><code class="lang-text">
+(1) Paiement en &amp;lt;7 jours ?            +2 pts
+(2) Budget confirmé ?                 +2 pts
+(3) Client existant (réengagement) ?  +1 pt
+(4) Potentiel upsell immédiat ?       +1 pt
+(5) Dans notre zone de compétence ?   +1 pt
+(6) Deadline réaliste ?               +1 pt
+(7) Référence/témoignage possible ?   +1 pt
+(8) Récurrent (retainer) potentiel ?  +1 pt
+                                      = /10
+</code></pre>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="partie-a-petit-projet-24h-500">PARTIE A — PETIT PROJET (< 24h, < 500€)</h2>
+
+<h3 class="doc-h3">Vue d'ensemble</h3>
+
+<p class="doc-p">Le petit projet est le pain quotidien de DreamNova. Il arrive sans prévenir, il doit être géré sans interrompre David, et il doit être livré avant que le client ne se réveille le lendemain matin. La clé : <strong>templates</strong>, <strong>scripts réutilisables</strong>, et <strong>décision en 2 minutes</strong>.</p>
+
+<p class="doc-p">Ne jamais sous-estimer l'impact stratégique du petit projet : c'est lui qui construit la confiance, qui génère les témoignages, et qui ouvre la porte aux projets moyens et grands.</p>
+
+<h3 class="doc-h3">Exemples Concrets DreamNova</h3>
+
+<ul class="doc-list">
+<li>Correction et génération photos pour client [Client] (voice → images via Nano Banana Pro)</li>
+<li>Landing page simple : fork d'un template existant + personnalisation couleurs/textes</li>
+<li>Fix bug urgent sur site client existant (Esther Ifrah, Baroukh Sagit)</li>
+<li>Script d'automatisation ponctuel (export CSV, renommage de fichiers, batch resize)</li>
+<li>Transcription + résumé de notes audio longues (messages WhatsApp clients)</li>
+<li>Génération logo AI batch (5 variations, formats PNG/SVG/WebP)</li>
+<li>Mise à jour textes ou images sur site déjà livré</li>
+<li>Ajout d'un formulaire de contact ou d'une page légale manquante</li>
+</ul>
+
+<h3 class="doc-h3">CEO Decision Framework — Petit Projet</h3>
+
+<pre class="code-block"><code class="lang-text">
+REÇOIT: Demande client / instruction David
+          ↓
+ÉVALUE (2 minutes max):
+  ┌─ Est-ce dans mon template déjà fait?
+  │    OUI → Fork, adapter, 30min max. GO.
+  │    NON → Continuer évaluation.
+  │
+  ├─ Génère cash en &amp;lt;48h?
+  │    OUI → Production grade, max effort.
+  │    NON → Refuser poliment. Proposer alternative rapide.
+  │
+  └─ Compétence disponible sans nouvelles API?
+       OUI → Start immédiat, aucune validation David.
+       NON → Évaluer coût API + inclure dans devis.
+          ↓
+EXECUTE (sans interrompre David):
+  Plan A: Outil existant direct (~/scripts/workflows/)
+  Plan B: Adapter outil proche (fork + 5 lignes de diff)
+  Plan C: Nouveau outil rapide à setup (&amp;lt;15min d'installation)
+          ↓
+LIVRE:
+  - ZIP ou URL directe
+  - Lien Vercel si page web
+  - Draft message WhatsApp pour David (il approuve en 1 clic)
+          ↓
+ARCHIVE:
+  - Workflow → script permanent ~/scripts/workflows/NOM_CLIENT_TYPE.sh
+  - OPUS_QUEUE: prochaine tâche ajoutée immédiatement
+</code></pre>
+
+<h3 class="doc-h3">Pricing Petit Projet</h3>
+
+<div class="table-wrap"><table class="doc-table"><tbody>
+<tr><th>Type de travail</th><th>Temps réel</th><th>Prix recommandé</th><th>ROI/h</th></tr>
+<tr><td>Fix rapide bug critique</td><td>< 1h</td><td>300–500₪</td><td>400₪/h</td></tr>
+<tr><td>Landing page simple (fork)</td><td>2–4h</td><td>800–1500₪</td><td>400₪/h</td></tr>
+<tr><td>Script automation ponctuel</td><td>1–3h</td><td>400–900₪</td><td>400₪/h</td></tr>
+<tr><td>Images/photos AI (batch 20+)</td><td>0.5–1h</td><td>200–400₪</td><td>400₪/h</td></tr>
+<tr><td>Mise à jour contenu site</td><td>1–2h</td><td>300–600₪</td><td>350₪/h</td></tr>
+<tr><td>Ajout page légale (fork)</td><td>0.5h</td><td>200–300₪</td><td>500₪/h</td></tr>
+<tr><td>Transcription + résumé audio</td><td>0.5–1h</td><td>150–300₪</td><td>350₪/h</td></tr>
+</tbody></table></div>
+
+<p class="doc-p"><strong>Règle absolue</strong> : Jamais sous-estimer. Time-boxing strict 30min max par tâche individuelle. Si une sous-tâche dépasse 30min, escalade immédiate.</p>
+
+<h3 class="doc-h3">Checklist Livraison Petit Projet (7 items)</h3>
+
+<pre class="code-block"><code class="lang-text">
+[ ] Livrable fonctionne exactement tel que demandé (testé 3x)
+[ ] Testé sur mobile si contenu visuel (iPhone SE + iPhone 14 minimum)
+[ ] Performance acceptable (pas de freeze, chargement &amp;lt; 3s)
+[ ] Fichier nommé correctement : CLIENT_TYPE_LIVRAISON_YYYYMMDD
+[ ] Draft message WhatsApp préparé pour David (prêt à copier-coller)
+[ ] Script réutilisable créé et archivé dans ~/scripts/workflows/
+[ ] OPUS_QUEUE.md : next task ajoutée avant de fermer le terminal
+</code></pre>
+
+<h3 class="doc-h3">Kill Criteria Petit Projet</h3>
+
+<p class="doc-p">Si après <strong>45 minutes</strong> aucun résultat concret → Stop total → Changer d'approche complètement (autre outil, autre méthode, autre angle).</p>
+
+<p class="doc-p">Si après <strong>2 heures</strong> toujours bloqué → Alerter David (message court, factuel, avec 2 options proposées).</p>
+
+<p class="doc-p">Si le client change le brief après livraison → Nouveau devis immédiat. Pas de travail supplémentaire gratuit, même 5 minutes.</p>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="partie-b-moyen-projet-2-7-jours-500-5-000">PARTIE B — MOYEN PROJET (2–7 jours, 500€–5 000€)</h2>
+
+<h3 class="doc-h3">Vue d'ensemble</h3>
+
+<p class="doc-p">Le moyen projet est le cœur économique de DreamNova aujourd'hui. C'est le niveau où la qualité différencie, où l'upsell se décide, et où la réputation se construit. Il nécessite une architecture réfléchie dès le départ, un scope validé par écrit, et une livraison avec documentation complète.</p>
+
+<p class="doc-p">Le danger principal du moyen projet : le <strong>scope creep</strong>. Un client qui ajoute "juste une petite chose" chaque jour transforme un projet 3000₪ en projet 15000₪ travaillé pour 3000₪.</p>
+
+<h3 class="doc-h3">Exemples Concrets DreamNova</h3>
+
+<ul class="doc-list">
+<li>Site complet client (Keren Rabbi Yisrael — 43 livres, 6 langues, paiement Stripe/PayPal, 100 tâches)</li>
+<li>Esther Ifrah Breslev (migration MySQL→SQLite, système de livres avec abonnements)</li>
+<li>Micro-SaaS MVP (#03 BgRemove, #05 InvoiceWiz, #07 ChatBot Builder)</li>
+<li>Application avec auth + paiement + base de données Supabase</li>
+<li>Refonte complète site existant avec audit Lighthouse + corrections</li>
+<li>Agent IA personnalisé pour client (OpenClaw clone configuré)</li>
+</ul>
+
+<h3 class="doc-h3">CEO Decision Framework — Moyen Projet</h3>
+
+<p class="doc-p"><strong>Étape 1 : Évaluation du scope réel vs perçu</strong></p>
+
+<p class="doc-p">Le client décrit toujours 20% du travail réel. Multiplier le temps estimé par 2.5. Ce n'est pas du pessimisme, c'est de l'expérience.</p>
+
+<pre class="code-block"><code class="lang-text">
+Ce que le client dit:     "Un site simple avec quelques pages"
+Ce que ça veut dire:      Auth, paiement, mobile, SEO, légal,
+                          emails transactionnels, analytics,
+                          formulaires, hébergement, DNS...
+</code></pre>
+
+<p class="doc-p"><strong>Étape 2 : Identification des risques en amont</strong></p>
+
+<p class="doc-p">Avant de démarrer, identifier systématiquement :</p>
+<ul class="doc-list">
+<li>Dépendances externes (API tiers, contenu client, accès serveur)</li>
+<li>Points d'intégration complexes (paiement, authentification, multilingue)</li>
+<li>Assets manquants (photos, textes, logos — client doit livrer AVANT le projet)</li>
+<li>Facteurs bloquants (deadline inamovible, contrainte technique)</li>
+</ul>
+
+<p class="doc-p"><strong>Étape 3 : Definition of Done AVANT de commencer</strong></p>
+
+<p class="doc-p">Écrire en 10 bullet points exactement ce qui sera livré. Envoyer au client par WhatsApp/email. Obtenir confirmation écrite (même un "OK" suffit).</p>
+
+<pre class="code-block"><code class="lang-text">
+DOD Type — Site E-commerce Moyen:
+✓ 5 pages (Accueil, Catalogue, Produit, Panier, Contact)
+✓ Paiement Stripe fonctionnel en mode production
+✓ Mobile responsive (testé iOS + Android)
+✓ Lighthouse &amp;gt; 90 (Performance, SEO, Accessibilité)
+✓ 3 langues (FR, HE, EN) — textes fournis par client
+✓ Formulaire de contact avec email de confirmation
+✓ Analytics Google + Facebook Pixel configurés
+✓ Pages légales (CGV, Confidentialité, Mentions)
+✓ README client avec guide de mise à jour
+✓ 1 round de corrections post-livraison inclus
+</code></pre>
+
+<h3 class="doc-h3">Structure Sprint Moyen Projet (7 jours type)</h3>
+
+<pre class="code-block"><code class="lang-text">
+JOUR 1 — Architecture &amp;amp; Setup (8h)
+  ├─ God-Boilerplate fork (~/Desktop/_PROTOTYPES/god-boilerplate)
+  ├─ Supabase project création + schéma initial
+  ├─ Vercel deploy skeleton (URL live dès J1)
+  ├─ Variables d'environnement configurées
+  └─ README.md + TODO.md créés
+
+JOUR 2–3 — Core Features (16h)
+  ├─ Authentification (Supabase Auth ou NextAuth)
+  ├─ Pages principales (design Tailwind, responsive)
+  ├─ Paiement Stripe (checkout + webhook + confirmation)
+  └─ Base de données : migrations + types TypeScript générés
+
+JOUR 4 — Polish &amp;amp; Mobile (8h)
+  ├─ CSS Variables + Design tokens cohérents
+  ├─ Tests mobile (iPhone SE, iPhone 14, Android)
+  ├─ Animations Framer Motion (sobres, pas de gimmick)
+  └─ Emails transactionnels (Resend ou SendGrid)
+
+JOUR 5 — Tests &amp;amp; Lighthouse (8h)
+  ├─ Lighthouse audit : Performance + SEO + Accessibilité + Best Practices
+  ├─ Fix erreurs TypeScript (objectif : 0 erreurs)
+  ├─ Tests E2E sur les flows critiques (paiement, auth, formulaire)
+  └─ Cross-browser (Chrome, Firefox, Safari iOS)
+
+JOUR 6 — Client Review (4h)
+  ├─ Démo live avec client (screen share ou lien Vercel)
+  ├─ Collecte feedback (noter TOUT par écrit)
+  ├─ Corrections incluses dans le scope (1 round)
+  └─ Validation écrite du client ("OK pour livraison")
+
+JOUR 7 — Deploy &amp;amp; Livraison (4h)
+  ├─ Deploy production (vercel deploy --prod)
+  ├─ DNS configuré (domaine client)
+  ├─ Documentation client finale
+  ├─ Handover WhatsApp + email
+  └─ Proposition retainer maintenance
+</code></pre>
+
+<h3 class="doc-h3">Pricing Moyen Projet</h3>
+
+<div class="table-wrap"><table class="doc-table"><tbody>
+<tr><th>Type de projet</th><th>Fourchette</th><th>Inclus</th><th>Supplément</th></tr>
+<tr><td>Site vitrine 5 pages</td><td>3 000–5 000₪</td><td>Design, mobile, SEO basique, formulaire</td><td>Multilingue +1000₪, blog +800₪</td></tr>
+<tr><td>Site e-commerce (<50 produits)</td><td>5 000–8 000₪</td><td>Paiement Stripe, catalogue, mobile</td><td>>50 produits +500₪/50, admin dashboard +2000₪</td></tr>
+<tr><td>SaaS MVP (auth+paiement)</td><td>5 000–10 000₪</td><td>Auth, Stripe, DB Supabase, deploy</td><td>API tiers complexe +2000₪, mobile app +8000₪</td></tr>
+<tr><td>Refonte complète site</td><td>2 500–5 000₪</td><td>Migration contenu, design nouveau, Lighthouse >90</td><td>Changement de stack +2000₪</td></tr>
+<tr><td>Agent IA personnalisé</td><td>3 000–6 000₪</td><td>Setup OpenClaw, config, formation client</td><td>Multi-agents +1500₪/agent</td></tr>
+</tbody></table></div>
+
+<p class="doc-p"><strong>Politique de modification</strong> : 1 round de corrections inclus dans tous les devis. Au-delà : 200₪/h minimum, devis écrit préalable obligatoire.</p>
+
+<h3 class="doc-h3">Gestion des Demandes de Modification</h3>
+
+<p class="doc-p">La règle des modifications est la suivante : ce qui n'est pas dans le DOD initial est hors-scope. Toujours.</p>
+
+<p class="doc-p"><strong>5 phrases pour gérer le scope creep sans perdre le client :</strong></p>
+
+<ol class="doc-list">
+<li><em>"Super idée ! Ça n'est pas dans le scope initial, mais je peux te faire un devis rapide pour l'ajouter."</em></li>
+<li><em>"On peut l'ajouter maintenant et je décale la livraison de 2 jours, ou on le garde pour la V2 — à toi de choisir."</em></li>
+<li><em>"Pour ne pas dépasser ton budget, je te propose de remplacer [feature X] par [nouvelle demande] — même coût."</em></li>
+<li><em>"C'est une bonne évolution. Je note ça pour le contrat de maintenance mensuel."</em></li>
+<li><em>"Je comprends que le besoin a évolué. Voici un avenant de 800₪ pour couvrir ce travail supplémentaire."</em></li>
+</ol>
+
+<p class="doc-p"><strong>Comment prévenir le scope creep en amont :</strong></p>
+<ul class="doc-list">
+<li>Envoyer le DOD par écrit avant de démarrer (WhatsApp + email)</li>
+<li>Faire signer (même par message vocal "j'accepte ce devis") avant de toucher au code</li>
+<li>Faire des checkpoints à J1 (skeleton visible) pour aligner les attentes tôt</li>
+<li>Toujours noter les "idées pour plus tard" dans un fichier V2_IDEAS.md — le client se sent entendu sans que le scope grossisse</li>
+</ul>
+
+<h3 class="doc-h3">Checklist Livraison Moyen Projet (15 items)</h3>
+
+<pre class="code-block"><code class="lang-text">
+[ ] Lighthouse &amp;gt;90 sur les 4 métriques (Performance, SEO, A11y, Best Practices)
+[ ] TypeScript : 0 erreurs (npx tsc --noEmit passe sans erreur)
+[ ] Mobile responsive testé : iPhone SE (375px), iPhone 14 (390px), iPad (768px)
+[ ] Tous les formulaires fonctionnels (test envoi réel, pas juste UI)
+[ ] Paiement Stripe testé en mode live avec carte 4242 + vraie carte
+[ ] Emails transactionnels reçus et testés (confirmation commande, reset password)
+[ ] Analytics configurés et vérifiés dans dashboard GA4 + Facebook Events
+[ ] Meta tags SEO uniques sur chaque page (title, description, og:image)
+[ ] Pages légales présentes et accessibles (CGV, Confidentialité, Mentions légales)
+[ ] README client rédigé (comment mettre à jour le contenu, contacter le support)
+[ ] Variables d'environnement documentées (fichier .env.example à jour)
+[ ] Domaine client configuré + HTTPS actif + redirections www→root
+[ ] Images optimisées (WebP, lazy loading, pas de fichier &amp;gt;200KB)
+[ ] Cross-browser testé (Chrome, Firefox, Safari — sur Mac ET Windows si possible)
+[ ] Appel de démo fait avec client + confirmation écrite "OK livré"
+</code></pre>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="partie-c-grand-projet-1-semaine-5-000">PARTIE C — GRAND PROJET (> 1 semaine, > 5 000€)</h2>
+
+<h3 class="doc-h3">Vue d'ensemble</h3>
+
+<p class="doc-p">Le grand projet est la stratégie. Il transforme DreamNova d'une agence de service en partenaire technologique. Il engage des ressources importantes, il génère une référence de portfolio majeure, et il ouvre la porte à des retainers longs.</p>
+
+<p class="doc-p">Le grand projet nécessite une <strong>phase de discovery sérieuse</strong>, un <strong>contrat signé avec acompte</strong>, et une <strong>gouvernance structurée</strong>. Sans ces trois éléments, le projet deviendra un gouffre financier et temporel.</p>
+
+<h3 class="doc-h3">Exemples Concrets DreamNova</h3>
+
+<ul class="doc-list">
+<li>Écosystème complet DreamNova Nova Key (NFC + Supabase + Stripe + app spirituelle)</li>
+<li>Plateforme multi-services avec admin dashboard et agents IA intégrés</li>
+<li>Migration système legacy vers stack moderne (MySQL → Supabase, PHP → Next.js)</li>
+<li>Intégration IA complète sur système client existant (RAG, chatbot, transcription)</li>
+<li>Infrastructure autonome complète avec agents OpenClaw multi-comptes</li>
+<li>Application mobile React Native + backend API + admin web</li>
+</ul>
+
+<h3 class="doc-h3">CEO Decision Framework — Grand Projet</h3>
+
+<p class="doc-p"><strong>Phase Discovery (obligatoire, facturée séparément : 1500–3000₪)</strong></p>
+
+<p class="doc-p">La discovery est le seul moyen de savoir dans quoi on s'engage. Elle comprend :</p>
+
+<ol class="doc-list">
+<li><strong>Audit technique</strong> : stack existante, dettes techniques, intégrations actuelles</li>
+<li><strong>Mapping fonctionnel</strong> : tous les flows utilisateur, toutes les intégrations requises</li>
+<li><strong>Estimation réaliste</strong> : breakdown par phase avec buffers (×1.5 sur chaque estimation)</li>
+<li><strong>Identification des dépendances critiques</strong> : qu'est-ce qui peut bloquer le projet entier ?</li>
+<li><strong>Proposition chiffrée</strong> : 3 options (Basic, Standard, Premium) avec ce qui est inclus/exclu dans chaque option</li>
+</ol>
+
+<p class="doc-p"><strong>Staffing par phase :</strong></p>
+
+<pre class="code-block"><code class="lang-text">
+Phase 1 (Discovery):     NOVA-TAM seul
+Phase 2 (Foundation):    NOVA-TAM + Agent Backend
+Phase 3 (Core):          NOVA-TAM + Agent Frontend + Agent Backend
+Phase 4 (Polish):        NOVA-TAM + Agent QA
+Phase 5 (Testing):       NOVA-TAM + Agent QA + Client
+Phase 6 (Deploy):        NOVA-TAM seul
+</code></pre>
+
+<h3 class="doc-h3">Structure Grand Projet (phases détaillées)</h3>
+
+<pre class="code-block"><code class="lang-text">
+PHASE 1 — Discovery &amp;amp; Architecture (2–3 jours)
+  ├─ Audit de l'existant (code, DB, infrastructure)
+  ├─ Interviews stakeholders (client + utilisateurs finaux si possible)
+  ├─ Architecture Decision Records (ADR) pour chaque choix technique majeur
+  ├─ Schéma de base de données définitif (validé par David)
+  ├─ Wireframes basse fidélité des pages clés
+  ├─ Plan de migration (si refonte)
+  └─ DELIVERABLE : Document d'architecture 10–20 pages + validation client
+
+PHASE 2 — Foundation (3–5 jours)
+  ├─ Setup infrastructure (Vercel + Supabase + domaines)
+  ├─ Authentification et autorisation (rôles, permissions)
+  ├─ Base de données : migrations complètes + types TypeScript
+  ├─ CI/CD pipeline (GitHub Actions ou Vercel auto-deploy)
+  ├─ Monitoring (Sentry ou Vercel Analytics)
+  └─ DELIVERABLE : Environnement technique complet, déployé, testable
+
+PHASE 3 — Core Features (5–10 jours)
+  ├─ Features prioritaires (tri par valeur business décroissante)
+  ├─ Intégrations critiques (paiement, emails, APIs tiers)
+  ├─ Admin dashboard (gestion contenu, utilisateurs, commandes)
+  ├─ Tests unitaires sur la logique métier critique
+  └─ DELIVERABLE : Application fonctionnelle à 80%
+
+PHASE 4 — Polish &amp;amp; Performance (2–3 jours)
+  ├─ Design final (tokens CSS, animations, cohérence visuelle)
+  ├─ Mobile responsive (tous breakpoints)
+  ├─ Accessibilité WCAG AA
+  ├─ Optimisation images (WebP, lazy loading, CDN)
+  └─ DELIVERABLE : Lighthouse &amp;gt;90 confirmé sur toutes les pages
+
+PHASE 5 — Testing &amp;amp; QA (2–3 jours)
+  ├─ Tests E2E (Playwright ou Cypress sur les flows critiques)
+  ├─ Tests de charge (si plateforme SaaS : &amp;gt;100 users simultanés)
+  ├─ Revue de sécurité (OWASP Top 10 checklist)
+  ├─ Tests client (UAT — User Acceptance Testing)
+  └─ DELIVERABLE : Rapport de tests + liste bugs résiduels classés par priorité
+
+PHASE 6 — Deploy &amp;amp; Handover (1–2 jours)
+  ├─ Deploy production (avec rollback plan documenté)
+  ├─ DNS final + HTTPS + redirections
+  ├─ Formation client (vidéo screen record ou session live)
+  ├─ Documentation technique complète (README + Architecture + API docs)
+  ├─ Handover pack : credentials, accès, procédures
+  └─ DELIVERABLE : Site live + client autonome + proposition retainer
+</code></pre>
+
+<h3 class="doc-h3">Contrat & Paiement Grand Projet</h3>
+
+<p class="doc-p">Structure de paiement systématique (ne jamais déroger) :</p>
+
+<div class="table-wrap"><table class="doc-table"><tbody>
+<tr><th>Étape</th><th>Montant</th><th>Déclencheur</th></tr>
+<tr><td>Acompte démarrage</td><td>30%</td><td>Signature contrat + validation DOD</td></tr>
+<tr><td>Mi-livraison</td><td>40%</td><td>Phase 3 complète (app fonctionnelle démo)</td></tr>
+<tr><td>Livraison finale</td><td>30%</td><td>Deploy production + validation client</td></tr>
+<tr><td>Retainer optionnel</td><td>1500–3000₪/mois</td><td>Post-livraison (maintenance + évolutions mineures)</td></tr>
+</tbody></table></div>
+
+<p class="doc-p"><strong>Ce que le contrat doit contenir obligatoirement :</strong></p>
+<ul class="doc-list">
+<li>Scope détaillé (DOD complet par phase)</li>
+<li>Timeline avec dates de livraison par phase</li>
+<li>Processus de validation (comment le client dit "OK")</li>
+<li>Politique de modification (coût horaire + délai)</li>
+<li>Clause de résiliation (paiement prorata du travail réalisé)</li>
+<li>Propriété intellectuelle (code appartient au client après paiement final)</li>
+<li>Hébergement post-livraison (qui paye Vercel, Supabase, etc.)</li>
+</ul>
+
+<h3 class="doc-h3">Gouvernance Grand Projet</h3>
+
+<p class="doc-p"><strong>Rythme de communication :</strong></p>
+
+<pre class="code-block"><code class="lang-text">
+Quotidien (interne):
+  → SESSION_LIVE.md mis à jour toutes les 10 actions
+  → Blockers notifiés dans OPUS_QUEUE.md immédiatement
+  → Screenshots avant/après chaque modification visuelle
+
+Hebdomadaire (client):
+  → Email ou WhatsApp : 5 bullets (ce qui est fait, ce qui vient, les décisions nécessaires)
+  → Lien Vercel preview pour validation visuelle
+  → Aucune surprise : si problème → prévenir AVANT que le client ne pose la question
+
+Bi-hebdomadaire (David):
+  → Rapport 5 bullets : avancement %, budget consommé %, prochaine phase, risques, actions requises David
+  → Format : [PHASE X/6] [X% avancé] [3 décisions en attente]
+
+Escalade immédiate si :
+  → Scope change majeur demandé par client (&amp;gt; 20% du budget initial)
+  → Blocage technique &amp;gt; 24h sans solution identifiée
+  → Désaccord client sur une décision technique majeure
+  → Découverte de dette technique non anticipée (×2 sur l'estimation)
+</code></pre>
+
+<h3 class="doc-h3">Pricing Grand Projet</h3>
+
+<div class="table-wrap"><table class="doc-table"><tbody>
+<tr><th>Type de projet</th><th>Fourchette</th><th>Notes</th></tr>
+<tr><td>Plateforme SaaS complète (web)</td><td>15 000–50 000₪</td><td>Selon nombre de modules et intégrations</td></tr>
+<tr><td>Application mobile + backend API</td><td>20 000–60 000₪</td><td>React Native + Supabase + admin web</td></tr>
+<tr><td>Migration + refonte système legacy</td><td>10 000–30 000₪</td><td>Selon complexité data + surface à migrer</td></tr>
+<tr><td>Agent IA sur-mesure (production)</td><td>8 000–25 000₪</td><td>OpenClaw multi-agents + intégrations</td></tr>
+<tr><td>Infrastructure autonome complète</td><td>12 000–35 000₪</td><td>Servers + monitoring + failover</td></tr>
+<tr><td>Écosystème NFC/IoT (type Nova Key)</td><td>25 000–80 000₪</td><td>Hardware + software + backend + app</td></tr>
+</tbody></table></div>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="cross-cutting-ceo-rules-pour-tous-les-projets">CROSS-CUTTING : CEO RULES POUR TOUS LES PROJETS</h2>
+
+<h3 class="doc-h3">La Règle d'Or : Cash First en Toute Circonstance</h3>
+
+<p class="doc-p">Le filtre Cash-First s'applique à chaque décision, chaque feature, chaque heure de travail. Ce n'est pas de la cupidité — c'est de la stratégie de survie pour atteindre l'objectif de 30 000₪/mois et rembourser les 518 000₪ de dettes.</p>
+
+<p class="doc-p"><strong>Appliqué au niveau micro (chaque feature) :</strong></p>
+<pre class="code-block"><code class="lang-text">
+Avant de coder une feature, se demander :
+  → Cette feature aide-t-elle le client à payer ou à acheter ?
+     OUI → Priorité absolue, production grade.
+  → Cette feature améliore-t-elle l'expérience utilisateur payant ?
+     OUI → Priorité haute.
+  → Cette feature est-elle "nice to have" ou admin UX ?
+     → Reporter à la V2. MVP d'abord.
+</code></pre>
+
+<p class="doc-p"><strong>Appliqué au niveau macro (chaque projet) :</strong></p>
+<pre class="code-block"><code class="lang-text">
+Avant de commencer un projet, calculer le vrai ROI/heure :
+  Budget total ÷ Heures estimées réelles (×2.5) = ROI/heure
+
+  Si ROI/heure &amp;lt; 400₪ → Refuser ou revaloriser le budget.
+  Si ROI/heure &amp;gt; 600₪ → Accepter en priorité.
+  Si ROI/heure &amp;gt; 1000₪ → C'est un projet exceptionnel, tout casser pour le faire.
+</code></pre>
+
+<h3 class="doc-h3">Gestion du Scope Creep (ennemi numéro 1)</h3>
+
+<p class="doc-p">Le scope creep est la cause principale de projets non-rentables dans toute agence de développement. Il arrive toujours sous forme de demandes "petites", "rapides", "pendant qu'on y est".</p>
+
+<p class="doc-p"><strong>5 techniques concrètes pour le gérer sans perdre le client :</strong></p>
+
+<p class="doc-p"><strong>1. Le DOD Bétonné</strong></p>
+<p class="doc-p">Avant tout projet, rédiger le DOD (Definition of Done) en 10–20 bullet points précis. Le faire valider par écrit. Tout ce qui n'est pas dans le DOD est hors-scope. Point.</p>
+
+<p class="doc-p"><strong>2. Le Journal des Demandes Hors-Scope</strong></p>
+<p class="doc-p">Créer un fichier <code class="ic">V2_IDEAS_[CLIENT].md</code> dès le début du projet. À chaque demande hors-scope : "Super idée, je la note dans le fichier V2." Le client se sent entendu, le scope ne grossit pas.</p>
+
+<p class="doc-p"><strong>3. Le Devis Immédiat</strong></p>
+<p class="doc-p">Toute demande hors-scope génère un devis dans les 2h. Même pour 30 minutes de travail. Rend le coût du scope creep visible et pédagogue.</p>
+
+<p class="doc-p"><strong>4. Le Swap</strong></p>
+<p class="doc-p">Si le client insiste : "On peut ajouter X si on retire Y de scope équivalent." Le budget total reste inchangé, la valeur livrée reste cohérente.</p>
+
+<p class="doc-p"><strong>5. L'Avenant Signé</strong></p>
+<p class="doc-p">Pour tout ajout > 2h de travail : avenant au contrat. Document simple de 5 lignes : description du travail, prix, délai supplémentaire, signature client. Protège les deux parties.</p>
+
+<h3 class="doc-h3">Stratégie Upsell Systématique</h3>
+
+<p class="doc-p">DreamNova ne "vend" pas. DreamNova <strong>accompagne</strong> la croissance du client. L'upsell naturel découle de ce positionnement.</p>
+
+<p class="doc-p"><strong>Le chemin d'upsell naturel :</strong></p>
+
+<pre class="code-block"><code class="lang-text">
+PETIT → MOYEN → GRAND → RETAINER → PARTENARIAT LONG TERME
+
+Exemple Keren Rabbi Yisrael :
+  Fix rapide (500₪)
+    → Site e-commerce complet (8000₪)
+      → Ajout fonctionnalités (2000₪)
+        → Maintenance mensuelle (1500₪/mois = 18000₪/an)
+          → Nouvelle version mobile app (15000₪)
+</code></pre>
+
+<p class="doc-p"><strong>Timing de la proposition d'upsell :</strong></p>
+<ul class="doc-list">
+<li>Après chaque livraison : proposer le service complémentaire naturel</li>
+<li>Jamais pendant le projet (focus sur livraison)</li>
+<li>Toujours sous forme de valeur, pas de vente : "J'ai remarqué que tu n'as pas encore [X] — ça pourrait doubler tes conversions"</li>
+</ul>
+
+<p class="doc-p"><strong>Services complémentaires à proposer systématiquement :</strong></p>
+
+<div class="table-wrap"><table class="doc-table"><tbody>
+<tr><th>Livraison</th><th>Proposition naturelle suivante</th></tr>
+<tr><td>Landing page</td><td>Site complet + SEO</td></tr>
+<tr><td>Site e-commerce</td><td>Application mobile</td></tr>
+<tr><td>Site mobile</td><td>Retainer maintenance</td></tr>
+<tr><td>Agent IA</td><td>Formation équipe client</td></tr>
+<tr><td>SaaS MVP</td><td>V2 avec features avancées</td></tr>
+<tr><td>Tout projet</td><td>Contrat maintenance mensuel</td></tr>
+</tbody></table></div>
+
+<h3 class="doc-h3">Portfolio Building</h3>
+
+<p class="doc-p">Chaque projet livré est une référence. Chaque référence est un actif commercial. Automatiser la construction du portfolio.</p>
+
+<p class="doc-p"><strong>Workflow post-livraison systématique :</strong></p>
+<pre class="code-block"><code class="lang-text">
+LIVRAISON ACCEPTÉE
+      ↓
+1. Screenshot Lighthouse score (Performance, SEO)
+2. Screenshot mobile + desktop (before/after si refonte)
+3. Chiffres clés : temps de chargement, % amélioration, features livrées
+4. Demander témoignage WhatsApp (message template prêt)
+5. Ajouter case study à dreamnova-consult.vercel.app/portfolio
+6. Publier sur réseaux sociaux (avec accord client)
+7. Archiver dans ~/Desktop/_CLIENTS_ARCHIVES/[CLIENT]/
+</code></pre>
+
+<p class="doc-p"><strong>Template témoignage client (envoyer par WhatsApp après livraison) :</strong></p>
+<pre class="code-block"><code class="lang-text">
+"[Prénom], le projet est livré ! J'ai une petite faveur à te demander :
+est-ce que tu pourrais me laisser un avis en 2–3 phrases sur ce qu'on a
+réalisé ensemble ? Ça m'aide énormément pour mes prochains clients.
+Voici ma suggestion (tu modifies comme tu veux) :
+'DreamNova a livré [projet] en [temps], exactement comme promis.
+[Feature préférée]. Je recommande vivement.'
+Merci !"
+</code></pre>
+
+<h3 class="doc-h3">Le Kill-Switch Stratégique</h3>
+
+<p class="doc-p">Parfois, un projet doit s'arrêter. Ce n'est pas un échec — c'est une décision CEO sage qui protège les ressources de DreamNova.</p>
+
+<p class="doc-p"><strong>Signaux d'alarme justifiant l'arrêt :</strong></p>
+<ul class="doc-list">
+<li>Client qui ne répond pas depuis > 5 jours ouvrés (Baroukh Sagit : 19 jours de silence = signal critique)</li>
+<li>Découverte d'une dette technique qui multiplie le budget par 3+</li>
+<li>Changement de brief fondamental après Phase 2 (plus le même projet)</li>
+<li>Client qui refuse de valider les livrables pour éviter le paiement de la phase suivante</li>
+<li>Budget épuisé à 70% avec seulement 40% du travail réalisé</li>
+</ul>
+
+<p class="doc-p"><strong>Protocole de sortie propre :</strong></p>
+<pre class="code-block"><code class="lang-text">
+ÉTAPE 1 : Documenter l'état du projet (ce qui est fait, ce qui reste)
+ÉTAPE 2 : Calculer ce qui est dû (prorata du travail réalisé)
+ÉTAPE 3 : Envoyer message factuel, sans accusation, avec proposition :
+  "J'ai livré [X] du scope. Le montant correspondant est [Y]₪.
+  On peut s'arrêter ici et tu gardes tout ce qui est fait,
+  ou on reprend quand tu es prêt avec un nouveau planning."
+ÉTAPE 4 : Transférer tous les accès et le code (pas de code en otage)
+ÉTAPE 5 : Clore le dossier dans SESSION_LIVE.md, archiver dans _ARCHIVES/
+ÉTAPE 6 : Réfléchir 10 minutes à ce qu'on aurait pu faire différemment — noter
+</code></pre>
+
+<p class="doc-p"><strong>Ce qui ne change jamais lors d'un Kill-Switch :</strong></p>
+<ul class="doc-list">
+<li>Pas d'email agressif</li>
+<li>Pas de code en otage (contraire à l'éthique DreamNova)</li>
+<li>Pas de mauvaise réputation intentionnelle</li>
+<li>La relation peut reprendre dans 6 mois — toujours laisser la porte ouverte</li>
+</ul>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="synth-se-la-matrice-ceo-dreamnova">SYNTHÈSE — LA MATRICE CEO DREAMNOVA</h2>
+
+<pre class="code-block"><code class="lang-text">
+                     PETIT          MOYEN          GRAND
+                   ┌──────────────┬──────────────┬──────────────┐
+Décision           │ 2 min        │ 30 min        │ 2–3 jours    │
+                   │ Solo         │ Validation D. │ Discovery    │
+───────────────────┼──────────────┼──────────────┼──────────────┤
+Contrat            │ Devis simple │ Devis détaillé│ Contrat signé│
+                   │ WhatsApp OK  │ Email + OK    │ + acompte    │
+───────────────────┼──────────────┼──────────────┼──────────────┤
+Architecture       │ Template fork│ God-Boilerplate│ ADR complet  │
+                   │ &amp;lt;15min setup │ setup complet │ 2–3 jours    │
+───────────────────┼──────────────┼──────────────┼──────────────┤
+Communication      │ À la livraison│ Mi-chemin+fin│ Hebdomadaire │
+                   │ draft WhatsApp│ démo client  │ + bi-hebdo D.│
+───────────────────┼──────────────┼──────────────┼──────────────┤
+Livraison          │ 7 items      │ 15 items      │ Phase par phase│
+                   │ ZIP ou URL   │ + README      │ + handover pack│
+───────────────────┼──────────────┼──────────────┼──────────────┤
+Kill criteria      │ 45min bloqué │ Scope ×3+     │ Protocole     │
+                   │ → changer    │ → escalade    │ sortie propre │
+───────────────────┼──────────────┼──────────────┼──────────────┤
+Upsell naturel     │ → Moyen      │ → Grand       │ → Retainer    │
+                   │              │ → Retainer    │ → Partenariat │
+└──────────────────┴──────────────┴──────────────┴──────────────┘
+</code></pre>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="mantras-ceo-dreamnova">MANTRAS CEO DREAMNOVA</h2>
+
+<ol class="doc-list">
+<li><strong>"Ein Ye'ush Ba'olam Klal"</strong> — Pas de désespoir dans le monde, jamais. Un projet difficile est une leçon d'architecture, pas un échec.</li>
+</ol>
+
+<ol class="doc-list">
+<li><strong>"Cash First, Quality Always"</strong> — La rentabilité immédiate et la qualité long-terme ne s'opposent pas. Un code propre livre plus vite, une deuxième fois.</li>
+</ol>
+
+<ol class="doc-list">
+<li><strong>"Scope is sacred"</strong> — Ce qui est dans le DOD se livre. Ce qui n'y est pas se facture ou se reporte. Sans exception.</li>
+</ol>
+
+<ol class="doc-list">
+<li><strong>"Templates over reinvention"</strong> — Avant d'écrire une ligne, chercher le fichier existant. ~/scripts/workflows/ est la mémoire de DreamNova.</li>
+</ol>
+
+<ol class="doc-list">
+<li><strong>"Every project = portfolio + retainer"</strong> — Aucun projet n'est fini à la livraison. Il se transforme en référence commerciale ET en opportunité de relation longue durée.</li>
+</ol>
+
+<ol class="doc-list">
+<li><strong>"Lighthouse >90 or it's not done"</strong> — La qualité technique est non-négociable. Un site lent est un site qui perd des clients. C'est objectif et mesurable.</li>
+</ol>
+
+<ol class="doc-list">
+<li><strong>"Celebrate the small wins"</strong> — Une landing page livrée en 2h, c'est une victoire. Un bug corrigé en 20min, c'est une victoire. La dopamine fuel le travail suivant.</li>
+</ol>
+
+<hr class="doc-hr">
+
+<p class="doc-p"><em>Document créé le 2026-02-19 — DreamNova CEO Bible v1.0</em></p>
+<p class="doc-p"><em>Na Nach Nachma Nachman MeUman — Ein Ye'ush Ba'olam Klal</em></p>
+<p class="doc-p"><em>[NOVA:CEO-PMG-V1-20260219]</em></p>
+
+  </article>
+</div>
+<footer class="site-footer">
+  <span class="nova-tam">NOVA-TAM — Système Autonome CEO/CTO/COO</span>
+  Na Nach Nachma Nachman MeUman &nbsp;·&nbsp; Ein Ye'ush Ba'olam Klal &nbsp;·&nbsp; DreamNova © 2026
+</footer>
+</body>
+</html>

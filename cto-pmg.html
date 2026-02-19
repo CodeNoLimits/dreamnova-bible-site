@@ -1,0 +1,2223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTO PMG — Bible DreamNova — DreamNova</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+
+  /* ===== RESET ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-primary: #0C0A09;
+    --bg-secondary: #1C1917;
+    --bg-card: rgba(28, 25, 23, 0.85);
+    --gold: #D4AF37;
+    --gold-bright: #F59E0B;
+    --amber: #F59E0B;
+    --text-primary: #F5F5F4;
+    --text-secondary: #A8A29E;
+    --text-muted: #78716C;
+    --border: rgba(245, 158, 11, 0.18);
+    --border-hover: rgba(212, 175, 55, 0.5);
+    --glass: rgba(255, 255, 255, 0.03);
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.6);
+    --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.12);
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ===== BACKGROUND TEXTURE ===== */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(212,175,55,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(245,158,11,0.04) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(12, 10, 9, 0.92);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 0 2rem;
+  }
+
+  .header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    gap: 1rem;
+  }
+
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 900;
+    color: #0C0A09;
+    font-family: var(--font-display);
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+  }
+
+  .logo-text span { color: var(--gold); }
+
+  /* ===== NAV ===== */
+  .site-nav {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .site-nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.35rem 0.7rem;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+
+  .site-nav a:hover,
+  .site-nav a.active {
+    color: var(--gold);
+    background: rgba(212,175,55,0.08);
+    border-color: var(--border);
+  }
+
+  /* ===== MAIN WRAPPER ===== */
+  .site-main {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  }
+
+  .card:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-2px);
+  }
+
+  /* ===== GOLD GRADIENT TEXT ===== */
+  .gold-text {
+    background: linear-gradient(90deg, var(--gold) 0%, var(--amber) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
+  }
+
+  .site-footer .nova-tam {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-primary); }
+  ::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.3); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+  /* ===== SELECTION ===== */
+  ::selection { background: rgba(212,175,55,0.25); color: var(--text-primary); }
+
+
+  /* ===== LAYOUT ===== */
+  .doc-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 900px) {
+    .doc-layout { grid-template-columns: 1fr; }
+    .doc-sidebar { display: none; }
+  }
+
+  /* ===== SIDEBAR ===== */
+  .doc-sidebar {
+    position: sticky;
+    top: 80px;
+    height: fit-content;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    backdrop-filter: blur(12px);
+  }
+
+  .doc-sidebar::-webkit-scrollbar { width: 3px; }
+  .doc-sidebar::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.2); }
+
+  .sidebar-title {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .toc-list li a {
+    display: block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.78rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    line-height: 1.4;
+    transition: all 0.2s;
+    border-left: 2px solid transparent;
+  }
+
+  .toc-list li a:hover {
+    color: var(--gold);
+    background: rgba(212,175,55,0.06);
+    border-left-color: var(--gold);
+  }
+
+  /* ===== DOC CONTENT ===== */
+  .doc-content {
+    min-width: 0;
+  }
+
+  .doc-title-bar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .doc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(212,175,55,0.1);
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 20px;
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 600;
+    font-family: var(--font-display);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-top: 0.5rem;
+  }
+
+  /* ===== DOC TYPOGRAPHY ===== */
+  .doc-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    background: linear-gradient(90deg, #F5F5F4 0%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+  }
+
+  .doc-h2 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin: 2.5rem 0 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 80px;
+  }
+
+  .doc-h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 1.75rem 0 0.5rem;
+  }
+
+  .doc-h4 {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--amber);
+    margin: 1.25rem 0 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .doc-h5 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 1rem 0 0.3rem;
+  }
+
+  .doc-p {
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    line-height: 1.8;
+  }
+
+  .doc-list {
+    color: var(--text-secondary);
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  .doc-list li {
+    margin-bottom: 0.25rem;
+  }
+
+  .doc-list li strong { color: var(--text-primary); }
+
+  .doc-hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+
+  .doc-quote {
+    border-left: 3px solid var(--gold);
+    background: rgba(212,175,55,0.05);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  /* ===== CODE ===== */
+  .code-block {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(212,175,55,0.1);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: #e2e8f0;
+    margin: 1rem 0;
+    white-space: pre;
+  }
+
+  code.ic {
+    background: rgba(212,175,55,0.1);
+    color: var(--amber);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.85em;
+  }
+
+  /* ===== TABLES ===== */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  .doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+
+  .doc-table th {
+    background: rgba(212,175,55,0.08);
+    color: var(--gold);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .doc-table td {
+    padding: 0.65rem 1rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(245,158,11,0.06);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .doc-table tr:last-child td { border-bottom: none; }
+  .doc-table tr:hover td { background: rgba(212,175,55,0.03); }
+
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-wrap">
+      <div class="logo-mark">DN</div>
+      <div class="logo-text">DREAM<span>NOVA</span></div>
+    </a>
+    <nav class="site-nav">
+    <a href="index.html">🏠 Centre</a>
+    <a href="ceo-global.html">👑 CEO Global</a>
+    <a href="cto-global.html">⚙️ CTO Global</a>
+    <a href="coo-global.html">🔄 COO Global</a>
+    <a href="ceo-pmg.html">📊 CEO PMG</a>
+    <a href="cto-pmg.html" class="active">🔧 CTO PMG</a>
+    <a href="coo-pmg.html">📋 COO PMG</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc-layout">
+  
+  <aside class="doc-sidebar">
+    <div class="sidebar-title">Table des matières</div>
+    <ul class="toc-list">
+    <li><a href="#petit-moyen-grand">Petit · Moyen · Grand</a></li>
+    <li><a href="#table-des-mati-res">TABLE DES MATIÈRES</a></li>
+    <li><a href="#classification-technique">CLASSIFICATION TECHNIQUE</a></li>
+    <li><a href="#god-boilerplate">GOD-BOILERPLATE</a></li>
+    <li><a href="#partie-a-petit-projet-24h">PARTIE A — Petit Projet (< 24h)</a></li>
+    <li><a href="#partie-b-moyen-projet-2-7-jours">PARTIE B — Moyen Projet (2-7 jours)</a></li>
+    <li><a href="#partie-c-grand-projet-1-semaine">PARTIE C — Grand Projet (> 1 semaine)</a></li>
+    <li><a href="#r-gles-d-or-cto-10-non-n-gociables">RÈGLES D'OR CTO (10 Non-Négociables)</a></li>
+    <li><a href="#appendice-commandes-rapides-cto">APPENDICE — Commandes Rapides CTO</a></li>
+    </ul>
+  </aside>
+  <article class="doc-content">
+    <div class="doc-title-bar">
+      <div>
+        <div class="doc-badge">🔧 CTO PMG — IMPLÉMENTATION PAR TAILLE</div>
+      </div>
+    </div>
+    <h1 class="doc-h1">🔧 BIBLE CTO — IMPLÉMENTATION PAR TAILLE DE PROJET</h1>
+<h2 class="doc-h2" id="petit-moyen-grand">Petit · Moyen · Grand</h2>
+<p class="doc-p">Code: [NOVA:CTO-PMG-V1-20260219]</p>
+
+<blockquote class="doc-quote">
+<p><strong>Stack imposée Dream Nova</strong> : Next.js App Router, Python async, Supabase, Tailwind CSS 4, Vercel, TypeScript strict.</p>
+<p>JAMAIS changer la stack sans raison technique impérative. La cohérence est une arme compétitive.</p>
+</blockquote>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="table-des-mati-res">TABLE DES MATIÈRES</h2>
+
+<ol class="doc-list">
+<li><a href="#classification-technique">Classification Technique</a></li>
+<li><a href="#god-boilerplate">GOD-BOILERPLATE — Template Universel DreamNova</a></li>
+<li><a href="#partie-a--petit-projet--24h">PARTIE A — Petit Projet (< 24h)</a></li>
+</ol>
+<p class="doc-p">   - A1. Pipeline Voice → Image ([Client] Case Study)</p>
+<p class="doc-p">   - A2. Landing Page Rapide (< 30 min)</p>
+<p class="doc-p">   - A3. Script Python Automation Template</p>
+<ol class="doc-list">
+<li><a href="#partie-b--moyen-projet-2-7-jours">PARTIE B — Moyen Projet (2-7 jours)</a></li>
+</ol>
+<p class="doc-p">   - B1. Architecture Type</p>
+<p class="doc-p">   - B2. Schema Supabase Standard</p>
+<p class="doc-p">   - B3. Stripe Integration Standard</p>
+<p class="doc-p">   - B4. Performance Checklist Lighthouse >90</p>
+<p class="doc-p">   - B5. Deployment Checklist (20 items)</p>
+<ol class="doc-list">
+<li><a href="#partie-c--grand-projet--1-semaine">PARTIE C — Grand Projet (> 1 semaine)</a></li>
+</ol>
+<p class="doc-p">   - C1. Architecture Multi-Services</p>
+<p class="doc-p">   - C2. CI/CD Pipeline Complet</p>
+<p class="doc-p">   - C3. Monitoring & Auto-Repair</p>
+<p class="doc-p">   - C4. Database Migration Strategy</p>
+<p class="doc-p">   - C5. Security Grand Projet</p>
+<ol class="doc-list">
+<li><a href="#règles-dor-cto">Règles d'Or CTO (10 Non-Négociables)</a></li>
+</ol>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="classification-technique">CLASSIFICATION TECHNIQUE</h2>
+
+<p class="doc-p">Le premier acte du CTO est de <strong>classifier le projet</strong> avant d'écrire une seule ligne de code. Une mauvaise classification = surengineering ou dette technique immédiate.</p>
+
+<div class="table-wrap"><table class="doc-table"><tbody>
+<tr><th>Critère</th><th>PETIT</th><th>MOYEN</th><th>GRAND</th></tr>
+<tr><td><strong>Durée</strong></td><td>< 24h</td><td>2–7 jours</td><td>> 1 semaine</td></tr>
+<tr><td><strong>Revenu cible</strong></td><td>0–2 000 ₪/mois</td><td>2 000–15 000 ₪/mois</td><td>15 000 ₪/mois+</td></tr>
+<tr><td><strong>Frontend</strong></td><td>HTML/CSS ou Next.js simple</td><td>Next.js App Router complet</td><td>Next.js + Mobile React Native</td></tr>
+<tr><td><strong>Backend</strong></td><td>API route ou Python script</td><td>Next.js API routes + Supabase</td><td>Node.js/Python séparé + Supabase</td></tr>
+<tr><td><strong>Auth</strong></td><td>Aucune ou Supabase Magic Link</td><td>Supabase Auth complet</td><td>Supabase Auth + RLS policies exhaustives</td></tr>
+<tr><td><strong>Paiement</strong></td><td>Stripe Payment Link (zéro code)</td><td>Stripe Checkout Session</td><td>Stripe Subscriptions + LemonSqueezy</td></tr>
+<tr><td><strong>DB</strong></td><td>Aucune ou Supabase simple</td><td>Supabase PostgreSQL versionné</td><td>Supabase + migrations versionnées + seeds</td></tr>
+<tr><td><strong>Deploy</strong></td><td>Vercel en 1 commande</td><td>Vercel + env vars + domaine</td><td>Vercel + GitHub Actions CI/CD complet</td></tr>
+<tr><td><strong>Tests</strong></td><td>Manuel seul</td><td>Playwright QA basique</td><td>Playwright E2E complet + Sentry + alertes</td></tr>
+<tr><td><strong>Monitoring</strong></td><td>Aucun</td><td>Vercel Analytics</td><td>Sentry + Upstash + dashboards</td></tr>
+<tr><td><strong>Exemple DreamNova</strong></td><td>Script [Client], Landing Ariel</td><td>Keren Rabbi Yisrael, Esther Ifrah</td><td>DreamNova Platform, DreamOS</td></tr>
+</tbody></table></div>
+
+<h3 class="doc-h3">Règle de Classification Cash-First</h3>
+
+<p class="doc-p">Avant TOUT projet, évaluer silencieusement :</p>
+
+<pre class="code-block"><code class="lang-text">
+SI feature → paiement &amp;lt; 7 jours   → code production-grade, max effort
+SINON                              → MVP &amp;lt;15 lignes, log l'idée, revenir au revenue work
+</code></pre>
+
+<p class="doc-p">Cette règle est intégrée dans l'identité CTO DreamNova. Elle n'est pas optionnelle.</p>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="god-boilerplate">GOD-BOILERPLATE</h2>
+
+<h3 class="doc-h3">Le Template Universel DreamNova</h3>
+
+<p class="doc-p">Tout projet DreamNova démarre depuis ce template. Le dupliquer, jamais le réécrire.</p>
+
+<h4 class="doc-h4">Structure de dossiers exacte</h4>
+
+<pre class="code-block"><code class="lang-text">
+project-name/
+├── app/
+│   ├── (marketing)/              # Pages publiques : /, /about, /pricing, /contact
+│   │   ├── page.tsx              # Homepage
+│   │   ├── pricing/page.tsx      # Page tarifs
+│   │   └── contact/page.tsx      # Formulaire contact
+│   ├── (shop)/                   # E-commerce
+│   │   ├── checkout/page.tsx     # Checkout Stripe
+│   │   └── success/page.tsx      # Confirmation commande
+│   ├── (auth)/                   # Authentification
+│   │   ├── login/page.tsx
+│   │   └── register/page.tsx
+│   ├── (dashboard)/              # Zone connectée
+│   │   ├── layout.tsx            # Layout avec sidebar
+│   │   ├── overview/page.tsx     # Dashboard principal
+│   │   ├── orders/page.tsx       # Commandes
+│   │   └── settings/page.tsx     # Paramètres
+│   ├── api/
+│   │   ├── stripe/
+│   │   │   ├── checkout/route.ts # POST → session Stripe
+│   │   │   └── webhook/route.ts  # POST → events Stripe
+│   │   ├── contact/route.ts      # POST → email Resend
+│   │   └── waitlist/route.ts     # POST → inscription waitlist
+│   ├── globals.css               # Variables CSS globales + Tailwind
+│   └── layout.tsx                # Root layout (fonts, metadata)
+├── components/
+│   ├── ui/                       # Composants atomiques (Shadcn/ui base)
+│   │   ├── button.tsx
+│   │   ├── card.tsx
+│   │   └── input.tsx
+│   ├── sections/                 # Sections de pages réutilisables
+│   │   ├── Hero.tsx
+│   │   ├── Features.tsx
+│   │   ├── Testimonials.tsx
+│   │   └── PricingTable.tsx
+│   └── layout/                   # Composants layout
+│       ├── Header.tsx
+│       ├── Footer.tsx
+│       └── Sidebar.tsx
+├── lib/
+│   ├── supabase/
+│   │   ├── client.ts             # createBrowserClient()
+│   │   ├── server.ts             # createServerClient() (RSC/API)
+│   │   └── middleware.ts         # Session refresh middleware
+│   ├── stripe.ts                 # Instance Stripe configurée
+│   ├── resend.ts                 # Instance Resend configurée
+│   ├── validations.ts            # Schemas Zod partagés
+│   └── utils.ts                  # cn(), formatPrice(), etc.
+├── public/
+│   ├── images/                   # Images optimisées WebP
+│   ├── icons/                    # SVG icons
+│   └── og-image.png              # Open Graph image (1200x630)
+├── supabase/
+│   ├── migrations/               # Migrations SQL numérotées
+│   │   └── 001_initial_schema.sql
+│   └── seed.sql                  # Données de test
+├── .env.local.example            # Template variables d'env
+├── .env.local                    # Variables réelles (JAMAIS commitées)
+├── next.config.js                # Config Next.js + security headers
+├── tailwind.config.ts            # Tokens design DreamNova
+├── tsconfig.json                 # TypeScript strict
+├── middleware.ts                  # Supabase session + rate limiting
+└── package.json
+</code></pre>
+
+<h4 class="doc-h4">Packages inclus par défaut</h4>
+
+<pre class="code-block"><code class="lang-json">
+{
+  "dependencies": {
+    "next": "^15.0.0",
+    "@supabase/supabase-js": "^2.0.0",
+    "@supabase/ssr": "^0.5.0",
+    "stripe": "^17.0.0",
+    "resend": "^4.0.0",
+    "framer-motion": "^11.0.0",
+    "zod": "^3.0.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "tailwindcss": "^4.0.0",
+    "@playwright/test": "^1.40.0"
+  }
+}
+</code></pre>
+
+<h4 class="doc-h4">Variables .env.local requises</h4>
+
+<pre class="code-block"><code class="lang-bash">
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=https://XXXX.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
+SUPABASE_SERVICE_ROLE_KEY=eyJ...
+
+# Stripe
+STRIPE_SECRET_KEY=sk_live_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...
+
+# Resend
+RESEND_API_KEY=re_...
+
+# Site
+NEXT_PUBLIC_SITE_URL=https://projet.vercel.app
+
+# Gemini (pour scripts Python)
+GEMINI_API_KEY=AIzaSyDZ29PmIKVBj_YS86MsX5FJ0jaXyQyebts
+
+# Optionnel: Sentry (grands projets)
+SENTRY_DSN=https://...@sentry.io/...
+</code></pre>
+
+<h4 class="doc-h4">Commande setup alias</h4>
+
+<pre class="code-block"><code class="lang-bash">
+# Ajouter dans ~/.zshrc
+alias dn-init='function _dn_init() {
+  git clone https://github.com/CodeNoLimits/dreamnova-boilerplate "$1"
+  cd "$1"
+  npm install
+  cp .env.local.example .env.local
+  echo "Projet $1 pret. Edit .env.local puis npm run dev"
+}; _dn_init'
+
+# Premier deploy (token permanent DreamNova)
+alias dn-deploy='vercel --prod --token=VCP_TOKEN_REDACTED'
+</code></pre>
+
+<h4 class="doc-h4">next.config.js obligatoire (headers sécurité)</h4>
+
+<pre class="code-block"><code class="lang-javascript">
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 31536000,
+  },
+  async headers() {
+    return [{
+      source: '/(.*)',
+      headers: [
+        { key: 'X-Frame-Options', value: 'DENY' },
+        { key: 'X-Content-Type-Options', value: 'nosniff' },
+        { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+        { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+        {
+          key: 'Content-Security-Policy',
+          value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' *.stripe.com; frame-src *.stripe.com;"
+        }
+      ]
+    }]
+  }
+}
+module.exports = nextConfig
+</code></pre>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="partie-a-petit-projet-24h">PARTIE A — Petit Projet (< 24h)</h2>
+
+<h3 class="doc-h3">A1. Pipeline Voice → Image ([Client] Case Study — Template Réutilisable)</h3>
+
+<p class="doc-p"><strong>Contexte réel</strong> : Client [Client] envoie un message vocal en hébreu avec des instructions de retouche photo pour ses produits bijoux. Pipeline complet : audio → texte → prompt structuré → image éditée → validation auto.</p>
+
+<p class="doc-p"><strong>Durée d'implémentation</strong> : 4 heures. <strong>Valeur client</strong> : 200-500 ₪ par session.</p>
+
+<pre class="code-block"><code class="lang-python">
+# ~/scripts/workflows/voice_to_image_pipeline.py
+"""
+Pipeline Voice -&amp;gt; Image Pipeline (DreamNova Template)
+Usage: python3 voice_to_image_pipeline.py audio.ogg photo1.jpg photo2.jpg
+"""
+import os
+import sys
+import json
+import time
+import logging
+from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import Optional
+
+import requests
+from groq import Groq
+import google.generativeai as genai
+from PIL import Image
+
+# Configuration
+GROQ_KEY = os.environ.get("GROQ_API_KEY", "")
+NANO_BANANA_KEY = os.environ.get("NANO_BANANA_PRO_KEY", "")
+GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyDZ29PmIKVBj_YS86MsX5FJ0jaXyQyebts")
+TELEGRAM_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT_ID = "7269582214"  # David @nerostats
+
+# Logging standard DreamNova
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler(f"/tmp/voice_to_image_{int(time.time())}.log"),
+        logging.StreamHandler()
+    ]
+)
+log = logging.getLogger(__name__)
+
+
+def send_telegram_alert(message: str) -&amp;gt; None:
+    """Alerte Telegram David en cas d'erreur critique."""
+    if not TELEGRAM_TOKEN:
+        return
+    try:
+        requests.post(
+            f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
+            json={"chat_id": TELEGRAM_CHAT_ID, "text": f"[VoiceImage] {message}"},
+            timeout=5
+        )
+    except Exception:
+        pass
+
+
+def transcribe_audio(audio_path: str, language: str = "he") -&amp;gt; str:
+    """
+    Etape 1: Groq Whisper large-v3-turbo -&amp;gt; texte exact.
+    Supporte: OGG, MP3, MP4, WAV, M4A, WebM.
+    """
+    log.info(f"Transcription de {audio_path} (langue: {language})")
+    client = Groq(api_key=GROQ_KEY)
+    with open(audio_path, "rb") as f:
+        transcription = client.audio.transcriptions.create(
+            file=(Path(audio_path).name, f),
+            model="whisper-large-v3-turbo",
+            language=language,
+            response_format="text"
+        )
+    log.info(f"Transcription: {transcription[:200]}...")
+    return transcription
+
+
+def parse_instructions_to_prompts(raw_text: str, image_paths: list[str]) -&amp;gt; list[dict]:
+    """
+    Etape 2: Gemini parse les instructions vocales en prompts structurés.
+    Retourne: [{image_path, prompt_english, style_notes, priority}]
+    """
+    genai.configure(api_key=GEMINI_KEY)
+    model = genai.GenerativeModel("gemini-2.0-flash")
+
+    system_prompt = f"""
+    Tu es un expert retouche photo bijouterie luxe.
+    Instructions vocales du client (hébreu/français/anglais melange):
+    "{raw_text}"
+
+    Images disponibles: {[Path(p).name for p in image_paths]}
+
+    Genere un JSON valide avec cette structure exacte:
+    [
+      {{
+        "image_filename": "nom_exact_du_fichier.jpg",
+        "prompt_english": "Professional product photography: [instruction en anglais ultra-precis]",
+        "style_notes": "luxury jewelry, white background, golden ratio, 8K",
+        "priority": 1
+      }}
+    ]
+
+    Regles:
+    - prompt_english doit etre en anglais uniquement (les APIs image n'acceptent que l'anglais)
+    - Sois TRES specifique: couleurs, eclairage, angles, corrections demandees
+    - Si une instruction concerne plusieurs photos, duplique l'entree
+    - Trie par priorite (1 = plus important)
+    """
+
+    response = model.generate_content(system_prompt)
+    # Extraire le JSON de la reponse
+    text = response.text.strip()
+    start = text.find("[")
+    end = text.rfind("]") + 1
+    parsed = json.loads(text[start:end])
+
+    # Mapper nom fichier -&amp;gt; chemin complet
+    name_to_path = {Path(p).name: p for p in image_paths}
+    for item in parsed:
+        item["image_path"] = name_to_path.get(item.get("image_filename", ""), image_paths[0])
+
+    log.info(f"Parsed {len(parsed)} instructions depuis le vocal")
+    return parsed
+
+
+def edit_image_nanobananaPro(image_path: str, prompt: str, output_dir: str = "/tmp") -&amp;gt; Optional[str]:
+    """
+    Etape 3: Nano Banana Pro API -&amp;gt; image editee.
+    Retourne: chemin local du fichier resultat.
+    """
+    log.info(f"Edition image: {Path(image_path).name} | Prompt: {prompt[:80]}...")
+    output_path = Path(output_dir) / f"edited_{Path(image_path).stem}_{int(time.time())}.webp"
+
+    try:
+        with open(image_path, "rb") as img:
+            resp = requests.post(
+                "https://api.nanobananapro.com/v1/edit",
+                headers={"Authorization": f"Bearer {NANO_BANANA_KEY}"},
+                files={"image": (Path(image_path).name, img, "image/jpeg")},
+                data={
+                    "prompt": prompt,
+                    "output_format": "webp",
+                    "quality": 95,
+                    "style": "professional product photography"
+                },
+                timeout=120
+            )
+        resp.raise_for_status()
+        result = resp.json()
+
+        # Telecharger l'image resultante
+        img_url = result.get("output_url") or result.get("url")
+        if img_url:
+            img_data = requests.get(img_url, timeout=30).content
+            output_path.write_bytes(img_data)
+            log.info(f"Image sauvegardee: {output_path}")
+            return str(output_path)
+
+    except requests.exceptions.RequestException as e:
+        log.error(f"Erreur API Nano Banana: {e}")
+        send_telegram_alert(f"Erreur edition image: {e}")
+        return None
+
+
+def auto_evaluate_gemini_vision(image_path: str, original_prompt: str) -&amp;gt; tuple[bool, str]:
+    """
+    Etape 3.5: Gemini Vision verifie PASS/FAIL et donne raison.
+    Retourne: (bool passed, str reason)
+    """
+    genai.configure(api_key=GEMINI_KEY)
+    model = genai.GenerativeModel("gemini-2.0-flash")
+
+    img = Image.open(image_path)
+    response = model.generate_content([
+        img,
+        f"""Analyse cette image de produit bijouterie.
+        Prompt demande: "{original_prompt}"
+
+        Verifie:
+        1. L'image correspond-elle exactement au prompt?
+        2. Qualite professionnelle bijouterie luxe?
+        3. Problemes visibles (flou, artefacts, deformations)?
+
+        Reponds UNIQUEMENT: PASS ou FAIL, puis une ligne d'explication."""
+    ])
+
+    text = response.text.strip()
+    passed = text.upper().startswith("PASS")
+    log.info(f"Evaluation: {'PASS' if passed else 'FAIL'} | {text[:100]}")
+    return passed, text
+
+
+def process_single_image(instruction: dict, output_dir: str, max_retries: int = 3) -&amp;gt; Optional[str]:
+    """
+    Traitement d'une image avec retry automatique et prompt refinement.
+    """
+    prompt = instruction["prompt_english"]
+    image_path = instruction["image_path"]
+    style_notes = instruction.get("style_notes", "professional product photography, 8K quality")
+
+    full_prompt = f"{prompt}, {style_notes}"
+
+    for attempt in range(max_retries):
+        result_path = edit_image_nanobananaPro(image_path, full_prompt, output_dir)
+        if not result_path:
+            continue
+
+        passed, reason = auto_evaluate_gemini_vision(result_path, prompt)
+        if passed:
+            log.info(f"Image validee en {attempt + 1} tentative(s)")
+            return result_path
+
+        # Raffiner le prompt a chaque echec
+        refinements = [
+            f"{prompt}, ultra-sharp details, perfect lighting, no artifacts",
+            f"{prompt}, studio lighting, clean background, professional retouching, photorealistic",
+            f"High-end jewelry photography: {prompt}, masterpiece quality, award-winning composition"
+        ]
+        full_prompt = f"{refinements[min(attempt, len(refinements)-1)]}, {style_notes}"
+        log.warning(f"Tentative {attempt + 1} echouee: {reason[:80]}. Nouveau prompt applique.")
+        time.sleep(2)
+
+    log.error(f"Echec apres {max_retries} tentatives pour {Path(image_path).name}")
+    return None
+
+
+def process_batch(audio_path: str, image_paths: list[str], output_dir: str = "/tmp/voice_image_output") -&amp;gt; list[str]:
+    """
+    Pipeline complet: audio -&amp;gt; texte -&amp;gt; prompts -&amp;gt; images editees (batch parallele).
+    """
+    Path(output_dir).mkdir(parents=True, exist_ok=True)
+
+    # Etape 1: Transcription
+    raw_text = transcribe_audio(audio_path)
+
+    # Etape 2: Parse instructions
+    instructions = parse_instructions_to_prompts(raw_text, image_paths)
+    log.info(f"Pipeline: {len(instructions)} images a traiter en parallele")
+
+    # Etape 3 + 3.5: Edition + validation (4 workers max)
+    results = []
+    with ThreadPoolExecutor(max_workers=4) as executor:
+        futures = {
+            executor.submit(process_single_image, inst, output_dir): inst
+            for inst in sorted(instructions, key=lambda x: x.get("priority", 99))
+        }
+        for future in as_completed(futures):
+            inst = futures[future]
+            result_path = future.result()
+            if result_path:
+                results.append(result_path)
+                log.info(f"Traite: {Path(inst['image_path']).name} -&amp;gt; {result_path}")
+            else:
+                log.error(f"Echec: {Path(inst['image_path']).name}")
+
+    log.info(f"Pipeline termine: {len(results)}/{len(instructions)} images reussies")
+    send_telegram_alert(f"Pipeline termine: {len(results)}/{len(instructions)} images. Output: {output_dir}")
+    return results
+
+
+if __name__ == "__main__":
+    if len(sys.argv) &amp;lt; 3:
+        print("Usage: python3 voice_to_image_pipeline.py audio.ogg photo1.jpg [photo2.jpg ...]")
+        sys.exit(1)
+
+    audio = sys.argv[1]
+    photos = sys.argv[2:]
+
+    if not Path(audio).exists():
+        log.error(f"Fichier audio introuvable: {audio}")
+        sys.exit(1)
+
+    results = process_batch(audio, photos)
+    print(f"Resultats ({len(results)} images):")
+    for r in results:
+        print(f"  -&amp;gt; {r}")
+</code></pre>
+
+<h3 class="doc-h3">A2. Landing Page Rapide (< 30 minutes)</h3>
+
+<p class="doc-p">Template Next.js minimal, Lighthouse >90 garanti, CTA Stripe Payment Link sans auth.</p>
+
+<pre class="code-block"><code class="lang-typescript">
+// app/(marketing)/page.tsx
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: '[Nom Service] — [Promesse principale]',
+  description: '[Bénéfice en 155 caractères max. Pas de blabla.]',
+  openGraph: { images: ['/og-image.png'] }
+}
+
+// Design tokens: adapter selon projet
+const DESIGN = {
+  primary: '#D4AF37',   // Luxury
+  bg: '#000000',
+  text: '#FFFFFF',
+  cta: 'https://buy.stripe.com/XXXXXX'  // Payment Link Stripe
+}
+
+const FEATURES = [
+  { icon: '⚡', title: 'Rapide', desc: 'Livraison en 24h, pas en 2 semaines.' },
+  { icon: '🎯', title: 'Précis', desc: 'Résultat exact selon vos instructions.' },
+  { icon: '🔒', title: 'Garanti', desc: 'Satisfait ou remboursé sans question.' }
+]
+
+export default function LandingPage() {
+  return (
+    &amp;lt;main className="min-h-screen bg-black text-white font-sans"&amp;gt;
+      {/* Hero */}
+      &amp;lt;section className="flex flex-col items-center justify-center min-h-screen px-4 text-center"&amp;gt;
+        &amp;lt;h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+            style={{ color: DESIGN.primary }}&amp;gt;
+          [Problème Client&amp;lt;br/&amp;gt;En Gras Ici]
+        &amp;lt;/h1&amp;gt;
+        &amp;lt;p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl"&amp;gt;
+          [Solution en 1-2 phrases. Concret. Pas de jargon.]
+        &amp;lt;/p&amp;gt;
+        &amp;lt;a
+          href={DESIGN.cta}
+          className="px-8 py-4 rounded-xl text-black text-xl font-bold
+                     hover:scale-105 transition-transform duration-200"
+          style={{ backgroundColor: DESIGN.primary }}
+        &amp;gt;
+          Commencer — [Prix] ₪
+        &amp;lt;/a&amp;gt;
+        &amp;lt;p className="mt-4 text-sm text-gray-500"&amp;gt;Paiement sécurisé · Satisfait ou remboursé&amp;lt;/p&amp;gt;
+      &amp;lt;/section&amp;gt;
+
+      {/* Features */}
+      &amp;lt;section className="py-20 px-4"&amp;gt;
+        &amp;lt;div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"&amp;gt;
+          {FEATURES.map((f) =&amp;gt; (
+            &amp;lt;div key={f.title}
+                 className="p-6 rounded-2xl border border-gray-800 bg-gray-950
+                            hover:border-yellow-600 transition-colors duration-200"&amp;gt;
+              &amp;lt;div className="text-4xl mb-4"&amp;gt;{f.icon}&amp;lt;/div&amp;gt;
+              &amp;lt;h3 className="text-xl font-bold mb-2" style={{ color: DESIGN.primary }}&amp;gt;
+                {f.title}
+              &amp;lt;/h3&amp;gt;
+              &amp;lt;p className="text-gray-400"&amp;gt;{f.desc}&amp;lt;/p&amp;gt;
+            &amp;lt;/div&amp;gt;
+          ))}
+        &amp;lt;/div&amp;gt;
+      &amp;lt;/section&amp;gt;
+
+      {/* Testimonial */}
+      &amp;lt;section className="py-16 px-4 bg-gray-950"&amp;gt;
+        &amp;lt;blockquote className="max-w-2xl mx-auto text-center"&amp;gt;
+          &amp;lt;p className="text-2xl italic text-gray-200 mb-4"&amp;gt;
+            "[Résultat concret obtenu par un vrai client. Chiffres si possible.]"
+          &amp;lt;/p&amp;gt;
+          &amp;lt;cite className="text-gray-500"&amp;gt;— [Prénom], [Ville]&amp;lt;/cite&amp;gt;
+        &amp;lt;/blockquote&amp;gt;
+      &amp;lt;/section&amp;gt;
+
+      {/* CTA Final */}
+      &amp;lt;section className="py-20 px-4 text-center"&amp;gt;
+        &amp;lt;h2 className="text-3xl font-bold mb-6"&amp;gt;Prêt à [résultat désiré] ?&amp;lt;/h2&amp;gt;
+        &amp;lt;a
+          href={DESIGN.cta}
+          className="inline-block px-10 py-5 rounded-xl text-black text-xl font-bold
+                     hover:scale-105 transition-transform duration-200"
+          style={{ backgroundColor: DESIGN.primary }}
+        &amp;gt;
+          Oui, je veux [résultat] — [Prix] ₪
+        &amp;lt;/a&amp;gt;
+      &amp;lt;/section&amp;gt;
+    &amp;lt;/main&amp;gt;
+  )
+}
+</code></pre>
+
+<h3 class="doc-h3">A3. Script Python Automation Template</h3>
+
+<p class="doc-p">Template standard réutilisable pour TOUT script d'automatisation ponctuel DreamNova.</p>
+
+<pre class="code-block"><code class="lang-python">
+#!/usr/bin/env python3
+"""
+[Nom du script] — [Description en une ligne]
+Usage: python3 nom_script.py [args]
+Auteur: DreamNova CTO (David Amor)
+"""
+import os
+import sys
+import time
+import logging
+import json
+import traceback
+from pathlib import Path
+from functools import wraps
+from typing import Any, Optional
+
+import requests
+from dotenv import load_dotenv
+
+load_dotenv(Path.home() / ".env.local")
+
+# === CONFIGURATION ===
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT_ID = "7269582214"
+MAX_RETRIES = 3
+RETRY_DELAY = 2  # secondes
+
+# === LOGGING STANDARD ===
+log_file = Path("/tmp") / f"{Path(__file__).stem}_{int(time.time())}.log"
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(funcName)s: %(message)s",
+    handlers=[logging.FileHandler(log_file), logging.StreamHandler()]
+)
+log = logging.getLogger(__name__)
+
+
+# === DECORATEUR RETRY ===
+def retry(max_attempts: int = MAX_RETRIES, delay: float = RETRY_DELAY):
+    """Retry automatique avec backoff exponentiel."""
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            for attempt in range(max_attempts):
+                try:
+                    return func(*args, **kwargs)
+                except Exception as e:
+                    if attempt == max_attempts - 1:
+                        raise
+                    wait = delay * (2 ** attempt)
+                    log.warning(f"Tentative {attempt+1}/{max_attempts} echouee: {e}. Retry dans {wait}s")
+                    time.sleep(wait)
+        return wrapper
+    return decorator
+
+
+# === ALERTES TELEGRAM ===
+def alert(message: str, level: str = "INFO") -&amp;gt; None:
+    """Envoie alerte Telegram. Utiliser pour erreurs critiques uniquement."""
+    if not TELEGRAM_BOT_TOKEN:
+        return
+    emoji = {"INFO": "", "WARNING": "[!]", "ERROR": "[ERREUR]", "SUCCESS": "[OK]"}.get(level, "")
+    try:
+        requests.post(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+            json={"chat_id": TELEGRAM_CHAT_ID, "text": f"{emoji} [{Path(__file__).stem}] {message}"},
+            timeout=5
+        )
+    except Exception:
+        pass
+
+
+# === OUTPUT VERS FICHIER ===
+def save_output(data: Any, filename: Optional[str] = None) -&amp;gt; Path:
+    """Sauvegarde output JSON + retourne chemin."""
+    output_dir = Path("/tmp/dreamnova_outputs")
+    output_dir.mkdir(exist_ok=True)
+    outfile = output_dir / (filename or f"{Path(__file__).stem}_output_{int(time.time())}.json")
+    outfile.write_text(json.dumps(data, ensure_ascii=False, indent=2))
+    log.info(f"Output sauvegarde: {outfile}")
+    return outfile
+
+
+# === FONCTIONS METIER ===
+@retry()
+def fetch_data(url: str) -&amp;gt; dict:
+    """Exemple: fetch avec retry automatique."""
+    response = requests.get(url, timeout=30)
+    response.raise_for_status()
+    return response.json()
+
+
+def process_item(item: dict) -&amp;gt; dict:
+    """Traitement unitaire. Isoler chaque transformation ici."""
+    # Logique metier ici
+    return item
+
+
+def run(args: list[str]) -&amp;gt; int:
+    """Point d'entree principal. Retourne 0=succes, 1=erreur."""
+    log.info(f"Demarrage {Path(__file__).name} avec args: {args}")
+    start = time.time()
+
+    try:
+        # 1. Validation des args
+        if not args:
+            log.error("Aucun argument fourni")
+            print("Usage: python3 nom_script.py [input]")
+            return 1
+
+        # 2. Traitement principal
+        results = []
+        for arg in args:
+            result = process_item({"input": arg})
+            results.append(result)
+            log.info(f"Traite: {arg}")
+
+        # 3. Sauvegarder output
+        outfile = save_output(results)
+
+        # 4. Rapport final
+        duration = time.time() - start
+        summary = f"{len(results)} elements traites en {duration:.1f}s. Output: {outfile}"
+        log.info(summary)
+        alert(summary, "SUCCESS")
+        return 0
+
+    except KeyboardInterrupt:
+        log.info("Interrompu par utilisateur")
+        return 0
+    except Exception as e:
+        error_msg = f"Erreur fatale: {e}\n{traceback.format_exc()}"
+        log.error(error_msg)
+        alert(f"ERREUR CRITIQUE: {e}", "ERROR")
+        return 1
+
+
+if __name__ == "__main__":
+    sys.exit(run(sys.argv[1:]))
+</code></pre>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="partie-b-moyen-projet-2-7-jours">PARTIE B — Moyen Projet (2-7 jours)</h2>
+
+<h3 class="doc-h3">B1. Architecture Type Moyen Projet</h3>
+
+<p class="doc-p">La structure App Router est NON-NÉGOCIABLE pour tous les projets moyens DreamNova. Route groups = séparation claire des responsabilités = CI/CD plus simple.</p>
+
+<p class="doc-p"><strong>Règle clé</strong> : Chaque route group <code class="ic">(nom)</code> peut avoir son propre <code class="ic">layout.tsx</code>. Le dashboard a un layout différent du marketing. Ne jamais mélanger.</p>
+
+<pre class="code-block"><code class="lang-text">
+project-name/
+├── app/
+│   ├── (marketing)/          # Pages publiques - pas d'auth
+│   ├── (shop)/               # E-commerce - auth optionnelle
+│   ├── (auth)/               # Login/Register - redirect si déjà connecté
+│   ├── (dashboard)/          # Zone protégée - middleware vérifie session
+│   └── api/                  # API routes - JAMAIS de logique UI ici
+├── components/               # Réutilisables UNIQUEMENT si utilisés 2+ fois
+├── lib/                      # Utilitaires purs (pas de JSX)
+├── public/                   # Assets statiques WebP/SVG uniquement
+└── supabase/migrations/      # UN fichier par migration, numéroté
+</code></pre>
+
+<h3 class="doc-h3">B2. Schema Supabase Standard</h3>
+
+<p class="doc-p">Ce schema couvre 80% des projets moyens DreamNova. L'adapter, jamais repartir de zéro.</p>
+
+<pre class="code-block"><code class="lang-sql">
+-- ============================================================
+-- SCHEMA STANDARD DREAMNOVA v2.0
+-- Testé sur: Keren Rabbi Yisrael, Esther Ifrah, Baroukh Sagit
+-- ============================================================
+
+-- Extension UUID (activée par défaut sur Supabase)
+create extension if not exists "uuid-ossp";
+
+-- ============================================================
+-- TABLE: profiles (extension de auth.users)
+-- ============================================================
+create table public.profiles (
+  id            uuid references auth.users on delete cascade not null,
+  email         text unique not null,
+  full_name     text,
+  phone         text,
+  role          text default 'customer' check (role in ('customer', 'admin', 'staff')),
+  locale        text default 'fr' check (locale in ('fr', 'he', 'en', 'es', 'ru', 'ar')),
+  created_at    timestamptz default now() not null,
+  updated_at    timestamptz default now() not null,
+  primary key (id)
+);
+
+create index idx_profiles_email on public.profiles(email);
+
+-- ============================================================
+-- TABLE: products
+-- ============================================================
+create table public.products (
+  id            uuid default gen_random_uuid() primary key,
+  slug          text unique not null,
+  name_fr       text not null,
+  name_he       text,
+  name_en       text,
+  description   text,
+  price         integer not null,         -- en agorot (₪ × 100)
+  compare_price integer,                  -- prix barre
+  stock         integer default 0,
+  images        text[] default '{}'::text[],
+  category      text,
+  tags          text[] default '{}'::text[],
+  is_active     boolean default true,
+  metadata      jsonb default '{}'::jsonb,
+  created_at    timestamptz default now(),
+  updated_at    timestamptz default now()
+);
+
+create index idx_products_slug on public.products(slug);
+create index idx_products_category on public.products(category);
+create index idx_products_active on public.products(is_active);
+
+-- ============================================================
+-- TABLE: orders
+-- ============================================================
+create table public.orders (
+  id                        uuid default gen_random_uuid() primary key,
+  user_id                   uuid references public.profiles(id),
+  -- user_id NULL = commande invité (email stocké dans shipping_address)
+  stripe_payment_intent_id  text unique,
+  stripe_session_id         text unique,
+  amount                    integer not null,           -- total en agorot
+  currency                  text default 'ILS',
+  status                    text default 'pending'
+                            check (status in ('pending', 'paid', 'failed', 'refunded', 'shipped', 'delivered')),
+  shipping_address          jsonb,                     -- {name, email, line1, city, country, zip}
+  metadata                  jsonb default '{}'::jsonb,
+  created_at                timestamptz default now(),
+  updated_at                timestamptz default now()
+);
+
+create index idx_orders_user on public.orders(user_id);
+create index idx_orders_status on public.orders(status);
+create index idx_orders_stripe on public.orders(stripe_payment_intent_id);
+
+-- ============================================================
+-- TABLE: order_items
+-- ============================================================
+create table public.order_items (
+  id          uuid default gen_random_uuid() primary key,
+  order_id    uuid references public.orders(id) on delete cascade not null,
+  product_id  uuid references public.products(id),
+  quantity    integer not null default 1,
+  unit_price  integer not null,   -- prix au moment de l'achat (snapshot)
+  total_price integer not null,
+  metadata    jsonb default '{}'::jsonb
+);
+
+create index idx_order_items_order on public.order_items(order_id);
+
+-- ============================================================
+-- ROW LEVEL SECURITY (RLS) — OBLIGATOIRE sur TOUTES les tables
+-- ============================================================
+alter table public.profiles enable row level security;
+alter table public.products enable row level security;
+alter table public.orders enable row level security;
+alter table public.order_items enable row level security;
+
+-- Profiles: chaque user voit/modifie uniquement le sien
+create policy "profiles_select_own" on public.profiles
+  for select using (auth.uid() = id);
+
+create policy "profiles_update_own" on public.profiles
+  for update using (auth.uid() = id);
+
+create policy "profiles_insert_own" on public.profiles
+  for insert with check (auth.uid() = id);
+
+-- Admins voient tout
+create policy "profiles_admin_all" on public.profiles
+  using (exists (
+    select 1 from public.profiles p
+    where p.id = auth.uid() and p.role = 'admin'
+  ));
+
+-- Products: lecture publique, écriture admin uniquement
+create policy "products_select_all" on public.products
+  for select using (is_active = true);
+
+create policy "products_admin_write" on public.products
+  for all using (exists (
+    select 1 from public.profiles p
+    where p.id = auth.uid() and p.role = 'admin'
+  ));
+
+-- Orders: user voit ses commandes, admin voit tout
+create policy "orders_select_own" on public.orders
+  for select using (auth.uid() = user_id);
+
+create policy "orders_insert_authenticated" on public.orders
+  for insert with check (auth.uid() = user_id or user_id is null);
+
+create policy "orders_admin_all" on public.orders
+  for all using (exists (
+    select 1 from public.profiles p
+    where p.id = auth.uid() and p.role = 'admin'
+  ));
+
+-- ============================================================
+-- TRIGGER: updated_at automatique
+-- ============================================================
+create or replace function public.handle_updated_at()
+returns trigger language plpgsql as $$
+begin
+  new.updated_at = now();
+  return new;
+end;
+$$;
+
+create trigger profiles_updated_at before update on public.profiles
+  for each row execute procedure public.handle_updated_at();
+
+create trigger products_updated_at before update on public.products
+  for each row execute procedure public.handle_updated_at();
+
+create trigger orders_updated_at before update on public.orders
+  for each row execute procedure public.handle_updated_at();
+
+-- ============================================================
+-- TRIGGER: créer profile automatiquement à l'inscription
+-- ============================================================
+create or replace function public.handle_new_user()
+returns trigger language plpgsql security definer set search_path = public as $$
+begin
+  insert into public.profiles (id, email, full_name)
+  values (
+    new.id,
+    new.email,
+    coalesce(new.raw_user_meta_data-&amp;gt;'full_name', '')::text
+  );
+  return new;
+end;
+$$;
+
+create trigger on_auth_user_created
+  after insert on auth.users
+  for each row execute procedure public.handle_new_user();
+</code></pre>
+
+<h3 class="doc-h3">B3. Stripe Integration Standard</h3>
+
+<pre class="code-block"><code class="lang-typescript">
+// app/api/stripe/checkout/route.ts
+import { NextRequest, NextResponse } from 'next'
+import Stripe from 'stripe'
+import { createServerClient } from '@supabase/ssr'
+import { cookies } from 'next/headers'
+import { z } from 'zod'
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: '2026-01-28.clover'
+})
+
+const CheckoutSchema = z.object({
+  items: z.array(z.object({
+    productId: z.string().uuid(),
+    quantity: z.number().int().positive()
+  })).min(1),
+  successUrl: z.string().url().optional(),
+  cancelUrl: z.string().url().optional()
+})
+
+export async function POST(request: NextRequest) {
+  const cookieStore = cookies()
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { cookies: { get: (name) =&amp;gt; cookieStore.get(name)?.value } }
+  )
+
+  try {
+    const body = await request.json()
+    const { items, successUrl, cancelUrl } = CheckoutSchema.parse(body)
+
+    // Récupérer les produits depuis Supabase
+    const productIds = items.map(i =&amp;gt; i.productId)
+    const { data: products, error } = await supabase
+      .from('products')
+      .select('id, name_fr, price, images')
+      .in('id', productIds)
+      .eq('is_active', true)
+
+    if (error || !products?.length) {
+      return NextResponse.json({ error: 'Produits introuvables' }, { status: 404 })
+    }
+
+    // Construire les line_items Stripe
+    const line_items = items.map(item =&amp;gt; {
+      const product = products.find(p =&amp;gt; p.id === item.productId)!
+      return {
+        price_data: {
+          currency: 'ils',
+          product_data: {
+            name: product.name_fr,
+            images: product.images?.slice(0, 1) ?? []
+          },
+          unit_amount: product.price  // déjà en agorot
+        },
+        quantity: item.quantity
+      }
+    })
+
+    const session = await stripe.checkout.sessions.create({
+      mode: 'payment',
+      line_items,
+      success_url: successUrl ?? `${process.env.NEXT_PUBLIC_SITE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: cancelUrl ?? `${process.env.NEXT_PUBLIC_SITE_URL}/checkout`,
+      payment_method_types: ['card'],
+      metadata: { items: JSON.stringify(items) }
+    })
+
+    return NextResponse.json({ url: session.url })
+
+  } catch (err) {
+    if (err instanceof z.ZodError) {
+      return NextResponse.json({ error: 'Données invalides', details: err.errors }, { status: 400 })
+    }
+    console.error('Stripe checkout error:', err)
+    return NextResponse.json({ error: 'Erreur serveur' }, { status: 500 })
+  }
+}
+</code></pre>
+
+<pre class="code-block"><code class="lang-typescript">
+// app/api/stripe/webhook/route.ts
+import { NextRequest, NextResponse } from 'next'
+import Stripe from 'stripe'
+import { createClient } from '@supabase/supabase-js'
+import { Resend } from 'resend'
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2026-01-28.clover' })
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!)
+const resend = new Resend(process.env.RESEND_API_KEY!)
+
+export async function POST(request: NextRequest) {
+  const body = await request.text()
+  const signature = request.headers.get('stripe-signature')!
+
+  let event: Stripe.Event
+  try {
+    event = stripe.webhooks.constructEvent(body, signature, process.env.STRIPE_WEBHOOK_SECRET!)
+  } catch {
+    return NextResponse.json({ error: 'Signature invalide' }, { status: 400 })
+  }
+
+  if (event.type === 'checkout.session.completed') {
+    const session = event.data.object as Stripe.Checkout.Session
+
+    // 1. Créer commande dans Supabase
+    const { data: order } = await supabase
+      .from('orders')
+      .insert({
+        stripe_session_id: session.id,
+        stripe_payment_intent_id: session.payment_intent as string,
+        amount: session.amount_total,
+        currency: session.currency?.toUpperCase() ?? 'ILS',
+        status: 'paid',
+        shipping_address: {
+          name: session.customer_details?.name,
+          email: session.customer_details?.email,
+        }
+      })
+      .select()
+      .single()
+
+    // 2. Email confirmation via Resend
+    if (session.customer_details?.email &amp;amp;&amp;amp; order) {
+      await resend.emails.send({
+        from: 'DreamNova &amp;lt;noreply@dreamnova.vercel.app&amp;gt;',
+        to: session.customer_details.email,
+        subject: `Confirmation commande #${order.id.slice(0, 8).toUpperCase()}`,
+        html: `&amp;lt;h1&amp;gt;Merci pour votre commande!&amp;lt;/h1&amp;gt;&amp;lt;p&amp;gt;Montant: ${(session.amount_total! / 100).toFixed(2)} ₪&amp;lt;/p&amp;gt;`
+      })
+    }
+  }
+
+  return NextResponse.json({ received: true })
+}
+</code></pre>
+
+<h3 class="doc-h3">B4. Performance Checklist CTO (Lighthouse >90 OBLIGATOIRE)</h3>
+
+<p class="doc-p">Cette checklist est intégrée dans le CI/CD. Un score < 90 BLOQUE le deploy.</p>
+
+<pre class="code-block"><code class="lang-text">
+IMAGES (impact: +15-20 pts)
+  [ ] next/image sur TOUTES les images (jamais &amp;lt;img&amp;gt; directe)
+  [ ] Format WebP/AVIF avec fallback (next.config.js: formats)
+  [ ] sizes= défini sur chaque Image (prevent layout shift)
+  [ ] priority= sur l'image hero above-the-fold uniquement
+  [ ] lazy loading implicite sur tout le reste (default Next.js)
+  [ ] max 800x800px pour produits, optimisé en build
+  [ ] SVG pour icons (jamais PNG/JPG pour icons)
+
+FONTS (impact: +5-10 pts)
+  [ ] next/font/google ou next/font/local (jamais @import CSS)
+  [ ] display: 'swap' sur toutes les fonts
+  [ ] Preload uniquement la font primaire
+  [ ] Max 2 familles de fonts par projet
+
+CODE SPLITTING (impact: +10-15 pts)
+  [ ] dynamic(() =&amp;gt; import(...)) sur composants non-critiques
+  [ ] Suspense boundaries avec fallback skeleton
+  [ ] Route-based code splitting (automatique App Router)
+  [ ] Barrel exports supprimés (import direct)
+
+CACHE &amp;amp; HEADERS (impact: +5-10 pts)
+  [ ] Cache-Control: public, max-age=31536000 sur /public/*
+  [ ] Revalidation Supabase: next: { revalidate: 3600 }
+  [ ] Static rendering sur toutes les pages sans auth
+  [ ] generateStaticParams sur pages produits
+
+CSS (impact: +5 pts)
+  [ ] Tailwind CSS purge activé (automatique en prod)
+  [ ] Variables CSS pour tokens (pas de valeurs hardcodées)
+  [ ] No unused CSS classes en prod
+  [ ] Critical CSS inliné (automatique Next.js)
+
+CORE WEB VITALS
+  [ ] LCP &amp;lt; 2.5s (image hero optimisée + preload)
+  [ ] CLS &amp;lt; 0.1 (width/height sur images, skeleton loaders)
+  [ ] FID/INP &amp;lt; 100ms (pas de calculs lourds sur main thread)
+  [ ] TTFB &amp;lt; 800ms (SSG ou ISR quand possible)
+</code></pre>
+
+<h3 class="doc-h3">B5. Deployment Checklist Moyen Projet (20 items)</h3>
+
+<pre class="code-block"><code class="lang-bash">
+# Checklist à exécuter DANS CET ORDRE avant chaque deploy production
+
+[ ] 01. TypeScript: npx tsc --noEmit → ZERO erreurs
+[ ] 02. Build local: npm run build → ZERO warnings critiques
+[ ] 03. Tests Playwright: npx playwright test → PASS
+[ ] 04. Env vars Vercel: toutes les variables .env.local.example sont sur Vercel
+[ ] 05. Supabase migrations: supabase db push (sur branch preview d'abord)
+[ ] 06. RLS policies testées: chaque table a au moins 1 policy
+[ ] 07. Stripe webhook URL mise à jour sur dashboard Stripe
+[ ] 08. Test paiement: 1 commande test avec carte 4242 4242 4242 4242
+[ ] 09. Test email: vérifier réception email confirmation (Resend logs)
+[ ] 10. Screenshot mobile: iPhone 12 Chrome DevTools
+[ ] 11. Screenshot desktop: 1440px
+[ ] 12. Lighthouse: score &amp;gt;90 Performance + Accessibility + SEO
+[ ] 13. Meta tags: title + description sur chaque page
+[ ] 14. OG image: /public/og-image.png (1200×630)
+[ ] 15. 404 page: /app/not-found.tsx personnalisée
+[ ] 16. Error boundary: /app/error.tsx définie
+[ ] 17. Loading states: /app/loading.tsx sur routes dynamiques
+[ ] 18. Git tag: git tag v1.0.0-$(date +%Y%m%d) avant deploy
+[ ] 19. Deploy: vercel --prod --token=VCP_TOKEN_REDACTED
+[ ] 20. Vérification live: tester les 5 pages critiques en production
+</code></pre>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="partie-c-grand-projet-1-semaine">PARTIE C — Grand Projet (> 1 semaine)</h2>
+
+<h3 class="doc-h3">C1. Architecture Multi-Services</h3>
+
+<p class="doc-p">Pour DreamOS, DreamNova Platform, et tout projet > 30K ₪/mois potentiel.</p>
+
+<pre class="code-block"><code class="lang-text">
+┌─────────────────────────────────────────────────────────┐
+│                    INTERNET / CDN                        │
+│                  Cloudflare (DNS + WAF)                  │
+└────────────────────────┬────────────────────────────────┘
+                         │
+         ┌───────────────┴───────────────┐
+         │                               │
+┌────────▼────────┐             ┌────────▼────────┐
+│  Next.js (Vercel)│             │  Static Assets  │
+│  Frontend + API  │             │  (Cloudflare R2) │
+│  dreamnova.app   │             │  CDN worldwide  │
+└────────┬────────┘             └─────────────────┘
+         │ HTTP/REST
+┌────────▼────────────────────────────────────────┐
+│              Supabase (Database Layer)            │
+│   PostgreSQL + Auth + Storage + Realtime          │
+│   Row Level Security sur TOUTES les tables        │
+└────────┬────────────────────────────────────────┘
+         │
+┌────────▼────────────────────────────────────────┐
+│              VPS IONOS (66.179.240.214)           │
+│   Python FastAPI (workers asynchrones)            │
+│   - Job queue (BullMQ/n8n)                        │
+│   - Batch processing (translations, images)       │
+│   - Webhooks handlers                             │
+│   - Cron jobs (heartbeat, daily-scan)             │
+└─────────────────────────────────────────────────┘
+         │
+┌────────▼────────────────────────────────────────┐
+│              Monitoring Stack                     │
+│   Sentry (erreurs) + Upstash Redis (rate limit)  │
+│   Telegram alerts (David @nerostats)              │
+└─────────────────────────────────────────────────┘
+</code></pre>
+
+<h3 class="doc-h3">C2. CI/CD Pipeline Complet</h3>
+
+<pre class="code-block"><code class="lang-yaml">
+# .github/workflows/deploy.yml
+name: DreamNova Deploy Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+  TELEGRAM_CHAT_ID: "7269582214"
+
+jobs:
+  # ============================================================
+  # JOB 1: TypeScript + Lint
+  # ============================================================
+  typecheck:
+    name: TypeScript &amp;amp; Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20', cache: 'npm' }
+      - run: npm ci
+      - name: TypeScript check (ZERO errors)
+        run: npx tsc --noEmit
+      - name: ESLint
+        run: npm run lint
+
+  # ============================================================
+  # JOB 2: Build
+  # ============================================================
+  build:
+    name: Next.js Build
+    needs: typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20', cache: 'npm' }
+      - run: npm ci
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: .next/
+
+  # ============================================================
+  # JOB 3: Tests Playwright E2E
+  # ============================================================
+  e2e:
+    name: Playwright E2E Tests
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20', cache: 'npm' }
+      - run: npm ci
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+      - name: Run E2E tests
+        run: npx playwright test
+        env:
+          BASE_URL: 'http://localhost:3000'
+          TEST_STRIPE_KEY: ${{ secrets.STRIPE_TEST_KEY }}
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report/
+
+  # ============================================================
+  # JOB 4: Lighthouse CI
+  # ============================================================
+  lighthouse:
+    name: Lighthouse Score &amp;gt;90
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20', cache: 'npm' }
+      - run: npm ci &amp;amp;&amp;amp; npm run build
+      - run: npm start &amp;amp;
+      - name: Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            http://localhost:3000
+            http://localhost:3000/pricing
+          budgetPath: .github/lighthouse-budget.json
+          uploadArtifacts: true
+
+  # ============================================================
+  # JOB 5: Deploy to Vercel (main branch uniquement)
+  # ============================================================
+  deploy:
+    name: Deploy to Production
+    needs: [e2e, lighthouse]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' &amp;amp;&amp;amp; github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm install -g vercel
+      - name: Deploy to Vercel Production
+        run: vercel --prod --token=$VERCEL_TOKEN --yes
+      - name: Tag release
+        run: |
+          git config user.email "ci@dreamnova.app"
+          git config user.name "DreamNova CI"
+          git tag "v$(date +%Y%m%d-%H%M%S)"
+          git push --tags
+
+  # ============================================================
+  # JOB 6: Notification Telegram David
+  # ============================================================
+  notify:
+    name: Notify David
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Send Telegram notification
+        run: |
+          STATUS="${{ needs.deploy.result }}"
+          if [ "$STATUS" = "success" ]; then
+            MSG="[DEPLOY OK] $(git log -1 --pretty=format:\'%s\') deploye en production"
+          else
+            MSG="[DEPLOY FAIL] Echec deploy: ${{ github.sha }}"
+          fi
+          curl -s -X POST \
+            "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d "chat_id=${TELEGRAM_CHAT_ID}&amp;amp;text=${MSG}"
+</code></pre>
+
+<h3 class="doc-h3">C3. Monitoring & Auto-Repair</h3>
+
+<pre class="code-block"><code class="lang-python">
+# ~/scripts/monitoring/sentry_auto_repair.py
+"""
+Sentry Webhook -&amp;gt; Gemini analyse -&amp;gt; PR GitHub automatique
+Principe: erreur detectee -&amp;gt; analyse automatique -&amp;gt; suggestion de fix -&amp;gt; PR pour David
+"""
+import os
+import json
+import hashlib
+import requests
+from fastapi import FastAPI, Request, HTTPException
+from fastapi.responses import JSONResponse
+import google.generativeai as genai
+
+app = FastAPI()
+GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
+REPO = "CodeNoLimits/dreamnova-boilerplate"
+GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyDZ29PmIKVBj_YS86MsX5FJ0jaXyQyebts")
+TELEGRAM_CHAT_ID = "7269582214"
+TELEGRAM_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
+
+
+def notify_david(message: str) -&amp;gt; None:
+    requests.post(
+        f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
+        json={"chat_id": TELEGRAM_CHAT_ID, "text": message},
+        timeout=5
+    )
+
+
+def analyze_error_with_gemini(error_data: dict) -&amp;gt; str:
+    """Gemini analyse l'erreur Sentry et propose un fix."""
+    genai.configure(api_key=GEMINI_KEY)
+    model = genai.GenerativeModel("gemini-2.0-flash")
+
+    prompt = f"""
+    Erreur Sentry en production (Next.js/TypeScript/Supabase):
+
+    Message: {error_data.get('message', '')}
+    Type: {error_data.get('type', '')}
+    Stack trace:
+    {error_data.get('stacktrace', '')}
+
+    Contexte: App Next.js avec Supabase et Stripe.
+
+    Fournis:
+    1. Cause probable (1 phrase)
+    2. Fix exact (code TypeScript ready-to-paste)
+    3. Fichier a modifier
+    4. Test a faire pour valider le fix
+    """
+    response = model.generate_content(prompt)
+    return response.text
+
+
+def create_github_pr(fix_description: str, error_id: str) -&amp;gt; str:
+    """Crée une PR GitHub avec le fix suggéré."""
+    headers = {
+        "Authorization": f"token {GITHUB_TOKEN}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+
+    # Créer une branche
+    branch_name = f"fix/sentry-{error_id[:8]}"
+    base_sha = requests.get(
+        f"https://api.github.com/repos/{REPO}/git/refs/heads/main",
+        headers=headers
+    ).json()["object"]["sha"]
+
+    requests.post(
+        f"https://api.github.com/repos/{REPO}/git/refs",
+        headers=headers,
+        json={"ref": f"refs/heads/{branch_name}", "sha": base_sha}
+    )
+
+    # Créer la PR
+    pr = requests.post(
+        f"https://api.github.com/repos/{REPO}/pulls",
+        headers=headers,
+        json={
+            "title": f"fix: auto-repair Sentry #{error_id[:8]}",
+            "body": f"## Fix automatique\n\n{fix_description}\n\n_Généré automatiquement par DreamNova Auto-Repair_",
+            "head": branch_name,
+            "base": "main"
+        }
+    ).json()
+
+    return pr.get("html_url", "")
+
+
+@app.post("/webhook/sentry")
+async def sentry_webhook(request: Request):
+    """Handler webhook Sentry."""
+    payload = await request.json()
+    event = payload.get("data", {}).get("event", {})
+
+    if not event:
+        raise HTTPException(status_code=400, detail="Payload invalide")
+
+    error_id = hashlib.md5(
+        f"{event.get('type', '')}{event.get('message', '')}".encode()
+    ).hexdigest()
+
+    # Analyse Gemini
+    fix = analyze_error_with_gemini({
+        "message": event.get("message", ""),
+        "type": event.get("type", ""),
+        "stacktrace": str(event.get("exception", {}).get("values", [{}])[0].get("stacktrace", ""))
+    })
+
+    # Créer PR
+    pr_url = create_github_pr(fix, error_id)
+
+    # Notifier David
+    notify_david(
+        f"[AUTO-REPAIR] Erreur Sentry detectee\n"
+        f"Type: {event.get('type', '')}\n"
+        f"PR creee: {pr_url}\n"
+        f"Valider sur GitHub avant merge."
+    )
+
+    return JSONResponse({"status": "PR created", "url": pr_url})
+</code></pre>
+
+<h3 class="doc-h3">C4. Database Migration Strategy</h3>
+
+<pre class="code-block"><code class="lang-bash">
+#!/bin/bash
+# ~/scripts/db/safe_migration.sh
+# Usage: ./safe_migration.sh 002_add_variants.sql "Add product variants table"
+
+MIGRATION_FILE="$1"
+DESCRIPTION="$2"
+SUPABASE_PROJECT="rhwthxmphohqdawglhfde"  # Adapter par projet
+
+if [ -z "$MIGRATION_FILE" ] || [ -z "$DESCRIPTION" ]; then
+  echo "Usage: ./safe_migration.sh migration.sql 'Description'"
+  exit 1
+fi
+
+echo "[1/5] Backup avant migration..."
+supabase db dump --project-ref "$SUPABASE_PROJECT" &amp;gt; "/tmp/backup_$(date +%Y%m%d_%H%M%S).sql"
+echo "Backup OK: /tmp/backup_$(date +%Y%m%d_%H%M%S).sql"
+
+echo "[2/5] Test sur branch Supabase preview..."
+supabase db push --dry-run
+
+echo "[3/5] Application migration..."
+supabase db push
+
+echo "[4/5] Regeneration types TypeScript..."
+npx supabase gen types typescript --project-id "$SUPABASE_PROJECT" &amp;gt; lib/database.types.ts
+
+echo "[5/5] Commit migration..."
+git add supabase/migrations/ lib/database.types.ts
+git commit -m "chore(db): $DESCRIPTION"
+
+echo "Migration terminee. Tester les API routes critiques maintenant."
+</code></pre>
+
+<p class="doc-p"><strong>Règles absolues migrations</strong> :</p>
+
+<ol class="doc-list">
+<li><strong>Jamais supprimer de colonne</strong> en phase 1 — marquer comme <code class="ic">deprecated</code> en commentaire</li>
+<li><strong>Toujours additive</strong> — ajouter colonnes nullable ou avec DEFAULT</li>
+<li><strong>Test sur preview Supabase</strong> avant de toucher la production</li>
+<li><strong>Backup automatique</strong> avant chaque migration (script ci-dessus)</li>
+<li><strong>Types TypeScript regénérés</strong> immédiatement après toute migration</li>
+</ol>
+
+<h3 class="doc-h3">C5. Security Grand Projet</h3>
+
+<pre class="code-block"><code class="lang-typescript">
+// middleware.ts — Rate limiting + session Supabase
+import { NextRequest, NextResponse } from 'next'
+import { createServerClient } from '@supabase/ssr'
+import { Ratelimit } from '@upstash/ratelimit'
+import { Redis } from '@upstash/redis'
+
+const ratelimit = new Ratelimit({
+  redis: Redis.fromEnv(),
+  limiter: Ratelimit.slidingWindow(100, '1 m'),  // 100 req/min par IP
+  analytics: true
+})
+
+export async function middleware(request: NextRequest) {
+  // 1. Rate limiting sur routes API
+  if (request.nextUrl.pathname.startsWith('/api/')) {
+    const ip = request.ip ?? '127.0.0.1'
+    const { success, limit, remaining } = await ratelimit.limit(ip)
+
+    if (!success) {
+      return NextResponse.json(
+        { error: 'Too many requests' },
+        { status: 429, headers: { 'X-RateLimit-Limit': String(limit), 'X-RateLimit-Remaining': String(remaining) } }
+      )
+    }
+  }
+
+  // 2. Session Supabase refresh automatique
+  const response = NextResponse.next()
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    { cookies: { get: (name) =&amp;gt; request.cookies.get(name)?.value, set: (name, value, options) =&amp;gt; { response.cookies.set({ name, value, ...options }) } } }
+  )
+  await supabase.auth.getUser()
+
+  // 3. Protéger routes dashboard
+  if (request.nextUrl.pathname.startsWith('/(dashboard)')) {
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) {
+      return NextResponse.redirect(new URL('/login', request.url))
+    }
+  }
+
+  return response
+}
+
+export const config = {
+  matcher: ['/api/:path*', '/(dashboard)/:path*']
+}
+</code></pre>
+
+<pre class="code-block"><code class="lang-bash">
+# .github/hooks/pre-commit — Bloquer secrets dans les commits
+#!/bin/bash
+# Installer: cp .github/hooks/pre-commit .git/hooks/pre-commit &amp;amp;&amp;amp; chmod +x .git/hooks/pre-commit
+
+SECRETS_PATTERN="sk_live_|whsec_|eyJ|AIzaSy|vcp_|re_[A-Za-z0-9]"
+
+if git diff --cached --name-only | xargs grep -l -E "$SECRETS_PATTERN" 2&amp;gt;/dev/null; then
+  echo "[ERREUR] Secrets potentiels detectes dans les fichiers staged!"
+  echo "Verifier: .env, .env.local, config files"
+  echo "Utiliser: git reset HEAD &amp;lt;file&amp;gt; pour unstager"
+  exit 1
+fi
+exit 0
+</code></pre>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="r-gles-d-or-cto-10-non-n-gociables">RÈGLES D'OR CTO (10 Non-Négociables)</h2>
+
+<p class="doc-p">Ces règles sont gravées. Elles ne sont pas des suggestions. Chaque violation a coûté du temps, de l'argent, ou un client DreamNova.</p>
+
+<h3 class="doc-h3">1. Screenshot AVANT → Gemini Vision → Modification → Screenshot APRÈS</h3>
+<p class="doc-p"><strong>Pourquoi</strong> : Le site Keren a été détruit le 12 fév 2026 en travaillant sans validation visuelle.</p>
+<p class="doc-p"><strong>Comment</strong> : <code class="ic">openclaw browser screenshot</code> avant + après. Gemini Vision compare. Si degradation → rollback immédiat.</p>
+
+<h3 class="doc-h3">2. TypeScript strict : ZERO <code class="ic">any</code>, ZERO <code class="ic">@ts-ignore</code></h3>
+<p class="doc-p">Chaque <code class="ic">any</code> est une bombe à retardement. Exception unique : interface externe mal typée → créer un type wrapper documenté avec <code class="ic">// REASON:</code>.</p>
+
+<h3 class="doc-h3">3. Backup AVANT toute migration DB</h3>
+<pre class="code-block"><code class="lang-bash">
+supabase db dump --project-ref PROJECT_ID &amp;gt; backup_$(date +%Y%m%d_%H%M%S).sql
+</code></pre>
+<p class="doc-p">Pas de backup = pas de migration. La règle est absolue.</p>
+
+<h3 class="doc-h3">4. Git tag AVANT chaque deploy production</h3>
+<pre class="code-block"><code class="lang-bash">
+git tag "v$(date +%Y%m%d-%H%M%S)" &amp;amp;&amp;amp; git push --tags
+vercel --prod --token=VCP_TOKEN_REDACTED
+</code></pre>
+<p class="doc-p">Rollback en 30 secondes : <code class="ic">vercel rollback --token=...</code></p>
+
+<h3 class="doc-h3">5. Docker sandbox pour tout agent avec accès shell</h3>
+<p class="doc-p">OpenClaw, Gemini Junior, tout agent autonome → jamais d'accès direct au filesystem de production. Sandbox Docker avec volume <code class="ic">/output</code> uniquement.</p>
+
+<h3 class="doc-h3">6. Lighthouse >90 BLOQUE le deploy</h3>
+<p class="doc-p">Intégré dans <code class="ic">.github/workflows/deploy.yml</code>. Pas de bypass. Score 89 = fix avant deploy, pas d'exception.</p>
+
+<h3 class="doc-h3">7. Variables d'env : JAMAIS hardcodées, JAMAIS commitées</h3>
+<pre class="code-block"><code class="lang-bash">
+# Vérification avant commit (hook pre-commit)
+grep -r "sk_live_\|whsec_\|AIzaSy" src/ &amp;amp;&amp;amp; echo "SECRET DETECTED" &amp;amp;&amp;amp; exit 1
+</code></pre>
+<p class="doc-p">Le token Vercel permanent dans ce document est accepté uniquement en doc interne.</p>
+
+<h3 class="doc-h3">8. Test paiement Stripe mode Test AVANT prod</h3>
+<p class="doc-p">Carte test : <code class="ic">4242 4242 4242 4242</code>, date future, CVC quelconque.</p>
+<p class="doc-p">Tester : succès, échec, remboursement. Si un des 3 échoue → pas de deploy.</p>
+
+<h3 class="doc-h3">9. Mobile test iPhone 12 Chrome DevTools AVANT livraison client</h3>
+<p class="doc-p">Résolution : 390×844. Vérifier : navigation, CTA visibles, formulaires cliquables, images chargées, pas de scroll horizontal.</p>
+
+<h3 class="doc-h3">10. Rétro-engineering : chaque nouveau problème résolu → script réutilisable</h3>
+<pre class="code-block"><code class="lang-text">
+Problème résolu → ~/scripts/workflows/NOM_DU_PROBLEME.py
+</code></pre>
+<p class="doc-p">Répertoire <code class="ic">~/scripts/workflows/</code> = mémoire technique DreamNova. Auditer mensuellement.</p>
+
+<hr class="doc-hr">
+
+<h2 class="doc-h2" id="appendice-commandes-rapides-cto">APPENDICE — Commandes Rapides CTO</h2>
+
+<pre class="code-block"><code class="lang-bash">
+# Setup nouveau projet
+dn-init nom-projet
+
+# Deploy production (token permanent)
+vercel --prod --token=VCP_TOKEN_REDACTED
+
+# Rollback deploy
+vercel rollback --token=VCP_TOKEN_REDACTED
+
+# Migration DB avec backup
+~/scripts/db/safe_migration.sh supabase/migrations/002_feature.sql "Description"
+
+# Regenerer types Supabase
+npx supabase gen types typescript --project-id PROJECT_ID &amp;gt; lib/database.types.ts
+
+# Lighthouse local
+npx lighthouse http://localhost:3000 --output=html --output-path=/tmp/report.html
+
+# Screenshot production via OpenClaw
+openclaw browser screenshot --url https://projet.vercel.app --output /tmp/check.png
+
+# Check TypeScript
+npx tsc --noEmit
+
+# Pipeline voice-&amp;gt;image
+python3 ~/scripts/workflows/voice_to_image_pipeline.py message.ogg photo.jpg
+
+# Alert Telegram David
+openclaw message send --channel telegram --target 7269582214 --message "Texte"
+</code></pre>
+
+<hr class="doc-hr">
+
+<p class="doc-p"><em>Document maintenu par DreamNova CTO — David Amor, Jérusalem</em></p>
+<p class="doc-p"><em>Dernière mise à jour: 2026-02-19</em></p>
+<p class="doc-p"><em>Code: [NOVA:CTO-PMG-V1-20260219]</em></p>
+
+  </article>
+</div>
+<footer class="site-footer">
+  <span class="nova-tam">NOVA-TAM — Système Autonome CEO/CTO/COO</span>
+  Na Nach Nachma Nachman MeUman &nbsp;·&nbsp; Ein Ye'ush Ba'olam Klal &nbsp;·&nbsp; DreamNova © 2026
+</footer>
+</body>
+</html>
