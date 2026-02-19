@@ -1134,7 +1134,13 @@ function calcPrice() {
   const sub = state.basePrice + state.featuresTotal;
   const final = Math.round(sub * state.urgency / 50) * 50;
   const tier = final < 500 ? 'PETIT' : final < 5000 ? 'MOYEN' : 'GRAND';
-  const days = Math.ceil(state.baseDays * (state.urgency < 1.2 ? 1 : 0.7));
+  // Urgency compresses timeline: higher urgency = shorter delay
+  var maxDays;
+  if (state.urgency <= 1.0) maxDays = 9999;      // Flexible: base delay
+  else if (state.urgency <= 1.2) maxDays = 14;    // 1-2 semaines
+  else if (state.urgency <= 1.45) maxDays = 5;    // Cette semaine
+  else maxDays = 2;                                // Maintenant: 24-48h
+  const days = Math.max(1, Math.min(Math.ceil(state.baseDays), maxDays));
   return {
     price: final,
     min: Math.round(final * 0.85 / 50) * 50,
