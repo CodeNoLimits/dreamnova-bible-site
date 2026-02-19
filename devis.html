@@ -59,10 +59,11 @@ nav a.active{color:var(--amber);background:rgba(245,158,11,0.15)}
 
 /* OPTIONS GRID */
 .options-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:24px}
-.option-card{border:1px solid var(--border);border-radius:12px;padding:16px;cursor:pointer;transition:.2s;background:var(--glass);position:relative}
+.option-card{border:1px solid var(--border);border-radius:12px;padding:16px;cursor:pointer;transition:.2s;background:var(--glass);position:relative;display:block}
+.option-card input[type="radio"],.option-card input[type="checkbox"]{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
 .option-card:hover{border-color:rgba(245,158,11,0.4);background:rgba(245,158,11,0.05)}
-.option-card.selected{border-color:var(--amber);background:rgba(245,158,11,0.1)}
-.option-card.selected::after{content:'✓';position:absolute;top:10px;right:12px;color:var(--amber);font-size:14px;font-weight:700}
+.option-card:has(input:checked),.option-card.selected{border-color:var(--amber);background:rgba(245,158,11,0.1)}
+.option-card:has(input:checked)::after,.option-card.selected::after{content:'✓';position:absolute;top:10px;right:12px;color:var(--amber);font-size:14px;font-weight:700}
 .option-icon{font-size:24px;margin-bottom:8px;pointer-events:none}
 .option-title{font-weight:600;font-size:14px;margin-bottom:4px;pointer-events:none}
 .option-desc{font-size:12px;color:var(--muted);line-height:1.4;pointer-events:none}
@@ -70,9 +71,10 @@ nav a.active{color:var(--amber);background:rgba(245,158,11,0.15)}
 
 /* FEATURES MULTI-SELECT */
 .features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:24px}
-.feature-toggle{border:1px solid var(--border);border-radius:10px;padding:12px;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:10px;background:var(--glass)}
+.feature-toggle{border:1px solid var(--border);border-radius:10px;padding:12px;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:10px;background:var(--glass);position:relative}
+.feature-toggle input[type="checkbox"]{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
 .feature-toggle:hover{border-color:rgba(245,158,11,0.4)}
-.feature-toggle.selected{border-color:var(--amber);background:rgba(245,158,11,0.1)}
+.feature-toggle:has(input:checked),.feature-toggle.selected{border-color:var(--amber);background:rgba(245,158,11,0.1)}
 .feature-toggle .icon{font-size:18px;width:24px;text-align:center;pointer-events:none}
 .feature-toggle .info{flex:1;pointer-events:none}
 .feature-toggle .fname{font-size:13px;font-weight:500;pointer-events:none}
@@ -599,54 +601,62 @@ select option{background:var(--bg2);color:var(--text)}
       <div class="card-title">Quel type de projet ?</div>
       <div class="card-sub">Sélectionnez la catégorie qui correspond le mieux à votre besoin</div>
       <div class="options-grid" id="project-types">
-        <div class="option-card" data-type="landing" data-base="400" data-days="1">
+        <label class="option-card" data-type="landing" data-base="400" data-days="1">
+          <input type="radio" name="project-type" value="landing">
           <div class="option-icon">🚀</div>
           <div class="option-title">Landing Page</div>
           <div class="option-desc">Page de présentation, site vitrine simple, page de vente</div>
           <div class="option-price">Dès 400€ · 24h</div>
-        </div>
-        <div class="option-card" data-type="ecommerce" data-base="1800" data-days="7">
+        </label>
+        <label class="option-card" data-type="ecommerce" data-base="1800" data-days="7">
+          <input type="radio" name="project-type" value="ecommerce">
           <div class="option-icon">🛒</div>
           <div class="option-title">E-commerce</div>
           <div class="option-desc">Boutique en ligne, catalogue produits, paiements intégrés</div>
           <div class="option-price">Dès 1 800€ · 1 semaine</div>
-        </div>
-        <div class="option-card" data-type="saas" data-base="2800" data-days="14">
+        </label>
+        <label class="option-card" data-type="saas" data-base="2800" data-days="14">
+          <input type="radio" name="project-type" value="saas">
           <div class="option-icon">⚙️</div>
           <div class="option-title">SaaS MVP</div>
           <div class="option-desc">Tableau de bord, authentification, abonnements, BDD</div>
           <div class="option-price">Dès 2 800€ · 2 semaines</div>
-        </div>
-        <div class="option-card" data-type="automation" data-base="600" data-days="2">
+        </label>
+        <label class="option-card" data-type="automation" data-base="600" data-days="2">
+          <input type="radio" name="project-type" value="automation">
           <div class="option-icon">🤖</div>
           <div class="option-title">Automatisation IA</div>
           <div class="option-desc">Scripts, pipelines IA, traitement voix/image, bots</div>
           <div class="option-price">Dès 600€ · 2 jours</div>
-        </div>
-        <div class="option-card" data-type="mobile" data-base="3500" data-days="21">
+        </label>
+        <label class="option-card" data-type="mobile" data-base="3500" data-days="21">
+          <input type="radio" name="project-type" value="mobile">
           <div class="option-icon">📱</div>
           <div class="option-title">App Mobile</div>
           <div class="option-desc">Application iOS/Android, React Native, PWA avancée</div>
           <div class="option-price">Dès 3 500€ · 3 semaines</div>
-        </div>
-        <div class="option-card" data-type="ecosystem" data-base="6000" data-days="45">
+        </label>
+        <label class="option-card" data-type="ecosystem" data-base="6000" data-days="45">
+          <input type="radio" name="project-type" value="ecosystem">
           <div class="option-icon">🌐</div>
           <div class="option-title">Écosystème Complet</div>
           <div class="option-desc">Multi-services, intégrations multiples, infrastructure IA</div>
           <div class="option-price">Dès 6 000€ · 6 semaines+</div>
-        </div>
-        <div class="option-card" data-type="chatbot" data-base="900" data-days="3">
+        </label>
+        <label class="option-card" data-type="chatbot" data-base="900" data-days="3">
+          <input type="radio" name="project-type" value="chatbot">
           <div class="option-icon">💬</div>
           <div class="option-title">Chatbot / Agent IA</div>
           <div class="option-desc">Assistant IA personnalisé, RAG sur vos données, multilingue</div>
           <div class="option-price">Dès 900€ · 3 jours</div>
-        </div>
-        <div class="option-card" data-type="fix" data-base="150" data-days="0.5">
+        </label>
+        <label class="option-card" data-type="fix" data-base="150" data-days="0.5">
+          <input type="radio" name="project-type" value="fix">
           <div class="option-icon">🔧</div>
           <div class="option-title">Fix & Optimisation</div>
           <div class="option-desc">Correction bug, optimisation performance, audit Lighthouse</div>
           <div class="option-price">Dès 150€ · quelques heures</div>
-        </div>
+        </label>
       </div>
       <div class="btn-row">
         <button class="btn btn-primary" onclick="goStep(2)">Continuer →</button>
@@ -660,20 +670,20 @@ select option{background:var(--bg2);color:var(--text)}
       <div class="card-title">Quelles fonctionnalités ?</div>
       <div class="card-sub">Sélectionnez tout ce dont vous avez besoin (plusieurs choix possibles)</div>
       <div class="features-grid">
-        <div class="feature-toggle" data-add="400"><span class="icon">🔐</span><div class="info"><div class="fname">Authentification</div><div class="fadd">+400€</div></div></div>
-        <div class="feature-toggle" data-add="500"><span class="icon">💳</span><div class="info"><div class="fname">Paiement en ligne</div><div class="fadd">+500€</div></div></div>
-        <div class="feature-toggle" data-add="350"><span class="icon">🛠️</span><div class="info"><div class="fname">Dashboard admin</div><div class="fadd">+350€</div></div></div>
-        <div class="feature-toggle" data-add="250"><span class="icon">🌍</span><div class="info"><div class="fname">Multilingue</div><div class="fadd">+250€</div></div></div>
-        <div class="feature-toggle" data-add="600"><span class="icon">🧠</span><div class="info"><div class="fname">IA / LLM intégré</div><div class="fadd">+600€</div></div></div>
-        <div class="feature-toggle" data-add="300"><span class="icon">📝</span><div class="info"><div class="fname">CMS / Blog</div><div class="fadd">+300€</div></div></div>
-        <div class="feature-toggle" data-add="350"><span class="icon">🔌</span><div class="info"><div class="fname">API externe</div><div class="fadd">+350€</div></div></div>
-        <div class="feature-toggle" data-add="200"><span class="icon">📊</span><div class="info"><div class="fname">Analytics avancés</div><div class="fadd">+200€</div></div></div>
-        <div class="feature-toggle" data-add="400"><span class="icon">📧</span><div class="info"><div class="fname">Emails transac.</div><div class="fadd">+400€</div></div></div>
-        <div class="feature-toggle" data-add="500"><span class="icon">🗄️</span><div class="info"><div class="fname">Base de données</div><div class="fadd">+500€</div></div></div>
-        <div class="feature-toggle" data-add="450"><span class="icon">🔔</span><div class="info"><div class="fname">Notifications push</div><div class="fadd">+450€</div></div></div>
-        <div class="feature-toggle" data-add="300"><span class="icon">📱</span><div class="info"><div class="fname">PWA / Mobile first</div><div class="fadd">+300€</div></div></div>
-        <div class="feature-toggle" data-add="250"><span class="icon">🔍</span><div class="info"><div class="fname">SEO avancé</div><div class="fadd">+250€</div></div></div>
-        <div class="feature-toggle" data-add="350"><span class="icon">🎨</span><div class="info"><div class="fname">Design sur mesure</div><div class="fadd">+350€</div></div></div>
+        <label class="feature-toggle" data-add="400"><input type="checkbox" name="feature" data-name="Authentification" data-add="400"><span class="icon">🔐</span><div class="info"><div class="fname">Authentification</div><div class="fadd">+400€</div></div></label>
+        <label class="feature-toggle" data-add="500"><input type="checkbox" name="feature" data-name="Paiement en ligne" data-add="500"><span class="icon">💳</span><div class="info"><div class="fname">Paiement en ligne</div><div class="fadd">+500€</div></div></label>
+        <label class="feature-toggle" data-add="350"><input type="checkbox" name="feature" data-name="Dashboard admin" data-add="350"><span class="icon">🛠️</span><div class="info"><div class="fname">Dashboard admin</div><div class="fadd">+350€</div></div></label>
+        <label class="feature-toggle" data-add="250"><input type="checkbox" name="feature" data-name="Multilingue" data-add="250"><span class="icon">🌍</span><div class="info"><div class="fname">Multilingue</div><div class="fadd">+250€</div></div></label>
+        <label class="feature-toggle" data-add="600"><input type="checkbox" name="feature" data-name="IA / LLM intégré" data-add="600"><span class="icon">🧠</span><div class="info"><div class="fname">IA / LLM intégré</div><div class="fadd">+600€</div></div></label>
+        <label class="feature-toggle" data-add="300"><input type="checkbox" name="feature" data-name="CMS / Blog" data-add="300"><span class="icon">📝</span><div class="info"><div class="fname">CMS / Blog</div><div class="fadd">+300€</div></div></label>
+        <label class="feature-toggle" data-add="350"><input type="checkbox" name="feature" data-name="API externe" data-add="350"><span class="icon">🔌</span><div class="info"><div class="fname">API externe</div><div class="fadd">+350€</div></div></label>
+        <label class="feature-toggle" data-add="200"><input type="checkbox" name="feature" data-name="Analytics avancés" data-add="200"><span class="icon">📊</span><div class="info"><div class="fname">Analytics avancés</div><div class="fadd">+200€</div></div></label>
+        <label class="feature-toggle" data-add="400"><input type="checkbox" name="feature" data-name="Emails transac." data-add="400"><span class="icon">📧</span><div class="info"><div class="fname">Emails transac.</div><div class="fadd">+400€</div></div></label>
+        <label class="feature-toggle" data-add="500"><input type="checkbox" name="feature" data-name="Base de données" data-add="500"><span class="icon">🗄️</span><div class="info"><div class="fname">Base de données</div><div class="fadd">+500€</div></div></label>
+        <label class="feature-toggle" data-add="450"><input type="checkbox" name="feature" data-name="Notifications push" data-add="450"><span class="icon">🔔</span><div class="info"><div class="fname">Notifications push</div><div class="fadd">+450€</div></div></label>
+        <label class="feature-toggle" data-add="300"><input type="checkbox" name="feature" data-name="PWA / Mobile first" data-add="300"><span class="icon">📱</span><div class="info"><div class="fname">PWA / Mobile first</div><div class="fadd">+300€</div></div></label>
+        <label class="feature-toggle" data-add="250"><input type="checkbox" name="feature" data-name="SEO avancé" data-add="250"><span class="icon">🔍</span><div class="info"><div class="fname">SEO avancé</div><div class="fadd">+250€</div></div></label>
+        <label class="feature-toggle" data-add="350"><input type="checkbox" name="feature" data-name="Design sur mesure" data-add="350"><span class="icon">🎨</span><div class="info"><div class="fname">Design sur mesure</div><div class="fadd">+350€</div></div></label>
       </div>
 
       <div class="price-live">
@@ -705,30 +715,34 @@ select option{background:var(--bg2);color:var(--text)}
       <div class="form-group">
         <label>Urgence du projet</label>
         <div class="options-grid" style="margin-bottom:0">
-          <div class="option-card" data-urgency="1.0">
+          <label class="option-card" data-urgency="1.0">
+            <input type="radio" name="urgency" value="1.0">
             <div class="option-icon">🌿</div>
             <div class="option-title">Flexible</div>
             <div class="option-desc">Pas de deadline fixe</div>
             <div class="option-price">Tarif standard</div>
-          </div>
-          <div class="option-card" data-urgency="1.2">
+          </label>
+          <label class="option-card" data-urgency="1.2">
+            <input type="radio" name="urgency" value="1.2">
             <div class="option-icon">📅</div>
             <div class="option-title">Dans 1–2 semaines</div>
             <div class="option-desc">Planning raisonnable</div>
             <div class="option-price">+20% rapidité</div>
-          </div>
-          <div class="option-card" data-urgency="1.45">
+          </label>
+          <label class="option-card" data-urgency="1.45">
+            <input type="radio" name="urgency" value="1.45">
             <div class="option-icon">⚡</div>
             <div class="option-title">Cette semaine</div>
             <div class="option-desc">Priorité absolue</div>
             <div class="option-price">+45% urgent</div>
-          </div>
-          <div class="option-card" data-urgency="1.7">
+          </label>
+          <label class="option-card" data-urgency="1.7">
+            <input type="radio" name="urgency" value="1.7">
             <div class="option-icon">🚨</div>
             <div class="option-title">Maintenant</div>
-            <div class="option-desc">Livraison < 24–48h</div>
+            <div class="option-desc">Livraison &lt; 24–48h</div>
             <div class="option-price">+70% express</div>
-          </div>
+          </label>
         </div>
       </div>
 
@@ -1207,25 +1221,42 @@ function generateQuote() {
   window.scrollTo({top:200,behavior:'smooth'});
 }
 
-// ─── EVENT DELEGATION — écoute globale sur document ──────
-// closest() remonte le DOM depuis l'élément cliqué (même si c'est un enfant)
-// C'est la méthode la plus fiable, aucune dépendance DOM timing.
-document.addEventListener('click', function(e) {
-  var card = e.target.closest('.option-card[data-type]');
-  if (card) { selectType(card); return; }
+// ─── NATIVE INPUT HANDLERS — radio/checkbox natifs ──────
+// Zéro JS pour la sélection visuelle (:has(input:checked) CSS)
+// Ces handlers mettent juste à jour le state applicatif.
 
-  var urgency = e.target.closest('[data-urgency]');
-  if (urgency) { selectUrgency(urgency); return; }
+document.querySelectorAll('input[name="project-type"]').forEach(function(input) {
+  input.addEventListener('change', function() {
+    var card = this.closest('.option-card');
+    state.type = card.dataset.type;
+    state.basePrice = parseInt(card.dataset.base);
+    state.baseDays = parseFloat(card.dataset.days);
+  });
+});
 
-  var feature = e.target.closest('.feature-toggle');
-  if (feature) { toggleFeature(feature); return; }
+document.querySelectorAll('input[name="urgency"]').forEach(function(input) {
+  input.addEventListener('change', function() {
+    var card = this.closest('.option-card');
+    state.urgency = parseFloat(card.dataset.urgency);
+    state.urgencyLabel = card.querySelector('.option-title').textContent;
+    updateLivePrices();
+  });
+});
+
+document.querySelectorAll('input[name="feature"]').forEach(function(input) {
+  input.addEventListener('change', function() {
+    state.features = Array.from(document.querySelectorAll('input[name="feature"]:checked'))
+      .map(function(f) { return { name: f.dataset.name, add: parseInt(f.dataset.add) }; });
+    state.featuresTotal = state.features.reduce(function(s,f){ return s+f.add; }, 0);
+    updateLivePrices();
+  });
 });
 
 function restart() {
   // Reset state
   state.type=null; state.basePrice=0; state.baseDays=0;
   state.features=[]; state.featuresTotal=0; state.urgency=1.0;
-  document.querySelectorAll('.option-card,.feature-toggle').forEach(el=>el.classList.remove('selected'));
+  document.querySelectorAll('input[name="project-type"],input[name="urgency"],input[name="feature"]').forEach(function(el){ el.checked=false; });
   document.querySelectorAll('input,textarea').forEach(el=>el.value='');
   document.getElementById('result-section').style.display='none';
   document.getElementById('contract-section').style.display='none';
