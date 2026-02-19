@@ -72,34 +72,34 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
   <div class="header-inner">
     <a href="index.html" class="logo-wrap"><div class="logo-mark">DN</div><div class="logo-text">DREAM<span>NOVA</span></div></a>
     <nav class="site-nav">
-      <a href="index.html">🏠 Centre</a>
-      <a href="portfolio.html">🎯 Portfolio</a>
-      <a href="tarifs.html">💎 Tarifs</a>
-      <a href="faq.html" class="active">❓ FAQ</a>
-      <a href="devis.html">💰 Devis</a>
+      <a href="index.html" data-i18n="nav.center">🏠 Centre</a>
+      <a href="portfolio.html" data-i18n="nav.portfolio">🎯 Portfolio</a>
+      <a href="tarifs.html" data-i18n="nav.tarifs">💎 Tarifs</a>
+      <a href="faq.html" class="active" data-i18n="nav.faq">❓ FAQ</a>
+      <a href="devis.html" data-i18n="nav.devis">💰 Devis</a>
     </nav>
   </div>
 </header>
 
 <main class="site-main">
   <div class="page-header">
-    <div class="page-eyebrow">❓ Questions Fréquentes</div>
-    <h1 class="page-title">Tout ce qu'il faut savoir</h1>
-    <p class="page-sub">Réponses aux questions les plus posées par nos clients.</p>
+    <div class="page-eyebrow" data-i18n="faq.hero_eyebrow">❓ Questions Fréquentes</div>
+    <h1 class="page-title" data-i18n="faq.hero_title">Tout ce qu'il faut savoir</h1>
+    <p class="page-sub" data-i18n="faq.hero_sub">Réponses aux questions les plus posées par nos clients.</p>
   </div>
 
   <!-- PROCESS -->
   <div class="faq-section fade-in-up">
-    <div class="faq-section-title">💼 Processus & Livraison</div>
+    <div class="faq-section-title" data-i18n="faq.section_process">💼 Processus &amp; Livraison</div>
 
     <div class="faq-item">
       <button class="faq-question" onclick="toggleFaq(this)">
-        Comment se passe un projet avec DreamNova ?
+        <span data-i18n="faq.q1">Comment se passe un projet avec DreamNova ?</span>
         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <div class="faq-answer">
+      <div class="faq-answer" data-i18n-html="faq.a1">
         <strong>1. Devis gratuit</strong> — Vous configurez votre projet via notre calculateur en 6 étapes.<br>
-        <strong>2. Validation</strong> — On confirme le scope, les délais et le prix en < 24h.<br>
+        <strong>2. Validation</strong> — On confirme le scope, les délais et le prix en &lt; 24h.<br>
         <strong>3. Acompte 30%</strong> — Paiement sécurisé par Stripe pour lancer le projet.<br>
         <strong>4. Développement</strong> — Livraison du premier jet en 24-72h avec URL de preview.<br>
         <strong>5. Itérations</strong> — Révisions illimitées jusqu'à votre satisfaction.<br>
@@ -109,10 +109,10 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 
     <div class="faq-item">
       <button class="faq-question" onclick="toggleFaq(this)">
-        Quels sont les délais de livraison ?
+        <span data-i18n="faq.q2">Quels sont les délais de livraison ?</span>
         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <div class="faq-answer">
+      <div class="faq-answer" data-i18n-html="faq.a2">
         <strong>Landing page</strong> : 24-48 heures.<br>
         <strong>Site multi-pages</strong> : 3-7 jours.<br>
         <strong>Application SaaS / MVP</strong> : 1-3 semaines.<br>
@@ -122,10 +122,10 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 
     <div class="faq-item">
       <button class="faq-question" onclick="toggleFaq(this)">
-        Est-ce que je reçois le code source ?
+        <span data-i18n="faq.q3">Est-ce que je reçois le code source ?</span>
         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <div class="faq-answer">
+      <div class="faq-answer" data-i18n-html="faq.a3">
         <strong>Oui, toujours.</strong> Chaque projet est livré avec un repo GitHub complet. Vous êtes propriétaire de 100% du code. Pas de lock-in, pas de dépendance.
       </div>
     </div>
@@ -133,34 +133,34 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 
   <!-- PRICING -->
   <div class="faq-section fade-in-up">
-    <div class="faq-section-title">💰 Tarifs & Paiement</div>
+    <div class="faq-section-title" data-i18n="faq.section_pricing">💰 Tarifs &amp; Paiement</div>
 
     <div class="faq-item">
       <button class="faq-question" onclick="toggleFaq(this)">
-        Comment sont calculés les prix ?
+        <span data-i18n="faq.q4">Comment sont calculés les prix ?</span>
         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <div class="faq-answer">
+      <div class="faq-answer" data-i18n-html="faq.a4">
         Nos prix dépendent de 3 facteurs : <strong>type de projet</strong> (site, SaaS, app), <strong>fonctionnalités</strong> (paiements, IA, multilingue, etc.) et <strong>urgence</strong>. Utilisez notre calculateur de devis pour un prix exact en temps réel.
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-question" onclick="toggleFaq(this)">
-        Pourquoi êtes-vous 2-5x moins cher qu'une agence ?
+        <span data-i18n="faq.q5">Pourquoi êtes-vous 2-5x moins cher qu'une agence ?</span>
         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <div class="faq-answer">
+      <div class="faq-answer" data-i18n-html="faq.a5">
         DreamNova est un <strong>système IA-native</strong>. Nos 6 agents IA fonctionnent 24/7. Pas de bureaux, pas d'équipe de 20 personnes, pas de réunions inutiles. Le résultat : la même qualité (ou mieux) à une fraction du coût.
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-question" onclick="toggleFaq(this)">
-        Quels moyens de paiement acceptez-vous ?
+        <span data-i18n="faq.q6">Quels moyens de paiement acceptez-vous ?</span>
         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <div class="faq-answer">
+      <div class="faq-answer" data-i18n-html="faq.a6">
         <strong>Carte bancaire</strong> via Stripe (Visa, Mastercard, Amex).<br>
         <strong>Virement bancaire</strong> sur demande.<br>
         Paiement en 2 fois : 30% acompte + 70% à la livraison.
@@ -170,14 +170,14 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 
   <!-- TECH -->
   <div class="faq-section fade-in-up">
-    <div class="faq-section-title">⚙️ Technologie</div>
+    <div class="faq-section-title" data-i18n="faq.section_tech">⚙️ Technologie</div>
 
     <div class="faq-item">
       <button class="faq-question" onclick="toggleFaq(this)">
-        Quelles technologies utilisez-vous ?
+        <span data-i18n="faq.q7">Quelles technologies utilisez-vous ?</span>
         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <div class="faq-answer">
+      <div class="faq-answer" data-i18n-html="faq.a7">
         <strong>Frontend</strong> : Next.js 15, React 19, Tailwind CSS, Framer Motion.<br>
         <strong>Backend</strong> : Node.js, tRPC, Vercel Serverless.<br>
         <strong>Base de données</strong> : Supabase, Turso, Vercel Postgres.<br>
@@ -189,10 +189,10 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 
     <div class="faq-item">
       <button class="faq-question" onclick="toggleFaq(this)">
-        Mes données sont-elles sécurisées ?
+        <span data-i18n="faq.q8">Mes données sont-elles sécurisées ?</span>
         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <div class="faq-answer">
+      <div class="faq-answer" data-i18n-html="faq.a8">
         Absolument. Nous suivons les <strong>best practices de sécurité</strong> : HTTPS, headers de sécurité, validation côté serveur, protection CSRF, clés API en variables d'environnement. Aucune donnée sensible dans le code.
       </div>
     </div>
@@ -200,40 +200,40 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 
   <!-- SUPPORT -->
   <div class="faq-section fade-in-up">
-    <div class="faq-section-title">🤝 Support & Garanties</div>
+    <div class="faq-section-title" data-i18n="faq.section_support">🤝 Support &amp; Garanties</div>
 
     <div class="faq-item">
       <button class="faq-question" onclick="toggleFaq(this)">
-        Que se passe-t-il après la livraison ?
+        <span data-i18n="faq.q9">Que se passe-t-il après la livraison ?</span>
         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <div class="faq-answer">
+      <div class="faq-answer" data-i18n-html="faq.a9">
         <strong>30 jours de support inclus</strong> (60 jours pour les projets SaaS). Cela couvre les bugs, ajustements mineurs et questions techniques. Au-delà, des forfaits de maintenance sont disponibles.
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-question" onclick="toggleFaq(this)">
-        Et si je ne suis pas satisfait ?
+        <span data-i18n="faq.q10">Et si je ne suis pas satisfait ?</span>
         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <div class="faq-answer">
+      <div class="faq-answer" data-i18n-html="faq.a10">
         Les <strong>révisions sont illimitées</strong> jusqu'à votre satisfaction. Nous travaillons de manière itérative avec des previews en temps réel. Si malgré tout le résultat ne convient pas, nous discutons d'une solution équitable.
       </div>
     </div>
   </div>
 
   <div class="faq-cta fade-in-up">
-    <h3>Vous avez d'autres questions ?</h3>
-    <p>Contactez-nous directement ou commencez par configurer votre devis gratuit.</p>
-    <a href="devis.html">Obtenir un devis gratuit →</a>
+    <h3 data-i18n="faq.cta_title">Vous avez d'autres questions ?</h3>
+    <p data-i18n="faq.cta_sub">Contactez-nous directement ou commencez par configurer votre devis gratuit.</p>
+    <a href="devis.html" data-i18n="faq.cta_btn">Obtenir un devis gratuit →</a>
   </div>
 </main>
 
-<a href="devis.html" class="floating-cta" id="floatingCta">💰 Obtenir un devis</a>
+<a href="devis.html" class="floating-cta" id="floatingCta" data-i18n="floating_cta">💰 Obtenir un devis</a>
 <footer class="site-footer">
-  <span class="nova-tam">NOVA-TAM — Système Autonome CEO/CTO/COO</span>
-  <span>Na Nach Nachma Nachman MeUman &nbsp;·&nbsp; DreamNova © 2026</span>
+  <span class="nova-tam" data-i18n="footer.nova_tam">NOVA-TAM — Système Autonome CEO/CTO/COO</span>
+  <span data-i18n="footer.bottom">Na Nach Nachma Nachman MeUman &nbsp;·&nbsp; DreamNova © 2026</span>
 </footer>
 
 <script>
@@ -251,6 +251,6 @@ document.querySelectorAll('.fade-in-up').forEach(el => obs.observe(el));
 const cta = document.getElementById('floatingCta');
 window.addEventListener('scroll', () => cta.classList.toggle('show', scrollY > 200));
 </script>
-<script src="i18n.js"></script>
+<script src="/lang/i18n.js" defer></script>
 </body>
 </html>

@@ -22,15 +22,7 @@ const I18N = {
     if (!this.supportedLangs.includes(lang)) lang = 'fr';
 
     try {
-      // Determine base path for lang files
-      const scripts = document.querySelectorAll('script[src*="i18n.js"]');
-      let basePath = '';
-      if (scripts.length > 0) {
-        const src = scripts[0].getAttribute('src');
-        basePath = src.substring(0, src.lastIndexOf('/') + 1);
-      }
-
-      const response = await fetch(`${basePath}lang/${lang}.json`);
+      const response = await fetch(`/lang/${lang}.json`);
       if (!response.ok) throw new Error(`Failed to load ${lang}`);
       this.translations = await response.json();
     } catch (err) {

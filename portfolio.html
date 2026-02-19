@@ -82,60 +82,60 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
   <div class="header-inner">
     <a href="index.html" class="logo-wrap"><div class="logo-mark">DN</div><div class="logo-text">DREAM<span>NOVA</span></div></a>
     <nav class="site-nav">
-      <a href="index.html">🏠 Centre</a>
-      <a href="portfolio.html" class="active">🎯 Portfolio</a>
-      <a href="tarifs.html">💎 Tarifs</a>
-      <a href="faq.html">❓ FAQ</a>
-      <a href="devis.html">💰 Devis</a>
+      <a href="index.html" data-i18n="nav.center">🏠 Centre</a>
+      <a href="portfolio.html" class="active" data-i18n="nav.portfolio">🎯 Portfolio</a>
+      <a href="tarifs.html" data-i18n="nav.tarifs">💎 Tarifs</a>
+      <a href="faq.html" data-i18n="nav.faq">❓ FAQ</a>
+      <a href="devis.html" data-i18n="nav.devis">💰 Devis</a>
     </nav>
   </div>
 </header>
 
 <main class="site-main">
   <div class="page-header">
-    <div class="page-eyebrow">🎯 30+ Projets Livrés</div>
-    <h1 class="page-title">Notre Portfolio</h1>
-    <p class="page-sub">Sites, SaaS, applications et pitchs investisseurs — chaque projet livré en production.</p>
+    <div class="page-eyebrow" data-i18n="portfolio.hero_eyebrow">🎯 30+ Projets Livrés</div>
+    <h1 class="page-title" data-i18n="portfolio.hero_title">Notre Portfolio</h1>
+    <p class="page-sub" data-i18n="portfolio.hero_sub">Sites, SaaS, applications et pitchs investisseurs — chaque projet livré en production.</p>
   </div>
 
   <div class="filter-tabs">
-    <button class="filter-tab active" onclick="filterProjects('all')">Tous</button>
-    <button class="filter-tab" onclick="filterProjects('client')">Clients</button>
-    <button class="filter-tab" onclick="filterProjects('saas')">SaaS</button>
-    <button class="filter-tab" onclick="filterProjects('torah')">Torah</button>
-    <button class="filter-tab" onclick="filterProjects('pitch')">Pitchs</button>
-    <button class="filter-tab" onclick="filterProjects('dreamnova')">DreamNova</button>
+    <button class="filter-tab active" onclick="filterProjects('all')" data-i18n="portfolio.filter_all">Tous</button>
+    <button class="filter-tab" onclick="filterProjects('client')" data-i18n="portfolio.filter_clients">Clients</button>
+    <button class="filter-tab" onclick="filterProjects('saas')" data-i18n="portfolio.filter_saas">SaaS</button>
+    <button class="filter-tab" onclick="filterProjects('torah')" data-i18n="portfolio.filter_torah">Torah</button>
+    <button class="filter-tab" onclick="filterProjects('pitch')" data-i18n="portfolio.filter_pitchs">Pitchs</button>
+    <button class="filter-tab" onclick="filterProjects('dreamnova')" data-i18n="portfolio.filter_dreamnova">DreamNova</button>
   </div>
 
   <div class="projects-grid" id="projectsGrid">
-    <a href="https://barukh-sagit-jewelry.vercel.app" target="_blank" class="project-card fade-in-up" data-category="client"><span class="project-tag">Client · Bijoux</span><div class="project-name">Barukh & Sagit Jewelry</div><div class="project-desc">Boutique e-commerce bijoux luxe avec catalogue, panier, paiements Stripe.</div><div class="project-tech"><span class="tech-badge">HTML/CSS</span><span class="tech-badge">Stripe</span><span class="tech-badge">A11y</span></div><span class="project-link">↗</span></a>
+    <a href="https://barukh-sagit-jewelry.vercel.app" target="_blank" class="project-card fade-in-up" data-category="client"><span class="project-tag">Client · Bijoux</span><div class="project-name">Barukh &amp; Sagit Jewelry</div><div class="project-desc" data-i18n="portfolio.proj_jewelry_desc">Boutique e-commerce bijoux luxe avec catalogue, panier, paiements Stripe.</div><div class="project-tech"><span class="tech-badge">HTML/CSS</span><span class="tech-badge">Stripe</span><span class="tech-badge">A11y</span></div><span class="project-link">↗</span></a>
 
-    <a href="https://haesh-sheli-new.vercel.app" target="_blank" class="project-card fade-in-up" data-category="client"><span class="project-tag">Client · Keren</span><div class="project-name">Keren Rabbi Yisrael</div><div class="project-desc">Boutique Breslev : Stripe + PayPal, checkout multi-étapes, gestion panier.</div><div class="project-tech"><span class="tech-badge">React</span><span class="tech-badge">Stripe</span><span class="tech-badge">PayPal</span></div><span class="project-link">↗</span></a>
+    <a href="https://haesh-sheli-new.vercel.app" target="_blank" class="project-card fade-in-up" data-category="client"><span class="project-tag">Client · Keren</span><div class="project-name">Keren Rabbi Yisrael</div><div class="project-desc" data-i18n="portfolio.proj_keren_desc">Boutique Breslev : Stripe + PayPal, checkout multi-étapes, gestion panier.</div><div class="project-tech"><span class="tech-badge">React</span><span class="tech-badge">Stripe</span><span class="tech-badge">PayPal</span></div><span class="project-link">↗</span></a>
 
-    <a href="https://ultime-esther-ifra-breslev.vercel.app" target="_blank" class="project-card fade-in-up" data-category="client torah"><span class="project-tag">Client · Livres</span><div class="project-name">Esther Ifra Breslev</div><div class="project-desc">Catalogue livres Breslev avec lecture en ligne, RAG, et multilangue.</div><div class="project-tech"><span class="tech-badge">Next.js</span><span class="tech-badge">Drizzle</span><span class="tech-badge">i18n</span></div><span class="project-link">↗</span></a>
+    <a href="https://ultime-esther-ifra-breslev.vercel.app" target="_blank" class="project-card fade-in-up" data-category="client torah"><span class="project-tag">Client · Livres</span><div class="project-name">Esther Ifra Breslev</div><div class="project-desc" data-i18n="portfolio.proj_esther_desc">Catalogue livres Breslev avec lecture en ligne, RAG, et multilangue.</div><div class="project-tech"><span class="tech-badge">Next.js</span><span class="tech-badge">Drizzle</span><span class="tech-badge">i18n</span></div><span class="project-link">↗</span></a>
 
-    <a href="https://noam-design.vercel.app" target="_blank" class="project-card fade-in-up" data-category="client"><span class="project-tag">Client · Décoration</span><div class="project-name">Noam Design</div><div class="project-desc">Plateforme décoration luxe : AI Concierge, galerie masonry, WhatsApp checkout.</div><div class="project-tech"><span class="tech-badge">React</span><span class="tech-badge">Gemini AI</span><span class="tech-badge">Trilingual</span></div><span class="project-link">↗</span></a>
+    <a href="https://noam-design.vercel.app" target="_blank" class="project-card fade-in-up" data-category="client"><span class="project-tag">Client · Décoration</span><div class="project-name">Noam Design</div><div class="project-desc" data-i18n="portfolio.proj_noam_desc">Plateforme décoration luxe : AI Concierge, galerie masonry, WhatsApp checkout.</div><div class="project-tech"><span class="tech-badge">React</span><span class="tech-badge">Gemini AI</span><span class="tech-badge">Trilingual</span></div><span class="project-link">↗</span></a>
 
-    <a href="https://03-bgremove-ai.vercel.app" target="_blank" class="project-card fade-in-up" data-category="saas"><span class="project-tag">SaaS · $5-15/mo</span><div class="project-name">BgRemove AI</div><div class="project-desc">Outil suppression d'arrière-plan par IA. Drag-and-drop, export HD.</div><div class="project-tech"><span class="tech-badge">AI</span><span class="tech-badge">Canvas</span><span class="tech-badge">Stripe</span></div><span class="project-link">↗</span></a>
+    <a href="https://03-bgremove-ai.vercel.app" target="_blank" class="project-card fade-in-up" data-category="saas"><span class="project-tag">SaaS · $5-15/mo</span><div class="project-name">BgRemove AI</div><div class="project-desc" data-i18n="portfolio.proj_bgremove_desc">Outil suppression d'arrière-plan par IA. Drag-and-drop, export HD.</div><div class="project-tech"><span class="tech-badge">AI</span><span class="tech-badge">Canvas</span><span class="tech-badge">Stripe</span></div><span class="project-link">↗</span></a>
 
-    <a href="https://05-invoicewiz.vercel.app" target="_blank" class="project-card fade-in-up" data-category="saas"><span class="project-tag">SaaS · $9-29/mo</span><div class="project-name">InvoiceWiz</div><div class="project-desc">Générateur de factures : templates, calculs auto, export PDF.</div><div class="project-tech"><span class="tech-badge">React</span><span class="tech-badge">PDF</span><span class="tech-badge">Stripe</span></div><span class="project-link">↗</span></a>
+    <a href="https://05-invoicewiz.vercel.app" target="_blank" class="project-card fade-in-up" data-category="saas"><span class="project-tag">SaaS · $9-29/mo</span><div class="project-name">InvoiceWiz</div><div class="project-desc" data-i18n="portfolio.proj_invoice_desc">Générateur de factures : templates, calculs auto, export PDF.</div><div class="project-tech"><span class="tech-badge">React</span><span class="tech-badge">PDF</span><span class="tech-badge">Stripe</span></div><span class="project-link">↗</span></a>
 
-    <a href="https://07-chatbot-builder.vercel.app" target="_blank" class="project-card fade-in-up" data-category="saas"><span class="project-tag">SaaS · $29-99/mo</span><div class="project-name">ChatBot Builder</div><div class="project-desc">Plateforme no-code de chatbots IA, intégration multi-canal.</div><div class="project-tech"><span class="tech-badge">AI</span><span class="tech-badge">API</span><span class="tech-badge">Stripe</span></div><span class="project-link">↗</span></a>
+    <a href="https://07-chatbot-builder.vercel.app" target="_blank" class="project-card fade-in-up" data-category="saas"><span class="project-tag">SaaS · $29-99/mo</span><div class="project-name">ChatBot Builder</div><div class="project-desc" data-i18n="portfolio.proj_chatbot_desc">Plateforme no-code de chatbots IA, intégration multi-canal.</div><div class="project-tech"><span class="tech-badge">AI</span><span class="tech-badge">API</span><span class="tech-badge">Stripe</span></div><span class="project-link">↗</span></a>
 
-    <a href="https://ha-mazon-pitch.vercel.app" target="_blank" class="project-card fade-in-up" data-category="pitch"><span class="project-tag">Pitch · Investors</span><div class="project-name">Ha-Mazon</div><div class="project-desc">Pitch investisseurs plateforme alimentaire : projections, métriques, modèle.</div><div class="project-tech"><span class="tech-badge">Pitch Deck</span><span class="tech-badge">React</span></div><span class="project-link">↗</span></a>
+    <a href="https://ha-mazon-pitch.vercel.app" target="_blank" class="project-card fade-in-up" data-category="pitch"><span class="project-tag">Pitch · Investors</span><div class="project-name">Ha-Mazon</div><div class="project-desc" data-i18n="portfolio.proj_hamazon_desc">Pitch investisseurs plateforme alimentaire : projections, métriques, modèle.</div><div class="project-tech"><span class="tech-badge">Pitch Deck</span><span class="tech-badge">React</span></div><span class="project-link">↗</span></a>
 
-    <a href="https://terramind-pitch.vercel.app" target="_blank" class="project-card fade-in-up" data-category="pitch"><span class="project-tag">Pitch · Seed</span><div class="project-name">TerraMind</div><div class="project-desc">Pitch seed €500K–1M pour plateforme thérapie en ligne.</div><div class="project-tech"><span class="tech-badge">Pitch Deck</span><span class="tech-badge">React</span></div><span class="project-link">↗</span></a>
+    <a href="https://terramind-pitch.vercel.app" target="_blank" class="project-card fade-in-up" data-category="pitch"><span class="project-tag">Pitch · Seed</span><div class="project-name">TerraMind</div><div class="project-desc" data-i18n="portfolio.proj_terramind_desc">Pitch seed €500K–1M pour plateforme thérapie en ligne.</div><div class="project-tech"><span class="tech-badge">Pitch Deck</span><span class="tech-badge">React</span></div><span class="project-link">↗</span></a>
 
-    <a href="https://dreamnova-consult.vercel.app" target="_blank" class="project-card fade-in-up" data-category="dreamnova"><span class="project-tag">DreamNova · Agence</span><div class="project-name">DreamNova Consult</div><div class="project-desc">Agence consulting IA : services, tarifs, formulaire contact.</div><div class="project-tech"><span class="tech-badge">HTML/CSS</span><span class="tech-badge">FormSubmit</span></div><span class="project-link">↗</span></a>
+    <a href="https://dreamnova-consult.vercel.app" target="_blank" class="project-card fade-in-up" data-category="dreamnova"><span class="project-tag">DreamNova · Agence</span><div class="project-name">DreamNova Consult</div><div class="project-desc" data-i18n="portfolio.proj_consult_desc">Agence consulting IA : services, tarifs, formulaire contact.</div><div class="project-tech"><span class="tech-badge">HTML/CSS</span><span class="tech-badge">FormSubmit</span></div><span class="project-link">↗</span></a>
 
-    <a href="https://dreamnova-dashboard.vercel.app" target="_blank" class="project-card fade-in-up" data-category="dreamnova"><span class="project-tag">DreamNova · Dashboard</span><div class="project-name">Dashboard Central</div><div class="project-desc">Tableau de bord : suivi projets, revenus, métriques clients.</div><div class="project-tech"><span class="tech-badge">React</span><span class="tech-badge">Charts</span><span class="tech-badge">API</span></div><span class="project-link">↗</span></a>
+    <a href="https://dreamnova-dashboard.vercel.app" target="_blank" class="project-card fade-in-up" data-category="dreamnova"><span class="project-tag">DreamNova · Dashboard</span><div class="project-name">Dashboard Central</div><div class="project-desc" data-i18n="portfolio.proj_dashboard_desc">Tableau de bord : suivi projets, revenus, métriques clients.</div><div class="project-tech"><span class="tech-badge">React</span><span class="tech-badge">Charts</span><span class="tech-badge">API</span></div><span class="project-link">↗</span></a>
   </div>
 </main>
 
-<a href="devis.html" class="floating-cta" id="floatingCta">💰 Obtenir un devis</a>
+<a href="devis.html" class="floating-cta" id="floatingCta" data-i18n="floating_cta">💰 Obtenir un devis</a>
 <footer class="site-footer">
-  <span class="nova-tam">NOVA-TAM — Système Autonome CEO/CTO/COO</span>
-  <span>Na Nach Nachma Nachman MeUman &nbsp;·&nbsp; DreamNova © 2026</span>
+  <span class="nova-tam" data-i18n="footer.nova_tam">NOVA-TAM — Système Autonome CEO/CTO/COO</span>
+  <span data-i18n="footer.bottom">Na Nach Nachma Nachman MeUman &nbsp;·&nbsp; DreamNova © 2026</span>
 </footer>
 
 <script>

@@ -247,10 +247,10 @@
           <span class="logo-text">DREAM<span>NOVA</span></span>
         </a>
         <nav class="site-nav">
-          <a href="index.html">Hub</a>
-          <a href="portfolio.html">Portfolio</a>
-          <a href="tarifs.html">Tarifs</a>
-          <a href="devis.html" class="btn-nav-cta">Devis gratuit</a>
+          <a href="index.html" data-i18n="nav.center">Hub</a>
+          <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+          <a href="tarifs.html" data-i18n="nav.tarifs">Tarifs</a>
+          <a href="devis.html" class="btn-nav-cta" data-i18n="nav.devis">Devis gratuit</a>
         </nav>
       </div>
     </header>
@@ -277,8 +277,8 @@
         </svg>
       </div>
 
-      <h1 class="success-title">Paiement confirmé&nbsp;!</h1>
-      <p class="success-subtitle">Votre projet démarre. Nous vous contactons dans 24h.</p>
+      <h1 class="success-title" data-i18n="success.hero_title">Paiement confirmé&nbsp;!</h1>
+      <p class="success-subtitle" data-i18n="success.hero_sub">Votre projet démarre. Nous vous contactons dans 24h.</p>
 
       <!-- Ref badge — shown only when ?ref=... in URL -->
       <div id="ref-badge" class="ref-badge"></div>
@@ -288,32 +288,32 @@
         <div class="step-card">
           <div class="step-num">1</div>
           <span class="step-emoji">📋</span>
-          <div class="step-text">Réception de votre devis signé par email</div>
+          <div class="step-text" data-i18n="success.step1">Réception de votre devis signé par email</div>
         </div>
         <div class="step-card">
           <div class="step-num">2</div>
           <span class="step-emoji">📞</span>
-          <div class="step-text">Appel de démarrage sous 24h</div>
+          <div class="step-text" data-i18n="success.step2">Appel de démarrage sous 24h</div>
         </div>
         <div class="step-card">
           <div class="step-num">3</div>
           <span class="step-emoji">🚀</span>
-          <div class="step-text">Début du projet sous 48h</div>
+          <div class="step-text" data-i18n="success.step3">Début du projet sous 48h</div>
         </div>
       </div>
 
-      <a href="index.html" class="btn-home">← Retour à l'accueil</a>
+      <a href="index.html" class="btn-home" data-i18n="success.btn_home">← Retour à l'accueil</a>
 
       <div class="reassurance">
-        <div class="reassurance-item"><span class="ri-icon">✓</span><span>Paiement sécurisé Stripe</span></div>
-        <div class="reassurance-item"><span class="ri-icon">✓</span><span>Email de confirmation envoyé</span></div>
-        <div class="reassurance-item"><span class="ri-icon">✓</span><span>Réponse garantie sous 24h</span></div>
+        <div class="reassurance-item"><span class="ri-icon">✓</span><span data-i18n="success.reassurance1">Paiement sécurisé Stripe</span></div>
+        <div class="reassurance-item"><span class="ri-icon">✓</span><span data-i18n="success.reassurance2">Email de confirmation envoyé</span></div>
+        <div class="reassurance-item"><span class="ri-icon">✓</span><span data-i18n="success.reassurance3">Réponse garantie sous 24h</span></div>
       </div>
 
     </main>
 
     <footer style="border-top:1px solid var(--border); padding:2rem; text-align:center; color:var(--text-muted); font-size:0.85rem; margin-top:4rem; position:relative; z-index:1;">
-      <p>© 2026 DreamNova · Na Nach Nachma Nachman MeUman · <a href="mentions-legales.html" style="color:var(--gold);">Mentions légales</a></p>
+      <p data-i18n-html="footer.bottom_legal">© 2026 DreamNova · Na Nach Nachma Nachman MeUman · <a href="mentions-legales.html" style="color:var(--gold);">Mentions légales</a></p>
     </footer>
 
     <script>
@@ -411,5 +411,6 @@
         setTimeout(function () { requestAnimationFrame(draw); }, 1500);
       })();
     </script>
+    <script src="/lang/i18n.js" defer></script>
   </body>
 </html>
