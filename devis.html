@@ -1052,10 +1052,31 @@ const state = {
   description: ''
 };
 
+// ─── SYNC STATE FROM DOM (source of truth = native inputs) ──
+function syncState() {
+  var t = document.querySelector('input[name="project-type"]:checked');
+  if (t) {
+    var c = t.closest('.option-card');
+    state.type = c.dataset.type;
+    state.basePrice = parseInt(c.dataset.base);
+    state.baseDays = parseFloat(c.dataset.days);
+  }
+  var u = document.querySelector('input[name="urgency"]:checked');
+  if (u) {
+    var uc = u.closest('.option-card');
+    state.urgency = parseFloat(uc.dataset.urgency);
+    state.urgencyLabel = uc.querySelector('.option-title').textContent;
+  }
+  state.features = Array.from(document.querySelectorAll('input[name="feature"]:checked'))
+    .map(function(f){ return { name: f.dataset.name, add: parseInt(f.dataset.add) }; });
+  state.featuresTotal = state.features.reduce(function(s,f){ return s+f.add; }, 0);
+}
+
 // ─── STEP NAVIGATION ──────────────────────────────────────
 function goStep(n) {
+  syncState();
   if (n === 2 && !state.type) { alert('Sélectionnez un type de projet.'); return; }
-  if (n === 3 && state.urgency === null) state.urgency = 1.0;
+  if (n === 3 && !state.urgency) state.urgency = 1.0;
   [1,2,3,4].forEach(i => {
     document.getElementById('step'+i).style.display = i===n ? 'block' : 'none';
   });
