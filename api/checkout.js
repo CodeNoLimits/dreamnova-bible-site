@@ -38,6 +38,6 @@ module.exports = async (req, res) => {
     res.status(200).json({ url: session.url });
   } catch (err) {
     console.error('Stripe Checkout Error:', err.message);
-    res.status(500).json({ error: 'Erreur lors de la création du paiement' });
+    res.status(500).json({ error: 'Erreur lors de la création du paiement', detail: err.message });
   }
 };
