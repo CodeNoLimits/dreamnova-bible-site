@@ -1,224 +1,808 @@
-<!DOCTYPE html><html lang="fr"><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarifs — DreamNova</title>
-    <meta name="description" content="Tarifs DreamNova — Landing page dès 400€, site multi-pages dès 900€, SaaS dès 1500€. Prix fixes, code source livré, 30 jours support.">
-    <meta property="og:title" content="Tarifs — DreamNova Agence IA">
-    <meta property="og:description" content="Prix transparents tout compris. Landing page 400€, site 900€, SaaS 1500€+. Livraison 24-72h.">
-    <meta property="og:url" content="https://dreamnova-bible-site.vercel.app/tarifs.html">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://dreamnova-bible-site.vercel.app/tarifs.html">
-    <link rel="manifest" href="/manifest.json">
-<meta name="description" content="Tarifs transparents DreamNova : Landing pages à partir de 400€, SaaS à partir de 1500€, E-commerce, intégrations IA.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@400;700;800&amp;display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0C0A09;--bg2:#1C1917;--card:rgba(28,25,23,0.85);--gold:#D4AF37;--amber:#F59E0B;--green:#10B981;--cyan:#00D4FF;--text:#F5F5F4;--muted:#A8A29E;--dim:#78716C;--border:rgba(245,158,11,0.18);--font-display:'Space Grotesk',sans-serif;--font-body:'Inter',sans-serif;--font-serif:'Playfair Display',serif;--radius:16px}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-height:100vh;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(212,175,55,0.06) 0%,transparent 60%);pointer-events:none;z-index:0}
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarifs — DreamNova</title>
+    <meta
+      name="description"
+      content="Tarifs DreamNova — Landing page dès 400€, site multi-pages dès 900€, SaaS dès 1500€. Prix fixes, code source livré, 30 jours support."
+    />
+    <meta property="og:title" content="Tarifs — DreamNova Agence IA" />
+    <meta
+      property="og:description"
+      content="Prix transparents tout compris. Landing page 400€, site 900€, SaaS 1500€+. Livraison 24-72h."
+    />
+    <meta
+      property="og:url"
+      content="https://dreamnova-bible-site.vercel.app/tarifs.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="canonical"
+      href="https://dreamnova-bible-site.vercel.app/tarifs.html"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <meta
+      name="description"
+      content="Tarifs transparents DreamNova : Landing pages à partir de 400€, SaaS à partir de 1500€, E-commerce, intégrations IA."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@400;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0c0a09;
+        --bg2: #1c1917;
+        --card: rgba(28, 25, 23, 0.85);
+        --gold: #d4af37;
+        --amber: #f59e0b;
+        --green: #10b981;
+        --cyan: #00d4ff;
+        --text: #f5f5f4;
+        --muted: #a8a29e;
+        --dim: #78716c;
+        --border: rgba(245, 158, 11, 0.18);
+        --font-display: "Space Grotesk", sans-serif;
+        --font-body: "Inter", sans-serif;
+        --font-serif: "Playfair Display", serif;
+        --radius: 16px;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font-body);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 80% 50% at 50% 0%,
+          rgba(212, 175, 55, 0.06) 0%,
+          transparent 60%
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
 
-.site-header{position:sticky;top:0;z-index:100;background:rgba(12,10,9,0.92);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);padding:0 2rem}
-.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;gap:1rem}
-.logo-wrap{display:flex;align-items:center;gap:0.75rem;text-decoration:none}
-.logo-mark{width:36px;height:36px;background:linear-gradient(135deg,var(--gold),var(--amber));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#0C0A09;font-family:var(--font-display);flex-shrink:0}
-.logo-text{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--text);letter-spacing:0.05em}
-.logo-text span{color:var(--gold)}
-.site-nav{display:flex;gap:0.25rem;flex-wrap:wrap;align-items:center}
-.site-nav a{text-decoration:none;color:var(--muted);font-size:0.8rem;font-weight:500;padding:0.35rem 0.7rem;border-radius:6px;border:1px solid transparent;transition:all 0.2s;white-space:nowrap;font-family:var(--font-display)}
-.site-nav a:hover,.site-nav a.active{color:var(--gold);background:rgba(212,175,55,0.08);border-color:var(--border)}
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(12, 10, 9, 0.92);
+        border-bottom: 1px solid var(--border);
+        backdrop-filter: blur(20px);
+        padding: 0 2rem;
+      }
+      .header-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+        gap: 1rem;
+      }
+      .logo-wrap {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+      }
+      .logo-mark {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, var(--gold), var(--amber));
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 900;
+        color: #0c0a09;
+        font-family: var(--font-display);
+        flex-shrink: 0;
+      }
+      .logo-text {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: 0.05em;
+      }
+      .logo-text span {
+        color: var(--gold);
+      }
+      .site-nav {
+        display: flex;
+        gap: 0.25rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .site-nav a {
+        text-decoration: none;
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 0.35rem 0.7rem;
+        border-radius: 6px;
+        border: 1px solid transparent;
+        transition: all 0.2s;
+        white-space: nowrap;
+        font-family: var(--font-display);
+      }
+      .site-nav a:hover,
+      .site-nav a.active {
+        color: var(--gold);
+        background: rgba(212, 175, 55, 0.08);
+        border-color: var(--border);
+      }
 
-.site-main{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:2rem}
-.page-header{text-align:center;padding:3rem 0 2.5rem}
-.page-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;padding:0.3rem 1rem;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);border-radius:20px;color:var(--gold);font-size:0.75rem;font-weight:600;font-family:var(--font-display);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem}
-.page-title{font-family:var(--font-serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:800;background:linear-gradient(135deg,#F5F5F4 30%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.75rem}
-.page-sub{color:var(--muted);font-size:1rem;max-width:600px;margin:0 auto}
+      .site-main {
+        position: relative;
+        z-index: 1;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      .page-header {
+        text-align: center;
+        padding: 3rem 0 2.5rem;
+      }
+      .page-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.3rem 1rem;
+        background: rgba(212, 175, 55, 0.08);
+        border: 1px solid rgba(212, 175, 55, 0.25);
+        border-radius: 20px;
+        color: var(--gold);
+        font-size: 0.75rem;
+        font-weight: 600;
+        font-family: var(--font-display);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+      }
+      .page-title {
+        font-family: var(--font-serif);
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 800;
+        background: linear-gradient(135deg, #f5f5f4 30%, var(--gold) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.75rem;
+      }
+      .page-sub {
+        color: var(--muted);
+        font-size: 1rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
 
-/* PRICING GRID */
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-bottom:3rem}
+      /* PRICING GRID */
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+        margin-bottom: 3rem;
+      }
 
-.pricing-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;backdrop-filter:blur(12px);transition:all 0.3s;position:relative;display:flex;flex-direction:column}
-.pricing-card:hover{border-color:rgba(212,175,55,0.4);box-shadow:0 8px 40px rgba(212,175,55,0.12);transform:translateY(-3px)}
-.pricing-card.featured{border-color:rgba(212,175,55,0.5);background:linear-gradient(145deg,rgba(212,175,55,0.06) 0%,rgba(28,25,23,0.85) 100%)}
-.pricing-card.featured::before{content:'⭐ Le plus populaire';position:absolute;top:-12px;left:50%;transform:translateX(-50%);padding:0.25rem 1rem;background:linear-gradient(135deg,var(--gold),var(--amber));color:#0C0A09;font-size:0.7rem;font-weight:700;border-radius:20px;white-space:nowrap;letter-spacing:0.05em}
+      .pricing-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2rem;
+        backdrop-filter: blur(12px);
+        transition: all 0.3s;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+      .pricing-card:hover {
+        border-color: rgba(212, 175, 55, 0.4);
+        box-shadow: 0 8px 40px rgba(212, 175, 55, 0.12);
+        transform: translateY(-3px);
+      }
+      .pricing-card.featured {
+        border-color: rgba(212, 175, 55, 0.5);
+        background: linear-gradient(
+          145deg,
+          rgba(212, 175, 55, 0.06) 0%,
+          rgba(28, 25, 23, 0.85) 100%
+        );
+      }
+      .pricing-card.featured::before {
+        content: "⭐ Le plus populaire";
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0.25rem 1rem;
+        background: linear-gradient(135deg, var(--gold), var(--amber));
+        color: #0c0a09;
+        font-size: 0.7rem;
+        font-weight: 700;
+        border-radius: 20px;
+        white-space: nowrap;
+        letter-spacing: 0.05em;
+      }
 
-.pricing-type{font-size:0.7rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem;font-family:var(--font-display)}
-.pricing-name{font-family:var(--font-serif);font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:0.25rem}
-.pricing-desc{font-size:0.82rem;color:var(--muted);margin-bottom:1.25rem;line-height:1.5}
+      .pricing-type {
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 0.5rem;
+        font-family: var(--font-display);
+      }
+      .pricing-name {
+        font-family: var(--font-serif);
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 0.25rem;
+      }
+      .pricing-desc {
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-bottom: 1.25rem;
+        line-height: 1.5;
+      }
 
-.pricing-price{font-family:var(--font-display);font-size:2rem;font-weight:800;margin-bottom:0.25rem}
-.pricing-price .from{font-size:0.7rem;font-weight:400;color:var(--muted);display:block}
-.pricing-price .amount{color:var(--text)}
-.pricing-price .currency{color:var(--gold);font-size:0.9rem}
-.pricing-timeline{font-size:0.75rem;color:var(--dim);margin-bottom:1.25rem}
+      .pricing-price {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 0.25rem;
+      }
+      .pricing-price .from {
+        font-size: 0.7rem;
+        font-weight: 400;
+        color: var(--muted);
+        display: block;
+      }
+      .pricing-price .amount {
+        color: var(--text);
+      }
+      .pricing-price .currency {
+        color: var(--gold);
+        font-size: 0.9rem;
+      }
+      .pricing-timeline {
+        font-size: 0.75rem;
+        color: var(--dim);
+        margin-bottom: 1.25rem;
+      }
 
-.pricing-features{list-style:none;margin-bottom:1.5rem;flex-grow:1}
-.pricing-features li{padding:0.4rem 0;font-size:0.82rem;color:var(--muted);display:flex;align-items:flex-start;gap:0.5rem;line-height:1.4}
-.pricing-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;font-size:0.9rem}
+      .pricing-features {
+        list-style: none;
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+      }
+      .pricing-features li {
+        padding: 0.4rem 0;
+        font-size: 0.82rem;
+        color: var(--muted);
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        line-height: 1.4;
+      }
+      .pricing-features li::before {
+        content: "✓";
+        color: var(--green);
+        font-weight: 700;
+        flex-shrink: 0;
+        font-size: 0.9rem;
+      }
 
-.pricing-cta{display:block;text-align:center;padding:0.75rem;border-radius:10px;font-family:var(--font-display);font-size:0.85rem;font-weight:700;text-decoration:none;transition:all 0.3s;border:none;cursor:pointer}
-.pricing-cta-primary{background:linear-gradient(135deg,var(--gold),var(--amber));color:#0C0A09;box-shadow:0 4px 16px rgba(212,175,55,0.2)}
-.pricing-cta-primary:hover{box-shadow:0 8px 28px rgba(212,175,55,0.35);transform:translateY(-2px)}
-.pricing-cta-secondary{background:none;border:1px solid var(--border);color:var(--text)}
-.pricing-cta-secondary:hover{border-color:var(--gold);color:var(--gold)}
+      .pricing-cta {
+        display: block;
+        text-align: center;
+        padding: 0.75rem;
+        border-radius: 10px;
+        font-family: var(--font-display);
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+      }
+      .pricing-cta-primary {
+        background: linear-gradient(135deg, var(--gold), var(--amber));
+        color: #0c0a09;
+        box-shadow: 0 4px 16px rgba(212, 175, 55, 0.2);
+      }
+      .pricing-cta-primary:hover {
+        box-shadow: 0 8px 28px rgba(212, 175, 55, 0.35);
+        transform: translateY(-2px);
+      }
+      .pricing-cta-secondary {
+        background: none;
+        border: 1px solid var(--border);
+        color: var(--text);
+      }
+      .pricing-cta-secondary:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
 
-/* TRUST BADGES */
-.trust-bar{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;padding:2rem;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:2rem}
-.trust-item{text-align:center}
-.trust-value{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--gold)}
-.trust-label{font-size:0.72rem;color:var(--dim)}
+      /* TRUST BADGES */
+      .trust-bar {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        margin-bottom: 2rem;
+      }
+      .trust-item {
+        text-align: center;
+      }
+      .trust-value {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--gold);
+      }
+      .trust-label {
+        font-size: 0.72rem;
+        color: var(--dim);
+      }
 
-/* COMPARISON NOTE */
-.comparison-note{text-align:center;padding:2rem;background:rgba(16,185,129,0.05);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius);margin-bottom:2rem}
-.comparison-note h3{font-family:var(--font-serif);font-size:1.1rem;color:var(--green);margin-bottom:0.5rem}
-.comparison-note p{font-size:0.85rem;color:var(--muted);max-width:500px;margin:0 auto}
+      /* COMPARISON NOTE */
+      .comparison-note {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(16, 185, 129, 0.05);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        border-radius: var(--radius);
+        margin-bottom: 2rem;
+      }
+      .comparison-note h3 {
+        font-family: var(--font-serif);
+        font-size: 1.1rem;
+        color: var(--green);
+        margin-bottom: 0.5rem;
+      }
+      .comparison-note p {
+        font-size: 0.85rem;
+        color: var(--muted);
+        max-width: 500px;
+        margin: 0 auto;
+      }
 
-/* FADE IN */
-.fade-in-up{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
-.fade-in-up.visible{opacity:1;transform:translateY(0)}
+      /* FADE IN */
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-.floating-cta{position:fixed;bottom:2rem;right:2rem;z-index:999;display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.5rem;background:linear-gradient(135deg,var(--gold),var(--amber));color:#0C0A09;font-family:var(--font-display);font-size:0.85rem;font-weight:700;border-radius:50px;text-decoration:none;box-shadow:0 8px 32px rgba(212,175,55,0.35);transition:all 0.3s;opacity:0;transform:translateY(20px) scale(0.9);pointer-events:none}
-.floating-cta.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+      .floating-cta {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 999;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.85rem 1.5rem;
+        background: linear-gradient(135deg, var(--gold), var(--amber));
+        color: #0c0a09;
+        font-family: var(--font-display);
+        font-size: 0.85rem;
+        font-weight: 700;
+        border-radius: 50px;
+        text-decoration: none;
+        box-shadow: 0 8px 32px rgba(212, 175, 55, 0.35);
+        transition: all 0.3s;
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+        pointer-events: none;
+      }
+      .floating-cta.show {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+      }
 
-.site-footer{position:relative;z-index:1;text-align:center;padding:2.5rem 2rem;border-top:1px solid var(--border);margin-top:4rem;color:var(--dim);font-size:0.85rem;font-family:var(--font-display)}
-.site-footer .nova-tam{color:var(--gold);font-weight:600;display:block;margin-bottom:0.4rem}
-::selection{background:rgba(212,175,55,0.25)}
-</style>
-\n    <meta property="og:image" content="https://dreamnova-bible-site.vercel.app/img/screenshot.jpg"></head>
-<body>
-
-<header class="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="logo-wrap"><div class="logo-mark">DN</div><div class="logo-text">DREAM<span>NOVA</span></div></a>
-    <nav class="site-nav">
-      <a href="index.html" data-i18n="nav.center">🏠 Centre</a>
-      <a href="portfolio.html" data-i18n="nav.portfolio">🎯 Portfolio</a>
-      <a href="equipe.html">👥 Équipe</a>
-      <a href="tarifs.html" class="active" data-i18n="nav.tarifs">💎 Tarifs</a>
-      <a href="faq.html" data-i18n="nav.faq">❓ FAQ</a>
-      <a href="devis.html" data-i18n="nav.devis">💰 Devis</a>
-    </nav>
-  </div>
-</header>
-
-<main class="site-main">
-  <div class="page-header">
-    <div class="page-eyebrow" data-i18n="tarifs.hero_eyebrow">💎 Tarifs Transparents</div>
-    <h1 class="page-title" data-i18n="tarifs.hero_title">Investissez dans l'excellence</h1>
-    <p class="page-sub" data-i18n="tarifs.hero_sub">Prix tout compris, zéro frais cachés. Chaque formule inclut code source GitHub, déploiement production et 30 jours de support.</p>
-  </div>
-
-  <div class="trust-bar fade-in-up">
-    <div class="trust-item"><div class="trust-value">-50%</div><div class="trust-label" data-i18n="tarifs.trust_vs_agency">vs agence traditionnelle</div></div>
-    <div class="trust-item"><div class="trust-value">24-72h</div><div class="trust-label" data-i18n="tarifs.trust_delay">premier livrable</div></div>
-    <div class="trust-item"><div class="trust-value">∞</div><div class="trust-label" data-i18n="tarifs.trust_revisions">révisions incluses</div></div>
-    <div class="trust-item"><div class="trust-value">100%</div><div class="trust-label" data-i18n="tarifs.trust_code">code source livré</div></div>
-  </div>
-
-  <div class="pricing-grid">
-
-    <div class="pricing-card fade-in-up">
-      <div class="pricing-type" data-i18n="tarifs.tier1_type">Petit projet</div>
-      <div class="pricing-name" data-i18n="tarifs.tier1_name">Landing Page</div>
-      <div class="pricing-desc" data-i18n="tarifs.tier1_desc">Site vitrine one-page, design premium, responsive, animations, formulaire de contact.</div>
-      <div class="pricing-price"><span class="from" data-i18n="tarifs.price_from">À partir de</span><span class="amount">400</span> <span class="currency">€</span></div>
-      <div class="pricing-timeline" data-i18n="tarifs.tier1_timeline">📅 Livraison : 24-48h</div>
-      <ul class="pricing-features">
-        <li data-i18n="tarifs.tier1_f1">Design sur mesure world-class</li>
-        <li data-i18n="tarifs.tier1_f2">Responsive mobile + tablette</li>
-        <li data-i18n="tarifs.tier1_f3">Animations &amp; micro-interactions</li>
-        <li data-i18n="tarifs.tier1_f4">Formulaire de contact</li>
-        <li data-i18n="tarifs.tier1_f5">SEO on-page</li>
-        <li data-i18n="tarifs.tier1_f6">Déploiement Vercel/Netlify</li>
-        <li data-i18n="tarifs.tier1_f7">Code source GitHub</li>
-      </ul>
-      <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:auto;">
-        <a href="https://buy.stripe.com/cNi14meIcdNP3iNdd0ds400" target="_blank" class="pricing-cta pricing-cta-primary" style="background: linear-gradient(135deg, #10B981, #059669); color: white;">Payer maintenant (400€)</a>
-        <a href="devis.html" class="pricing-cta pricing-cta-secondary" data-i18n="tarifs.cta_configure">Configurer mon devis</a>
+      .site-footer {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 2.5rem 2rem;
+        border-top: 1px solid var(--border);
+        margin-top: 4rem;
+        color: var(--dim);
+        font-size: 0.85rem;
+        font-family: var(--font-display);
+      }
+      .site-footer .nova-tam {
+      ::selection {
+        background: rgba(212, 175, 55, 0.25);
+      }
+      @keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}};
+    </style>
+    
+    <meta
+      property="og:image"
+      content="https://dreamnova-bible-site.vercel.app/img/screenshot.jpg"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="logo-wrap"
+          ><div class="logo-mark">DN</div>
+          <div class="logo-text">DREAM<span>NOVA</span></div></a
+        >
+        <nav class="site-nav">
+          <a href="index.html" data-i18n="nav.center">🏠 Centre</a>
+          <a href="portfolio.html" data-i18n="nav.portfolio">🎯 Portfolio</a>
+          <a href="equipe.html">👥 Équipe</a>
+          <a href="tarifs.html" class="active" data-i18n="nav.tarifs"
+            >💎 Tarifs</a
+          >
+          <a href="faq.html" data-i18n="nav.faq">❓ FAQ</a>
+          <a href="devis.html" data-i18n="nav.devis">💰 Devis</a>
+        </nav>
       </div>
-    </div>
+    </header>
 
-    <div class="pricing-card featured fade-in-up">
-      <div class="pricing-type" data-i18n="tarifs.tier2_type">Projet moyen</div>
-      <div class="pricing-name" data-i18n="tarifs.tier2_name">Site Multi-Pages</div>
-      <div class="pricing-desc" data-i18n="tarifs.tier2_desc">Site complet avec navigation, blog, galerie, intégrations tierces, paiements.</div>
-      <div class="pricing-price"><span class="from" data-i18n="tarifs.price_from">À partir de</span><span class="amount">900</span> <span class="currency">€</span></div>
-      <div class="pricing-timeline" data-i18n="tarifs.tier2_timeline">📅 Livraison : 3-7 jours</div>
-      <ul class="pricing-features">
-        <li data-i18n="tarifs.tier2_f1">Tout de Landing Page +</li>
-        <li data-i18n="tarifs.tier2_f2">5-10 pages</li>
-        <li data-i18n="tarifs.tier2_f3">Blog / portfolio</li>
-        <li data-i18n="tarifs.tier2_f4">Admin CMS (Strapi/Supabase)</li>
-        <li data-i18n="tarifs.tier2_f5">Multilingue (FR/EN/HE)</li>
-        <li data-i18n="tarifs.tier2_f6">Paiements Stripe/PayPal</li>
-        <li data-i18n="tarifs.tier2_f7">Analytics + rapports</li>
-        <li data-i18n="tarifs.tier2_f8">30 jours support</li>
-      </ul>
-      <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:auto;">
-        <a href="https://buy.stripe.com/cNi14meIcdNP3iNdd0ds400" target="_blank" class="pricing-cta pricing-cta-primary" style="background: linear-gradient(135deg, #10B981, #059669); color: white;">Payer maintenant (900€)</a>
-        <a href="devis.html" class="pricing-cta pricing-cta-secondary" data-i18n="tarifs.cta_configure_arrow">Configurer mon devis →</a>
+    <main class="site-main">
+      <div class="page-header">
+        <div class="page-eyebrow">🔑 NOVA KEY — HARDWARE</div>
+        <h1 class="page-title">Touche la clé. Mute ta réalité.</h1>
+        <p class="page-sub">
+          NTAG 215 • Acier inoxydable • Gravé 148 au laser • 10% Tsedaka •
+          Stripe sécurisé
+        </p>
       </div>
-    </div>
 
-    <div class="pricing-card fade-in-up">
-      <div class="pricing-type" data-i18n="tarifs.tier3_type">Grand projet</div>
-      <div class="pricing-name" data-i18n="tarifs.tier3_name">SaaS / Application</div>
-      <div class="pricing-desc" data-i18n="tarifs.tier3_desc">MVP full-stack, dashboard, auth, API, base de données, IA intégrée.</div>
-      <div class="pricing-price"><span class="from" data-i18n="tarifs.price_from">À partir de</span><span class="amount">1 500</span> <span class="currency">€</span></div>
-      <div class="pricing-timeline" data-i18n="tarifs.tier3_timeline">📅 Livraison : 1-3 semaines</div>
-      <ul class="pricing-features">
-        <li data-i18n="tarifs.tier3_f1">Architecture Next.js full-stack</li>
-        <li data-i18n="tarifs.tier3_f2">Auth (Clerk/Supabase Auth)</li>
-        <li data-i18n="tarifs.tier3_f3">Base de données + ORM</li>
-        <li data-i18n="tarifs.tier3_f4">API REST ou tRPC</li>
-        <li data-i18n="tarifs.tier3_f5">Dashboard admin</li>
-        <li data-i18n="tarifs.tier3_f6">Intégrations IA (Claude/Gemini)</li>
-        <li data-i18n="tarifs.tier3_f7">CI/CD pipeline</li>
-        <li data-i18n="tarifs.tier3_f8">60 jours support</li>
-      </ul>
-      <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:auto;">
-        <a href="https://buy.stripe.com/cNi14meIcdNP3iNdd0ds400" target="_blank" class="pricing-cta pricing-cta-primary" style="background: linear-gradient(135deg, #10B981, #059669); color: white;">Payer l'acompte (1500€)</a>
-        <a href="devis.html" class="pricing-cta pricing-cta-secondary" data-i18n="tarifs.cta_configure">Configurer mon devis</a>
+      <div class="trust-bar fade-in-up">
+        <div class="trust-item">
+          <div class="trust-value">148</div>
+          <div class="trust-label">= NACHMAN</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-value">63</div>
+          <div class="trust-label">= SaG (Binah)</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-value">1.846</div>
+          <div class="trust-label">bits — H(F) Entropy</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-value">25%</div>
+          <div class="trust-label">Hafatsa Tipping Point</div>
+        </div>
       </div>
-    </div>
 
-  </div>
+      <div class="pricing-grid">
+        <!-- COVENANT $63 -->
+        <div class="pricing-card fade-in-up">
+          <div class="pricing-type">⚡ TIER 1</div>
+          <div class="pricing-name">COVENANT</div>
+          <div class="pricing-desc">
+            63 = SaG (Binah) — L'alliance fondatrice. Ta première clé physique
+            pour entrer dans le protocole Nova.
+          </div>
+          <div class="pricing-price">
+            <span class="amount">63</span> <span class="currency">$</span>
+          </div>
+          <div class="pricing-timeline">🔑 1 Nova Key NFC Matte Black</div>
+          <ul class="pricing-features">
+            <li>1 Nova Key NFC matte black</li>
+            <li>DCS Profile complet</li>
+            <li>Genie 3 World persistant</li>
+            <li>Azamra OS</li>
+            <li>Accès Communauté</li>
+          </ul>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 0.5rem;
+              margin-top: auto;
+            "
+          >
+            <a href="#waitlist" class="pricing-cta pricing-cta-secondary"
+              >JOIN THE COVENANT — $63</a
+            >
+          </div>
+        </div>
 
-  <div class="comparison-note fade-in-up">
-    <h3 data-i18n="tarifs.why_title">💡 Pourquoi DreamNova est différent ?</h3>
-    <p data-i18n="tarifs.why_desc">Nos coûts sont <strong>2 à 5x inférieurs</strong> aux agences classiques grâce à un système 100% IA-native. Même qualité, code livré, support inclus — mais à une fraction du prix.</p>
-  </div>
-</main>
+        <!-- PAIR $99 — POPULAR -->
+        <div
+          class="pricing-card featured fade-in-up"
+          style="position: relative; overflow: hidden"
+        >
+          <div class="pricing-type">🔥 TIER 2 — POPULAR • 148 ENERGY</div>
+          <div class="pricing-name">PAIR</div>
+          <div class="pricing-desc">
+            Bénédiction ×2 — Deux clés appariées. Connecte deux âmes dans le
+            même monde persistant.
+          </div>
+          <div class="pricing-price">
+            <span class="amount">99</span> <span class="currency">$</span>
+          </div>
+          <div class="pricing-timeline">🔑 2 Nova Keys appariées NFC</div>
+          <ul class="pricing-features">
+            <li>2 Nova Keys appariées</li>
+            <li>Bénédiction mutuelle NFC</li>
+            <li>Monde partagé Genie 3</li>
+            <li>Tout Covenant inclus</li>
+          </ul>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 0.5rem;
+              margin-top: auto;
+            "
+          >
+            <a href="#waitlist" class="pricing-cta pricing-cta-primary"
+              >PAIR UP — $99</a
+            >
+          </div>
+          <!-- Holographic shimmer -->
+          <div
+            class="holo-shimmer"
+            style="
+              position: absolute;
+              inset: 0;
+              pointer-events: none;
+              overflow: hidden;
+              border-radius: var(--radius);
+              opacity: 0.12;
+            "
+          >
+            <div
+              style="
+                position: absolute;
+                inset: 0;
+                width: 200%;
+                background: linear-gradient(
+                  100deg,
+                  transparent 30%,
+                  rgba(255, 255, 255, 0.25) 50%,
+                  transparent 70%
+                );
+                animation: shimmer 3s linear infinite;
+              "
+            ></div>
+          </div>
+        </div>
 
-<a href="devis.html" class="floating-cta" id="floatingCta" data-i18n="floating_cta">💰 Obtenir un devis</a>
+        <!-- PLATINUM $149 -->
+        <div class="pricing-card fade-in-up">
+          <div class="pricing-type">👑 TIER 3</div>
+          <div class="pricing-name">PLATINUM</div>
+          <div class="pricing-desc">
+            148 = Nachman — La clé premium finition or. Accès exclusif au
+            contenu beta et à la Kamea Tiberiade.
+          </div>
+          <div class="pricing-price">
+            <span class="amount">149</span> <span class="currency">$</span>
+          </div>
+          <div class="pricing-timeline">🔑 Nova Key Premium Gold Edition</div>
+          <ul class="pricing-features">
+            <li>Nova Key Premium (finition or)</li>
+            <li>Contenu exclusif + early beta</li>
+            <li>Kamea Tiberiade</li>
+            <li>Tout Pair inclus</li>
+          </ul>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 0.5rem;
+              margin-top: auto;
+            "
+          >
+            <a href="#waitlist" class="pricing-cta pricing-cta-secondary"
+              >GO PLATINUM — $149</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="comparison-note fade-in-up">
+        <h3>🔑 Hardware NTAG 215 Stainless Steel</h3>
+        <p>
+          Chaque Nova Key est gravée au laser avec le nombre sacré 148. 10% de
+          chaque vente est reversé en Tsedaka. Paiement sécurisé par Stripe.
+        </p>
+      </div>
+    </main>
+
+    <a
+      href="devis.html"
+      class="floating-cta"
+      id="floatingCta"
+      data-i18n="floating_cta"
+      >💰 Obtenir un devis</a
+    >
 
     <!-- Newsletter CTA -->
-    <section class="newsletter-section" style="background:linear-gradient(135deg,rgba(212,175,55,0.06),rgba(28,25,23,0.5));border:1px solid rgba(212,175,55,0.2);border-radius:20px;padding:3rem 2rem;text-align:center;margin:4rem auto; max-width: 1400px; display: block;">
-      <div class="newsletter-eyebrow" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.25rem 0.9rem;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.2);border-radius:20px;color:var(--gold);font-size:0.72rem;font-weight:600;font-family:var(--font-display);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.25rem">📧 Restez informé</div>
-      <h2 class="newsletter-title" style="font-family:var(--font-display);font-size:clamp(1.5rem,4vw,2.25rem);font-weight:800;color:var(--text-primary);margin-bottom:0.75rem">Recevez nos offres & actualités</h2>
-      <p class="newsletter-sub" style="color:var(--text-secondary);max-width:480px;margin:0 auto 2rem;font-size:0.95rem">Nouvelles fonctionnalités, promotions exclusives et études de cas. Zéro spam.</p>
-      <form class="newsletter-form" action="https://formsubmit.co/dreamnovaultimate@gmail.com" method="POST" style="display:flex;gap:0.75rem;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center">
-        <input type="hidden" name="_subject" value="Nouvelle inscription Waitlist/Newsletter">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="email" name="email" class="newsletter-input" placeholder="votre@email.com" required style="flex:1;min-width:220px;padding:0.75rem 1.25rem;background:rgba(12,10,9,0.8);border:1px solid rgba(245,158,11,0.18);border-radius:50px;color:#F5F5F4;font-family:Inter,sans-serif;font-size:0.9rem;outline:none;">
-        <button type="submit" class="newsletter-btn" style="padding:0.75rem 1.75rem;background:linear-gradient(135deg,#D4AF37,#F59E0B);color:#0C0A09;font-weight:700;font-family:'Space Grotesk',sans-serif;font-size:0.9rem;border:none;border-radius:50px;cursor:pointer;">S'inscrire →</button>
+    <section
+      class="newsletter-section"
+      style="
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.06),
+          rgba(28, 25, 23, 0.5)
+        );
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        border-radius: 20px;
+        padding: 3rem 2rem;
+        text-align: center;
+        margin: 4rem auto;
+        max-width: 1400px;
+        display: block;
+      "
+    >
+      <div
+        class="newsletter-eyebrow"
+        style="
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.25rem 0.9rem;
+          background: rgba(212, 175, 55, 0.08);
+          border: 1px solid rgba(212, 175, 55, 0.2);
+          border-radius: 20px;
+          color: var(--gold);
+          font-size: 0.72rem;
+          font-weight: 600;
+          font-family: var(--font-display);
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          margin-bottom: 1.25rem;
+        "
+      >
+        📧 Restez informé
+      </div>
+      <h2
+        class="newsletter-title"
+        style="
+          font-family: var(--font-display);
+          font-size: clamp(1.5rem, 4vw, 2.25rem);
+          font-weight: 800;
+          color: var(--text-primary);
+          margin-bottom: 0.75rem;
+        "
+      >
+        Recevez nos offres & actualités
+      </h2>
+      <p
+        class="newsletter-sub"
+        style="
+          color: var(--text-secondary);
+          max-width: 480px;
+          margin: 0 auto 2rem;
+          font-size: 0.95rem;
+        "
+      >
+        Nouvelles fonctionnalités, promotions exclusives et études de cas. Zéro
+        spam.
+      </p>
+      <form
+        class="newsletter-form"
+        action="https://formsubmit.co/dreamnovaultimate@gmail.com"
+        method="POST"
+        style="
+          display: flex;
+          gap: 0.75rem;
+          max-width: 480px;
+          margin: 0 auto;
+          flex-wrap: wrap;
+          justify-content: center;
+        "
+      >
+        <input
+          type="hidden"
+          name="_subject"
+          value="Nouvelle inscription Waitlist/Newsletter"
+        />
+        <input type="hidden" name="_captcha" value="false" />
+        <input
+          type="email"
+          name="email"
+          class="newsletter-input"
+          placeholder="votre@email.com"
+          required
+          style="
+            flex: 1;
+            min-width: 220px;
+            padding: 0.75rem 1.25rem;
+            background: rgba(12, 10, 9, 0.8);
+            border: 1px solid rgba(245, 158, 11, 0.18);
+            border-radius: 50px;
+            color: #f5f5f4;
+            font-family: Inter, sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+          "
+        />
+        <button
+          type="submit"
+          class="newsletter-btn"
+          style="
+            padding: 0.75rem 1.75rem;
+            background: linear-gradient(135deg, #d4af37, #f59e0b);
+            color: #0c0a09;
+            font-weight: 700;
+            font-family: &quot;Space Grotesk&quot;, sans-serif;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+          "
+        >
+          S'inscrire →
+        </button>
       </form>
     </section>
-\n<footer class="site-footer">
-  <span class="nova-tam" data-i18n="footer.nova_tam">NOVA-TAM — Système Autonome CEO/CTO/COO</span>
-  <span data-i18n="footer.bottom">Na Nach Nachma Nachman MeUman &nbsp;·&nbsp; DreamNova © 2026</span>
-</footer>
+    \n
+    <footer class="site-footer">
+      <span class="nova-tam" data-i18n="footer.nova_tam"
+        >NOVA-TAM — Système Autonome CEO/CTO/COO</span
+      >
+      <span data-i18n="footer.bottom"
+        >Na Nach Nachma Nachman MeUman &nbsp;·&nbsp; DreamNova © 2026</span
+      >
+    </footer>
 
-<script>
-const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)} }), {threshold:0.08});
-document.querySelectorAll('.fade-in-up').forEach(el => obs.observe(el));
-const cta = document.getElementById('floatingCta');
-window.addEventListener('scroll', () => cta.classList.toggle('show', scrollY > 200));
-</script>
-<script src="/lang/i18n.js" defer=""></script>
-
-
-</body></html>
+    <script>
+      const obs = new IntersectionObserver(
+        (es) =>
+          es.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              obs.unobserve(e.target);
+            }
+          }),
+        { threshold: 0.08 },
+      );
+      document.querySelectorAll(".fade-in-up").forEach((el) => obs.observe(el));
+      const cta = document.getElementById("floatingCta");
+      window.addEventListener("scroll", () =>
+        cta.classList.toggle("show", scrollY > 200),
+      );
+    </script>
+    <script src="/lang/i18n.js" defer=""></script>
+  </body>
+</html>
