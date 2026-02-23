@@ -7,7 +7,7 @@ const I18N = {
   async load(lang) {
     if (this.cache[lang]) return this.cache[lang];
     try {
-      const r = await fetch(`/lang/${lang}.json`);
+      const r = await fetch(`lang/${lang}.json`);
       if (!r.ok) throw new Error(`${r.status}`);
       this.cache[lang] = await r.json();
     } catch(e) {
